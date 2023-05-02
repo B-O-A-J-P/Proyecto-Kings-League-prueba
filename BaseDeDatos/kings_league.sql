@@ -91,13 +91,13 @@ CREATE TABLE equipos(
 CREATE TABLE partidos(
   cod_jornada NUMBER(7, 0),
   cod_partido NUMBER(8, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
-  hora VARCHAR2(8),
+  hora timestamp,
   equipo_ganador NUMBER(6, 0),
   fase VARCHAR2(1) DEFAULT 'r',
   CONSTRAINT par_cod_jor_pk PRIMARY KEY (cod_partido),
   CONSTRAINT par_cod_par_fk FOREIGN KEY (cod_jornada) REFERENCES jornadas,
   CONSTRAINT par_gan_fk FOREIGN KEY (equipo_ganador) REFERENCES equipos,
-  CONSTRAINT par_hor_ck CHECK (hora LIKE 'HH24:MI:SS'),
+ -- CONSTRAINT par_hor_ck CHECK (hora LIKE 'HH24:MI'),
   CONSTRAINT par_fas_ck CHECK (fase in ('r', 's', 'f'))
   -- r = regular | s = semifinal | f = final
 );
@@ -136,9 +136,10 @@ CREATE TABLE jugadores (
     dni VARCHAR(9),
     nombre VARCHAR2(50),
     apellido VARCHAR2(50),
-    pie NUMBER(2),
+    pie VARCHAR(20),
     altura NUMBER(3), --en centímetros
     cod_agenda NUMBER(8),
+    posicion varchar2(20),
     CONSTRAINT jug_cod_jug_pk PRIMARY KEY (cod_jugador),
     CONSTRAINT jug_co_age_fk FOREIGN KEY (cod_agenda) REFERENCES agendas
 );
