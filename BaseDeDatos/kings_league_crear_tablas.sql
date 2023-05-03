@@ -172,20 +172,28 @@ CREATE TABLE miembros (
     dni VARCHAR(9),
     nombre VARCHAR2(50),
     apellido VARCHAR2(50),
-    funcion VARCHAR2(1),
     cod_agenda NUMBER(8, 0),
-    CONSTRAINT mie_cod_pk PRIMARY KEY (cod_miembro),
-    CONSTRAINT mie_fun_ck CHECK (funcion in ('p', 'e', 's')) 
-    -- p = propietario | e = entrenador | s = staff
+    CONSTRAINT mie_cod_pk PRIMARY KEY (cod_miembro)
 );
 
 CREATE TABLE contratos_equipo_miembro (
     cod_equipo NUMBER(6, 0),
     cod_miembro NUMBER(4, 0),
     cod_contrato NUMBER (6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
+    funcion VARCHAR2(1),
     fecha_entrada DATE,
     fecha_salida DATE,
     CONSTRAINT con_mie_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,
     CONSTRAINT con_mie_mie_fk FOREIGN KEY (cod_miembro) REFERENCES miembros,
-    CONSTRAINT con_mie_cod_pk PRIMARY KEY (cod_contrato)
+    CONSTRAINT con_mie_cod_pk PRIMARY KEY (cod_contrato),
+    CONSTRAINT con_fun_ck CHECK (funcion in ('p', 'e', 's')) 
+    -- p = propietario | e = entrenador | s = staff
+);
+
+CREATE TABLE equipos_participantes (
+    cod_temporada NUMBER(5, 0),
+    cod_equipo NUMBER(6, 0),
+    CONSTRAINT equ_par_tem_fk FOREIGN KEY (cod_temporada) REFERENCES temporadas,
+    CONSTRAINT equ_par_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,
+    CONSTRAINT equ_tem_equ_pk PRIMARY KEY (cod_temporada, cod_equipo)
 );
