@@ -1,18 +1,16 @@
 DROP VIEW CLASIFICACIONES_VIS;
-
 DROP VIEW Calendario_jornada_VIS;
-
 DROP VIEW Resultados_jornadas_VIS;
-
 DROP VIEW PARTICIPANTES_VIS;
+DROP VIEW staffs_equipos;
+DROP VIEW presidentes_equipos; 
+DROP VIEW entrenadores_equipos;
 
-DROP SYNONYM Temporadas_sinonimo;
+DROP SYNONYM TS;
+DROP SYNONYM PS;
+DROP SYNONYM JS;
+DROP SYNONYM ES;
 
-DROP SYNONYM Jornadas_sinonimo;
-
-DROP SYNONYM Partidos_sinonimo;
-
-DROP SYNONYM Equipos_sinonimo;
 
 
 
@@ -52,10 +50,6 @@ AND
 P.COD_PARTIDO = I.COD_PARTIDO
 ;
 
-DROP SYNONYM TS;
-DROP SYNONYM PS;
-DROP SYNONYM JS;
-DROP SYNONYM ES;
 
 
 

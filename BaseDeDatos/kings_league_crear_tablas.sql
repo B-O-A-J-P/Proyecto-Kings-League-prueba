@@ -91,9 +91,13 @@ CREATE TABLE equipos(
 CREATE TABLE partidos(
   cod_jornada NUMBER(7, 0),
   cod_partido NUMBER(8, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
+  cod_equipo1 NUMBER(6, 0),
+  cod_equipo2 NUMBER(6, 0),
   hora timestamp,
   equipo_ganador NUMBER(6, 0),
   fase VARCHAR2(1) DEFAULT 'r',
+  CONSTRAINT par_cod_equ1_fk FOREIGN KEY (cod_equipo1) REFERENCES equipos,
+  CONSTRAINT par_cod_equ2_fk FOREIGN KEY (cod_equipo2) REFERENCES equipos,
   CONSTRAINT par_cod_jor_pk PRIMARY KEY (cod_partido),
   CONSTRAINT par_cod_par_fk FOREIGN KEY (cod_jornada) REFERENCES jornadas,
   CONSTRAINT par_gan_fk FOREIGN KEY (equipo_ganador) REFERENCES equipos,

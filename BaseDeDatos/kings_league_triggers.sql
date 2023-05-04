@@ -23,6 +23,7 @@ end max_jugadores;
 
 --minimo de jugadores:
 
+--error tabla no existe
 create or replace trigger min_jugadores
 	before insert on calendario_jornada
 	for each row
@@ -68,7 +69,7 @@ create or replace trigger min_clausula_inicial
 end min_clausula_inicial;
 
 --
-
+--error
 CREATE OR REPLACE TRIGGER tr_calendario
 BEFORE UPDATE ON EQUIPOS OR 
 BEFORE UPDATE ON JUGADORES

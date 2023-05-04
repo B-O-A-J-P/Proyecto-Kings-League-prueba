@@ -4,7 +4,7 @@ rm ./insert_temporadas.sql 2>/dev/null
 
 for y in {1..12}
 do
-    echo "INSERT INTO EQUIPOS(NOMBRE, PRESUPUESTO) VALUES('PORCINOS',200000000);" >> insert_temporadas.sql
+    echo "INSERT INTO EQUIPOS(NOMBRE, PRESUPUESTO) VALUES('NOMBRE_EQUIPO$y',200000000);" >> insert_temporadas.sql
 done
 
 for i in {0..10}
