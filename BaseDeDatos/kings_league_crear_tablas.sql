@@ -12,12 +12,6 @@ DROP TABLE jornadas CASCADE CONSTRAINTS;
 DROP TABLE splits CASCADE CONSTRAINTS;
 DROP TABLE temporadas CASCADE CONSTRAINTS;
 
---drop tablas xml
-DROP TABLE CALENDARIO_JORNADA;
-DROP TABLE CALENDARIO_JORNADAs;
-DROP TABLE clasificaciones;
-DROP TABLE resultado_jornadas;
-
 CREATE TABLE temporadas(
     cod_temporada NUMBER(5, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
     ano NUMBER(4),
@@ -27,7 +21,16 @@ CREATE TABLE temporadas(
     CONSTRAINT tem_fec_fin CHECK (fecha_fin_inscripcion > fecha_inicio_inscripcion)
 );
 
-
+/
+CREATE OR REPLACE TRIGGER trigger_temporadas_ano
+BEFORE INSERT OR UPDATE ON temporadas
+FOR EACH ROW
+BEGIN
+  IF :NEW.ano < EXTRACT(YEAR FROM TRUNC(SYSDATE)) THEN
+    RAISE_APPLICATION_ERROR(-20001, 'El año tiene que ser igual o superior al año actual.');
+  END IF;
+END;
+/
 
 CREATE TABLE splits(
     cod_temporada NUMBER(5, 0),    
@@ -40,7 +43,18 @@ CREATE TABLE splits(
     CONSTRAINT spl_fec_fin_ck CHECK (fecha_fin > fecha_inicio)
 );
 
+/
 
+CREATE OR REPLACE TRIGGER triger_splits_fec_ini
+BEFORE INSERT OR UPDATE ON splits
+FOR EACH ROW
+BEGIN
+  IF :NEW.fecha_inicio < (SYSDATE) THEN
+    RAISE_APPLICATION_ERROR(-20001, 'La fecha tiene que ser igual o superior a la fecha actual');
+  END IF;
+END;
+
+/
 
 
 CREATE TABLE jornadas(
@@ -53,7 +67,18 @@ CREATE TABLE jornadas(
     CONSTRAINT jor_cod_spl_fk FOREIGN KEY (cod_split) REFERENCES splits
 );
 
+/
 
+CREATE OR REPLACE TRIGGER triger_jornadas_fec
+BEFORE INSERT OR UPDATE ON jornadas
+FOR EACH ROW
+BEGIN
+  IF :NEW.fecha < (SYSDATE) THEN
+    RAISE_APPLICATION_ERROR(-20001, 'La fecha tiene que ser igual o superior a la fecha actual.');
+  END IF;
+END;
+
+/
 
 CREATE TABLE equipos(
     cod_equipo NUMBER(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
@@ -176,12 +201,3 @@ CREATE TABLE equipos_participantes (
     CONSTRAINT equ_par_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,
     CONSTRAINT equ_tem_equ_pk PRIMARY KEY (cod_temporada, cod_equipo)
 );
-
-
---TABLAS XML:
-
-
-CREATE TABLE CALENDARIO_JORNADA(result CLOB);
-CREATE TABLE clasificaciones(result CLOB);
-CREATE TABLE calendario_jornadas(result CLOB);
-CREATE TABLE resultado_jornadas(result CLOB);
