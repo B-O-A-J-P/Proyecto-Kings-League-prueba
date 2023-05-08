@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE temporada SYSTEM "KINGS_LEAGUE.dtd">
+<temporada id="aa1"
+xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "kings_League.xsd">
+  <split id="aa2">
+  <fecha_inicio></fecha_inicio>
+  <fecha_fin></fecha_fin>
+    <jornada id="aa3">
+    <fecha></fecha>
+      <partido id="aa4" >
+      <hora></hora>
+          <equipo id="aa5"></equipo>          
+          <equipo id="aa6"></equipo>
+      </partido>
+      
+      <partido id="aa7" >
+       <fecha></fecha>
+          <equipo id="aa8"></equipo>
+          <equipo id="aa9"></equipo>
+      </partido>
+      
+      <partido id="a10" >
+       <fecha></fecha>
+          <equipo id="a11"></equipo>
+          <equipo id="a12"></equipo>
+      </partido>
+      
+      <partido id="a13" >
+       <fecha></fecha>
+          <equipo id="a14"></equipo>
+          <equipo id="a15"></equipo>
+      </partido>
+      
+      <partido id="a16" >
+       <fecha></fecha>
+          <equipo id="a17"></equipo>
+          <equipo id="a18"></equipo>
+      </partido>
+      
+      <partido id="a19" >
+       <fecha></fecha>
+          <equipo id="a20"></equipo>
+          <equipo id="a21"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a22">
+           <partido id="a23" >
+            <fecha></fecha>
+          <equipo id="a24"></equipo>
+          <equipo id="a25"></equipo>
+      </partido>
+      
+      <partido id="a26" >
+       <fecha></fecha>
+          <equipo id="a27"></equipo>
+          <equipo id="a28"></equipo>
+      </partido>
+      
+      <partido id="a29" >
+       <fecha></fecha>
+          <equipo id="a30"></equipo>
+          <equipo id="a31"></equipo>
+      </partido>
+      
+      <partido id="a32" >
+       <fecha></fecha>
+          <equipo id="a33"></equipo>
+          <equipo id="a34"></equipo>
+      </partido>
+      
+      <partido id="a35" >
+       <fecha></fecha>
+          <equipo id="a36"></equipo>
+          <equipo id="a37"></equipo>
+      </partido>
+      
+      <partido id="a38" >
+       <fecha></fecha>
+          <equipo id="a39"></equipo>
+          <equipo id="a40"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a41">
+          <partido id="a42" >
+           <fecha></fecha>
+          <equipo id="a43"></equipo>
+          <equipo id="a44"></equipo>
+      </partido>
+      
+      <partido id="a45" >
+       <fecha></fecha>
+          <equipo id="a46"></equipo>
+          <equipo id="a47"></equipo>
+      </partido>
+      
+      <partido id="a49" >
+       <fecha></fecha>
+          <equipo id="a50"></equipo>
+          <equipo id="a51"></equipo>
+      </partido>
+      
+      <partido id="a52" >
+       <fecha></fecha>
+          <equipo id="a53"></equipo>
+          <equipo id="a54"></equipo>
+      </partido>
+      
+      <partido id="a55" >
+       <fecha></fecha>
+          <equipo id="a56"></equipo>
+          <equipo id="a57"></equipo>
+      </partido>
+      
+      <partido id="a58" >
+       <fecha></fecha>
+          <equipo id="a59"></equipo>
+          <equipo id="a60"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a61">
+           <partido id="a62" >
+           <fecha></fecha>
+          <equipo id="a63"></equipo>
+          <equipo id="a64"></equipo>
+      </partido>
+      
+      <partido id="a65" >
+       <fecha></fecha>
+          <equipo id="a66"></equipo>
+          <equipo id="a67"></equipo>
+      </partido>
+      
+      <partido id="a68" >
+       <fecha></fecha>
+          <equipo id="a69"></equipo>
+          <equipo id="a70"></equipo>
+      </partido>
+      
+      <partido id="a71" >
+       <fecha></fecha>
+          <equipo id="a72"></equipo>
+          <equipo id="a73"></equipo>
+      </partido>
+      
+      <partido id="a74" >
+       <fecha></fecha>
+          <equipo id="a75"></equipo>
+          <equipo id="a76"></equipo>
+      </partido>
+      
+      <partido id="a77" >
+       <fecha></fecha>
+          <equipo id="a78"></equipo>
+          <equipo id="a79"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a80">
+           <partido id="a81" >
+            <fecha></fecha>
+          <equipo id="a82"></equipo>
+          <equipo id="a83"></equipo>
+      </partido>
+      
+      <partido id="a84" >
+       <fecha></fecha>
+          <equipo id="a85"></equipo>
+          <equipo id="a86"></equipo>
+      </partido>
+      
+      <partido id="a87" >
+       <fecha></fecha>
+          <equipo id="a88"></equipo>
+          <equipo id="a89"></equipo>
+      </partido>
+      
+      <partido id="a90" >
+       <fecha></fecha>
+          <equipo id="a91"></equipo>
+          <equipo id="a92"></equipo>
+      </partido>
+      
+      <partido id="a93" >
+       <fecha></fecha>
+          <equipo id="a94"></equipo>
+          <equipo id="a95"></equipo>
+      </partido>
+      
+      <partido id="a96" >
+       <fecha></fecha>
+          <equipo id="a97"></equipo>
+          <equipo id="a98"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a99">
+      <partido id="a100" >
+       <fecha></fecha>
+          <equipo id="a101"></equipo>
+          <equipo id="a102"></equipo>
+      </partido>
+      
+      <partido id="a103" >
+       <fecha></fecha>
+          <equipo id="a104"></equipo>
+          <equipo id="a105"></equipo>
+      </partido>
+      
+      <partido id="a106" >
+       <fecha></fecha>
+          <equipo id="a107"></equipo>
+          <equipo id="a108"></equipo>
+      </partido>
+      
+      <partido id="a109" >
+       <fecha></fecha>
+          <equipo id="a110"></equipo>
+          <equipo id="a111"></equipo>
+      </partido>
+
+      
+      <partido id="a112" >
+       <fecha></fecha>
+          <equipo id="a113"></equipo>
+          <equipo id="a114"></equipo>
+      </partido>
+      
+      
+      <partido id="a115" >
+       <fecha></fecha>
+          <equipo id="a116"></equipo>
+          <equipo id="a117"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a118">
+         <partido id="a119" >
+          <fecha></fecha>
+          <equipo id="a120"></equipo>
+          <equipo id="a121"></equipo>
+      </partido>
+      
+      <partido id="a122" >
+       <fecha></fecha>
+          <equipo id="a123"></equipo>
+          <equipo id="a124"></equipo>
+      </partido>
+      
+      <partido id="a125" >
+       <fecha></fecha>
+          <equipo id="a126"></equipo>
+          <equipo id="a127"></equipo>
+      </partido>
+      
+      <partido id="a128" >
+       <fecha></fecha>
+          <equipo id="a129"></equipo>
+          <equipo id="a130"></equipo>
+      </partido>
+      
+      <partido id="a131" >
+       <fecha></fecha>
+          <equipo id="a132"></equipo>
+          <equipo id="a133"></equipo>
+      </partido>
+      
+      <partido id="a134" >
+       <fecha></fecha>
+          <equipo id="a135"></equipo>
+          <equipo id="a136"></equipo>
+      </partido>
+          
+    </jornada>
+    <jornada id="a137">
+           <partido id="a138" >
+            <fecha></fecha>
+          <equipo id="a139"></equipo>
+          <equipo id="a140"></equipo>
+      </partido>
+      
+      <partido id="a141" >
+       <fecha></fecha>
+          <equipo id="a142"></equipo>
+          <equipo id="a143"></equipo>
+      </partido>
+      
+      <partido id="a144" >
+       <fecha></fecha>
+          <equipo id="a145"></equipo>
+          <equipo id="a146"></equipo>
+      </partido>
+      
+      <partido id="a147" >
+       <fecha></fecha>
+          <equipo id="a148"></equipo>
+          <equipo id="a149"></equipo>
+      </partido>
+      
+      <partido id="a150" >
+       <fecha></fecha>
+          <equipo id="a151"></equipo>
+          <equipo id="a152"></equipo>
+      </partido>
+      
+      <partido id="a153" >
+       <fecha></fecha>
+          <equipo id="a154"></equipo>
+          <equipo id="a155"></equipo>
+      </partido>
+    </jornada>
+    
+    <jornada id="a156">
+           <partido id="a157" >
+            <fecha></fecha>
+          <equipo id="a158"></equipo>
+          <equipo id="a159"></equipo>
+      </partido>
+      
+      <partido id="a160" >
+       <fecha></fecha>
+          <equipo id="a161"></equipo>
+          <equipo id="a162"></equipo>
+      </partido>
+      
+      <partido id="a163" >
+       <fecha></fecha>
+          <equipo id="a164"></equipo>
+          <equipo id="a165"></equipo>
+      </partido>
+      
+      <partido id="a166" >
+       <fecha></fecha>
+          <equipo id="a167"></equipo>
+          <equipo id="a168"></equipo>
+      </partido>
+      
+      <partido id="a169" >
+       <fecha></fecha>
+          <equipo id="a170"></equipo>
+          <equipo id="a171"></equipo>
+      </partido>
+      
+      <partido id="a172" >
+       <fecha></fecha>
+          <equipo id="a173"></equipo>
+          <equipo id="a174"></equipo>
+      </partido>
+    </jornada>
+    
+    <jornada id="a175">
+           <partido id="a176" >
+            <fecha></fecha>
+          <equipo id="a177"></equipo>
+          <equipo id="a178"></equipo>
+      </partido>
+      
+      <partido id="a179" >
+       <fecha></fecha>
+          <equipo id="a180"></equipo>
+          <equipo id="a181"></equipo>
+      </partido>
+      
+      <partido id="a182" >
+       <fecha></fecha>
+          <equipo id="a183"></equipo>
+          <equipo id="a184"></equipo>
+      </partido>
+      
+      <partido id="a185" >
+       <fecha></fecha>
+          <equipo id="a186"></equipo>
+          <equipo id="a187"></equipo>
+      </partido>
+      
+      <partido id="a188" >
+       <fecha></fecha>
+          <equipo id="a189"></equipo>
+          <equipo id="a190"></equipo>
+      </partido>
+      
+      <partido id="a191" >
+       <fecha></fecha>
+          <equipo id="a192"></equipo>
+          <equipo id="a193"></equipo>
+      </partido>
+    </jornada>
+
+
+    <jornada id="a194">
+           <partido id="a195" >
+            <fecha></fecha>
+          <equipo id="a196"></equipo>
+          <equipo id="a197"></equipo>
+      </partido>
+      
+      <partido id="a198" >
+       <fecha></fecha>
+          <equipo id="a199"></equipo>
+          <equipo id="a200"></equipo>
+      </partido>
+      
+      <partido id="a201" >
+       <fecha></fecha>
+          <equipo id="a202"></equipo>
+          <equipo id="a203"></equipo>
+      </partido>
+      
+      <partido id="a204" >
+       <fecha></fecha>
+          <equipo id="a205"></equipo>
+          <equipo id="a206"></equipo>
+      </partido>
+      
+      <partido id="a207" >
+       <fecha></fecha>
+          <equipo id="a208"></equipo>
+          <equipo id="a209"></equipo>
+      </partido>
+      
+      <partido id="a210" >
+       <fecha></fecha>
+          <equipo id="a211"></equipo>
+          <equipo id="a212"></equipo>
+      </partido>
+    </jornada>
+  </split>
+    
+    
+  <split id="a213">
+   <jornada id="a214">
+      <partido id="a215" >
+       <fecha></fecha>
+          <equipo id="a216"></equipo>
+          <equipo id="a217"></equipo>
+      </partido>
+      
+      <partido id="a218" >
+       <fecha></fecha>
+          <equipo id="a219"></equipo>
+          <equipo id="a220"></equipo>
+      </partido>
+      
+      <partido id="a221" >
+       <fecha></fecha>
+          <equipo id="a222"></equipo>
+          <equipo id="a223"></equipo>
+      </partido>
+      
+      <partido id="a224" >
+       <fecha></fecha>
+          <equipo id="a225"></equipo>
+          <equipo id="a226"></equipo>
+      </partido>
+      
+      <partido id="a227" >
+       <fecha></fecha>
+          <equipo id="a228"></equipo>
+          <equipo id="a229"></equipo>
+      </partido>
+      
+      <partido id="a230" >
+       <fecha></fecha>
+          <equipo id="a231"></equipo>
+          <equipo id="a232"></equipo>
+      </partido>
+    </jornada>
+  
+   <jornada id="a233">
+           <partido id="a234" >
+            <fecha></fecha>
+          <equipo id="a235"></equipo>
+          <equipo id="a236"></equipo>
+      </partido>
+      
+      <partido id="a237" >
+       <fecha></fecha>
+          <equipo id="a238"></equipo>
+          <equipo id="a239"></equipo>
+      </partido>
+      
+      <partido id="a240" >
+       <fecha></fecha>
+          <equipo id="a241"></equipo>
+          <equipo id="a242"></equipo>
+      </partido>
+      
+      <partido id="a243" >
+       <fecha></fecha>
+          <equipo id="a244"></equipo>
+          <equipo id="a245"></equipo>
+      </partido>
+      
+      <partido id="a246" >
+       <fecha></fecha>
+          <equipo id="a247"></equipo>
+          <equipo id="a248"></equipo>
+      </partido>
+      
+      <partido id="a249" >
+       <fecha></fecha>
+          <equipo id="a250"></equipo>
+          <equipo id="a251"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a252">
+           <partido id="a253" >
+            <fecha></fecha>
+          <equipo id="a254"></equipo>
+          <equipo id="a255"></equipo>
+      </partido>
+      
+      <partido id="a256" >
+       <fecha></fecha>
+          <equipo id="a257"></equipo>
+          <equipo id="a258"></equipo>
+      </partido>
+      
+      <partido id="a259" >
+       <fecha></fecha>
+          <equipo id="a260"></equipo>
+          <equipo id="a261"></equipo>
+      </partido>
+      
+      <partido id="a262" >
+       <fecha></fecha>
+          <equipo id="a263"></equipo>
+          <equipo id="a264"></equipo>
+      </partido>
+      
+      <partido id="a265" >
+       <fecha></fecha>
+          <equipo id="a266"></equipo>
+          <equipo id="a267"></equipo>
+      </partido>
+      
+      <partido id="a268" >
+       <fecha></fecha>
+          <equipo id="a269"></equipo>
+          <equipo id="a270"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a271">
+           <partido id="a272" >
+            <fecha></fecha>
+          <equipo id="a273"></equipo>
+          <equipo id="a274"></equipo>
+      </partido>
+      
+      <partido id="a275" >
+       <fecha></fecha>
+          <equipo id="a276"></equipo>
+          <equipo id="a277"></equipo>
+      </partido>
+      
+      <partido id="a278" >
+       <fecha></fecha>
+          <equipo id="a279"></equipo>
+          <equipo id="a281"></equipo>
+      </partido>
+      
+      <partido id="a282" >
+       <fecha></fecha>
+          <equipo id="a283"></equipo>
+          <equipo id="a284"></equipo>
+      </partido>
+      
+      <partido id="a285" >
+       <fecha></fecha>
+          <equipo id="a286"></equipo>
+          <equipo id="a287"></equipo>
+      </partido>
+      
+      <partido id="a288" >
+       <fecha></fecha>
+          <equipo id="a289"></equipo>
+          <equipo id="a290"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a291">
+     <partido id="a292" >
+      <fecha></fecha>
+          <equipo id="a293"></equipo>
+          <equipo id="a294"></equipo>
+      </partido>
+      
+      <partido id="a295" >
+       <fecha></fecha>
+          <equipo id="a296"></equipo>
+          <equipo id="a297"></equipo>
+      </partido>
+      
+      <partido id="a298" >
+       <fecha></fecha>
+          <equipo id="a299"></equipo>
+          <equipo id="a300"></equipo>
+      </partido>
+      
+      <partido id="a301" >
+       <fecha></fecha>
+          <equipo id="a302"></equipo>
+          <equipo id="a303"></equipo>
+      </partido>
+      
+      <partido id="a304" >
+       <fecha></fecha>
+          <equipo id="a305"></equipo>
+          <equipo id="a306"></equipo>
+      </partido>
+      
+      <partido id="a307" >
+       <fecha></fecha>
+          <equipo id="a308"></equipo>
+          <equipo id="a309"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a310">
+     <partido id="a311" >
+      <fecha></fecha>
+          <equipo id="a312"></equipo>
+          <equipo id="a313"></equipo>
+      </partido>
+      
+      <partido id="a314" >
+       <fecha></fecha>
+          <equipo id="a315"></equipo>
+          <equipo id="a316"></equipo>
+      </partido>
+      
+      <partido id="a317" >
+       <fecha></fecha>
+          <equipo id="a318"></equipo>
+          <equipo id="a319"></equipo>
+      </partido>
+      
+      <partido id="a320" >
+       <fecha></fecha>
+          <equipo id="a321"></equipo>
+          <equipo id="a322"></equipo>
+      </partido>
+      
+      <partido id="a323" >
+       <fecha></fecha>
+          <equipo id="a324"></equipo>
+          <equipo id="a325"></equipo>
+      </partido>
+      
+      <partido id="a326" >
+       <fecha></fecha>
+          <equipo id="a327"></equipo>
+          <equipo id="a328"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a329">
+      <partido id="a330" >
+       <fecha></fecha>
+          <equipo id="a331"></equipo>
+          <equipo id="a332"></equipo>
+      </partido>
+      
+      <partido id="a333" >
+       <fecha></fecha>
+          <equipo id="a334"></equipo>
+          <equipo id="a335"></equipo>
+      </partido>
+      
+      <partido id="a336" >
+       <fecha></fecha>
+          <equipo id="a337"></equipo>
+          <equipo id="a338"></equipo>
+      </partido>
+      
+      <partido id="a339" >
+       <fecha></fecha>
+          <equipo id="a340"></equipo>
+          <equipo id="a341"></equipo>
+      </partido>
+      
+      <partido id="a342" >
+       <fecha></fecha>
+          <equipo id="a343"></equipo>
+          <equipo id="a344"></equipo>
+      </partido>
+      
+      <partido id="a345" >
+       <fecha></fecha>
+          <equipo id="a346"></equipo>
+          <equipo id="a347"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a348">
+          <partido id="a349" >
+           <fecha></fecha>
+          <equipo id="a350"></equipo>
+          <equipo id="a351"></equipo>
+      </partido>
+      
+      <partido id="a352" >
+       <fecha></fecha>
+          <equipo id="a353"></equipo>
+          <equipo id="a354"></equipo>
+      </partido>
+      
+      <partido id="a355" >
+       <fecha></fecha>
+          <equipo id="a356"></equipo>
+          <equipo id="a357"></equipo>
+      </partido>
+      
+      <partido id="a358" >
+       <fecha></fecha>
+          <equipo id="a359"></equipo>
+          <equipo id="a360"></equipo>
+      </partido>
+      
+      <partido id="a361" >
+       <fecha></fecha>
+          <equipo id="a362"></equipo>
+          <equipo id="a363"></equipo>
+      </partido>
+      
+      <partido id="a364" >
+       <fecha></fecha>
+          <equipo id="a365"></equipo>
+          <equipo id="a367"></equipo>
+      </partido>
+    </jornada>
+    
+   <jornada id="a368">
+          <partido id="a369" >
+           <fecha></fecha>
+          <equipo id="a370"></equipo>
+          <equipo id="a371"></equipo>
+      </partido>
+      
+      <partido id="a372" >
+       <fecha></fecha>
+          <equipo id="a373"></equipo>
+          <equipo id="a374"></equipo>
+      </partido>
+      
+      <partido id="a375" >
+       <fecha></fecha>
+          <equipo id="a376"></equipo>
+          <equipo id="a377"></equipo>
+      </partido>
+      
+      <partido id="a378" >
+       <fecha></fecha>
+          <equipo id="a379"></equipo>
+          <equipo id="a380"></equipo>
+      </partido>
+      
+      <partido id="a381" >
+       <fecha></fecha>
+          <equipo id="a382"></equipo>
+          <equipo id="a383"></equipo>
+      </partido>
+      
+      <partido id="a384" >
+       <fecha></fecha>
+          <equipo id="a385"></equipo>
+          <equipo id="a386"></equipo>
+      </partido>
+    </jornada>
+    
+    
+    <jornada id="a387">
+     <partido id="a388" >
+      <fecha></fecha>
+          <equipo id="a389"></equipo>
+          <equipo id="a390"></equipo>
+      </partido>
+      
+      <partido id="a391" >
+       <fecha></fecha>
+          <equipo id="a392"></equipo>
+          <equipo id="a393"></equipo>
+      </partido>
+      
+      <partido id="a394" >
+       <fecha></fecha>
+          <equipo id="a395"></equipo>
+          <equipo id="a396"></equipo>
+      </partido>
+      
+      <partido id="a397" >
+       <fecha></fecha>
+          <equipo id="a398"></equipo>
+          <equipo id="a399"></equipo>
+      </partido>
+      
+      <partido id="a400" >
+       <fecha></fecha>
+          <equipo id="a401"></equipo>
+          <equipo id="a402"></equipo>
+      </partido>
+      
+      <partido id="a403" >
+       <fecha></fecha>
+          <equipo id="a404"></equipo>
+          <equipo id="a405"></equipo>
+      </partido>
+    </jornada>
+    
+    
+    <jornada id="a406">
+      <partido id="a407" >
+       <fecha></fecha>
+          <equipo id="a408"></equipo>
+          <equipo id="a409"></equipo>
+      </partido>
+      
+      <partido id="a410" >
+       <fecha></fecha>
+          <equipo id="a411"></equipo>
+          <equipo id="a412"></equipo>
+      </partido>
+      
+      <partido id="a413" >
+       <fecha></fecha>
+          <equipo id="a414"></equipo>
+          <equipo id="a415"></equipo>
+      </partido>
+      
+      <partido id="a416" >
+       <fecha></fecha>
+          <equipo id="a417"></equipo>
+          <equipo id="a418"></equipo>
+      </partido>
+      
+      <partido id="a419" >
+       <fecha></fecha>
+          <equipo id="a420"></equipo>
+          <equipo id="a421"></equipo>
+      </partido>
+      
+      <partido id="a423" >
+       <fecha></fecha>
+          <equipo id="a424"></equipo>
+          <equipo id="a425"></equipo>
+      </partido>
+    </jornada>
+  </split>
+</temporada>
