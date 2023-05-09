@@ -62,7 +62,7 @@ public class vLoginRegistro {
         bEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
                 switch (op){
                     case "registro":
 
@@ -76,7 +76,7 @@ public class vLoginRegistro {
         });
     }
 
-    public void validarDatos(String tipo, JTextField campo, String exp){
+    public boolean validarDatos(String tipo, JTextField campo, String exp){
         boolean correcto = true;
         String dato = campo.getText();
         try {
