@@ -29,25 +29,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JPA.DatabaseSchemaImportDialog": "36f053dc-dd5b-47c6-bfcf-befe870c280c",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/1GDAW03/Desktop/KINGS_LEAGUE/Proyecto-Kings-League/Programacion/kings_league",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -83,8 +65,7 @@
       <workItem from="1683613368144" duration="5356000" />
       <workItem from="1683621935550" duration="46000" />
       <workItem from="1683622002310" duration="824000" />
-      <workItem from="1683624917439" duration="296000" />
-      <workItem from="1683627893959" duration="3101000" />
+
     </task>
     <task id="LOCAL-00001" summary="Modelo medio terminado.">
       <created>1683484889624</created>
