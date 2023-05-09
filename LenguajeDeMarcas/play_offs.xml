@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<temporada>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE temporada SYSTEM "play_offs.dtd">
+<temporada id="t1" xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "play_offs.xsd">
 <split id="s1">
 <playoffs>
 
