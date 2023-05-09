@@ -3,11 +3,12 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
 @Table(name = "JORNADAS", schema = "HR")
-public class JornadasEntidad {
+public class JornadaEntidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_JORNADA")
@@ -17,7 +18,7 @@ public class JornadasEntidad {
     private byte numero;
     @Basic
     @Column(name = "FECHA")
-    private Date fecha;
+    private LocalDate fecha;
     @Basic
     @Column(name = "UBICACION")
     private String ubicacion;
@@ -27,12 +28,19 @@ public class JornadasEntidad {
     @OneToMany(mappedBy = "jornada")
     private Collection<PartidoEntidad> listaPartidos;
 
-    public int getCodJornada() {
-        return codJornada;
+    public JornadaEntidad() {
     }
 
-    public void setCodJornada(int codJornada) {
-        this.codJornada = codJornada;
+    public JornadaEntidad(byte numero, LocalDate fecha, String ubicacion, SplitEntidad split, Collection<PartidoEntidad> listaPartidos) {
+        this.numero = numero;
+        this.fecha = fecha;
+        this.ubicacion = ubicacion;
+        this.split = split;
+        this.listaPartidos = listaPartidos;
+    }
+
+    public int getCodJornada() {
+        return codJornada;
     }
 
     public byte getNumero() {
@@ -43,11 +51,11 @@ public class JornadasEntidad {
         this.numero = numero;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -64,7 +72,7 @@ public class JornadasEntidad {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        JornadasEntidad that = (JornadasEntidad) o;
+        JornadaEntidad that = (JornadaEntidad) o;
 
         if (codJornada != that.codJornada) return false;
         if (numero != that.numero) return false;

@@ -3,6 +3,7 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 @Entity
@@ -14,7 +15,7 @@ public class PartidoEntidad {
     private int codPartido;
     @Basic
     @Column(name = "HORA")
-    private Timestamp hora;
+    private LocalDateTime hora;
     @Basic
     @Column(name = "FASE")
     private String fase;
@@ -22,7 +23,7 @@ public class PartidoEntidad {
     private Collection<InformacionPartidoEntidad> informacionPartido;
     @ManyToOne
     @JoinColumn(name = "COD_JORNADA", referencedColumnName = "COD_JORNADA", nullable = false)
-    private JornadasEntidad jornada;
+    private JornadaEntidad jornada;
     @ManyToOne
     @JoinColumn(name = "COD_EQUIPO1", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipoUno;
@@ -30,19 +31,25 @@ public class PartidoEntidad {
     @JoinColumn(name = "COD_EQUIPO2", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipoDos;
 
+    public PartidoEntidad(LocalDateTime hora, String fase, Collection<InformacionPartidoEntidad> informacionPartido, JornadaEntidad jornada, EquipoEntidad equipoUno, EquipoEntidad equipoDos) {
+        this.hora = hora;
+        this.fase = fase;
+        this.informacionPartido = informacionPartido;
+        this.jornada = jornada;
+        this.equipoUno = equipoUno;
+        this.equipoDos = equipoDos;
+    }
+
     public int getCodPartido() {
         return codPartido;
     }
 
-    public void setCodPartido(int codPartido) {
-        this.codPartido = codPartido;
-    }
 
-    public Timestamp getHora() {
+    public LocalDateTime getHora() {
         return hora;
     }
 
-    public void setHora(Timestamp hora) {
+    public void setHora(LocalDateTime hora) {
         this.hora = hora;
     }
 
@@ -84,11 +91,11 @@ public class PartidoEntidad {
         this.informacionPartido = informacionPartidosByCodPartido;
     }
 
-    public JornadasEntidad getJornada() {
+    public JornadaEntidad getJornada() {
         return jornada;
     }
 
-    public void setJornada(JornadasEntidad jornadasByCodJornada) {
+    public void setJornada(JornadaEntidad jornadasByCodJornada) {
         this.jornada = jornadasByCodJornada;
     }
 

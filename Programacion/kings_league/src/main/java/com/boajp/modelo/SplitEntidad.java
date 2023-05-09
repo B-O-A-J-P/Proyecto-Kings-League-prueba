@@ -2,7 +2,7 @@ package com.boajp.modelo;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
@@ -17,24 +17,32 @@ public class SplitEntidad {
     private String nombre;
     @Basic
     @Column(name = "FECHA_INICIO")
-    private Date fechaInicio;
+    private LocalDate fechaInicio;
     @Basic
     @Column(name = "FECHA_FIN")
-    private Date fechaFin;
+    private LocalDate fechaFin;
     @OneToMany(mappedBy = "split")
     private Collection<ClasificacionEntidad> tablaClasificaciones;
     @OneToMany(mappedBy = "split")
-    private Collection<JornadasEntidad> listaJornadas;
+    private Collection<JornadaEntidad> listaJornadas;
     @ManyToOne
     @JoinColumn(name = "COD_TEMPORADA", referencedColumnName = "COD_TEMPORADA", nullable = false)
     private TemporadaEntidad temporada;
 
-    public int getCodSplit() {
-        return codSplit;
+    public SplitEntidad() {
     }
 
-    public void setCodSplit(int codSplit) {
-        this.codSplit = codSplit;
+    public SplitEntidad(String nombre, LocalDate fechaInicio, LocalDate fechaFin, Collection<ClasificacionEntidad> tablaClasificaciones, Collection<JornadaEntidad> listaJornadas, TemporadaEntidad temporada) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.tablaClasificaciones = tablaClasificaciones;
+        this.listaJornadas = listaJornadas;
+        this.temporada = temporada;
+    }
+
+    public int getCodSplit() {
+        return codSplit;
     }
 
     public String getNombre() {
@@ -45,19 +53,19 @@ public class SplitEntidad {
         this.nombre = nombre;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -93,11 +101,11 @@ public class SplitEntidad {
         this.tablaClasificaciones = clasificacionesByCodSplit;
     }
 
-    public Collection<JornadasEntidad> getListaJornadas() {
+    public Collection<JornadaEntidad> getListaJornadas() {
         return listaJornadas;
     }
 
-    public void setListaJornadas(Collection<JornadasEntidad> jornadasByCodSplit) {
+    public void setListaJornadas(Collection<JornadaEntidad> jornadasByCodSplit) {
         this.listaJornadas = jornadasByCodSplit;
     }
 

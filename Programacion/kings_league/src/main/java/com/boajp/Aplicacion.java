@@ -1,4 +1,4 @@
-package com.boajp.controlador;
+package com.boajp;
 
 
 import com.boajp.vista.vLoginRegistro;

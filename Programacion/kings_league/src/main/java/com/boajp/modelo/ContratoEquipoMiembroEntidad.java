@@ -3,6 +3,7 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "CONTRATOS_EQUIPO_MIEMBRO", schema = "HR")
@@ -16,16 +17,27 @@ public class ContratoEquipoMiembroEntidad {
     private String funcion;
     @Basic
     @Column(name = "FECHA_ENTRADA")
-    private Date fechaEntrada;
+    private LocalDate fechaEntrada;
     @Basic
     @Column(name = "FECHA_SALIDA")
-    private Date fechaSalida;
+    private LocalDate fechaSalida;
     @ManyToOne
     @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipo;
     @ManyToOne
     @JoinColumn(name = "COD_MIEMBRO", referencedColumnName = "COD_MIEMBRO", nullable = false)
     private MiembroEntidad miembro;
+
+    public ContratoEquipoMiembroEntidad() {
+    }
+
+    public ContratoEquipoMiembroEntidad(String funcion, LocalDate fechaEntrada, LocalDate fechaSalida, EquipoEntidad equipo, MiembroEntidad miembro) {
+        this.funcion = funcion;
+        this.fechaEntrada = fechaEntrada;
+        this.fechaSalida = fechaSalida;
+        this.equipo = equipo;
+        this.miembro = miembro;
+    }
 
     public int getCodContrato() {
         return codContrato;
@@ -43,21 +55,6 @@ public class ContratoEquipoMiembroEntidad {
         this.funcion = funcion;
     }
 
-    public Date getFechaEntrada() {
-        return fechaEntrada;
-    }
-
-    public void setFechaEntrada(Date fechaEntrada) {
-        this.fechaEntrada = fechaEntrada;
-    }
-
-    public Date getFechaSalida() {
-        return fechaSalida;
-    }
-
-    public void setFechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
 
     @Override
     public boolean equals(Object o) {
