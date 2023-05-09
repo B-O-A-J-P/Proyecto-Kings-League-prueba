@@ -1,4 +1,4 @@
-package vista;
+package com.boajp.vista;
 
 import javax.swing.*;
 
