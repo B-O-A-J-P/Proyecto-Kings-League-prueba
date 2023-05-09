@@ -1,43 +1,57 @@
 package com.boajp.vista;
 
+import com.boajp.modelo.EquipoEntidad;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.util.ArrayList;
 
 public class clasificacion {
     private JPanel pClasificacion;
 
+    private static DefaultTableModel model;
+    private static JTable table;
+
     public clasificacion() {
 
-            String[] columnNames = {"Posicion", "Logo", "Equipo", "Pts", "Suma Goles"};
-            Object[][] cells =
-                    {
-                            {"Mercury", 2440.0, 0, false, Color.YELLOW},
-                            {"Venus", 6052.0, 0, false, Color.YELLOW},
-                            {"Earth", 71492.0, 16, true, Color.BLUE},
-                            {"Mars", 3397.0, 2, false, Color.RED},
-                            {"Jupiter", 71492.0, 16, true, Color.ORANGE},
-                            {"Saturn", 60268.0, 18, true, Color.ORANGE},
-                            {"Uranus", 25559.0, 17, true, Color.BLUE},
-                            {"Neptune", 24766.0, 8, true, Color.BLUE},
-                            {"Pluto", 1137.0, 1, false, Color.BLACK}
-                    };
+        String[] columnas = {"Posicion","Logo","Equipo", "Puntos", "Goles"};
+        model = new DefaultTableModel(columnas, 0);
+        table = new JTable(model);
 
 
-        DefaultTableModel modelo = new DefaultTableModel(null, columnNames);
+        File xmlFile = new File("src/main/java/com/boajp/xml/kings_league_clasificacion.xml");
+
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("equipo");
+
+            ArrayList<EquipoEntidad> equipos = new ArrayList<>();
 
 
-                JTable table = new JTable (modelo);
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Element equipo = (Element) nodeList.item(i);
+                String logo = equipo.getElementsByTagName("logo").item(0).getTextContent();
+                String nombre = equipo.getElementsByTagName("nombre").item(0).getTextContent();
+                String puntos = equipo.getElementsByTagName("puntos").item(0).getTextContent();
+                String goles = equipo.getElementsByTagName("suma_goles").item(0).getTextContent();
 
-
-
-                pClasificacion.add(table.getTableHeader(),BorderLayout.NORTH);
-                pClasificacion.add(table, BorderLayout.CENTER);
-        pClasificacion.add(table);
-
-
-
-
+                model.addRow(new Object[] {i+1,logo,nombre, puntos, goles});
+            }
+            pClasificacion.add(new JScrollPane(table));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -49,5 +63,9 @@ public class clasificacion {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public JPanel getpClasificacion() {
+        return pClasificacion;
     }
 }
