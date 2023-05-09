@@ -96,7 +96,7 @@
             <properties>
               <font style="2"/>
               <foreground color="-14050885"/>
-              <text value="¿No tienes cuenta?"/>
+              <text value="&lt;html&gt;No tienes cuenta?&lt;/html&gt;"/>
             </properties>
           </component>
           <component id="791a" class="javax.swing.JButton" binding="registrateButton" default-binding="true">
