@@ -40,6 +40,10 @@ public class PartidoEntidad {
         this.equipoDos = equipoDos;
     }
 
+    public PartidoEntidad() {
+
+    }
+
     public int getCodPartido() {
         return codPartido;
     }
