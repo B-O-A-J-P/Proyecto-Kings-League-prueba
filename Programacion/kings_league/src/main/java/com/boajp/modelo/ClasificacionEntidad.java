@@ -17,6 +17,15 @@ public class ClasificacionEntidad {
     @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipo;
 
+    public ClasificacionEntidad() {
+    }
+
+    public ClasificacionEntidad(byte posicion, SplitEntidad split, EquipoEntidad equipo) {
+        this.posicion = posicion;
+        this.split = split;
+        this.equipo = equipo;
+    }
+
     public byte getPosicion() {
         return posicion;
     }

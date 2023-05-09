@@ -3,6 +3,7 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
@@ -17,10 +18,10 @@ public class TemporadaEntidad {
     private short ano;
     @Basic
     @Column(name = "FECHA_INICIO_INSCRIPCION")
-    private Date fechaInicioInscripcion;
+    private LocalDate fechaInicioInscripcion;
     @Basic
     @Column(name = "FECHA_FIN_INSCRIPCION")
-    private Date fechaFinInscripcion;
+    private LocalDate fechaFinInscripcion;
     @OneToMany(mappedBy = "temporada")
     private Collection<RegistroEquipoEntidad> listaEquipos;
     @OneToMany(mappedBy = "temporada")
@@ -28,12 +29,20 @@ public class TemporadaEntidad {
     @OneToMany(mappedBy = "temporada")
     private Collection<SplitEntidad> listaSplits;
 
-    public short getCodTemporada() {
-        return codTemporada;
+    public TemporadaEntidad() {
     }
 
-    public void setCodTemporada(short codTemporada) {
-        this.codTemporada = codTemporada;
+    public TemporadaEntidad(short ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion, Collection<RegistroEquipoEntidad> listaEquipos, Collection<RegistroJugadorEntidad> listaJugadores, Collection<SplitEntidad> listaSplits) {
+        this.ano = ano;
+        this.fechaInicioInscripcion = fechaInicioInscripcion;
+        this.fechaFinInscripcion = fechaFinInscripcion;
+        this.listaEquipos = listaEquipos;
+        this.listaJugadores = listaJugadores;
+        this.listaSplits = listaSplits;
+    }
+
+    public short getCodTemporada() {
+        return codTemporada;
     }
 
     public short getAno() {
@@ -44,19 +53,19 @@ public class TemporadaEntidad {
         this.ano = ano;
     }
 
-    public Date getFechaInicioInscripcion() {
+    public LocalDate getFechaInicioInscripcion() {
         return fechaInicioInscripcion;
     }
 
-    public void setFechaInicioInscripcion(Date fechaInicioInscripcion) {
+    public void setFechaInicioInscripcion(LocalDate fechaInicioInscripcion) {
         this.fechaInicioInscripcion = fechaInicioInscripcion;
     }
 
-    public Date getFechaFinInscripcion() {
+    public LocalDate getFechaFinInscripcion() {
         return fechaFinInscripcion;
     }
 
-    public void setFechaFinInscripcion(Date fechaFinInscripcion) {
+    public void setFechaFinInscripcion(LocalDate fechaFinInscripcion) {
         this.fechaFinInscripcion = fechaFinInscripcion;
     }
 

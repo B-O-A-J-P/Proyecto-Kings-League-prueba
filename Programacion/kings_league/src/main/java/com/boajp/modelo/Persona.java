@@ -1,14 +1,28 @@
 package com.boajp.modelo;
 
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
-@Inheritance(strategy = InheritanceType.JOINED)
-
+@MappedSuperclass
 public class Persona {
-    protected String nombre;
-    protected String apellido;
-    protected String dni;
+
+    @Basic
+    @Column(name = "NOMBRE")
+    private String nombre;
+    @Basic
+    @Column(name = "APELLIDO")
+    private String apellido;
+    @Basic
+    @Column(name = "DNI")
+    private String dni;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String dni) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+    }
 
     public String getNombre() {
         return nombre;
