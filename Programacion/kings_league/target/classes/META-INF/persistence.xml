@@ -5,14 +5,14 @@
              version="3.0">
     <persistence-unit name="default">
 
-        <class>com.boajp.modelo.AgendasEntidad</class>
+        <class>com.boajp.modelo.AgendaEntidad</class>
         <class>com.boajp.modelo.ClasificacionEntidad</class>
         <class>com.boajp.modelo.ContratoEquipoJugadorEntidad</class>
         <class>com.boajp.modelo.ContratoEquipoMiembroEntidad</class>
         <class>com.boajp.modelo.DraftEntidad</class>
         <class>com.boajp.modelo.EquipoEntidad</class>
         <class>com.boajp.modelo.InformacionPartidoEntidad</class>
-        <class>com.boajp.modelo.JornadasEntidad</class>
+        <class>com.boajp.modelo.JornadaEntidad</class>
         <class>com.boajp.modelo.JugadorEntidad</class>
         <class>com.boajp.modelo.MiembroEntidad</class>
         <class>com.boajp.modelo.PartidoEntidad</class>
