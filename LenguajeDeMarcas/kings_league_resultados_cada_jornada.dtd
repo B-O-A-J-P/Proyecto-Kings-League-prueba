@@ -1,4 +1,4 @@
-<!ELEMENT temporada (jornada+)>
+<!ELEMENT split (jornada+)>
 <!ELEMENT jornada  (partido+)>
 <!ELEMENT partido (fecha_partido, equipo+)>
 <!ELEMENT equipo (nombre,logo,numero_goles,resultado) >
@@ -9,7 +9,7 @@
 <!ELEMENT resultado (#PCDATA)>
 
 
-<!ATTLIST temporada id  ID #REQUIRED>
+<!ATTLIST split id  ID #REQUIRED>
 <!ATTLIST jornada id ID #REQUIRED>
 <!ATTLIST partido id  ID #REQUIRED>
 <!ATTLIST equipo id  ID #REQUIRED>

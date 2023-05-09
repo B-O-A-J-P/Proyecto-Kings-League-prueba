@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<temporada id ="a1">
+<!DOCTYPE temporada SYSTEM "kings_league_clasificacion.dtd">
+<temporada id ="a1" xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "kings_league_clasificacion.xsd">
 <split id="b1">
-<clasificacion fecha_fin="topotamadre">
+<clasificacion>
+<fecha_fin></fecha_fin>
 
 <equipo id="eq1">
 <nombre></nombre>

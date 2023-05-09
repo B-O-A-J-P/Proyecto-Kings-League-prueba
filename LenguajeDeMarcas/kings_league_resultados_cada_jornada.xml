@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE temporada SYSTEM "jornada.dtd">
-<temporada id="t1" xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
-    xs:noNamespaceSchemaLocation = "jornada.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE split SYSTEM "kings_league_resultados_cada_jornada.dtd">
+<split id="s1" xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation = "kings_league_resultados_cada_jornada.xsd">
 <jornada id="j1">
 <partido id="a1">
 <fecha_partido></fecha_partido>
@@ -1056,4 +1056,4 @@
 
 </jornada>
 
-</temporada>
+</split>
