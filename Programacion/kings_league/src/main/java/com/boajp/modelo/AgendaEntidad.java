@@ -2,12 +2,10 @@ package com.boajp.modelo;
 
 import jakarta.persistence.*;
 
-import java.util.Collection;
-
 @Entity
 @Table(name = "AGENDAS", schema = "HR")
-public class AgendasEntidad {
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AgendaEntidad {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_AGENDA")
     private int codAgenda;
@@ -18,13 +16,16 @@ public class AgendasEntidad {
     @Column(name = "TELEFONO")
     private String telefono;
 
+    public AgendaEntidad() {
+    }
+
+    public AgendaEntidad(String email, String telefono) {
+        this.email = email;
+        this.telefono = telefono;
+    }
 
     public int getCodAgenda() {
         return codAgenda;
-    }
-
-    public void setCodAgenda(int codAgenda) {
-        this.codAgenda = codAgenda;
     }
 
     public String getEmail() {
@@ -48,7 +49,7 @@ public class AgendasEntidad {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AgendasEntidad that = (AgendasEntidad) o;
+        AgendaEntidad that = (AgendaEntidad) o;
 
         if (codAgenda != that.codAgenda) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
