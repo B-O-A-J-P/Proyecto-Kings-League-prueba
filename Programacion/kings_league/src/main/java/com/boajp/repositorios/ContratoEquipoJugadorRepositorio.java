@@ -66,7 +66,7 @@ public class ContratoEquipoJugadorRepositorio {
         }
     }
 
-    public List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador (){
+    public  List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador(){
 
         Query qNroCont_equi = em.createNativeQuery ("SELECT * FROM contratos_equipo_jugador ");
         List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();

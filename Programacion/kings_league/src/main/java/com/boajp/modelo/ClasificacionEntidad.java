@@ -66,4 +66,5 @@ public class ClasificacionEntidad {
     public void setEquipo(EquipoEntidad equiposByCodEquipo) {
         this.equipo = equiposByCodEquipo;
     }
+
 }

@@ -61,7 +61,7 @@ public class AgendaRepositorio {
         }
     }
 
-    public List<AgendaEntidad> seleccionarTodosLasAgendas (){
+    public  List<AgendaEntidad> seleccionarTodosLasAgendas(){
 
         Query qNroAgendas = em.createNativeQuery ("SELECT * FROM agendas ");
         List<AgendaEntidad> agendas = qNroAgendas.getResultList();
