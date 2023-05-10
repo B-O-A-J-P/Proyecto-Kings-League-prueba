@@ -3,6 +3,8 @@ package com.boajp.repositorios;
 import com.boajp.modelo.PartidoEntidad;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class PartidoRepositorio {
     private final EntityManagerFactory emf;
     private final EntityManager em;
@@ -59,17 +61,13 @@ public class PartidoRepositorio {
         }
     }
 
-    public void seleccionarPartidosPorJornada (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<PartidoEntidad> seleccionarPartidosPorJornada (){
+
         Query qPartidoJornada = em.createNativeQuery ("SELECT cod_jornada, cod_partido, cod_equipo1, " +
                 "cod_equipo2, hora, fase FROM partidos GROUP BY cod_jornada, cod_partido\n" +
                 "ORDER BY cod_jornada ASC, cod_partido ASC;");
+        List<PartidoEntidad> partidos = qPartidoJornada.getResultList();
+        return partidos;
     }
-
-
-
-
-
 
 }

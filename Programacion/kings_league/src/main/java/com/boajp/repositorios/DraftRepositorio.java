@@ -4,6 +4,8 @@ import com.boajp.modelo.DraftEntidad;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class DraftRepositorio {
 
     private final EntityManagerFactory emf;
@@ -60,9 +62,10 @@ public class DraftRepositorio {
         }
     }
 
-    public void seleccionarTodosLosDrafts (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<DraftEntidad> seleccionarTodosLosDrafts (){
+
         Query qNroDraft = em.createNativeQuery ("SELECT * FROM draft ");
+        List<DraftEntidad> drafts = qNroDraft.getResultList();
+        return drafts;
     }
 }

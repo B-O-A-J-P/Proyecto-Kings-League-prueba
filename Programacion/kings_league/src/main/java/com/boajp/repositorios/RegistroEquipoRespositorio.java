@@ -4,6 +4,9 @@ import com.boajp.modelo.RegistroEquipoEntidad;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 public class RegistroEquipoRespositorio {
 
     private final EntityManagerFactory emf;
@@ -58,18 +61,19 @@ public class RegistroEquipoRespositorio {
         }
     }
 
-    public void seleccionarTodosLosEquiposParticipantes (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<RegistroEquipoEntidad> seleccionarTodosLosEquiposParticipantes (){
+
         Query qEquiposParticipantes = em.createNativeQuery ("SELECT DISTINCT cod_equipo FROM equipos_participantes");
+        List<RegistroEquipoEntidad> equipos_participantes = qEquiposParticipantes.getResultList();
+        return equipos_participantes;
     }
 
-    public void seleccionarCantidadEquiposParticipantes(){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<RegistroEquipoEntidad> seleccionarCantidadEquiposParticipantes(){
         Query qNroEquiposParticipantes = em.createNativeQuery ("SELECT COUNT(DISTINCT cod_equipo) FROM equipos_participantes ");
-    }
+        List<RegistroEquipoEntidad> equipos_participantes = qNroEquiposParticipantes.getResultList();
+        return equipos_participantes;
 
+    }
     }
 
 
