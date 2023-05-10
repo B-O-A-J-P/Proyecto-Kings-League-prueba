@@ -63,14 +63,27 @@ public class SplitRepositorio {
         }
     }
 
-
-    public void verNumeroSplit (){
+    public void seleccionarTodosLosSplits (){
         EntityTransaction transaction = em.getTransaction ();
         transaction.begin();
-        Query qNroSplit = em.createNativeQuery ("SELECT COUNT (*) FROM personas ");
+        Query qNroSplit = em.createNativeQuery ("SELECT * FROM splits ");
+    }
 
+    public void seleccionarSplitMasActual(){
+        EntityTransaction transaction = em.getTransaction ();
+        transaction.begin();
+        Query qActualSplit = em.createNativeQuery ("SELECT * FROM split WHERE fecha_inicio = (SELECT MAX(fecha_inicio) FROM split ");
+    }
 
+    public void seleccionarNombreFecha(){
+        EntityTransaction transaction = em.getTransaction ();
+        transaction.begin();
+        Query qNombreSplit = em.createNativeQuery ("SELECT nombre, fecha_inicio FROM split");
+    }
+
+    public void seleccionarCantidad(){
+        EntityTransaction transaction = em.getTransaction ();
+        transaction.begin();
+        Query qCantidadSplit = em.createNativeQuery ("SELECT COUNT(*) FROM split");
     }
 }
-
-
