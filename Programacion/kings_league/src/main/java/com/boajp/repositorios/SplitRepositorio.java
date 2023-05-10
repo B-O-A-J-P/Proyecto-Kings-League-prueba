@@ -3,6 +3,8 @@ package com.boajp.repositorios;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class SplitRepositorio {
 
     private final EntityManagerFactory emf;
@@ -63,27 +65,31 @@ public class SplitRepositorio {
         }
     }
 
-    public void seleccionarTodosLosSplits (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<SplitEntidad> seleccionarTodosLosSplits (){
+
         Query qNroSplit = em.createNativeQuery ("SELECT * FROM splits ");
+        List<SplitEntidad> splits = qNroSplit.getResultList();
+        return splits;
     }
 
-    public void seleccionarSplitMasActual(){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<SplitEntidad> seleccionarSplitMasActual(){
+
         Query qActualSplit = em.createNativeQuery ("SELECT * FROM split WHERE fecha_inicio = (SELECT MAX(fecha_inicio) FROM split ");
+        List<SplitEntidad> splits = qActualSplit.getResultList();
+        return splits;
     }
 
-    public void seleccionarNombreFecha(){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<SplitEntidad> seleccionarNombreFecha(){
+
         Query qNombreSplit = em.createNativeQuery ("SELECT nombre, fecha_inicio FROM split");
+        List<SplitEntidad> splits = qNombreSplit.getResultList();
+        return splits;
     }
 
-    public void seleccionarCantidad(){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<SplitEntidad> seleccionarCantidad(){
+
         Query qCantidadSplit = em.createNativeQuery ("SELECT COUNT(*) FROM split");
+        List<SplitEntidad> splits = qCantidadSplit.getResultList();
+        return splits;
     }
 }

@@ -4,6 +4,8 @@ import com.boajp.modelo.ContratoEquipoJugadorEntidad;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class ContratoEquipoJugadorRepositorio {
 
     private final EntityManagerFactory emf;
@@ -64,36 +66,38 @@ public class ContratoEquipoJugadorRepositorio {
         }
     }
 
-    public void seleccionarTodosLosContratosDeJugador (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador (){
+
         Query qNroCont_equi = em.createNativeQuery ("SELECT * FROM contratos_equipo_jugador ");
+        List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
+        return contratosjugador;
     }
 
-    public void seleccionarSalarioPorEquipo (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<ContratoEquipoJugadorEntidad> seleccionarSalarioPorEquipo (){
+
         Query qNroCont_equi = em.createNativeQuery ("SELECT cod_equipo, SUM(salario) as salario_total_del_equipo\n" +
                 "    FROM contratos_equipo_jugador\n" +
                 "    GROUP BY cod_equipo ");
+        List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
+        return contratosjugador;
     }
 
-    public void seleccionarSalarioPorJugador (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<ContratoEquipoJugadorEntidad> seleccionarSalarioPorJugador (){
+
         Query qNroCont_equi = em.createNativeQuery ("SELECT *\n" +
                 "FROM contratos_equipo_jugador\n" +
                 "ORDER BY fecha_inicio");
+        List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
+        return contratosjugador;
     }
 
-    public void seleccionarPorFechaDeContrato (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<ContratoEquipoJugadorEntidad> seleccionarPorFechaDeContrato (){
+
         Query qNroCont_equi = em.createNativeQuery ("SELECT cod_jugador, SUM(salario) as salario_total\n" +
                 "FROM contratos_equipo_jugador\n" +
                 "GROUP BY cod_jugador ");
+        List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
+        return contratosjugador;
     }
-
-
 
 }

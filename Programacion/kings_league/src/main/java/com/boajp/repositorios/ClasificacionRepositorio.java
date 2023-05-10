@@ -1,8 +1,11 @@
 package com.boajp.repositorios;
 
+import com.boajp.modelo.AgendaEntidad;
 import com.boajp.modelo.ClasificacionEntidad;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 public class ClasificacionRepositorio {
 
@@ -61,9 +64,10 @@ public class ClasificacionRepositorio {
         }
     }
 
-    public void seleccionarTodosLasClasificaciones (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
-        Query qNroClasificacion = em.createNativeQuery ("SELECT * FROM clasificaciones ");
+    public List<AgendaEntidad> seleccionarTodosLasAgendas (){
+
+        Query qNroAgendas = em.createNativeQuery ("SELECT * FROM agendas ");
+        List<AgendaEntidad> agendas = qNroAgendas.getResultList();
+        return agendas;
     }
 }

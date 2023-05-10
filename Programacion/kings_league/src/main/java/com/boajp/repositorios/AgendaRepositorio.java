@@ -4,6 +4,8 @@ import com.boajp.modelo.AgendaEntidad;
 import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class AgendaRepositorio {
     private final EntityManagerFactory emf;
     private final EntityManager em;
@@ -59,9 +61,11 @@ public class AgendaRepositorio {
         }
     }
 
-    public void seleccionarTodosLasAgendas (){
-        EntityTransaction transaction = em.getTransaction ();
-        transaction.begin();
+    public List<AgendaEntidad> seleccionarTodosLasAgendas (){
+
         Query qNroAgendas = em.createNativeQuery ("SELECT * FROM agendas ");
+        List<AgendaEntidad> agendas = qNroAgendas.getResultList();
+        return agendas;
+
     }
 }
