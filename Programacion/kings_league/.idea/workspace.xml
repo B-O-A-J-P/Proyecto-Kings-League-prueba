@@ -4,44 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a8ec61-6807-4e58-b57e-f4a27a578701" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Kings_League_MER_version_2-4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Kings_League_MER_version_2.xopp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Modelo entidad relacional.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Modelo entidad relacional.xopp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Modelo relacional - Jamboard .pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Modelo relacional - Jamboard.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Modelo relacional - Jamboard.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Nombre aplicacion" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/Pruebas_paquete_generar.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/cuerpo.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/insert_temporadas.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_crear_tablas.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_crear_vistas.SQL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_crear_vistas_miembros.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_insert_temporadas.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_inserts_varios.SQL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_triggers.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_triggers_bloquear.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/kings_league_triggers_pruebas.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/paquete.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/procedimiento_almacenado_objetos.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/procedimiento_anonimo_informe_equipos_temporada.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/procedimiento_anonimo_informe_jugadores.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BaseDeDatos/tablas_usuarios.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../EntornosDeDesarrollo/KINGS_LEAGUE_modificado.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../EntornosDeDesarrollo/KINGS_LEAGUE_modificado.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36f053dc-dd5b-47c6-bfcf-befe870c280c/storage_v2/_src_/schema/HR.CgkAAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36f053dc-dd5b-47c6-bfcf-befe870c280c/storage_v2/_src_/schema/HR.CgkAAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36f053dc-dd5b-47c6-bfcf-befe870c280c/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36f053dc-dd5b-47c6-bfcf-befe870c280c/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/PartidoEntidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/PartidoEntidad.java" afterDir="false" />
-    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,48 +21,26 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2PYdKLVZwQg78TLRJTu3XDLabBJ" />
+
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "323",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/pirate/github_repositories/Proyecto-Kings-League/Programacion/kings_league",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b0a8ec61-6807-4e58-b57e-f4a27a578701" name="Changes" comment="" />
-      <created>1683637885313</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1683637885313</updated>
-      <workItem from="1683637886846" duration="3151000" />
-      <workItem from="1683642989476" duration="78000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+
   </component>
 </project>
