@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e704aada-9fcb-4e1d-8e9e-782cb96fd268" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/calendario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/calendario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/calendario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/vista/calendario.class" afterDir="false" />
-    </list>
+    <list default="true" id="e704aada-9fcb-4e1d-8e9e-782cb96fd268" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683701876114</updated>
-      <workItem from="1683701878261" duration="4203000" />
+      <workItem from="1683701878261" duration="4488000" />
     </task>
     <servers />
   </component>
