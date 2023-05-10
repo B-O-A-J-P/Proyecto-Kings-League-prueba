@@ -98,12 +98,12 @@ CREATE TABLE agendas (
 
 CREATE TABLE jugadores (
     cod_jugador NUMBER(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
-    dni VARCHAR(9) UNIQUE,
-    nombre VARCHAR2(50) ,
-    apellido VARCHAR2(50) ,
+    dni VARCHAR(9) NOT NULL UNIQUE,
+    nombre VARCHAR2(50) NOT NULL,
+    apellido VARCHAR2(50) NOT NULL,
     pie VARCHAR(20),
     altura NUMBER(3), --en centímetros
-    cod_agenda NUMBER(8) ,
+    cod_agenda NUMBER(8) NOT NULL,
     CONSTRAINT jug_cod_jug_pk PRIMARY KEY (cod_jugador),
     CONSTRAINT jug_co_age_fk FOREIGN KEY (cod_agenda) REFERENCES agendas
 );

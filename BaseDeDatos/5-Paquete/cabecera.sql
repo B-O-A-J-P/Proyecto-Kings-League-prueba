@@ -4,6 +4,9 @@ CREATE OR REPLACE PACKAGE utilidades_calendario AS
     p_ubicacion IN varchar2,
     p_cod_temporada IN temporadas.cod_temporada%TYPE,
      p_cod_split IN splits.cod_split%TYPE);
+     
+     PROCEDURE generar_playoff_jornada_semifinal
+    (v_cod_split IN splits.cod_split%type);
 
 	PROCEDURE habilitar_desabilitar_trigger
 	(p_op in varchar2);
