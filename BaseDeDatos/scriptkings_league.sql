@@ -20,7 +20,7 @@
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Scripts-triggers\triggers_bloquear.sql
 
 --3-Dummy inserts y pruebas
-@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\3-Dummy-inserts-y-pruebas\inserts.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\3-Dummy-inserts-y-pruebas\dummy-inserts.sql
 
 --4-Procedimientos-almacenados
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\4-Procedimientos-almacenados\procedimiento_almacenado_objetos.sql
@@ -28,6 +28,9 @@
 --5-Paquete
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\cabecera.sql
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\cuerpo.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_calendario.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\3-Dummy-inserts-y-pruebas\dummy-inserts-clasificaiones.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_partidos_regulares_para_semifinales_finales.sql
 
 --MAC
 --ejecutar tabla 1
@@ -57,3 +60,6 @@
 --5-Paquete
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cabecera.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cuerpo.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sqll"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/dummy-inserts-clasificaiones.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_partidos_regulares_para_semifinales_finales.sql"
