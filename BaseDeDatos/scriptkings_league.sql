@@ -1,5 +1,7 @@
---crea un usuario grupo5 y guarda el contenido del proyecto en la carpeta documentos
+--crea un usuario grupo5 y guarda el contenido del proyecto en la carpeta documentos, si no 
+--desea crear un nuevo usuario, modifica el usuario por uno existente.
 --ejecutar tabla 1
+--WINDOWS
 @/C:\Users\grupo5\Documents\proyecto_kingsleague\Proyecto-Kings-League\BaseDeDatos\1-Scripts_tablas_y_otros_objetos\tablas.sql
 
 --ejecutar tabla 2
@@ -27,3 +29,32 @@
 --5-Paquete
 @/C:\Users\grupo5\Documents\proyecto_kingsleague\Proyecto-Kings-League\BaseDeDatos\5-Paquete\cabecera.sql
 @/C:\Users\grupo5\Documents\proyecto_kingsleague\Proyecto-Kings-League\BaseDeDatos\5-Paquete\cuerpo.sql
+
+--MAC
+--ejecutar tabla 1
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/tablas.sql
+
+--ejecutar tabla 2
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/tablas_usuarios.sql
+
+--ejecutar vistas
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/vistas.sql
+
+--ejecutar vistas_miembros
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/vistas_miembros.sql
+
+--ejecutar triggers
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/2-Scripts-triggers/triggers.sql
+
+--ejecutar triggers
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/2-Scripts-triggers/triggers_bloquear.sql
+
+--3-Dummy inserts y pruebas
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/inserts.sql
+
+--4-Procedimientos-almacenados
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/4-Procedimientos-almacenados/procedimiento_almacenado_objetos.sql
+
+--5-Paquete
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cabecera.sql
+@/Users/grupo5/Documents/proyecto_kingsleague/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cuerpo.sql
