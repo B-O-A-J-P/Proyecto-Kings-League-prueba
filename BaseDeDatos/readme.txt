@@ -6,3 +6,19 @@ Estas dos versiones en ,scriptkings_league.sql, se diferencian con un comentario
 (--Windows o --MAC)
 Es importante seguir las instrucciones y verificar la versión correcta antes de ejecutar cualquier parte.
 el proyecto deberá ser almacenado en la carpeta de documentos 
+
+El orden a generar todos el sql es el siguiente
+-1 1-Scripts_tablas_y_otros_objetos
+- Tablas.sql //tablas_usuarios.sql// vistas.sql //vistas_miembros.sql
+-2 2-Scripts-triggers
+- triggers.sql //triggers_bloquear.sql
+3 3-dummy-inserts-y-pruebas
+-dummy-inserts.sql
+4 4-Procedimientos-almacenados
+procedimiento_almacenado_objetos.sql
+5 5-paquete
+cabecera.sql // cuerpo.sql // prueba_generar_calendario.sql
+6 3-dummy-inserts-y-pruebas
+dummy-inserts-clasificaciones.sql
+7 5-paquete
+prueba_generar_partidos_regulares_para_semifinales_finales.sql
