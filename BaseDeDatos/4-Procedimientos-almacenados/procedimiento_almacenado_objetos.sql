@@ -1,3 +1,25 @@
+CREATE OR REPLACE FUNCTION contar_numero_jugadores_por_equipo
+    (p_cod_equipo IN equipos.cod_equipo%type,
+    p_cod_temporada IN temporadas.cod_temporada%type)
+    RETURN NUMBER
+is
+    v_num_jugadores NUMBER;
+begin
+
+    SELECT count(*) into v_num_jugadores
+    FROM temporadas t
+    JOIN registros_equipos re ON t.cod_temporada = re.cod_temporada
+    JOIN equipos e ON re.cod_equipo = e.cod_equipo AND re.cod_equipo = p_cod_equipo
+    JOIN contratos_equipo_jugador cj ON e.cod_equipo = cj.cod_equipo AND EXTRACT(YEAR FROM cj.fecha_inicio) = t.ano
+    JOIN draft d ON cj.cod_jugador = d.cod_jugador AND re.cod_temporada = d.cod_temporada
+    WHERE t.cod_temporada = p_cod_temporada;
+
+    
+    return v_num_jugadores;
+    
+end contar_numero_jugadores_por_equipo;
+/
+
 --Informe de equipo
 CREATE OR REPLACE PROCEDURE informe_equipos_temporada 
     (p_cod_temporada IN temporadas.cod_temporada%type,
@@ -23,31 +45,7 @@ BEGIN
     LEFT JOIN staffs_equipos s ON e.cod_equipo = s.cod_equipo;
     
 END informe_equipos_temporada;
-
-----------------------------------------------------------------------
-
-create view presidentes_equipos
-as
-select m.cod_miembro, m.nombre, m.apellido, m.dni, cm.fecha_entrada, cm.fecha_salida, cm.cod_equipo
-from miembros m, contratos_equipo_miembro cm
-where m.cod_miembro = cm.cod_miembro
-and fecha_entrada = (select max(fecha_entrada) from contratos_equipo_miembro where cm.cod_equipo = cod_equipo and funcion = 'p');
-
-create view entrenadores_equipos
-as
-select m.cod_miembro, m.nombre, m.apellido, m.dni, cm.fecha_entrada, cm.fecha_salida, cm.cod_equipo
-from miembros m, contratos_equipo_miembro cm
-where m.cod_miembro = cm.cod_miembro
-and fecha_entrada = (select max(fecha_entrada) from contratos_equipo_miembro where cm.cod_equipo = cod_equipo and funcion = 'e');
-
-create view staffs_equipos
-as
-select m.cod_miembro, m.nombre, m.apellido, m.dni, cm.fecha_entrada, cm.fecha_salida, cm.cod_equipo
-from miembros m, contratos_equipo_miembro cm
-where m.cod_miembro = cm.cod_miembro
-and fecha_entrada = (select max(fecha_entrada) from contratos_equipo_miembro where cm.cod_equipo = cod_equipo and funcion = 's');
-
-----------------------------------------------------------------------
+/
 
 --informe de jugador
 CREATE OR REPLACE PROCEDURE informe_jugador_ultima_temporada
@@ -70,29 +68,9 @@ begin
         and EXTRACT(YEAR FROM fecha_inicio) = (select ano from temporadas where cod_temporada = p_cod_temporada);
     
 end informe_jugador_ultima_temporada;
-
+/
 ----------------------------------------------------------------------
 
-CREATE OR REPLACE FUNCTION contar_numero_jugadores_por_equipo
-    (p_cod_equipo IN equipos.cod_equipo%type,
-    p_cod_temporada IN temporadas.cod_temporada%type)
-    RETURN NUMBER
-is
-    v_num_jugadores NUMBER;
-begin
-
-    SELECT count(*) into v_num_jugadores
-    FROM temporadas t
-    JOIN registros_equipos re ON t.cod_temporada = re.cod_temporada
-    JOIN equipos e ON re.cod_equipo = e.cod_equipo AND re.cod_equipo = p_cod_equipo
-    JOIN contratos_equipo_jugador cj ON e.cod_equipo = cj.cod_equipo AND EXTRACT(YEAR FROM cj.fecha_inicio) = t.ano
-    JOIN draft d ON cj.cod_jugador = d.cod_jugador AND re.cod_temporada = d.cod_temporada
-    WHERE t.cod_temporada = p_cod_temporada;
-
-    
-    return v_num_jugadores;
-    
-end contar_numero_jugadores_por_equipo;
 
 ----------------------------------------------------------------------
 

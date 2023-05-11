@@ -1,3 +1,4 @@
+/*
 drop trigger min_equipos;
 drop trigger min_jugadores;
 drop trigger max_jugadores_draft;
@@ -9,7 +10,7 @@ drop trigger equipo_duplicado;
 drop trigger trigger_temporadas_ano;
 drop trigger triger_splits_fec_ini;
 drop trigger triger_jornadas_fec;
-
+*/
 --------------------------------------------------------------------------------
 
 create or replace trigger min_equipos
@@ -22,10 +23,10 @@ begin
     
     if v_numero_equipos < 12
     then 
-        raise_application_error(-20001, 'Tiene que haber un mínimo de 12 equipos para poder iniciar el split.');
+        raise_application_error(-20001, 'Tiene que haber un minimo de 12 equipos para poder iniciar el split.');
     end if;
 end;
-
+/
 --------------------------------------------------------------------------------
 
 create or replace trigger min_jugadores
@@ -42,11 +43,11 @@ begin
     
     if (v_numero_jugadores < 8)
     then
-        raise_application_error(-20001, 'El equipo tiene que tener mínimo 8 jugadores.');
+        raise_application_error(-20001, 'El equipo tiene que tener minimo 8 jugadores.');
     end if;
     
 end;
-
+/
 --------------------------------------------------------------------------------
 
 create or replace trigger max_jugadores_draft
@@ -73,8 +74,8 @@ begin
         raise_application_error(-20001, 'El equipo ya tiene 8 jugadores pertenecientes al draft.');
     end if;
     
-end max_jugadores;
-
+end max_jugadores_draft;
+/
 --------------------------------------------------------------------------------
 
 create or replace trigger max_jugadores_wild_card
@@ -95,8 +96,8 @@ begin
         raise_application_error(-20001, 'El equipo ya tiene 2 jugadores wild card.');
     end if;
     
-end max_jugadores;
-
+end max_jugadores_wild_card;
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER max_presupuesto_equipo
@@ -122,7 +123,7 @@ declare
     end if;
 
 END max_presupuesto_equipo;
-
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER check_contrato_jugador
@@ -139,8 +140,8 @@ BEGIN
     IF v_count > 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'Este jugador ya tiene un contrato activo');
     END IF;
-END;
-
+END check_contrato_jugador;
+/
 --------------------------------------------------------------------------------
 
 create or replace trigger control_miembros
@@ -157,11 +158,11 @@ begin
     
     if v_numero_de_miembros >= 1
     then
-        raise_application_error(-20001, 'No puede haber más de un miembro con la misma función');
+        raise_application_error(-20001, 'No puede haber mas de un miembro con la misma función');
     end if;
     
 end control_miembros;
-
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER equipo_duplicado
@@ -176,8 +177,8 @@ BEGIN
     IF v_num_equi > 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'ERROR, YA EXISTE UN EQUIPO CON ESE NOMBRE');
     END IF;
-END equipo_duplicado_tr;
-
+END equipo_duplicado;
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER trigger_temporadas_ano
@@ -185,10 +186,10 @@ BEFORE INSERT OR UPDATE ON temporadas
 FOR EACH ROW
 BEGIN
   IF :NEW.ano < EXTRACT(YEAR FROM SYSDATE) THEN
-    RAISE_APPLICATION_ERROR(-20001, 'El año tiene que ser igual o superior al año actual.');
+    RAISE_APPLICATION_ERROR(-20001, 'El a�o tiene que ser igual o superior al a�o actual.');
   END IF;
-END;
-
+END trigger_temporadas_ano;
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER triger_splits_fec_ini
@@ -198,8 +199,8 @@ BEGIN
   IF :NEW.fecha_inicio < (SYSDATE) THEN
     RAISE_APPLICATION_ERROR(-20001, 'La fecha de inicio tiene que ser igual o superior a la fecha actual');
   END IF;
-END;
-
+END triger_splits_fec_ini;
+/
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER triger_jornadas_fec
@@ -209,4 +210,5 @@ BEGIN
   IF :NEW.fecha <= (SYSDATE) THEN
     RAISE_APPLICATION_ERROR(-20001, 'La fecha tiene que ser superior a la fecha actual.');
   END IF;
-END;
+END triger_jornadas_fec;
+/
