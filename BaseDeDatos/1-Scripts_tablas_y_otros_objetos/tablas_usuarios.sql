@@ -1,4 +1,4 @@
-drop table cuentas cascade constraints;
+drop table cuentas;
 drop table permisos cascade constraints;
 
 
