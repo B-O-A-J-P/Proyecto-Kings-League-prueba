@@ -1,4 +1,4 @@
---guarda el contenido del proyecto en la carpeta documentos
+--guarda el contenido del proyecto en la carpeta documentos llamada proyecto_kingsleague
 --ejecutar tabla 1
 --WINDOWS
 @"$HOME\Documents\proyecto_kingsleague\Proyecto-Kings-League\BaseDeDatos\1-Scripts_tablas_y_otros_objetos\tablas.sql"
