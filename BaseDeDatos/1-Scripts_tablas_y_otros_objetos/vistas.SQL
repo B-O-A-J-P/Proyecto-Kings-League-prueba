@@ -2,9 +2,7 @@ DROP VIEW CLASIFICACIONES_VIS;
 DROP VIEW Calendario_jornada_VIS;
 DROP VIEW Resultados_jornadas_VIS;
 DROP VIEW PARTICIPANTES_VIS;
-DROP VIEW staffs_equipos;
-DROP VIEW presidentes_equipos; 
-DROP VIEW entrenadores_equipos;
+
 
 DROP SYNONYM TS;
 DROP SYNONYM PS;

@@ -49,7 +49,7 @@
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Scripts-triggers/triggers_bloquear.sql"
 
 --3-Dummy inserts y pruebas
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/inserts.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/dummy-inserts.sql"
 
 --4-Procedimientos-almacenados
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/4-Procedimientos-almacenados/procedimiento_almacenado_objetos.sql"

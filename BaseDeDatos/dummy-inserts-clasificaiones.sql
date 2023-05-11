@@ -1,5 +1,3 @@
-set serveroutput on;
-/*
 
 INSERT INTO clasificaciones VALUES(0, 0, 1);
 INSERT INTO clasificaciones VALUES(0, 1, 2);
@@ -13,10 +11,3 @@ INSERT INTO clasificaciones VALUES(0, 8, 9);
 INSERT INTO clasificaciones VALUES(0, 9, 10);
 INSERT INTO clasificaciones VALUES(0, 10, 11);
 INSERT INTO clasificaciones VALUES(0, 11, 12);
-
-*/
-
-DECLARE
-BEGIN
-    utilidades_calendario.generar_playoff('12:00', 0);
-END;
