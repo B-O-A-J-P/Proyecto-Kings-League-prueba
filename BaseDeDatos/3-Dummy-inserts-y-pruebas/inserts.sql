@@ -54,7 +54,7 @@ INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('00112233A', 'Jugador', 'Trece', 'Izquierdo', 178, 0);
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('11223344B', 'Jugador', 'Catorce', 'Derecho', 183, 1);
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('22334455C', 'Jugador', 'Quince', 'Izquierdo', 175, 2);
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('33445566D', 'Jugador', 'Dieciséis', 'Derecho', 192, 3);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('33445566D', 'Jugador', 'DiecisÃ©is', 'Derecho', 192, 3);
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('44556677E', 'Jugador', 'Diecisiete', 'Izquierdo', 172, 4);
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('55667788F', 'Jugador', 'Dieciocho', 'Derecho', 197, 5);
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('66778899G', 'Jugador', 'Diecinueve', 'Izquierdo', 183, 6);
@@ -112,32 +112,5 @@ VALUES (0, 0, 'p', TO_DATE('01/01/2022', 'DD/MM/YYYY'));
 INSERT INTO contratos_equipo_miembro (cod_equipo, cod_miembro, funcion, fecha_entrada, fecha_salida)
 VALUES (1, 1, 'p', TO_DATE('01/01/2022', 'DD/MM/YYYY'), TO_DATE('31/12/2022', 'DD/MM/YYYY'));
 
-
-
-
-
-
 INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 1', TO_DATE('01/07/2023', 'DD/MM/YYYY'), TO_DATE('31/07/2023', 'DD/MM/YYYY'));
 INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 2', TO_DATE('01/07/2023', 'DD/MM/YYYY'), TO_DATE('31/07/2023', 'DD/MM/YYYY'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

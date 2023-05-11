@@ -5,39 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb9fa772-05c5-436f-bbb1-284d59c89118" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraDeNavegacion.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraDeNavegacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/CartaMiembro.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/CartaMiembro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/ContratosPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/ContratosPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kings_league.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/ContratoEquipoMiembroEntidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/ContratoEquipoMiembroEntidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/JugadorEntidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/modelo/JugadorEntidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/repositorios/JugadorRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/repositorios/JugadorRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraHerramientas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Calendario.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Calendario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Clasificacion.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Clasificacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Equipos.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Equipos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/MainFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vLoginRegistro.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vLoginRegistro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/CartaEquipo.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/CartaEquipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/EquipoLista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.dtd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/clasificacion.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.dtd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/recursos/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagenes/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/recursos/logo2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/Aplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/Aplicacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/modelo/ContratoEquipoMiembroEntidad.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/modelo/ContratoEquipoMiembroEntidad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/modelo/JugadorEntidad.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/modelo/JugadorEntidad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/repositorios/BaseDeDatos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/repositorios/SplitRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/repositorios/SplitRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/BarraHerramientas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/BarraMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/MainFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/TablaClasificacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/calendario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/clasificacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/vLoginRegistro$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/vLoginRegistro$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/vLoginRegistro$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/vista/vLoginRegistro.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -59,8 +76,10 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pirate/github_repositories/Proyecto-Kings-League/Programacion/kings_league/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,6 +92,79 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/boajp/vista" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/boajp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/imagenes" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/boajp/vista/cartasPersonas" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ContratosPanel">
+    <configuration name="Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.boajp.Aplicacion" />
+      <module name="kings_league" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.boajp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartaMiembro" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.boajp.vista.CartaMiembro" />
+      <module name="kings_league" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.boajp.vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContratosPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.boajp.vista.ContratosPanel" />
+      <module name="kings_league" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.boajp.vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ventana" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.boajp.vista.Ventana" />
+      <module name="kings_league" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.boajp.vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ContratosPanel" />
+        <item itemvalue="Application.CartaMiembro" />
+        <item itemvalue="Application.Aplicacion" />
+        <item itemvalue="Application.Ventana" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,6 +176,11 @@
       <workItem from="1683718601471" duration="32000" />
       <workItem from="1683718635589" duration="879000" />
       <workItem from="1683732985917" duration="2000" />
+      <workItem from="1683781315796" duration="2545000" />
+      <workItem from="1683785759500" duration="4885000" />
+      <workItem from="1683791334245" duration="276000" />
+      <workItem from="1683793440156" duration="1536000" />
+      <workItem from="1683797624792" duration="1828000" />
     </task>
     <servers />
   </component>

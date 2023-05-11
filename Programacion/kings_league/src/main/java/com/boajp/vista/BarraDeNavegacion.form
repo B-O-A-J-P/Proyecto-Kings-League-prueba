@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.boajp.vista.BarraDeNavegacion">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="538" height="40"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="4b22" class="javax.swing.JButton" binding="calendarioButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Calendario"/>
+        </properties>
+      </component>
+      <component id="7cfab" class="javax.swing.JButton" binding="clasificaciónButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Clasificación"/>
+        </properties>
+      </component>
+      <component id="9a6b4" class="javax.swing.JButton" binding="equiposButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Equipos"/>
+        </properties>
+      </component>
+      <component id="c81eb" class="javax.swing.JButton" binding="jugadoresButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Jugadores"/>
+        </properties>
+      </component>
+      <component id="a66e6" class="javax.swing.JButton" binding="contratosButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Contratos"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
