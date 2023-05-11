@@ -1,5 +1,4 @@
---crea un usuario grupo5 y guarda el contenido del proyecto en la carpeta documentos, si no 
---desea crear un nuevo usuario, modifica el usuario por uno existente.
+--guarda el contenido del proyecto en la carpeta documentos
 --ejecutar tabla 1
 --WINDOWS
 @/$HOME\Documents\proyecto_kingsleague\Proyecto-Kings-League\BaseDeDatos\1-Scripts_tablas_y_otros_objetos\tablas.sql
