@@ -1,10 +1,10 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelo.AgendaEntidad;
 import com.boajp.modelo.ClasificacionEntidad;
-import com.boajp.modelo.SplitEntidad;
-import jakarta.persistence.*;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import java.util.List;
 
 public class ClasificacionRepositorio {
@@ -12,62 +12,62 @@ public class ClasificacionRepositorio {
     private final EntityManagerFactory emf;
     private final EntityManager em;
 
-
-    public ClasificacionRepositorio(){
+    public ClasificacionRepositorio() {
         emf = Persistence.createEntityManagerFactory("default");
-        em = emf. createEntityManager();
-
+        em = emf.createEntityManager();
     }
 
-    public void insertar (ClasificacionEntidad clasificacion) throws Exception {
-
-        EntityTransaction transaction = em.getTransaction ();
+    public void insertar(ClasificacionEntidad clasificacion) throws Exception {
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.persist(clasificacion);
             transaction.commit();
-        }catch (Exception exception){
+        } catch (Exception e) {
             transaction.rollback();
-            throw new Exception("Error al intentar insertar la clasificacion");
+            throw new Exception("Error al intentar insertar la clasificación");
         }
     }
 
-    public void eliminar (ClasificacionEntidad clasificacion) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
+    public void eliminar(ClasificacionEntidad clasificacion) throws Exception {
+        EntityTransaction transaction = em.getTransaction();
         ClasificacionEntidad c = em.find(ClasificacionEntidad.class, clasificacion.getSplit());
         try {
             transaction.begin();
-            if (clasificacion != null) {
-                em.remove(clasificacion);
+            if (c != null) {
+                em.remove(c);
                 transaction.commit();
             }
-        }catch (Exception exception){
+        } catch (Exception e) {
             transaction.rollback();
-            throw new Exception("Error al intentar eliminar la clasificacion");
+            throw new Exception("Error al intentar eliminar la clasificación");
         }
     }
 
-    public void modificar (ClasificacionEntidad clasificacion) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
+    public void modificar(ClasificacionEntidad clasificacion) throws Exception {
+        EntityTransaction transaction = em.getTransaction();
         ClasificacionEntidad c = em.find(ClasificacionEntidad.class, clasificacion.getSplit());
         try {
             transaction.begin();
-            if (clasificacion != null){
+            if (c != null) {
+                c.setPosicion(clasificacion.getPosicion());
                 c.setSplit(clasificacion.getSplit());
                 c.setEquipo(clasificacion.getEquipo());
-                c.setPosicion(clasificacion.getPosicion());
                 em.persist(c);
+                transaction.commit();
             }
-        }catch (Exception exception){
+        } catch (Exception e) {
             transaction.rollback();
-            throw new Exception("Error al intentar modificar la clasificacion");
+            throw new Exception("Error al intentar modificar la clasificación");
         }
     }
 
-    public List<AgendaEntidad> seleccionarTodosLasAgendas (){
+    public List<ClasificacionEntidad> seleccionarTodasLasClasificaciones() {
+        return em.createQuery("SELECT c FROM ClasificacionEntidad c", ClasificacionEntidad.class)
+                .getResultList();
+    }
 
-        Query qNroAgendas = em.createNativeQuery ("SELECT * FROM agendas ");
-        List<AgendaEntidad> agendas = qNroAgendas.getResultList();
-        return agendas;
+    public ClasificacionEntidad seleccionarClasificacionPorId(int id) {
+        return em.find(ClasificacionEntidad.class, id);
     }
 }
