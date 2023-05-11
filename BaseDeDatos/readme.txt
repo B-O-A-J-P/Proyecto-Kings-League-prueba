@@ -5,3 +5,4 @@ Si tienes un sistema operativo MAC, ejecuta la versión para MAC.
 Estas dos versiones en ,scriptkings_league.sql, se diferencian con un comentario donde empieza la parte de windows, y donde empieza la parte de MAC
 (--Windows o --MAC)
 Es importante seguir las instrucciones y verificar la versión correcta antes de ejecutar cualquier parte.
+el proyecto deberá ser almacenado en la carpeta de documentos 
