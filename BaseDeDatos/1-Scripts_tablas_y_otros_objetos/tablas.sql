@@ -48,7 +48,7 @@ CREATE TABLE equipos(
     cod_equipo NUMBER(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
     nombre VARCHAR2(50) NOT NULL,
     logo BLOB NOT NULL, 
-    presupuesto NUMBER(11, 2) DEFAULT 200000000,
+    presupuesto NUMBER(12, 2) DEFAULT 200000000,
     CONSTRAINT equ_cod_pk PRIMARY KEY (cod_equipo)
 );
 
@@ -129,8 +129,8 @@ CREATE TABLE contratos_equipo_jugador (
     cod_equipo NUMBER(6, 0) NOT NULL,
     cod_jugador NUMBER(4, 0) NOT NULL,
     cod_contrato NUMBER(7, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
-    salario NUMBER(8) NOT NULL,
-    clausula NUMBER(8) NOT NULL,
+    salario NUMBER(9) NOT NULL,
+    clausula NUMBER(9) NOT NULL,
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE,
     CONSTRAINT con_jug_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,

@@ -111,20 +111,21 @@ CREATE OR REPLACE TRIGGER max_presupuesto_equipo
 before INSERT OR UPDATE on contratos_equipo_jugador
 for each row
 declare
-    v_clausula number;
-    v_salario number;
+    v_dinero_total number;
     v_presupuesto_maximo number;
   BEGIN
     SELECT presupuesto INTO v_presupuesto_maximo
     FROM equipos
     WHERE cod_equipo = :new.cod_equipo;
             
-    SELECT SUM(salario), SUM(clausula) INTO v_salario, v_clausula
+    SELECT SUM(salario + clausula) INTO v_dinero_total
     FROM contratos_equipo_jugador
     WHERE cod_equipo = :new.cod_equipo
     AND (fecha_fin > sysdate OR fecha_fin IS NULL);
     
-    if (v_salario + v_clausula) > v_presupuesto_maximo
+    v_dinero_total := v_dinero_total + :new.salario + :new.clausula;
+    
+    if v_dinero_total > v_presupuesto_maximo
     then
        raise_application_error(-20001, 'No se puede sobrepasar el presupuesto del equipo.');
     end if;
