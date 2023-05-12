@@ -1,3 +1,4 @@
+SET SERVEROUT ON;
 DECLARE
     out_ref_cursor SYS_REFCURSOR;
     v_cod_temporada temporadas.cod_temporada%type;

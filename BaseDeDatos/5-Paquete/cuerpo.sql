@@ -41,6 +41,12 @@ AS
     
     jornada_ya_existente EXCEPTION;
     PRAGMA EXCEPTION_INIT(jornada_ya_existente, -01422);
+    
+    formato_no_conforme EXCEPTION;
+    PRAGMA EXCEPTION_INIT(formato_no_conforme,- 01862);
+    
+    formato_no_conforme_dos EXCEPTION;
+    PRAGMA EXCEPTION_INIT(formato_no_conforme, -01850);
 BEGIN
 
     SELECT COUNT(*) INTO v_verificar_numero_splits FROM jornadas WHERE cod_split = p_cod_split;
@@ -134,6 +140,10 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Error: ya existen jornadas para el split: ' || p_cod_split);
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('Error: no existe el split: ' || p_cod_split);
+    WHEN formato_no_conforme THEN
+        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+    WHEN formato_no_conforme_dos THEN
+        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN OTHERS THEN    
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END generar_calendario;
