@@ -18,5 +18,5 @@ INSERT INTO clasificaciones VALUES(0, 11, 12);
 
 DECLARE
 BEGIN
-    utilidades_calendario.generar_playoff('12:00', 0);
+    utilidades_calendario.generar_playoff('12:00', 'EN EL FIN DEL MUNDO', 0);
 END;

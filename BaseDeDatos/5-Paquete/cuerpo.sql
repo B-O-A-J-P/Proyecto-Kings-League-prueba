@@ -148,9 +148,9 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END generar_calendario;
 --------------------------------------------------------------------------------
-
 PROCEDURE generar_playoff
     (p_hora_inicio IN varchar2,
+     p_ubicacion IN varchar2,
      p_cod_split IN splits.cod_split%type)
 AS
     v_cod_jornada jornadas.cod_jornada%type;
@@ -193,7 +193,7 @@ BEGIN
     select numero, fecha into v_numero_jornada, v_fecha from jornadas where cod_split = p_cod_split and numero = (select max(numero) from jornadas where cod_split = p_cod_split);
     select max(numero) into v_numero_jornada from jornadas where cod_split = p_cod_split;
     v_numero_jornada := v_numero_jornada + 1;
-    insert into jornadas values(p_cod_split, default, v_numero_jornada, v_fecha + 7 , 'EN EL FIN DEL MUNDO');
+    insert into jornadas values(p_cod_split, default, v_numero_jornada, v_fecha + 7 , p_ubicacion);
     select cod_jornada into v_cod_jornada from jornadas where cod_split = p_cod_split and numero = v_numero_jornada;
        
     DECLARE
