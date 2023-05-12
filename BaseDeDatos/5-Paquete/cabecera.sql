@@ -6,6 +6,7 @@ CREATE OR REPLACE PACKAGE utilidades_calendario AS
 
     PROCEDURE generar_playoff
     (p_hora_inicio IN varchar2,
+     p_ubicacion IN varchar2,
      p_cod_split IN splits.cod_split%type);
 
 	PROCEDURE habilitar_desabilitar_trigger
