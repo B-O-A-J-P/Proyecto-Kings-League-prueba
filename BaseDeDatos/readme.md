@@ -14,4 +14,4 @@ Para generar el calendario puedes seguir estos pasos:
 Para generar el playoff
 1. Es necesario haber hecho los pasos anteriores
 2. Ejecutar las inserts del archivo "dummy-inserts-clasificaiones.sql"
-3. Llamar el procedimiento "generar_playoff", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_playoff('12:00', 0);
+3. Llamar el procedimiento "generar_playoff", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_playoff('12:00', 'EN EL FIN DEL MUNDO', 0);
