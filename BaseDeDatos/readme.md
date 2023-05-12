@@ -7,18 +7,11 @@ Estas dos versiones en ,scriptkings_league.sql, se diferencian con un comentario
 Es importante seguir las instrucciones y verificar la versión correcta antes de ejecutar cualquier parte.
 el proyecto deberá ser almacenado en la carpeta de documentos 
 
-El orden a generar todos el sql es el siguiente
--1 1-Scripts_tablas_y_otros_objetos
-- Tablas.sql //tablas_usuarios.sql// vistas.sql //vistas_miembros.sql
--2 2-Scripts-triggers
-- triggers.sql //triggers_bloquear.sql
-3 3-dummy-inserts-y-pruebas
--dummy-inserts.sql
-4 4-Procedimientos-almacenados
-procedimiento_almacenado_objetos.sql
-5 5-paquete
-cabecera.sql // cuerpo.sql // prueba_generar_calendario.sql
-6 3-dummy-inserts-y-pruebas
-dummy-inserts-clasificaciones.sql
-7 5-paquete
-prueba_generar_partidos_regulares_para_semifinales_finales.sql
+Para generar el calendario puedes serguir estos pasos:
+-1 Tras construir la base de datos ejecutar las inserts en el archivo "dummy-inserts.sql" (si has ejecutado todo el script "scriptkings_league.sql" no hace falta hacer este paso).
+-2 Llamar el procedimiento "generar_calendario", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_calendario('19:00', 'En el fin del mundo', 0);
+
+Para generar el playoff
+-1 Es necesario haber hecho los pasos anteriores
+-2 Ejecutar las inserts del archivo "dummy-inserts-clasificaiones.sql"
+-3 Llamar el procedimiento "generar_playoff", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_playoff('12:00', 0);
