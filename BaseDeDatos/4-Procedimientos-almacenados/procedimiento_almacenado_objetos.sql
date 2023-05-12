@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION contar_numero_jugadores_por_equipo
     (p_cod_equipo IN equipos.cod_equipo%type,
     p_cod_temporada IN temporadas.cod_temporada%type)
@@ -27,7 +26,18 @@ CREATE OR REPLACE PROCEDURE informe_equipos_temporada
     (p_cod_temporada IN temporadas.cod_temporada%type,
     out_cursor OUT SYS_REFCURSOR)
 AS
+    v_verificar_temporada NUMBER;
+    
+    temporada_no_encontrada EXCEPTION;
 BEGIN
+
+    SELECT COUNT(*) INTO v_verificar_temporada FROM temporadas WHERE cod_temporada = p_cod_temporada;
+    
+    IF (v_verificar_temporada = 0) 
+    THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Temporada no encontrada');
+    END IF;
+
     OPEN out_cursor FOR
         SELECT e.cod_equipo AS "Código del equipo",
        e.nombre AS "Nombre del equipo",
@@ -42,10 +52,9 @@ BEGIN
        s.nombre || ' ' || s.apellido AS nombre_staff
     FROM equipos e
     JOIN registros_equipos ep ON e.cod_equipo = ep.cod_equipo AND ep.cod_temporada = p_cod_temporada
-    LEFT JOIN presidentes_equipos p ON e.cod_equipo = p.cod_equipo
-    LEFT JOIN entrenadores_equipos en ON e.cod_equipo = en.cod_equipo
-    LEFT JOIN staffs_equipos s ON e.cod_equipo = s.cod_equipo;
-    
+    JOIN presidentes_equipos p ON e.cod_equipo = p.cod_equipo
+    JOIN entrenadores_equipos en ON e.cod_equipo = en.cod_equipo
+    JOIN staffs_equipos s ON e.cod_equipo = s.cod_equipo;
 END informe_equipos_temporada;
 /
 
@@ -55,7 +64,17 @@ CREATE OR REPLACE PROCEDURE informe_jugador_ultima_temporada
     out_cursor OUT SYS_REFCURSOR)
 as
     v_cod_temporada temporadas.cod_temporada%type;
+    v_verificar_temporada NUMBER;
+    
+    temporada_no_encontrada EXCEPTION;
 begin
+
+    SELECT COUNT(*) INTO v_verificar_temporada FROM temporadas WHERE cod_temporada = p_cod_temporada;
+    
+    IF (v_verificar_temporada = 0) 
+    THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Temporada no encontrada');
+    END IF;
 
     select max(cod_temporada) into v_cod_temporada
     from temporadas
