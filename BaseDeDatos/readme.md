@@ -8,10 +8,10 @@ Es importante seguir las instrucciones y verificar la versión correcta antes de
 el proyecto deberá ser almacenado en la carpeta de documentos 
 
 Para generar el calendario puedes serguir estos pasos:
--1 Tras construir la base de datos ejecutar las inserts en el archivo "dummy-inserts.sql" (si has ejecutado todo el script "scriptkings_league.sql" no hace falta hacer este paso).
--2 Llamar el procedimiento "generar_calendario", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_calendario('19:00', 'En el fin del mundo', 0);
+- 1 Tras construir la base de datos ejecutar las inserts en el archivo "dummy-inserts.sql" (si has ejecutado todo el script "scriptkings_league.sql" no hace falta hacer este paso).
+- 2 Llamar el procedimiento "generar_calendario", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_calendario('19:00', 'En el fin del mundo', 0);
 
 Para generar el playoff
--1 Es necesario haber hecho los pasos anteriores
--2 Ejecutar las inserts del archivo "dummy-inserts-clasificaiones.sql"
--3 Llamar el procedimiento "generar_playoff", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_playoff('12:00', 0);
+- 1 Es necesario haber hecho los pasos anteriores
+- 2 Ejecutar las inserts del archivo "dummy-inserts-clasificaiones.sql"
+- 3 Llamar el procedimiento "generar_playoff", almacenado dentro del paquete "utilidades_calendario" -> utilidades_calendario.generar_playoff('12:00', 0);
