@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb9fa772-05c5-436f-bbb1-284d59c89118" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraDeNavegacion.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraDeNavegacion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/CartaMiembro.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/CartaMiembro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/ContratosPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boajp/vista/ContratosPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boajp/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraHerramientas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/BarraMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Calendario.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Calendario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Clasificacion.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Clasificacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Equipos.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/Equipos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/MainFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vLoginRegistro.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vLoginRegistro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/CartaEquipo.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/CartaEquipo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/vista/vistaEquipo/EquipoLista.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.dtd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/Calendario_kings_league.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/clasificacion.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.dtd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boajp/xml/kings_league_clasificacion.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/recursos/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagenes/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/recursos/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/boajp/Aplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/boajp/Aplicacion.class" afterDir="false" />
-    </list>
+    <list default="true" id="fb9fa772-05c5-436f-bbb1-284d59c89118" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,6 +142,7 @@
       <workItem from="1683791334245" duration="276000" />
       <workItem from="1683793440156" duration="1536000" />
       <workItem from="1683797624792" duration="1828000" />
+      <workItem from="1683868571760" duration="160000" />
     </task>
     <servers />
   </component>
