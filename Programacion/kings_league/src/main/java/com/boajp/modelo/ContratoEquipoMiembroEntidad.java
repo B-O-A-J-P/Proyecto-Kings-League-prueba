@@ -112,19 +112,4 @@ public class ContratoEquipoMiembroEntidad {
         this.miembro = miembrosByCodMiembro;
     }
 
-    public LocalDate getFechaEntrada() {
-        return fechaEntrada;
-    }
-
-    public void setFechaEntrada(LocalDate fechaEntrada) {
-        this.fechaEntrada = fechaEntrada;
-    }
-
-    public LocalDate getFechaSalida() {
-        return fechaSalida;
-    }
-
-    public void setFechaSalida(LocalDate fechaSalida) {
-        this.fechaSalida = fechaSalida;
-    }
 }

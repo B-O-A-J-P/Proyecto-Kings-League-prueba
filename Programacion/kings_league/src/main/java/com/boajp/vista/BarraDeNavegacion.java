@@ -1,12 +1,59 @@
 package com.boajp.vista;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class BarraDeNavegacion {
-    private JButton calendarioButton;
-    private JPanel panel1;
-    private JButton clasificaciónButton;
-    private JButton equiposButton;
-    private JButton jugadoresButton;
-    private JButton contratosButton;
+public class BarraDeNavegacion extends JPanel{
+    private JButton clasificacionBoton;
+    private JButton equiposBoton;
+    private JButton jugadoresBoton;
+    private JButton contratosBoton;
+    private JButton calendarioboton;
+    private JButton[] botones;
+
+    public BarraDeNavegacion() {
+        calendarioboton = new JButton("Calendario");
+        clasificacionBoton = new JButton("Clasificación");
+        equiposBoton = new JButton("Equipos");
+        jugadoresBoton = new JButton("Jugadores");
+        contratosBoton = new JButton("Contratos");
+        botones = new JButton[5];
+        botones[0] = clasificacionBoton;
+        botones[1] = equiposBoton;
+        botones[2] = jugadoresBoton;
+        botones[3] = contratosBoton;
+        botones[4] = calendarioboton;
+        ajustarBotones();
+
+        setLayout(new FlowLayout());
+        add(calendarioboton);
+        add(clasificacionBoton);
+        add(equiposBoton);
+        add(jugadoresBoton);
+        add(contratosBoton);
+    }
+
+    private Dimension encontrarBotonMasGrande() {
+        Dimension tamano = new Dimension(0, 0);
+        for ( JButton boton: botones ) {
+            if ( boton.getHeight() > tamano.height )
+                tamano.height = boton.getHeight();
+            if ( boton.getWidth() > tamano.width )
+                tamano.width = boton.getWidth();
+        }
+
+        return tamano;
+    }
+
+    public void ajustarBotones() {
+        Dimension tamano = new Dimension(130, 30);
+        for ( JButton boton: botones ) {
+
+            boton.setPreferredSize(tamano);
+        }
+    }
+
+    public JButton[] getBotones() {
+        return botones;
+    }
 }
