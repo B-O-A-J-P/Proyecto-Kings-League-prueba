@@ -13,7 +13,7 @@ public class CartaJugador extends JPanel {
 
     public CartaJugador(String codJugador, ImageIcon imagen, String nombre, String pie, int altura) {
         lbCodJugador = new JLabel(codJugador);
-        Image image = new ImageIcon(CartaJugador.class.getResource("/logo2.png")).getImage();
+        Image image = new ImageIcon(CartaJugador.class.getResource("/imagenes/logo.png")).getImage();
         lbImagen = new JLabel(new ImageIcon(image));
         lbNombre = new JLabel(nombre);
         lbPie = new JLabel(pie);
