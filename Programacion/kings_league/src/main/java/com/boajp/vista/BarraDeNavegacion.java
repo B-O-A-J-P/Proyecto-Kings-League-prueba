@@ -12,7 +12,9 @@ public class BarraDeNavegacion extends JPanel{
     private JButton[] botones;
 
     public BarraDeNavegacion() {
-        calendarioboton = new JButton("Calendario");
+        setBackground(new Color(255, 105, 0));
+        setLayout(new FlowLayout(FlowLayout.LEFT,10, 60));
+        calendarioboton = new JButton("<html><u>Calendario</u></html");
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
@@ -25,6 +27,7 @@ public class BarraDeNavegacion extends JPanel{
         botones[4] = calendarioboton;
         ajustarBotones();
 
+        aplicarEstilo();
         setLayout(new FlowLayout());
         add(calendarioboton);
         add(clasificacionBoton);
@@ -50,6 +53,16 @@ public class BarraDeNavegacion extends JPanel{
         for ( JButton boton: botones ) {
 
             boton.setPreferredSize(tamano);
+        }
+    }
+
+    public void aplicarEstilo() {
+        for (JButton boton: botones) {
+            boton.setBackground(null);
+            boton.setBorder(BorderFactory.createEmptyBorder());
+            boton.setBorderPainted(false);
+            boton.setFocusPainted(false);
+            boton.setOpaque(false);
         }
     }
 

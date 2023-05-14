@@ -1,12 +1,12 @@
-package com.boajp.vista;
+package com.boajp.vista.carta;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class GridDeCartas extends JPanel {
-    private final ArrayList<Carta> CARTAS;
-    public GridDeCartas(ArrayList<Carta> cartas) {
+    private final ArrayList<CartaAbstracta> CARTAS;
+    public GridDeCartas(ArrayList<CartaAbstracta> cartas) {
         CARTAS = cartas;
     }
 
@@ -15,14 +15,14 @@ public class GridDeCartas extends JPanel {
         setLayout(new GridBagLayout());
         int columnas = Math.max(viewPort / CARTAS.get(0).getAnchura(), 1);
 
-        int filas = 0;
-        int index = 0;
+        int indiceFila = 0;
+        int indice = 0;
 
-        while (index < CARTAS.size()) {
-            for ( int x = 0; x < columnas; ++x ) {
+        while (indice < CARTAS.size()) {
+            for ( int indiceColumna = 0; indiceColumna < columnas; ++indiceColumna ) {
                 GridBagConstraints constraints = new GridBagConstraints();
-                constraints.gridx = x;
-                constraints.gridy = filas;
+                constraints.gridx = indiceColumna;
+                constraints.gridy = indiceFila;
                 constraints.gridwidth = 1;
                 constraints.gridheight = 1;
                 constraints.weightx = 0;
@@ -32,10 +32,10 @@ public class GridDeCartas extends JPanel {
                 constraints.insets = new Insets(5, 5, 5, 5);
                 constraints.ipadx = 0;
                 constraints.ipady = 0;
-                add(CARTAS.get(index), constraints);
-                ++index;
+                add(CARTAS.get(indice), constraints);
+                ++indice;
             }
-            ++filas;
+            ++indiceFila;
         }
         revalidate();
         repaint();

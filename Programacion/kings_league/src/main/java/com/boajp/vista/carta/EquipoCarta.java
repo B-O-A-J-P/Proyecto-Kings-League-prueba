@@ -1,13 +1,13 @@
-package com.boajp.vista;
+package com.boajp.vista.carta;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class EquipoCarta extends Carta{
+public class EquipoCarta extends CartaAbstracta {
     private final JLabel LB_NOMBRE;
-    public int anchura = 380;
+    public int anchura = 390;
     public int altura = 140;
 
     public EquipoCarta(String nombre) {
@@ -23,6 +23,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseEntered(MouseEvent e) {
                 EquipoCarta.super.estaHovered = true;
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 validate();
                 repaint();
             }
@@ -30,6 +31,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseExited(MouseEvent e) {
                 EquipoCarta.super.estaHovered = false;
+                setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
 
@@ -52,6 +54,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseEntered(MouseEvent e) {
                 EquipoCarta.super.estaHovered = true;
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 validate();
                 repaint();
             }
@@ -59,6 +62,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseExited(MouseEvent e) {
                 EquipoCarta.super.estaHovered = false;
+                setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
 
@@ -79,6 +83,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseEntered(MouseEvent e) {
                 EquipoCarta.super.estaHovered = true;
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 validate();
                 repaint();
             }
@@ -86,6 +91,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseExited(MouseEvent e) {
                 EquipoCarta.super.estaHovered = false;
+                setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
 
@@ -107,6 +113,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseEntered(MouseEvent e) {
                 EquipoCarta.super.estaHovered = true;
+                setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 validate();
                 repaint();
             }
@@ -114,6 +121,7 @@ public class EquipoCarta extends Carta{
             @Override
             public void mouseExited(MouseEvent e) {
                 EquipoCarta.super.estaHovered = false;
+                setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
 
