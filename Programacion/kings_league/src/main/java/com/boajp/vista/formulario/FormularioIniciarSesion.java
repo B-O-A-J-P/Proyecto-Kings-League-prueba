@@ -12,9 +12,9 @@ public class FormularioIniciarSesion extends JPanel {
     private final JTextField tfUsuario;
     private final JLabel lbContrasena;
     private final JPasswordField tfContrasena;
-    private final JButton btContrasenaOlvidada;
+    private final BotonBoajp btContrasenaOlvidada;
     private final BotonBoajp btIniciar;
-    private final JButton btRegistrarse;
+    private final BotonBoajp btRegistrarse;
 
     public FormularioIniciarSesion() {
         setLayout(new GridBagLayout());
@@ -26,56 +26,46 @@ public class FormularioIniciarSesion extends JPanel {
         lbUsuario = new JLabel("Usuario");
         lbContrasena = new JLabel("Contraseña");
 
-        tfUsuario = new JTextField(15);
+        tfUsuario = new JTextField();
         tfUsuario.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
                 new EmptyBorder(5 ,5, 5, 5)
         ));
-        tfContrasena = new JPasswordField(15);
+        tfContrasena = new JPasswordField();
         tfContrasena.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
                 new EmptyBorder(5 ,5, 5, 5)
         ));
 
-        btIniciar = new BotonBoajp("Iniciar sesión", new Color(24, 119, 242), new Color(0, 100, 255),new Color(0, 100, 255));;
-        btIniciar.setBorderPainted(false);
-        btIniciar.setFocusPainted(false);
-        btIniciar.setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));
+        btIniciar = new BotonBoajp("Iniciar sesión", new Color(24, 119, 242), new Color(0, 100, 255),new Color(0, 100, 255));
         btIniciar.setForeground(Color.WHITE);
-        btIniciar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btContrasenaOlvidada = new JButton("¿Has olvidado la contraseña?");
-        btContrasenaOlvidada.setBackground(null);
-        btContrasenaOlvidada.setOpaque(false);
-        btContrasenaOlvidada.setBorder(null);
-        btContrasenaOlvidada.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btRegistrarse = new JButton("Crear una nueva cuenta");
-        btRegistrarse.setBorder(BorderFactory.createCompoundBorder(
+        btContrasenaOlvidada = new BotonBoajp("¿Has olvidado la contraseña?", null, null, null);
+        btContrasenaOlvidada.setBorde(null);
+
+        btRegistrarse = new BotonBoajp("Crear una nueva cuenta", null, null, null);
+        btRegistrarse.setBorde(BorderFactory.createCompoundBorder(
                 BorderFactory.createMatteBorder(1, 0, 0, 0, Color.black),
                 new EmptyBorder(5, 0, 5, 0)
         ));
-        btRegistrarse.setBackground(null);
-        btRegistrarse.setOpaque(false);
-        btRegistrarse.setFocusPainted(false);
-        btRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-
-
+        // Imagen
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth =2;
+        gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(0, 0, 0, 0);
         add(new PanelImagen(), gbc);
 
+        // Etiqueta usuario
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.insets = new Insets(0, 5, 0, 5);
         add(lbUsuario, gbc);
 
-
+        // Campo de texto usuario
         gbc.gridx = 1;
         gbc.gridy = 2;
         gbc.anchor = GridBagConstraints.CENTER;
@@ -83,7 +73,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.insets = new Insets(0, 5, 10, 5);
         add(tfUsuario, gbc);
 
-
+        // Etiqueta contraseña
         gbc.gridx = 1;
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.WEST;
@@ -91,6 +81,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.insets = new Insets(5, 5, 0, 5);
         add(lbContrasena, gbc);
 
+        // Campo de texto contraseña
         gbc.gridx = 1;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.CENTER;
@@ -98,6 +89,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.insets = new Insets(0, 5, 20, 5);
         add(tfContrasena, gbc);
 
+        // Botón iniciar
         gbc.gridx = 1;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
@@ -106,6 +98,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.insets = new Insets(0, 5, 10, 5);
         add(btIniciar, gbc);
 
+        // Botón contraseña olvidada
         gbc.gridx = 1;
         gbc.gridy = 6;
         gbc.gridwidth = 2;
@@ -113,6 +106,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         add(btContrasenaOlvidada, gbc);
 
+        // Botón registrar
         gbc.gridx = 1;
         gbc.gridy = 7;
         gbc.gridwidth = 2;

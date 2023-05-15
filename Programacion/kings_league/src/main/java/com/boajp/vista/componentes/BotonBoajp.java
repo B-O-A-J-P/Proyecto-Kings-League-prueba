@@ -1,6 +1,7 @@
 package com.boajp.vista.componentes;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class BotonBoajp extends JButton {
@@ -19,6 +20,8 @@ public class BotonBoajp extends JButton {
         this.colorResaltado = colorResaltado;
         this.colorPresionado = colorPresionado;
         setFocusPainted(false);
+        setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     @Override
@@ -37,6 +40,10 @@ public class BotonBoajp extends JButton {
         }
 
         super.paintComponent(g2);
+    }
+
+    public void setBorde(Border borde) {
+        setBorder(borde);
     }
 
     public Color getColorPorDefecto() {

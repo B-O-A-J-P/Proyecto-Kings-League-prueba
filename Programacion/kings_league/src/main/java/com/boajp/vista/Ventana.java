@@ -37,9 +37,10 @@ public class Ventana extends JFrame {
         for (int x = 1; x <= 12; ++x) {
             cartaAbstractas.add(new EquipoCarta("Equipo uno dos tres", Color.LIGHT_GRAY, Color.GRAY));
         }
-        GridDeCartas gridCartasEquipo = new GridDeCartas(cartaAbstractas);
-        gridCartasEquipo.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
-
+        GridDeCartas gridDeCartas = new GridDeCartas(cartaAbstractas);
+        gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+        panelContenido.add(gridDeCartas, CUERPO);
+/*
         // Contenido lateral
         //Calendario
         Cabecera cabecera = new Cabecera("Jornada 3", "23 de Febrero de 2023");
@@ -66,9 +67,7 @@ public class Ventana extends JFrame {
         panel.add(clasificacion, gridBagConstraints1);
         panel.setBackground(new Color(255, 105, 0));
         add(panel, BorderLayout.WEST);
-
-
-        panelContenido.add(gridCartasEquipo, CUERPO);
+        */
 
         add(scrollPane, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +77,7 @@ public class Ventana extends JFrame {
         scrollPane.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                gridCartasEquipo.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+                gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
             }
         });
     }
