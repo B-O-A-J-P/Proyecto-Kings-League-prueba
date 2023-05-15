@@ -20,9 +20,8 @@ public class FormularioRegistro extends JPanel {
     public FormularioRegistro() {
         setLayout(new GridBagLayout());
         setBackground(colorDeFondo);
-        setBorder(new EmptyBorder(20, 20, 20, 20));
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 0, 5);
+        gbc.insets = new Insets(0, 0, 0, 0);
 
         lbNombre = new JLabel("Nombre");
         gbc.gridx = 0;
@@ -31,25 +30,21 @@ public class FormularioRegistro extends JPanel {
         gbc.fill = GridBagConstraints.BOTH;
         add(lbNombre, gbc);
 
-        tfNombre = new JTextField(15);
+        tfNombre = new JTextField();
         tfNombre.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
-                new EmptyBorder(5, 5, 0, 5)
+                new EmptyBorder(5, 5, 5, 5)
         ));
-        gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 10, 5);
+        gbc.insets = new Insets(0, 0, 10, 0);
         add(tfNombre, gbc);
 
         lbEmail = new JLabel("Email");
-        gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 0, 5);
+        gbc.insets = new Insets(5, 0, 0, 0);
         add(lbEmail, gbc);
 
-        tfEmail = new JTextField(15);
+        tfEmail = new JTextField();
         tfEmail.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY),
                 new EmptyBorder(5, 5, 5, 5)
@@ -57,14 +52,14 @@ public class FormularioRegistro extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 10, 5);
+        gbc.insets = new Insets(0, 0, 10, 0);
         add(tfEmail, gbc);
 
         lbContrasena = new JLabel("Contraseña");
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 0, 5);
+        gbc.insets = new Insets(5, 0, 0, 0);
         add(lbContrasena, gbc);
 
         tfContrasena = new JPasswordField(15);
@@ -75,30 +70,22 @@ public class FormularioRegistro extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 10, 5);
+        gbc.insets = new Insets(0, 0, 10, 0);
         add(tfContrasena, gbc);
 
-
-
         btRegistrar = new BotonBoajp("Registrase", new Color(0, 175, 0), new Color(0, 155, 0), new Color(0, 155, 0));;
-        btRegistrar.setForeground(Color.WHITE);
-        btRegistrar.setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16));
-        btRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gbc.gridx = 0;
         gbc.gridy = 6;
         gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(5, 0, 0, 0);
         add(btRegistrar, gbc);
 
-        btCancelar = new BotonBoajp("¿Ya tienes una cuenta?", new Color(24, 119, 242), new Color(0, 100, 255),new Color(0, 100, 255));
+        btCancelar = new BotonBoajp("¿Ya tienes una cuenta?", null, null, null);
 
-        btCancelar.setBackground(null);
-        btCancelar.setOpaque(false);
-        btCancelar.setFocusPainted(false);
-        btCancelar.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        btCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gbc.gridx = 0;
         gbc.gridy = 7;
         gbc.anchor = GridBagConstraints.CENTER;
+
         add(btCancelar, gbc);
 
 

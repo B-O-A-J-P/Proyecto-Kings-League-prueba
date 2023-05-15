@@ -33,8 +33,8 @@ public class Formulario extends JPanel {
             setVisibleIniciarSesion();
         });
         add(formularioRegistro);
-        revalidate(); // Revalidate the container
-        repaint(); // Repaint the container
+        revalidate();
+        repaint();
     }
 
     public FormularioIniciarSesion getFormularioIniciarSesion() {
@@ -56,9 +56,7 @@ public class Formulario extends JPanel {
     public Color getColorDeFondo() {
         return colorDeFondo;
     }
-}
 
-class Test {
     public static void main(String... args) {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());

@@ -2,6 +2,8 @@ package com.boajp.vista.carta;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
 abstract public class CartaAbstracta extends JPanel {
@@ -15,12 +17,11 @@ abstract public class CartaAbstracta extends JPanel {
         this.colorPorDefecto = colorPorDefecto;
         this.colorHover = colorHover;
         setBackground(null);
-
+        setOpaque(false);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g); // Call super method to paint the components
         Graphics2D graphics2D = (Graphics2D) g;
         graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -30,13 +31,13 @@ abstract public class CartaAbstracta extends JPanel {
         int lbAnchura = getWidth();
         int lbAltura = getHeight();
 
-        int anchuraDeArco = (int) (getWidth() * 0.05) + 5;
-        int alturaDeArco = (int) (getWidth() * 0.05) + 5;
-        Color colorDeFondo = estaHovered ? colorHover : colorPorDefecto;
+        int anchuraDeArco = (int) (lbAnchura * 0.05) + 5;
+        int alturaDeArco = (int) (lbAnchura * 0.05) + 5;
 
+        Color colorDeFondo = estaHovered ? colorHover : colorPorDefecto;
         graphics2D.setColor(colorDeFondo);
+
         graphics2D.fillRoundRect(coordenadaX, coordenadaY, lbAnchura, lbAltura, anchuraDeArco, alturaDeArco);
-        setOpaque(false);
     }
 
 
