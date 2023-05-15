@@ -1,18 +1,19 @@
 package com.boajp.vista.carta;
 
 import com.boajp.modelo.JugadorEntidad;
+import com.boajp.modelo.Persona;
 import com.boajp.utilidades.EstilosDeVistas;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class CartaJugador extends CartaAbstracta{
+public class CartaMiembro extends CartaAbstracta{
     private int anchura = 300;
     private int altura = 400;
     private Dimension dimension = new Dimension(anchura, altura);
     private Insets insets = new Insets(10, 10, 10, 10);
 
-    public CartaJugador(JugadorEntidad jugador) {
+    public CartaMiembro(Persona persona) {
         super(EstilosDeVistas.COLOR_DE_CARTA_JUGADOR, Color.GRAY);
         setPreferredSize(dimension);
         setMinimumSize(dimension);
@@ -23,9 +24,9 @@ public class CartaJugador extends CartaAbstracta{
         GridBagConstraints constraintsImagen = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
         GridBagConstraints constraintsCaracteristicas = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, insets, 0, 0);
 
-        Image image = new ImageIcon(CartaJugador.class.getResource("/imagenes/perfil.png")).getImage();
+        Image image = new ImageIcon(com.boajp.vista.CartaMiembro.class.getResource("/imagenes/perfil.png")).getImage();
 
-        add(new JLabel(jugador.getNombre() + " " + jugador.getApellido(), JLabel.CENTER), constraintsTitulo);
+        add(new JLabel(persona.getNombre() + " " + persona.getApellido(), JLabel.CENTER), constraintsTitulo);
         add(new JLabel(new ImageIcon(image), JLabel.CENTER), constraintsImagen);
         add(new JLabel("Características", JLabel.CENTER), constraintsCaracteristicas);
     }
@@ -46,7 +47,7 @@ public class CartaJugador extends CartaAbstracta{
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame();
             frame.setLayout(new FlowLayout());
-            frame.add(new CartaJugador(jugador));
+            frame.add(new CartaMiembro(jugador));
 
             frame.setSize(500, 500);
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

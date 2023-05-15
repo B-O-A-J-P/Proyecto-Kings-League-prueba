@@ -1,5 +1,6 @@
 package com.boajp.vista;
 
+import com.boajp.modelo.JugadorEntidad;
 import com.boajp.utilidades.EstilosDeVistas;
 import com.boajp.vista.carta.*;
 import com.boajp.vista.formulario.Formulario;
@@ -58,6 +59,16 @@ public class Ventana extends JFrame {
         panelCuerpo.repaint();
     }
 
+    public void mostrarPanelDeJugadores(ArrayList<JugadorEntidad> jugadores) {
+        panelCuerpo.removeAll();
+        PanelJugadores panelJugadores = new PanelJugadores(jugadores, scrollPane);
+        panelCuerpo.add(panelJugadores, CUERPO);
+        if (!this.isVisible())
+            setVisible(true);
+        panelCuerpo.revalidate();
+        panelCuerpo.repaint();
+    }
+
     public BarraDeNavegacion getBarraDeNavegacion() {
         return barraDeNavegacion;
     }
@@ -93,13 +104,23 @@ public class Ventana extends JFrame {
         cartas.add(clasificacion);
 
 
+        ArrayList<JugadorEntidad> jugadores = new ArrayList<>();
+        for (int x = 0; x < 100; x++) {
+            JugadorEntidad jugadorEntidad = new JugadorEntidad();
+            jugadorEntidad.setNombre("Nombre" + x);
+            jugadorEntidad.setApellido("Apellido" + x);
+            jugadores.add(jugadorEntidad);
+        }
+
+
         ArrayList<CartaAbstracta> cartasEquipos = new ArrayList<>();
         for (int x = 1; x <= 12; ++x) {
             cartasEquipos.add(new EquipoCarta("Equipo uno dos tres", Color.LIGHT_GRAY, Color.GRAY));
         }
         Ventana ventana = new Ventana();
-        ventana.mostrarPanelDeInicio(cartas, cartasEquipos);
+        //ventana.mostrarPanelDeInicio(cartas, cartasEquipos);
         //ventana.mostrarFormulario();
+        ventana.mostrarPanelDeJugadores(jugadores);
     }
 }
 
