@@ -74,7 +74,20 @@ public class RegistroEquipoRespositorio {
         return equipos_participantes;
 
     }
+
+    public List<RegistroEquipoEntidad> buscarEquiposParticipantesUltimaTemporada() throws Exception {
+        try {
+            String query = "SELECT re FROM RegistroEquipoEntidad re WHERE re.temporada.codTemporada = (SELECT MAX(m.temporada.codTemporada) FROM RegistroEquipoEntidad m)";
+            TypedQuery<RegistroEquipoEntidad> resultado = em.createQuery(query, RegistroEquipoEntidad.class);
+            return resultado.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer RegistroEquipoEntidad.", exception);
+        }
     }
+
+}
 
 
 

@@ -7,13 +7,13 @@ import com.boajp.utilidades.EstilosDeVistas;
 import javax.swing.*;
 import java.awt.*;
 
-public class CartaMiembro extends CartaAbstracta{
+public class MiembroCarta extends CartaAbstracta{
     private int anchura = 300;
     private int altura = 400;
     private Dimension dimension = new Dimension(anchura, altura);
     private Insets insets = new Insets(10, 10, 10, 10);
 
-    public CartaMiembro(Persona persona) {
+    public MiembroCarta(Persona persona) {
         super(EstilosDeVistas.COLOR_DE_CARTA_JUGADOR, Color.GRAY);
         setPreferredSize(dimension);
         setMinimumSize(dimension);
@@ -47,7 +47,7 @@ public class CartaMiembro extends CartaAbstracta{
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame();
             frame.setLayout(new FlowLayout());
-            frame.add(new CartaMiembro(jugador));
+            frame.add(new MiembroCarta(jugador));
 
             frame.setSize(500, 500);
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

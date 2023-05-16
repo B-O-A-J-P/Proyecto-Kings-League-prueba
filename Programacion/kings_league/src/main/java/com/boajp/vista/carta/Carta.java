@@ -1,33 +1,48 @@
 package com.boajp.vista.carta;
 
+import com.boajp.modelo.JornadaEntidad;
+import com.boajp.modelo.PartidoEntidad;
+import com.boajp.utilidades.EstilosDeVistas;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
-public class Carta extends CartaAbstracta {
-    private final JPanel CABECERA;
-    private final JPanel CUERPO;
-    private final Color COLOR_DE_FONDO = new Color(0, 0, 0, 0);
-    public int anchura = 400;
-    public int altura = 400;
-    public Carta(CabeceraAbstracta cabecera, CuerpoAbstracto cuerpo) {
+public class JornadaCarta extends CartaAbstracta {
+    private JLabel cabecera;
+    private JPanel cuerpo;
+    private int anchura = 400;
+    private int altura = 400;
+    private GridBagConstraints constraintCabecera = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(10, 0, 0, 0), 0, 0);
+    private GridBagConstraints constraintCuerpo = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 20, 20, 20), 0, 0);
+    private JornadaEntidad jornada;
+    private List<PartidoEntidad> partidos;
+
+
+    public JornadaCarta(JornadaEntidad jornada, List<PartidoEntidad> partidos) {
+        setLayout(new GridBagLayout());
+        this.jornada = jornada;
+        this.partidos = partidos;
+
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, altura));
-        setLayout(new GridBagLayout());
 
-        GridBagConstraints constraintsCabecera = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(10, 0, 0, 0), 0, 0);
-        GridBagConstraints constraintsCuerpo = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 20, 20, 20), 0, 0);
+        cabecera = new JLabel("<html> Jornada " + jornada.getNumero() + "<p>" + jornada.getFecha() + "</p></html>", JLabel.CENTER);
 
-        this.CABECERA = cabecera;
-        cabecera.setBackground(null);
-        cabecera.setOpaque(false);
-        this.CUERPO = cuerpo;
-        cuerpo.setBackground(null);
-        cuerpo.setBackground(null);
-        cuerpo.setOpaque(false);
 
-        add(cabecera, constraintsCabecera);
-        add(cuerpo, constraintsCuerpo);
+        add(cabecera, constraintCabecera);
+    }
+
+    public void crearCuerpo() {
+        cuerpo = new JPanel(new GridLayout(partidos.size(), 3));
+        cuerpo.setBackground(super.getColorPorDefecto());
+        for ( PartidoEntidad partido : partidos ) {
+            cuerpo.add(new JLabel(partido.getEquipoUno().getNombre(), JLabel.CENTER));
+            cuerpo.add(new JLabel("vs", JLabel.CENTER));
+            cuerpo.add(new JLabel(partido.getEquipoDos().getNombre(), JLabel.CENTER));
+        }
+        this.add(cuerpo, constraintCuerpo);
     }
 
     @Override
@@ -40,23 +55,4 @@ public class Carta extends CartaAbstracta {
         return altura;
     }
 
-    public static void main(String... args){
-        JFrame frame = new JFrame();
-
-        frame.setLayout(new FlowLayout());
-        Cabecera cabecera = new Cabecera("Jornada 3", "23 de Febrero de 2023");
-        JLabel[][] list = new JLabel[6][3];
-        for (int x = 0; x < list.length; x++) {
-            list[x] = new JLabel[]{new JLabel("Equipo uno"), new JLabel("vs"), new JLabel("Equipod dos")};
-
-        }
-
-        Carta carta = new Carta(cabecera, new CalendarioTabla(list));
-        frame.add(carta);
-
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
 }

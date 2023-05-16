@@ -17,7 +17,7 @@ public class JugadorEntidad extends Persona{
     private String pie;
     @Basic
     @Column(name = "ALTURA")
-    private Byte altura;
+    private Integer altura;
     @OneToMany(mappedBy = "jugador")
     private Collection<ContratoEquipoJugadorEntidad> contratos;
     @ManyToOne
@@ -30,7 +30,7 @@ public class JugadorEntidad extends Persona{
     public JugadorEntidad() {
     }
 
-    public JugadorEntidad(String nombre, String apellido, String dni, String pie, Byte altura) {
+    public JugadorEntidad(String nombre, String apellido, String dni, String pie, Integer altura) {
         super(nombre, apellido, dni);
         this.pie = pie;
         this.altura = altura;
@@ -51,11 +51,11 @@ public class JugadorEntidad extends Persona{
         this.pie = pie;
     }
 
-    public Byte getAltura() {
+    public Integer getAltura() {
         return altura;
     }
 
-    public void setAltura(Byte altura) {
+    public void setAltura(Integer altura) {
         this.altura = altura;
     }
 

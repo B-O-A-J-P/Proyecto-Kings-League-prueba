@@ -4,7 +4,7 @@ import com.boajp.modelo.EquipoEntidad;
 import com.boajp.modelo.Persona;
 import com.boajp.utilidades.EstilosDeVistas;
 import com.boajp.vista.carta.*;
-import com.boajp.vista.carta.CartaMiembro;
+import com.boajp.vista.carta.MiembroCarta;
 import com.boajp.vista.componentes.*;
 
 import javax.swing.*;
@@ -72,7 +72,7 @@ public class PanelEquipos extends JPanel {
     public void generarMiembrosDummy(){
         cartasMiembros = new ArrayList<>();
         for (int x = 0; x < 10; x++){
-            cartasMiembros.add(new CartaMiembro(new Persona("Nombre " + x, "Apellido " + x, ""+x)));
+            cartasMiembros.add(new MiembroCarta(new Persona("Nombre " + x, "Apellido " + x, ""+x)));
         }
     }
 

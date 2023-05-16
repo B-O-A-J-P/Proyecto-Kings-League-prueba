@@ -2,9 +2,6 @@ package com.boajp.vista.carta;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.RoundRectangle2D;
 
 abstract public class CartaAbstracta extends JPanel {
     private Color colorPorDefecto = Color.GRAY;

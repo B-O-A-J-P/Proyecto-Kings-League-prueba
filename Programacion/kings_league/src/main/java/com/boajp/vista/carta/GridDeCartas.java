@@ -6,12 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.util.ArrayList;
+import java.util.List;
 
 public class GridDeCartas extends JPanel {
-    private final ArrayList<CartaAbstracta> CARTAS;
+    private final List<CartaAbstracta> CARTAS;
 
-    public GridDeCartas(ArrayList<CartaAbstracta> cartas, JScrollPane scrollPane) {
+    public GridDeCartas(List<CartaAbstracta> cartas, JScrollPane scrollPane) {
         CARTAS = cartas;
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
 

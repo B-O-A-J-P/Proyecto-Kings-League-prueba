@@ -7,18 +7,18 @@ import jakarta.persistence.*;
 public class DraftEntidad {
     @Basic
     @Column(name = "POSICION")
-    private byte posicion;
+    private int posicion;
 
     @OneToOne
     @Id
     @JoinColumns({@JoinColumn(name = "COD_TEMPORADA", referencedColumnName = "COD_TEMPORADA", nullable = false), @JoinColumn(name = "COD_JUGADOR", referencedColumnName = "COD_JUGADOR", nullable = false)})
     private RegistroJugadorEntidad registroJugador;
 
-    public byte getPosicion() {
+    public int getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(byte posicion) {
+    public void setPosicion(int posicion) {
         this.posicion = posicion;
     }
 

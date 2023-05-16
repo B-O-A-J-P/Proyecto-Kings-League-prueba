@@ -1,10 +1,8 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.ClasificacionEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
+
 import java.util.List;
 
 public class ClasificacionRepositorio {
@@ -70,4 +68,19 @@ public class ClasificacionRepositorio {
     public ClasificacionEntidad seleccionarClasificacionPorId(int id) {
         return em.find(ClasificacionEntidad.class, id);
     }
+
+
+    public List<ClasificacionEntidad> buscarUltimaClasificacion() throws Exception {
+        try {
+            String query = "SELECT c FROM ClasificacionEntidad c WHERE c.split.codSplit = (SELECT MAX(ce.split.codSplit) FROM ClasificacionEntidad ce)";
+            TypedQuery<ClasificacionEntidad> resultado = em.createQuery(query, ClasificacionEntidad.class);
+            return resultado.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer clasificaciones.", exception);
+        }
+    }
+
+
 }
