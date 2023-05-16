@@ -13,6 +13,10 @@ public class MiembroCarta extends CartaAbstracta{
     private Dimension dimension = new Dimension(anchura, altura);
     private Insets insets = new Insets(10, 10, 10, 10);
 
+<<<<<<< Updated upstream:Programacion/kings_league/src/main/java/com/boajp/vista/carta/CartaMiembro.java
+=======
+
+>>>>>>> Stashed changes:Programacion/kings_league/src/main/java/com/boajp/vista/carta/MiembroCarta.java
     public MiembroCarta(Persona persona) {
         super(EstilosDeVistas.COLOR_DE_CARTA_JUGADOR, Color.GRAY);
         setPreferredSize(dimension);
