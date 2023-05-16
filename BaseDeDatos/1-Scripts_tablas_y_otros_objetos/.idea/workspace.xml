@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="950eaed1-5ba7-4259-b55f-597f97e90b3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../dummy-inserts-clasificaiones.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dummy-inserts.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/controladores/PanelDeInicioControlador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/controladores/VentanaControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/kings_league.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/kings_league.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/PanelDeInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/PanelDeInicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/Ventana.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/Ventana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/Cabecera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/CabeceraAbstracta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/JornadaCarta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/CartaAbstracta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/CartaAbstracta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/CartaMiembro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/CartaMiembro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/ClasificacionTabla.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/ClasificacionTabla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/EquipoCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/EquipoCarta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/GridDeCartas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/src/main/java/com/boajp/vista/carta/GridDeCartas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/PanelEquipos.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/PanelEquipos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/CartaAbstracta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/CartaAbstracta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/CartaMiembro.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/CartaMiembro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/EquipoCarta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/GridDeCartas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/GridDeCartas$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/GridDeCartas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/boajp/vista/carta/GridDeCartas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/kings_league/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2Psaz1XoHg1bIP2d54VF5Vjcz75" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/theonblack/Documents/git-kraken-repositories/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="950eaed1-5ba7-4259-b55f-597f97e90b3f" name="Changes" comment="" />
+      <created>1684248501673</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684248501673</updated>
+      <workItem from="1684248503216" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

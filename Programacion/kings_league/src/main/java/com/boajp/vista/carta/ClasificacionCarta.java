@@ -35,26 +35,4 @@ public class ClasificacionTabla extends CuerpoAbstracto {
         }
     }
 
-
-    public static void main(String... args){
-        JFrame frame = new JFrame();
-        frame.setLayout(new FlowLayout());
-
-        Cabecera cabecera = new Cabecera("Clasificación");
-        String[] columnas = new String[3];
-        Object[][] filas = new Object[2][3];
-        for(int x = 0; x < filas.length; x++) {
-            filas[x] = new Object[]{x+1, "Equipo " + x, x+10};
-        }
-        ClasificacionTabla clasificacionTabla = new ClasificacionTabla(filas, columnas);
-        Carta carta = new Carta(cabecera, clasificacionTabla);
-        frame.add(carta);
-
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-
 }
