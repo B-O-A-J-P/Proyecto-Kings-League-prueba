@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+import com.boajp.controladores.VerificadorDeDatos;
 import com.boajp.utilidades.EstilosDeVistas;
 import com.boajp.vista.componentes.BotonBoajp;
 import org.apache.batik.swing.JSVGCanvas;
@@ -57,6 +58,7 @@ public class FormularioIniciarSesion extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(0, 0, 0, 0);
         add(new PanelImagen(), gbc);
+
 
         // Etiqueta usuario
         gbc.gridx = 1;
@@ -117,6 +119,12 @@ public class FormularioIniciarSesion extends JPanel {
 
     }
 
+    public boolean verificarDatos() throws Exception{
+        VerificadorDeDatos.verificarUsuario(tfUsuario.getText());
+        VerificadorDeDatos.verificarContrasena(tfContrasena.getPassword());
+        return true;
+    }
+
     public JTextField getTfUsuario() {
         return tfUsuario;
     }
@@ -164,15 +172,4 @@ public class FormularioIniciarSesion extends JPanel {
         }
     }
 
-    public static void main(String... args) {
-        JFrame frame = new JFrame();
-        frame.setLayout(new BorderLayout());
-        frame.add(new FormularioPanel());
-        frame.setBackground(Color.BLUE);
-
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
 }

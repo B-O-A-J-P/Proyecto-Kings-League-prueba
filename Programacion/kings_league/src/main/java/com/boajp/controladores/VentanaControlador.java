@@ -24,6 +24,11 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
 
+    public static void mostrarPanelDeAjustes() {
+        PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
+        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste());
+    }
+
     public Ventana getVENTANA() {
         return VENTANA;
     }
