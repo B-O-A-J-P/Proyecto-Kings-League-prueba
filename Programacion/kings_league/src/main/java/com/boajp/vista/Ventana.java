@@ -49,6 +49,9 @@ public class Ventana extends JFrame {
         barraDeNavegacion.getIniciarSesion().addActionListener(e -> {
             controlador.mostrarPanelDeFormulario();
         });
+        barraDeNavegacion.getCalendarioboton().addActionListener(e -> {
+            controlador.mostrarPanelCalendario();
+        });
     }
 
     public void setContenidoPrincipal(JPanel panel) {

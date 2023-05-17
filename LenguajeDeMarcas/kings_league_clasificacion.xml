@@ -1,96 +1,93 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE temporada SYSTEM "kings_league_clasificacion.dtd">
-<temporada id ="a1" xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
-    xs:noNamespaceSchemaLocation = "kings_league_clasificacion.xsd">
-<split id="b1">
-<clasificacion>
-<fecha_fin></fecha_fin>
+<temporada id="a1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation="kings_league_clasificacion.xsd">
+  <split id="b1">
+    <clasificacion>
+      <fecha_fin>2023-02-12</fecha_fin>
+      <equipo id="eq1">
+        <nombre>Equipo 1</nombre>
+        <logo>logo1.png</logo>
+        <puntos>10</puntos>
+        <suma_goles>25</suma_goles>
+      </equipo>
 
-<equipo id="eq1">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq2">
+        <nombre>Equipo 2</nombre>
+        <logo>logo2.png</logo>
+        <puntos>8</puntos>
+        <suma_goles>20</suma_goles>
+      </equipo>
 
-<equipo id="eq2">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq3">
+        <nombre>Equipo 3</nombre>
+        <logo>logo3.png</logo>
+        <puntos>6</puntos>
+        <suma_goles>18</suma_goles>
+      </equipo>
 
-<equipo id="eq3">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq4">
+        <nombre>Equipo 4</nombre>
+        <logo>logo4.png</logo>
+        <puntos>4</puntos>
+        <suma_goles>14</suma_goles>
+      </equipo>
 
-<equipo id="eq4">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq5">
+        <nombre>Equipo 5</nombre>
+        <logo>logo5.png</logo>
+        <puntos>2</puntos>
+        <suma_goles>10</suma_goles>
+      </equipo>
 
-<equipo id="eq5">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq6">
+        <nombre>Equipo 6</nombre>
+        <logo>logo6.png</logo>
+        <puntos>1</puntos>
+        <suma_goles>8</suma_goles>
+      </equipo>
 
-<equipo id="eq6">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq7">
+        <nombre>Equipo 7</nombre>
+        <logo>logo7.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>5</suma_goles>
+      </equipo>
 
-<equipo id="eq7">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq8">
+        <nombre>Equipo 8</nombre>
+        <logo>logo8.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>4</suma_goles>
+      </equipo>
 
-<equipo id="eq8">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq9">
+        <nombre>Equipo 9</nombre>
+        <logo>logo9.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>3</suma_goles>
+      </equipo>
 
-<equipo id="eq9">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq10">
+        <nombre>Equipo 10</nombre>
+        <logo>logo10.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>2</suma_goles>
+      </equipo>
 
-<equipo id="eq10">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
+      <equipo id="eq11">
+        <nombre>Equipo 11</nombre>
+        <logo>logo11.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>1</suma_goles>
+      </equipo>
 
-<equipo id="eq11">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
-
-<equipo id="eq12">
-<nombre></nombre>
-<logo></logo>
-<puntos></puntos>
-<suma_goles></suma_goles>
-</equipo>
-
-
-</clasificacion>
-</split>
+      <equipo id="eq12">
+        <nombre>Equipo 12</nombre>
+        <logo>logo12.png</logo>
+        <puntos>0</puntos>
+        <suma_goles>0</suma_goles>
+      </equipo>
+    </clasificacion>
+  </split>
 </temporada>

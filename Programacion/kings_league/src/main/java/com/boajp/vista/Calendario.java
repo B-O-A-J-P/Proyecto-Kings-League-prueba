@@ -45,7 +45,7 @@ public class Calendario {
                 NodeList jornadaList = splitElement.getElementsByTagName("jornada");
 
 
-            Color azul = new Color(36,147,187);
+            Color azul = new Color(0, 0, 0);
 
 
 
@@ -96,33 +96,22 @@ public class Calendario {
 
                 //ocultar cabecera de la tabla
                     tabla.setTableHeader(null);
+                tabla.setSize(2000,2000);
 
-
-                // Agregar el JTable al JPanel
+                tabla.setBackground(Color.gray);
                 pCalendario.add(label);
                 pCalendario.add(tabla);
 
             }
-
-            // Crear un JFrame y agregar el JPanel
-            JFrame frame = new JFrame("Calendario");
-            frame.add(pCalendario);
-            frame.pack();
-            frame.setVisible(true);
-
-        // Agregar un JScrollPane al JFrame para que tenga scroll
-            JScrollPane scrollPane = new JScrollPane(pCalendario);
-            frame.add(scrollPane);
-
-
-
-        // Mostrar el JFrame
-            frame.setVisible(true);
         }
 
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public JPanel getpCalendario() {
+        return pCalendario;
     }
 
     public static void main(String[] args){

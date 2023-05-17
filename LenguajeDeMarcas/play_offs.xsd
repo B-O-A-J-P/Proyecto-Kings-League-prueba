@@ -6,12 +6,15 @@
       <xs:sequence>
         <xs:element name="split" type="Tiposplit" minOccurs="2" maxOccurs="2"/>
       </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     
     <xs:complexType name="Tiposplit">
       <xs:sequence>
         <xs:element name="playoffs" type="Tipoplayoffs" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+
     </xs:complexType>
     
     <xs:complexType name="Tipoplayoffs">
@@ -27,6 +30,8 @@
         <xs:element name="ubicacion" type="xs:string"/>
         <xs:element name="fase" type="xs:string"/>
       </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+
     </xs:complexType>
     
     
@@ -37,6 +42,7 @@
         <xs:element name="numero_goles" type="xs:integer"/>
         <xs:element name="resultado" type="Tiporesultado"/>
       </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     
     
