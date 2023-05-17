@@ -21,9 +21,12 @@ CREATE TABLE permisos(
 CREATE TABLE CUENTAS (
     cod_cuenta number(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
     cod_perfil NUMBER(5, 0),
-    usuario varchar2(50),
-    contrasena varchar2(50),
-    email varchar2(60),
+    usuario varchar2(50) NOT NULL,
+    contrasena varchar2(50) NOT NULL,
+    email varchar2(60) NOT NULL,
     CONSTRAINT cue_cue_pk PRIMARY KEY(cod_cuenta),
-    CONSTRAINT cod_perfil FOREIGN KEY(cod_perfil) REFERENCES permisos
+    CONSTRAINT cod_perfil FOREIGN KEY(cod_perfil) REFERENCES permisos,
+    CONSTRAINT cue_usu_uq UNIQUE (usuario),
+    CONSTRAINT cue_con_uq UNIQUE (contrasena),
+    CONSTRAINT cue_ema_uq UNIQUE (email)
 );
