@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "CUENTAS", schema = "HR")
-public class CuentasEntity {
+public class CuentaEntidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_CUENTA")
@@ -18,16 +18,19 @@ public class CuentasEntity {
     @Basic
     @Column(name = "EMAIL")
     private String email;
-    @ManyToOne
-    @JoinColumn(name = "COD_PERFIL", referencedColumnName = "COD_PERFIL")
-    private PermisosEntity permisosByCodPerfil;
 
-    public int getCodCuenta() {
-        return codCuenta;
+    @Basic
+    @Column(name = "cod_perfil")
+    private int codDePermisos;
+
+    public CuentaEntidad() {
     }
 
-    public void setCodCuenta(int codCuenta) {
-        this.codCuenta = codCuenta;
+    public CuentaEntidad(String usuario, String contrasena, String email, int codDePermisos) {
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.email = email;
+        this.codDePermisos = codDePermisos;
     }
 
     public String getUsuario() {
@@ -59,7 +62,7 @@ public class CuentasEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CuentasEntity that = (CuentasEntity) o;
+        CuentaEntidad that = (CuentaEntidad) o;
 
         if (codCuenta != that.codCuenta) return false;
         if (usuario != null ? !usuario.equals(that.usuario) : that.usuario != null) return false;
@@ -78,11 +81,19 @@ public class CuentasEntity {
         return result;
     }
 
-    public PermisosEntity getPermisosByCodPerfil() {
-        return permisosByCodPerfil;
+    public int getCodCuenta() {
+        return codCuenta;
     }
 
-    public void setPermisosByCodPerfil(PermisosEntity permisosByCodPerfil) {
-        this.permisosByCodPerfil = permisosByCodPerfil;
+    public void setCodCuenta(int codCuenta) {
+        this.codCuenta = codCuenta;
+    }
+
+    public int getCodDePermisos() {
+        return codDePermisos;
+    }
+
+    public void setCodDePermisos(int codDePermisos) {
+        this.codDePermisos = codDePermisos;
     }
 }
