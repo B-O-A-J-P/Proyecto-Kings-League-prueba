@@ -18,7 +18,7 @@ drop trigger triger_jornadas_fec;
 --------------------------------------------------------------------------------
 
 create or replace trigger min_equipos
-before insert on splits
+before insert or update on splits
 declare
     v_numero_equipos number;
 begin
@@ -35,7 +35,7 @@ end;
 --------------------------------------------------------------------------------
 
 create or replace trigger min_jugadores
-before insert on registros_equipos
+before insert or update on registros_equipos
 for each row
 declare
     v_numero_jugadores number;
@@ -56,7 +56,7 @@ end;
 --------------------------------------------------------------------------------
 
 create or replace trigger max_jugadores_draft
-before insert on contratos_equipo_jugador
+before insert or update on contratos_equipo_jugador
 for each row
 declare
     v_numero_jugadores number;
@@ -85,7 +85,7 @@ end max_jugadores_draft;
 --------------------------------------------------------------------------------
 
 create or replace trigger max_jugadores_wild_card
-before insert on contratos_equipo_jugador
+before insert or update on contratos_equipo_jugador
 for each row
 declare
     v_numero_jugadores number;

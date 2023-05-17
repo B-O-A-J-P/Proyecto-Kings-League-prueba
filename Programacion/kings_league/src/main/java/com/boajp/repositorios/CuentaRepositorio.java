@@ -1,29 +1,41 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.CuentaEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 
 public class CuentaRepositorio {
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
+    private final EntityManagerFactory entityManagerFactory;
+    private final EntityManager entityManager;
+    private EntityTransaction transaction;
 
     public CuentaRepositorio() {
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
+        entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        entityManager = entityManagerFactory.createEntityManager();
     }
 
     public void insertar(CuentaEntidad cuenta) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(cuenta);
+            entityManager.persist(cuenta);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         }
     }
+
+    public CuentaEntidad buscarCuenta(String usuario) throws Exception {
+        try {
+            String sql = "SELECT c FROM CuentaEntidad c WHERE c.usuario = ?";
+            TypedQuery<CuentaEntidad> resultado = entityManager.createQuery(sql, CuentaEntidad.class);
+            resultado.setParameter(1, usuario);
+            return resultado.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer cuentas", exception);
+        }
+    }
+
 }

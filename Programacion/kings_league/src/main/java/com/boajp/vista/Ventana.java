@@ -13,9 +13,8 @@ public class Ventana extends JFrame {
     private final BarraDeNavegacion barraDeNavegacion;
     private final JScrollPane scrollPane;
     private final JPanel panelCuerpo;
-    private final VentanaControlador controlador;
 
-    public Ventana(VentanaControlador controlador) {
+    public Ventana() {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new BorderLayout(0, 0));
         setSize(new Dimension(1280, 720));
@@ -36,18 +35,17 @@ public class Ventana extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        this.controlador = controlador;
 
         barraDeNavegacion.getInicio().addActionListener(e-> {
-            controlador.mostrarPanelDeInicio();
+            VentanaControlador.mostrarPanelDeInicio();
         });
 
         barraDeNavegacion.getJugadoresBoton().addActionListener(e-> {
-            controlador.mostrarPanelDeJugadores();
+            VentanaControlador.mostrarPanelDeJugadores();
         });
 
         barraDeNavegacion.getIniciarSesion().addActionListener(e -> {
-            controlador.mostrarPanelDeFormulario();
+            VentanaControlador.mostrarPanelDeFormulario();
         });
         barraDeNavegacion.getCalendarioboton().addActionListener(e -> {
             controlador.mostrarPanelCalendario();

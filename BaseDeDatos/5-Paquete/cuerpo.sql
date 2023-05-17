@@ -224,6 +224,50 @@ EXCEPTION
     then    
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
+
+--------------------------------------------------------------------------------
+
+PROCEDURE calcularClasificacion
+    (p_cod_split splits.cod_split%type)
+AS
+    TYPE record_equipo IS RECORD(
+        cod_equipo equipos.cod_equipo%TYPE,
+        victorias NUMBER
+    );
+    
+    TYPE tabla_equipos IS TABLE OF record_equipo INDEX BY PLS_INTEGER;
+    
+    CURSOR resultados IS
+        SELECT cod_equipo
+        FROM informacion_partidos ip, partidos p, jornadas j
+        WHERE resultado = 'v' 
+        AND ip.cod_partido = p.cod_partido
+        AND p.cod_jornada = j.cod_jornada
+        AND j.cod_split = p_cod_split
+        GROUP BY cod_equipo ORDER BY COUNT(resultado) DESC;
+        
+    v_tabla_equipos tabla_equipos;
+    v_equipo record_equipo;
+BEGIN
+    OPEN resultados;
+    
+    LOOP
+        FETCH resultados INTO v_equipo.cod_equipo;
+        EXIT WHEN resultados%NOTFOUND;
+        
+        v_tabla_equipos(v_tabla_equipos.COUNT + 1) := v_equipo;
+        
+        DBMS_OUTPUT.PUT_LINE(v_equipo.cod_equipo);
+    END LOOP;
+    
+    CLOSE resultados;
+    
+    FOR i IN v_tabla_equipos.FIRST .. v_tabla_equipos.LAST LOOP
+        insert into clasificaciones values(p_cod_split, v_tabla_equipos(i).cod_equipo, i);
+    END LOOP;
+    
+END calcularClasificacion;
+
 --------------------------------------------------------------------------------
 procedure habilitar_desabilitar_trigger
 (p_op in varchar2) as

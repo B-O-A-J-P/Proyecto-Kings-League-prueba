@@ -1,2 +1,6 @@
 
 Programacion/kings_league/.idea/
+
+Programacion/kings_league/target/
+
+*.class
