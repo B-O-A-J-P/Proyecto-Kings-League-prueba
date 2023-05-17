@@ -108,10 +108,10 @@ public class BotonCircular extends JButton {
         g2d.setColor(borderColor);
         g2d.setStroke(new BasicStroke(borderWidth));
 
-        int x = borderWidth / 2;
-        int y = borderWidth / 2;
-        int width = getWidth() - borderWidth;
-        int height = getHeight() - borderWidth;
+        int x = 0;
+        int y = 0;
+        int width = getWidth() - borderWidth -1;
+        int height = getHeight() - borderWidth -1;
 
         Shape roundedRect = new RoundRectangle2D.Double(x, y, width, height, dimension, dimension);
         g2d.draw(roundedRect);

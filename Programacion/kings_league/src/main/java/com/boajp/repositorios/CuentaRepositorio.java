@@ -1,5 +1,6 @@
 package com.boajp.repositorios;
 
+import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
 import com.boajp.modelo.CuentaEntidad;
 import jakarta.persistence.*;
 
@@ -27,15 +28,16 @@ public class CuentaRepositorio {
 
     public CuentaEntidad buscarCuenta(String usuario) throws Exception {
         try {
-            String sql = "SELECT c FROM CuentaEntidad c WHERE c.usuario = ?";
+            String sql = "SELECT c FROM CuentaEntidad c WHERE c.usuario = :usuario";
             TypedQuery<CuentaEntidad> resultado = entityManager.createQuery(sql, CuentaEntidad.class);
-            resultado.setParameter(1, usuario);
+            resultado.setParameter("usuario", usuario);
             return resultado.getSingleResult();
         } catch (NoResultException e) {
             return null;
         } catch (Exception exception) {
-            throw new Exception("Error al intentar extraer cuentas", exception);
+            throw new UsuarioNoEncontradoExcepcion();
         }
     }
+
 
 }

@@ -9,37 +9,59 @@ import com.boajp.vista.componentes.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 public class PanelEquipos extends JPanel {
     private JPanel vistaMiembros;
-    private ArrayList<EquipoEntidad> equipoEntidads;
-    private ArrayList<CartaAbstracta> cartasEquipos;
+    private List<CartaAbstracta> cartasEquipos;
     private ArrayList<CartaAbstracta> cartasMiembros;
+    private ArrayList<CartaAbstracta> miembrosDeEquipo;
     private JPanel panelDeMiembros;
     private JScrollPane scrollPane;
     private GridBagConstraints constraintsMiembros = new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
     private GridBagConstraints constraintsEquipos = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-    public PanelEquipos(ArrayList<EquipoEntidad> equipos, JScrollPane scrollPane) {
+    public PanelEquipos(ArrayList<CartaAbstracta> cartasEquipos, ArrayList<CartaAbstracta>cartasMiembros, JScrollPane scrollPane) {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new GridBagLayout());
         this.scrollPane = scrollPane;
-        this.equipoEntidads = equipos;
 
-        iniciarPanelMiembros();
-
-        cartasEquipos = new ArrayList<>();
-        for ( EquipoEntidad equipo : equipos ) {
-            cartasEquipos.add(new EquipoCarta(equipo.getNombre()));
+        for (CartaAbstracta cartaEquipo : cartasEquipos) {
+            cartaEquipo.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    EquipoCarta equipoCarta = (EquipoCarta) e.getSource();
+                    miembrosDeEquipo.clear();
+                    for (CartaAbstracta carta : cartasMiembros) {
+                        if (carta.getCodigoDeCarta() == equipoCarta.getCodigoDeCarta())
+                            miembrosDeEquipo.add(carta);
+                    }
+                    iniciarPanelMiembros(miembrosDeEquipo);
+                }
+            });
         }
 
-        GridDeCartas gridDeEquipos = new GridDeCartas(cartasEquipos, scrollPane);
+        this.cartasEquipos = cartasEquipos;
+        this.cartasMiembros = cartasMiembros;
+        this.miembrosDeEquipo = new ArrayList<>();
+        EquipoCarta equipoCarta = (EquipoCarta) cartasEquipos.get(0);
+        for (CartaAbstracta carta : cartasMiembros) {
+            if (carta.getCodigoDeCarta() == equipoCarta.getCodigoDeCarta())
+                miembrosDeEquipo.add(carta);
+        }
+        iniciarPanelMiembros(this.miembrosDeEquipo);
+        GridDeCartas gridDeEquipos = new GridDeCartas(this.cartasEquipos, scrollPane);
         add(gridDeEquipos, constraintsEquipos);
+
+
     }
 
-    public void iniciarPanelMiembros() {
+    public void iniciarPanelMiembros(ArrayList<CartaAbstracta> cartas) {
         panelDeMiembros = new JPanel(new BorderLayout());
-        generarMiembrosDummy();
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints(0,0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 20, 0, 20) , 0, 0);
 
@@ -47,12 +69,13 @@ public class PanelEquipos extends JPanel {
         panelBotonIzquierdo.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         JButton botonIzquierdo = new BotonCircular("<", 50);
         panelBotonIzquierdo.add(botonIzquierdo, gridBagConstraints);
+
         JPanel panelBotonDerecho = new JPanel(new GridBagLayout());
         panelBotonDerecho.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         JButton botonDerecho = new BotonCircular(">", 50);
         panelBotonDerecho.add(botonDerecho, gridBagConstraints);
 
-        GridDeDraft gridDeDraft = new GridDeDraft(cartasMiembros, scrollPane);
+        GridDeDraft gridDeDraft = new GridDeDraft(cartas, scrollPane);
         gridDeDraft.anadirBotonAnterior(botonIzquierdo);
         gridDeDraft.anadirBotonSiguiente(botonDerecho);
 
@@ -69,13 +92,6 @@ public class PanelEquipos extends JPanel {
         return;
     }
 
-    public void generarMiembrosDummy(){
-        cartasMiembros = new ArrayList<>();
-        for (int x = 0; x < 10; x++){
-            cartasMiembros.add(new MiembroCarta(new Persona("Nombre " + x, "Apellido " + x, ""+x)));
-        }
-    }
-
     public static void main(String... args){
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
@@ -86,7 +102,7 @@ public class PanelEquipos extends JPanel {
         }
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        scrollPane.setViewportView(new PanelEquipos(equipos, scrollPane));
+        //scrollPane.setViewportView(new PanelEquipos(equipos, scrollPane));
         frame.add(scrollPane);
 
 

@@ -24,6 +24,16 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
 
+    public static void mostrarPanelDeAjustes() {
+        PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
+        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste());
+    }
+
+    public static void mostrarPanelDeEquipos() {
+        PanelDeEquiposControlador panelDeEquiposControlador = new PanelDeEquiposControlador();
+        VENTANA.setContenidoPrincipal(panelDeEquiposControlador.inicializarPanelEquipos());
+    }
+
     public void mostrarPanelCalendario() {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());

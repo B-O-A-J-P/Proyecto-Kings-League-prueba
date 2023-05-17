@@ -130,6 +130,11 @@ public class EquipoCarta extends CartaAbstracta {
         });
     }
 
+    public JLabel getLB_NOMBRE() {
+        return LB_NOMBRE;
+    }
+
+
     @Override
     public int getAnchura() {
         return anchura;

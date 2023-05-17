@@ -9,7 +9,7 @@ import java.awt.event.ComponentEvent;
 import java.util.List;
 
 public class GridDeCartas extends JPanel {
-    private final List<CartaAbstracta> CARTAS;
+    private List<CartaAbstracta> CARTAS;
 
     public GridDeCartas(List<CartaAbstracta> cartas, JScrollPane scrollPane) {
         CARTAS = cartas;
@@ -22,6 +22,7 @@ public class GridDeCartas extends JPanel {
             }
         });
     }
+
 
     public void actualizarGridDeCartas(int viewPort) {
         removeAll();

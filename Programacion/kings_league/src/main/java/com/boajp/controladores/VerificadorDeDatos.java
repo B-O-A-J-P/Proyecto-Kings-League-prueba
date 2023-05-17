@@ -2,7 +2,6 @@ package com.boajp.controladores;
 
 import com.boajp.excepciones.*;
 
-import javax.management.RuntimeErrorException;
 import java.util.regex.Pattern;
 
 public class VerificadorDeDatos {
@@ -29,15 +28,14 @@ public class VerificadorDeDatos {
         return true;
     }
 
-    public static boolean verificarDniJugador(String dni) throws Exception {
+    public static boolean verificarDni(String dni) throws Exception {
         String regex = "^[0-9]{8}[A-Z]$";
         if (!Pattern.matches(regex, dni))
             throw new DniNoValidoExcepcion();
         return true;
     }
-    //TODO creo que este tambien puede verificar nombres de equipo, seria cambiar el nombre a verificarNombre
-    //TODO Ubicacion tambien puede usar este verificarNombreOApellidoJugador
-    public static boolean verificarNombreOApellidoJugador(String nombre) throws Exception{
+
+    public static boolean verificarNombre(String nombre) throws Exception{
         String regex = "^[a-zA-Z]+(?:\\s[a-zA-Z]+)*$\n";
         if (!Pattern.matches(regex, nombre))
             throw new NombreNoValidoExcepcion();

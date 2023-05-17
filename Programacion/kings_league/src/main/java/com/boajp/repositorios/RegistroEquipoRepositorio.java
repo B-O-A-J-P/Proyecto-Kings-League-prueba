@@ -84,7 +84,6 @@ public class RegistroEquipoRepositorio {
             throw new Exception("Error al intentar extraer RegistroEquipoEntidad.", exception);
         }
     }
-
 }
 
 

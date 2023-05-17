@@ -10,41 +10,38 @@ public class BarraDeNavegacion extends JPanel{
     private JButton clasificacionBoton;
     private JButton equiposBoton;
     private JButton jugadoresBoton;
-    private JButton contratosBoton;
-    private JButton calendarioboton;
-    private JButton iniciarSesion;
+    private JButton calendarioBoton;
+    private JButton iniciarSesionBoton;
     private JButton[] botones;
 
     public BarraDeNavegacion() {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new FlowLayout(FlowLayout.LEFT,10, 60));
         inicio = new JButton("Inicio");
-        calendarioboton = new JButton("Calendario");
+        calendarioBoton = new JButton("Calendario");
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
-        contratosBoton = new JButton("Contratos");
-        iniciarSesion = new JButton("Iniciar sesión");
-        botones = new JButton[7];
+        iniciarSesionBoton = new JButton("Iniciar sesión");
+        botones = new JButton[6];
         botones[0] = clasificacionBoton;
         botones[1] = equiposBoton;
         botones[2] = jugadoresBoton;
-        botones[3] = contratosBoton;
-        botones[4] = calendarioboton;
-        botones[5] = inicio;
-        botones[6] = iniciarSesion;
+        botones[3] = calendarioBoton;
+        botones[4] = inicio;
+        botones[5] = iniciarSesionBoton;
 
         ajustarBotones();
 
         aplicarEstilo();
         setLayout(new FlowLayout());
         add(inicio);
-        add(calendarioboton);
+        add(calendarioBoton);
         add(clasificacionBoton);
         add(equiposBoton);
         add(jugadoresBoton);
-        add(contratosBoton);
-        add(iniciarSesion);
+        add(iniciarSesionBoton);
+        iniciarSesionBoton.setActionCommand("iniciar");
     }
 
     private Dimension encontrarBotonMasGrande() {
@@ -60,16 +57,18 @@ public class BarraDeNavegacion extends JPanel{
     }
 
 
+
+
     public void setInicio(JButton inicio) {
         this.inicio = inicio;
     }
 
-    public JButton getIniciarSesion() {
-        return iniciarSesion;
+    public JButton getIniciarSesionBoton() {
+        return iniciarSesionBoton;
     }
 
-    public void setIniciarSesion(JButton iniciarSesion) {
-        this.iniciarSesion = iniciarSesion;
+    public void setIniciarSesionBoton(JButton iniciarSesionBoton) {
+        this.iniciarSesionBoton = iniciarSesionBoton;
     }
 
     public void ajustarBotones() {
@@ -108,20 +107,12 @@ public class BarraDeNavegacion extends JPanel{
         this.jugadoresBoton = jugadoresBoton;
     }
 
-    public JButton getContratosBoton() {
-        return contratosBoton;
+    public JButton getCalendarioBoton() {
+        return calendarioBoton;
     }
 
-    public void setContratosBoton(JButton contratosBoton) {
-        this.contratosBoton = contratosBoton;
-    }
-
-    public JButton getCalendarioboton() {
-        return calendarioboton;
-    }
-
-    public void setCalendarioboton(JButton calendarioboton) {
-        this.calendarioboton = calendarioboton;
+    public void setCalendarioBoton(JButton calendarioBoton) {
+        this.calendarioBoton = calendarioBoton;
     }
 
     public void aplicarEstilo() {
