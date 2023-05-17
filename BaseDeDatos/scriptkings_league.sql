@@ -1,6 +1,7 @@
 --guarda el contenido del proyecto en la carpeta documentos llamada proyecto_kingsleague
 --ejecutar tabla 1
 --WINDOWS
+/*
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\1-Scripts_tablas_y_otros_objetos\tablas.sql
 
 --ejecutar tabla 2
@@ -31,7 +32,7 @@
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_calendario.sql
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\3-Dummy-inserts-y-pruebas\dummy-inserts-clasificaiones.sql
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_partidos_regulares_para_semifinales_finales.sql
-
+*/
 --MAC
 --ejecutar tabla 1
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/tablas.sql"
