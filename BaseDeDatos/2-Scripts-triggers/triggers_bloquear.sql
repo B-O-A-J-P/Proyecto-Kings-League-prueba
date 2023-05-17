@@ -48,7 +48,7 @@ for each row
 
     end bloquear_equipos;
     /
-
+alter trigger bloquear_equipos disable;
     
 create or replace trigger bloquear_contratos_jugador
 before insert or update on contratos_equipo_jugador
@@ -57,4 +57,5 @@ for each row
         raise_application_error(-20001, 'No se pueden modifcar los contratos antes o despues de generar el calendario');
 
 end bloquear_contratos_jugador;
-
+/
+alter trigger bloquear_contratos_jugador disable;
