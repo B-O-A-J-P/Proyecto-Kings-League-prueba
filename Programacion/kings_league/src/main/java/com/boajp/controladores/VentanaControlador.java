@@ -12,7 +12,8 @@ public class VentanaControlador {
     public void mostrarPanelDeInicio() {
         PanelDeInicioControlador panelDeInicioControlador = new PanelDeInicioControlador();
         VENTANA.setContenidoPrincipal(panelDeInicioControlador.inicializarPanel(VENTANA.getScrollPane()));
-
+        VENTANA.revalidate();
+        VENTANA.repaint();
     }
 
     public void mostrarPanelDeJugadores() {

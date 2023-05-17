@@ -52,7 +52,7 @@
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Scripts-triggers/triggers_bloquear.sql"
 
 --3-Dummy inserts y pruebas
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/dummy-inserts.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/dummy-inserts.sql"
 
 --4-Procedimientos-almacenados
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/4-Procedimientos-almacenados/procedimiento_almacenado_objetos.sql"
@@ -60,6 +60,6 @@
 --5-Paquete
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cabecera.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cuerpo.sql"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sqll"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/dummy-inserts-clasificaiones.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/3-Dummy-inserts-y-pruebas/dummy-inserts.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_partidos_regulares_para_semifinales_finales.sql"
