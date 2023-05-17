@@ -121,3 +121,4 @@ public class BarraDeNavegacion extends JPanel{
         return botones;
     }
 }
+

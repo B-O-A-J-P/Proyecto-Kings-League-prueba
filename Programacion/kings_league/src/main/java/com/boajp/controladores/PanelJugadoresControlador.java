@@ -33,3 +33,4 @@ public class PanelJugadoresControlador {
         return (ArrayList<CartaAbstracta>) cartasDeJugadores;
     }
 }
+

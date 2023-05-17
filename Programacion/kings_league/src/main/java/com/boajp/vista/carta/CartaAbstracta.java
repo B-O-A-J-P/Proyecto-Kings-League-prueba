@@ -65,3 +65,4 @@ abstract public class CartaAbstracta extends JPanel {
     abstract public int getAnchura();
     abstract public int getAltura();
 }
+

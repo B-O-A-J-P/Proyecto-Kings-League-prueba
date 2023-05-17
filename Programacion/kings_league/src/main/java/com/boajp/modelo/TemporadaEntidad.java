@@ -119,3 +119,4 @@ public class TemporadaEntidad {
         this.listaSplits = splitsByCodTemporada;
     }
 }
+

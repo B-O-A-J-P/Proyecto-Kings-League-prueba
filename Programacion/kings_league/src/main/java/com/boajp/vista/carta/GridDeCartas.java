@@ -59,3 +59,4 @@ public class GridDeCartas extends JPanel {
         repaint();
     }
 }
+

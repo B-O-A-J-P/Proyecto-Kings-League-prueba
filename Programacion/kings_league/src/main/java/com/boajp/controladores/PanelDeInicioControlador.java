@@ -3,7 +3,7 @@ package com.boajp.controladores;
 import com.boajp.modelo.*;
 import com.boajp.repositorios.ClasificacionRepositorio;
 import com.boajp.repositorios.JornadaRepositorio;
-import com.boajp.repositorios.RegistroEquipoRespositorio;
+import com.boajp.repositorios.RegistroEquipoRepositorio;
 import com.boajp.vista.PanelDeInicio;
 import com.boajp.vista.carta.CartaAbstracta;
 import com.boajp.vista.carta.ClasificacionCarta;
@@ -60,10 +60,10 @@ public class PanelDeInicioControlador {
     }
 
     public ArrayList<CartaAbstracta> crearCartasDeEquiposParticipantes() {
-        RegistroEquipoRespositorio registroEquipoRespositorio = new RegistroEquipoRespositorio();
+        RegistroEquipoRepositorio registroEquipoRepositorio = new RegistroEquipoRepositorio();
         List<RegistroEquipoEntidad> listaDeRegistrosEquipos = new ArrayList<>();
         try {
-            listaDeRegistrosEquipos = registroEquipoRespositorio.buscarEquiposParticipantesUltimaTemporada();
+            listaDeRegistrosEquipos = registroEquipoRepositorio.buscarEquiposParticipantesUltimaTemporada();
         } catch (Exception exception){
             JOptionPane.showMessageDialog(null, exception.getClass() + "\n" + exception.getMessage());
         }

@@ -56,3 +56,4 @@ public class JornadaCarta extends CartaAbstracta {
     }
 
 }
+

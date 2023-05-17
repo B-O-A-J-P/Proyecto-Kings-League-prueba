@@ -111,3 +111,4 @@ public class JugadorEntidad extends Persona{
         this.registrosDeTemporadas = registrosJugadoresByCodJugador;
     }
 }
+

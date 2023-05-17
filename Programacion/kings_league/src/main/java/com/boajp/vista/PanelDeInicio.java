@@ -43,3 +43,4 @@ public class PanelDeInicio extends JPanel {
     }
 
 }
+
