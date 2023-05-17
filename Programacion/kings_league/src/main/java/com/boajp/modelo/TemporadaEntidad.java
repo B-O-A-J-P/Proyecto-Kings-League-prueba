@@ -12,7 +12,7 @@ public class TemporadaEntidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_TEMPORADA")
-    private short codTemporada;
+    private int codTemporada;
     @Basic
     @Column(name = "ANO")
     private short ano;
@@ -41,7 +41,7 @@ public class TemporadaEntidad {
         this.listaSplits = listaSplits;
     }
 
-    public short getCodTemporada() {
+    public int getCodTemporada() {
         return codTemporada;
     }
 
@@ -119,3 +119,4 @@ public class TemporadaEntidad {
         this.listaSplits = splitsByCodTemporada;
     }
 }
+

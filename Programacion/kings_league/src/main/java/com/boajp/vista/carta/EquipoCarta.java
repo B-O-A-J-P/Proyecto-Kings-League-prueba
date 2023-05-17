@@ -12,6 +12,7 @@ public class EquipoCarta extends CartaAbstracta {
 
     public EquipoCarta(String nombre) {
         setLayout(new BorderLayout());
+
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, anchura));
@@ -41,8 +42,8 @@ public class EquipoCarta extends CartaAbstracta {
 
     public EquipoCarta(String nombre, Color colorPorDefecto, Color colorHover) {
         super(colorPorDefecto, colorHover);
-
         setLayout(new BorderLayout());
+
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, anchura));
@@ -65,13 +66,13 @@ public class EquipoCarta extends CartaAbstracta {
                 setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
-
             }
         });
     }
 
     public EquipoCarta(String nombre, ImageIcon icon) {
         setLayout(new BorderLayout());
+
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, anchura));
@@ -102,6 +103,7 @@ public class EquipoCarta extends CartaAbstracta {
     public EquipoCarta(String nombre, ImageIcon icon, Color colorPorDefecto, Color colorHover) {
         super(colorPorDefecto, colorHover);
         setLayout(new BorderLayout());
+
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, anchura));
@@ -124,7 +126,6 @@ public class EquipoCarta extends CartaAbstracta {
                 setCursor(Cursor.getDefaultCursor());
                 validate();
                 repaint();
-
             }
         });
     }

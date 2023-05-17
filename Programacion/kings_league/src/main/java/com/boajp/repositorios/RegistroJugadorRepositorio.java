@@ -1,11 +1,7 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.RegistroJugadorEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -68,6 +64,18 @@ public class RegistroJugadorRepositorio {
             return query.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer registros de jugadores.", exception);
+        }
+    }
+
+    public List<RegistroJugadorEntidad> buscarJugadoresRegistradosUltimaTemporada() throws Exception {
+        try {
+            String query = "SELECT rj FROM RegistroJugadorEntidad rj WHERE rj.temporada.codTemporada = (SELECT MAX(m.temporada.codTemporada) FROM RegistroJugadorEntidad m)";
+            TypedQuery<RegistroJugadorEntidad> resultado = entityManager.createQuery(query, RegistroJugadorEntidad.class);
+            return resultado.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer RegistroJugadorEntidad.", exception);
         }
     }
 

@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BarraDeNavegacion extends JPanel{
+    private JButton inicio;
     private JButton clasificacionBoton;
     private JButton equiposBoton;
     private JButton jugadoresBoton;
@@ -16,21 +17,25 @@ public class BarraDeNavegacion extends JPanel{
     public BarraDeNavegacion() {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new FlowLayout(FlowLayout.LEFT,10, 60));
+        inicio = new JButton("Inicio");
         calendarioboton = new JButton("<html><u>Calendario</u></html");
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
         contratosBoton = new JButton("Contratos");
-        botones = new JButton[5];
+        botones = new JButton[6];
         botones[0] = clasificacionBoton;
         botones[1] = equiposBoton;
         botones[2] = jugadoresBoton;
         botones[3] = contratosBoton;
         botones[4] = calendarioboton;
+        botones[5] = inicio;
+
         ajustarBotones();
 
         aplicarEstilo();
         setLayout(new FlowLayout());
+        add(inicio);
         add(calendarioboton);
         add(clasificacionBoton);
         add(equiposBoton);
@@ -58,6 +63,50 @@ public class BarraDeNavegacion extends JPanel{
         }
     }
 
+    public JButton getInicio() {
+        return inicio;
+    }
+
+    public JButton getClasificacionBoton() {
+        return clasificacionBoton;
+    }
+
+    public void setClasificacionBoton(JButton clasificacionBoton) {
+        this.clasificacionBoton = clasificacionBoton;
+    }
+
+    public JButton getEquiposBoton() {
+        return equiposBoton;
+    }
+
+    public void setEquiposBoton(JButton equiposBoton) {
+        this.equiposBoton = equiposBoton;
+    }
+
+    public JButton getJugadoresBoton() {
+        return jugadoresBoton;
+    }
+
+    public void setJugadoresBoton(JButton jugadoresBoton) {
+        this.jugadoresBoton = jugadoresBoton;
+    }
+
+    public JButton getContratosBoton() {
+        return contratosBoton;
+    }
+
+    public void setContratosBoton(JButton contratosBoton) {
+        this.contratosBoton = contratosBoton;
+    }
+
+    public JButton getCalendarioboton() {
+        return calendarioboton;
+    }
+
+    public void setCalendarioboton(JButton calendarioboton) {
+        this.calendarioboton = calendarioboton;
+    }
+
     public void aplicarEstilo() {
         for (JButton boton: botones) {
             boton.setBackground(null);
@@ -72,3 +121,4 @@ public class BarraDeNavegacion extends JPanel{
         return botones;
     }
 }
+

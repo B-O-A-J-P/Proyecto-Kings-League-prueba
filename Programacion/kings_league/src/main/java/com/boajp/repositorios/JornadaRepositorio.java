@@ -1,11 +1,7 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.JornadaEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -75,4 +71,18 @@ public class JornadaRepositorio {
             throw new Exception("Error al intentar extraer jornadas.", exception);
         }
     }
+
+    public JornadaEntidad buscarUltimaJornada() throws Exception {
+        try {
+            String query = "SELECT j FROM JornadaEntidad j WHERE j.codJornada = (SELECT MAX(m.codJornada) FROM JornadaEntidad m)";
+            TypedQuery<JornadaEntidad> resultado = entityManager.createQuery(query, JornadaEntidad.class);
+            return resultado.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer jornadas.", exception);
+        }
+    }
+
+
 }
