@@ -15,7 +15,7 @@ done
 for i in {0..95}
 do
     echo "INSERT INTO agendas (email, telefono) VALUES ('example$i@example.com', '123456789');" >> $file
-    echo "INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('1234567$i', 'Jugador$i', '$i', 'Izquierdo$i', 180, $i);
+    echo "INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('1234567$i', 'Jugador$i', '$i', 'Izquierdo', 180, $i);
 " >> $file
 done
 

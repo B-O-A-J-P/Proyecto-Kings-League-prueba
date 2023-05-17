@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE temporada SYSTEM "Calendario_kings_league.dtd">
-<temporada id="aa1"
-xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
-    xs:noNamespaceSchemaLocation = "Calendario_kings_League.xsd">
+<temporada id="aa1"  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="Calendario_kings_league.xsd"
+>
   <split id="aa2">
   <hora_inicio></hora_inicio>
   <hora_fin></hora_fin>
@@ -1930,9 +1929,9 @@ xmlns:xs = "http://www.w3.org/2001/XMLSchema-instance"
       </partido>
 
       
-      <partido id="a413" >
+      <partido id="a4137" >
        <hora></hora>
-          <equipo id="a414">
+          <equipo id="a4144">
           	 <logo></logo>    
           <nombre></nombre>
           </equipo>
