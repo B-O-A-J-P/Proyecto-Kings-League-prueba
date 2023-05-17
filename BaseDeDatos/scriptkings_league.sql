@@ -61,5 +61,5 @@
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cabecera.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cuerpo.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sql"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/3-Dummy-inserts-y-pruebas/dummy-inserts-clasificaiones.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/dummy-inserts-clasificaiones.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_partidos_regulares_para_semifinales_finales.sql"
