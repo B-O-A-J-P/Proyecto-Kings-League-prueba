@@ -19,7 +19,7 @@ public class BarraDeNavegacion extends JPanel{
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new FlowLayout(FlowLayout.LEFT,10, 60));
         inicio = new JButton("Inicio");
-        calendarioboton = new JButton("<html><u>Calendario</u></html");
+        calendarioboton = new JButton("Calendario");
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
