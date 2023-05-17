@@ -12,6 +12,7 @@ public class BarraDeNavegacion extends JPanel{
     private JButton jugadoresBoton;
     private JButton contratosBoton;
     private JButton calendarioboton;
+    private JButton inicioSesionboton;
     private JButton[] botones;
 
     public BarraDeNavegacion() {
@@ -23,13 +24,15 @@ public class BarraDeNavegacion extends JPanel{
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
         contratosBoton = new JButton("Contratos");
-        botones = new JButton[6];
+        inicioSesionboton = new JButton("Iniciar Sesión");
+        botones = new JButton[7];
         botones[0] = clasificacionBoton;
         botones[1] = equiposBoton;
         botones[2] = jugadoresBoton;
         botones[3] = contratosBoton;
         botones[4] = calendarioboton;
         botones[5] = inicio;
+        botones[6] = inicioSesionboton;
 
         ajustarBotones();
 
@@ -41,6 +44,7 @@ public class BarraDeNavegacion extends JPanel{
         add(equiposBoton);
         add(jugadoresBoton);
         add(contratosBoton);
+        add(inicioSesionboton);
     }
 
     private Dimension encontrarBotonMasGrande() {
@@ -115,6 +119,9 @@ public class BarraDeNavegacion extends JPanel{
             boton.setFocusPainted(false);
             boton.setOpaque(false);
         }
+    }
+    public JButton getItemNav(int n) {
+        return botones[n];
     }
 
     public JButton[] getBotones() {
