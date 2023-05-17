@@ -29,6 +29,11 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste());
     }
 
+    public static void mostrarPanelDeEquipos() {
+        PanelDeEquiposControlador panelDeEquiposControlador = new PanelDeEquiposControlador();
+        VENTANA.setContenidoPrincipal(panelDeEquiposControlador.inicializarPanelEquipos());
+    }
+
     public Ventana getVENTANA() {
         return VENTANA;
     }

@@ -1,7 +1,6 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.ContratoEquipoJugadorEntidad;
-import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -84,20 +83,29 @@ public class ContratoEquipoJugadorRepositorio {
 
     public List<ContratoEquipoJugadorEntidad> seleccionarSalarioPorJugador (){
 
-        Query qNroCont_equi = em.createNativeQuery ("SELECT *\n" +
-                "FROM contratos_equipo_jugador\n" +
-                "ORDER BY fecha_inicio");
+        Query qNroCont_equi = em.createNativeQuery ("SELECT * FROM contratos_equipo_jugador ORDER BY fecha_inicio");
         List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
         return contratosjugador;
     }
 
     public List<ContratoEquipoJugadorEntidad> seleccionarPorFechaDeContrato (){
-
         Query qNroCont_equi = em.createNativeQuery ("SELECT cod_jugador, SUM(salario) as salario_total\n" +
                 "FROM contratos_equipo_jugador\n" +
                 "GROUP BY cod_jugador ");
         List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
         return contratosjugador;
     }
+
+    public List<ContratoEquipoJugadorEntidad> buscarContratosVigentes() {
+        String sql = "SELECT ce FROM ContratoEquipoJugadorEntidad ce " +
+                "WHERE (ce.fechaFin > current_date OR ce.fechaFin IS NULL) " +
+                "AND ce.equipo.codEquipo IN " +
+                "(SELECT e.codEquipo FROM EquipoEntidad e WHERE e.codEquipo IN " +
+                "(SELECT re.equipo.codEquipo FROM RegistroEquipoEntidad re WHERE re.temporada.codTemporada = " +
+                "(SELECT MAX(t.codTemporada) FROM TemporadaEntidad t)))";
+        TypedQuery<ContratoEquipoJugadorEntidad> query = em.createQuery(sql, ContratoEquipoJugadorEntidad.class);
+        return query.getResultList();
+    }
+
 
 }

@@ -50,6 +50,10 @@ public class Ventana extends JFrame {
             else
                 VentanaControlador.mostrarPanelDeAjustes();
         });
+
+        barraDeNavegacion.getEquiposBoton().addActionListener(e -> {
+            VentanaControlador.mostrarPanelDeEquipos();
+        });
     }
 
     public void setContenidoPrincipal(JPanel panel) {

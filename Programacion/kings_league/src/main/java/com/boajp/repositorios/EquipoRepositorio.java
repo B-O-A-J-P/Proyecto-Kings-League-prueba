@@ -1,10 +1,9 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.EquipoEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class EquipoRepositorio {
@@ -70,4 +69,15 @@ public class EquipoRepositorio {
     public EquipoEntidad seleccionarEquipoPorId(int id) {
         return em.find(EquipoEntidad.class, id);
     }
+
+    public List<EquipoEntidad> buscarEquipoParticipantes() throws Exception{
+        try {
+            String sql = "SELECT e FROM EquipoEntidad e WHERE e.codEquipo IN (SELECT re.equipo.codEquipo FROM RegistroEquipoEntidad re WHERE re.temporada.codTemporada = (SELECT MAX(t.codTemporada) FROM TemporadaEntidad t))";
+            TypedQuery<EquipoEntidad> resultado = em.createQuery(sql, EquipoEntidad.class);
+            return resultado.getResultList();
+        }catch (Exception exception) {
+            throw new Exception("Error al intentar extraer equipos");
+        }
+    }
+
 }

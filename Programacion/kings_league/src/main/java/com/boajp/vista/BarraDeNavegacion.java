@@ -10,7 +10,6 @@ public class BarraDeNavegacion extends JPanel{
     private JButton clasificacionBoton;
     private JButton equiposBoton;
     private JButton jugadoresBoton;
-    private JButton contratosBoton;
     private JButton calendarioBoton;
     private JButton iniciarSesionBoton;
     private JButton[] botones;
@@ -23,16 +22,14 @@ public class BarraDeNavegacion extends JPanel{
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
-        contratosBoton = new JButton("Contratos");
         iniciarSesionBoton = new JButton("Iniciar sesión");
-        botones = new JButton[7];
+        botones = new JButton[6];
         botones[0] = clasificacionBoton;
         botones[1] = equiposBoton;
         botones[2] = jugadoresBoton;
-        botones[3] = contratosBoton;
-        botones[4] = calendarioBoton;
-        botones[5] = inicio;
-        botones[6] = iniciarSesionBoton;
+        botones[3] = calendarioBoton;
+        botones[4] = inicio;
+        botones[5] = iniciarSesionBoton;
 
         ajustarBotones();
 
@@ -43,7 +40,6 @@ public class BarraDeNavegacion extends JPanel{
         add(clasificacionBoton);
         add(equiposBoton);
         add(jugadoresBoton);
-        add(contratosBoton);
         add(iniciarSesionBoton);
         iniciarSesionBoton.setActionCommand("iniciar");
     }
@@ -109,14 +105,6 @@ public class BarraDeNavegacion extends JPanel{
 
     public void setJugadoresBoton(JButton jugadoresBoton) {
         this.jugadoresBoton = jugadoresBoton;
-    }
-
-    public JButton getContratosBoton() {
-        return contratosBoton;
-    }
-
-    public void setContratosBoton(JButton contratosBoton) {
-        this.contratosBoton = contratosBoton;
     }
 
     public JButton getCalendarioBoton() {

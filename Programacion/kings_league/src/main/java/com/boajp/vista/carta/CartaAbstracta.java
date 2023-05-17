@@ -6,7 +6,9 @@ import java.awt.*;
 abstract public class CartaAbstracta extends JPanel {
     private Color colorPorDefecto = Color.GRAY;
     private Color colorHover = Color.DARK_GRAY;
+    private int codigoDeCarta;
     protected boolean estaHovered = false;
+
 
     public CartaAbstracta() {}
 
@@ -37,6 +39,13 @@ abstract public class CartaAbstracta extends JPanel {
         graphics2D.fillRoundRect(coordenadaX, coordenadaY, lbAnchura, lbAltura, anchuraDeArco, alturaDeArco);
     }
 
+    public int getCodigoDeCarta() {
+        return codigoDeCarta;
+    }
+
+    public void setCodigoDeCarta(int codigoDeCarta) {
+        this.codigoDeCarta = codigoDeCarta;
+    }
 
     public Color getColorPorDefecto() {
         return colorPorDefecto;
@@ -64,5 +73,6 @@ abstract public class CartaAbstracta extends JPanel {
 
     abstract public int getAnchura();
     abstract public int getAltura();
+
 }
 

@@ -1,10 +1,9 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.ContratoEquipoMiembroEntidad;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContratoEquipoMiembroRepositorio {
@@ -71,6 +70,17 @@ public class ContratoEquipoMiembroRepositorio {
 
     public ContratoEquipoMiembroEntidad seleccionarContratoPorId(int id) {
         return em.find(ContratoEquipoMiembroEntidad.class, id);
+    }
+
+    public List<ContratoEquipoMiembroEntidad> buscarContratosVigentes(ArrayList<String> codigosDeEquipos) {
+        List<ContratoEquipoMiembroEntidad> lista = new ArrayList<>();
+        for (String codigo : codigosDeEquipos) {
+            String sql = "SELECT cm FROM ContratoEquipoMiembroEntidad cm WHERE cm.equipo.codEquipo = :codigo AND (cm.fechaSalida > current_date OR cm.fechaSalida IS NULL)";
+            TypedQuery<ContratoEquipoMiembroEntidad> resultado = em.createQuery(sql, ContratoEquipoMiembroEntidad.class);
+            resultado.setParameter("codigo", codigo);
+            lista.addAll(resultado.getResultList());
+        }
+        return lista;
     }
 }
 
