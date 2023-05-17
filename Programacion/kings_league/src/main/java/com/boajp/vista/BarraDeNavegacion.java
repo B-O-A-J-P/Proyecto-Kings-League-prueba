@@ -133,6 +133,9 @@ public class BarraDeNavegacion extends JPanel{
             boton.setOpaque(false);
         }
     }
+    public JButton getItemNav(int n) {
+        return botones[n];
+    }
 
     public JButton[] getBotones() {
         return botones;

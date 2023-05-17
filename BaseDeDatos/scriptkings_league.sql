@@ -1,6 +1,7 @@
 --guarda el contenido del proyecto en la carpeta documentos llamada proyecto_kingsleague
 --ejecutar tabla 1
 --WINDOWS
+/*
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\1-Scripts_tablas_y_otros_objetos\tablas.sql
 
 --ejecutar tabla 2
@@ -31,7 +32,7 @@
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_calendario.sql
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\3-Dummy-inserts-y-pruebas\dummy-inserts-clasificaiones.sql
 @\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\5-Paquete\prueba_generar_partidos_regulares_para_semifinales_finales.sql
-
+*/
 --MAC
 --ejecutar tabla 1
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/1-Scripts_tablas_y_otros_objetos/tablas.sql"
@@ -52,7 +53,7 @@
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Scripts-triggers/triggers_bloquear.sql"
 
 --3-Dummy inserts y pruebas
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/dummy-inserts.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/dummy-inserts.sql"
 
 --4-Procedimientos-almacenados
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/4-Procedimientos-almacenados/procedimiento_almacenado_objetos.sql"
@@ -60,6 +61,6 @@
 --5-Paquete
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cabecera.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/cuerpo.sql"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sqll"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/dummy-inserts-clasificaiones.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_calendario.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/3-Dummy-inserts-y-pruebas/dummy-inserts-clasificaiones.sql"
 @"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/5-Paquete/prueba_generar_partidos_regulares_para_semifinales_finales.sql"
