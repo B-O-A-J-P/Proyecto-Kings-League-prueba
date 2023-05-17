@@ -94,15 +94,10 @@ public class FormularioRegistro extends JPanel {
 
     }
 
-    public boolean verificarDatos(){
-        try {
-            VerificadorDeDatos.verificarUsuario(tfUsuario.getText());
-            VerificadorDeDatos.verificarEmail(tfEmail.getText());
-            VerificadorDeDatos.verificarContrasena(tfContrasena.getPassword());
-        } catch (Exception runtimeException) {
-            new PanelDeError(runtimeException.getMessage());
-        }
-
+    public boolean verificarDatos() throws Exception{
+        VerificadorDeDatos.verificarUsuario(tfUsuario.getText());
+        VerificadorDeDatos.verificarEmail(tfEmail.getText());
+        VerificadorDeDatos.verificarContrasena(tfContrasena.getPassword());
         return true;
     }
 

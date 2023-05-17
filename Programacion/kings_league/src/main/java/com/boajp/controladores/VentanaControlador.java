@@ -3,13 +3,10 @@ package com.boajp.controladores;
 import com.boajp.vista.Ventana;
 
 public class VentanaControlador {
-    public final Ventana VENTANA;
+    public static Ventana VENTANA = new Ventana();
 
-    public VentanaControlador() {
-        this.VENTANA = new Ventana(this);
-    }
 
-    public void mostrarPanelDeInicio() {
+    public static void mostrarPanelDeInicio() {
         PanelDeInicioControlador panelDeInicioControlador = new PanelDeInicioControlador();
         VENTANA.setContenidoPrincipal(panelDeInicioControlador.inicializarPanel(VENTANA.getScrollPane()));
         VENTANA.revalidate();
@@ -17,13 +14,12 @@ public class VentanaControlador {
     }
     
 
-    public void mostrarPanelDeJugadores() {
+    public static void mostrarPanelDeJugadores() {
         PanelJugadoresControlador panelJugadoresControlador = new PanelJugadoresControlador();
         VENTANA.setContenidoPrincipal(panelJugadoresControlador.inicializarPanel(VENTANA.getScrollPane()));
     }
 
-
-    public void mostrarPanelDeFormulario() {
+    public static void mostrarPanelDeFormulario() {
         PanelFormularioControlador panelFormularioControlador = new PanelFormularioControlador();
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
