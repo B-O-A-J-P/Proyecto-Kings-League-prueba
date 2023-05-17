@@ -12,6 +12,7 @@ public class VentanaControlador {
         VENTANA.revalidate();
         VENTANA.repaint();
     }
+    
 
     public static void mostrarPanelDeJugadores() {
         PanelJugadoresControlador panelJugadoresControlador = new PanelJugadoresControlador();
