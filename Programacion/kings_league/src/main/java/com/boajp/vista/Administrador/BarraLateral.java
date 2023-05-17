@@ -12,6 +12,7 @@ public class BarraLateral {
     private JButton verGlobalButton;
     private JButton generarButton;
 
+
     //TODO Esta es la barra que aparece en la izquierda cuando eres admin, despues de clickar, en el medio de la ventana
     //TODO aparece PanelAdmin con las 3 opciones de equipos,jornada,o jugadores
     //TODO el boton eliminar de todas las vistas se refiere a "limpiar" la zona de los text fields por haber escrito mal
@@ -19,4 +20,5 @@ public class BarraLateral {
     //TODO en los demas metodos, eliminar, actualizar, la idea es que cuando escriba el primer dato
     //TODO (equipos->nombre,jugadores->DNI,jornada->numero) se rellene automaticamente los demas campos, para ver que
     //TODO se desea modificar o que se desea eliminar
+
 }
