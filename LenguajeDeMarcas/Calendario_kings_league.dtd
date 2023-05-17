@@ -1,10 +1,10 @@
 <!ELEMENT temporada (split+)>
-<!ELEMENT split  (jornada+,hora_inicio,hora_fin,nombre)>
+<!ELEMENT split  (hora_inicio,hora_fin,jornada+)>
 <!ELEMENT hora_inicio (#PCDATA)>
 <!ELEMENT hora_fin (#PCDATA)>
-<!ELEMENT jornada (partido+,fecha)>
+<!ELEMENT jornada (fecha,partido+)>
 <!ELEMENT fecha (#PCDATA)>
-<!ELEMENT partido (hora, equipo,equipo)>
+<!ELEMENT partido (hora, equipo+)>
 <!ELEMENT hora (#PCDATA)>
 <!ELEMENT equipo (logo,nombre) >
 <!ELEMENT logo (#PCDATA)>

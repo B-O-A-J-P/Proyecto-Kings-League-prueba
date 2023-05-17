@@ -1,22 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="temporada"/>
+  <xs:element name="temporada" type="tTemporada" />
   
-    <xs:complexType name="temporada">
+    <xs:complexType name="tTemporada">
       <xs:sequence>
-        <xs:element name="split" type="Tiposplit" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="split" type="Tiposplit" minOccurs="0" maxOccurs="2"/>
       </xs:sequence>
+          <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     
     <xs:complexType name="Tiposplit">
       <xs:sequence>
-        <xs:element name="clasificacion" type="Tipoclasificacion" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="clasificacion" type="Tipoclasificacion" minOccurs="0" maxOccurs="2"/>
       </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     
     <xs:complexType name="Tipoclasificacion">
       <xs:sequence>
-        <xs:element name="equipo" type="Tipoequipo" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="fecha_fin" type="xs:date" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="equipo" type="Tipoequipo" minOccurs="1" maxOccurs="12"/>
       </xs:sequence>
     </xs:complexType>    
       
@@ -27,6 +30,8 @@
         <xs:element name="puntos" type="xs:integer"/>
         <xs:element name="suma_goles" type="xs:integer"/>
       </xs:sequence>
+              <xs:attribute name="id" type="xs:string" use="required"/>
+
     </xs:complexType>
     
 </xs:schema>

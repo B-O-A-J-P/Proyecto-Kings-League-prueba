@@ -1,6 +1,6 @@
-<!ELEMENT temporada (split)>
+<!ELEMENT temporada (split+)>
 <!ELEMENT split  (clasificacion)>
-<!ELEMENT clasificacion (equipo+,fecha_fin)>
+<!ELEMENT clasificacion (fecha_fin,equipo+)>
 <!ELEMENT equipo (nombre,logo,puntos,suma_goles) >
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT logo (#PCDATA)>

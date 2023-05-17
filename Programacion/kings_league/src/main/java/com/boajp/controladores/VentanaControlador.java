@@ -24,6 +24,11 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
 
+    public void mostrarPanelCalendario() {
+        PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
+        VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
+    }
+
     public Ventana getVENTANA() {
         return VENTANA;
     }

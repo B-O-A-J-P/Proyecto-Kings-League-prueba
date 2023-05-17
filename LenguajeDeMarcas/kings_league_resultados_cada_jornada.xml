@@ -4,19 +4,19 @@
     xs:noNamespaceSchemaLocation = "kings_league_resultados_cada_jornada.xsd">
 <jornada id="j1">
 <partido id="a1">
-<fecha_partido></fecha_partido>
+<fecha_partido>2023-02-12</fecha_partido>
 <equipo id="aa1">
 <nombre></nombre>
 <logo></logo>
-<numero_goles></numero_goles>
-<resultado></resultado>
+<numero_goles>2</numero_goles>
+<resultado>v</resultado>
 </equipo>
 
 <equipo id="aa2">
 <nombre></nombre>
 <logo></logo>
-<numero_goles></numero_goles>
-<resultado></resultado>
+<numero_goles>2</numero_goles>
+<resultado>d</resultado>
 </equipo>
 </partido>
 
@@ -25,15 +25,15 @@
 <equipo id="aa3">
 <nombre></nombre>
 <logo></logo>
-<numero_goles></numero_goles>
-<resultado></resultado>
+<numero_goles>3</numero_goles>
+<resultado>d</resultado>
 </equipo>
 
 <equipo id="aa4">
 <nombre></nombre>
 <logo></logo>
-<numero_goles></numero_goles>
-<resultado></resultado>
+<numero_goles>2</numero_goles>
+<resultado>v</resultado>
 </equipo>
 </partido>
 
