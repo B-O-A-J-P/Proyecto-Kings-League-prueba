@@ -21,6 +21,11 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelJugadoresControlador.inicializarPanel(VENTANA.getScrollPane()));
     }
 
+    public void mostrarPanelDeFormulario() {
+        PanelFormularioControlador panelFormularioControlador = new PanelFormularioControlador();
+        VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
+    }
+
     public Ventana getVENTANA() {
         return VENTANA;
     }

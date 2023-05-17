@@ -13,7 +13,7 @@ public class JugadorRepositorio {
     private final EntityManager em;
 
     public JugadorRepositorio() {
-        emf = Persistence.createEntityManagerFactory("default"); // Cambiar "default" por el nombre de su unidad de persistencia
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
     }
 

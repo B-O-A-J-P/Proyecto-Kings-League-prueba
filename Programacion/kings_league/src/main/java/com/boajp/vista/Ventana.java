@@ -45,6 +45,10 @@ public class Ventana extends JFrame {
         barraDeNavegacion.getJugadoresBoton().addActionListener(e-> {
             controlador.mostrarPanelDeJugadores();
         });
+
+        barraDeNavegacion.getIniciarSesion().addActionListener(e -> {
+            controlador.mostrarPanelDeFormulario();
+        });
     }
 
     public void setContenidoPrincipal(JPanel panel) {

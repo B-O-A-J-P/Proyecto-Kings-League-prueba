@@ -20,6 +20,8 @@
         <class>com.boajp.modelo.RegistroJugadorEntidad</class>
         <class>com.boajp.modelo.SplitEntidad</class>
         <class>com.boajp.modelo.TemporadaEntidad</class>
+        <class>com.boajp.modelo.CuentaEntidad</class>
+        <class>com.boajp.modelo.PermisosEntidad</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@//localhost:1521/freepdb1"/>
             <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>

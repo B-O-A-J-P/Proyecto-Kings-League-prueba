@@ -167,7 +167,7 @@ public class FormularioIniciarSesion extends JPanel {
     public static void main(String... args) {
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
-        frame.add(new Formulario());
+        frame.add(new FormularioPanel());
         frame.setBackground(Color.BLUE);
 
         frame.setSize(500, 500);
