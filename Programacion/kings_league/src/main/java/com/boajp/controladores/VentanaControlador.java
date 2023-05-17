@@ -15,11 +15,13 @@ public class VentanaControlador {
         VENTANA.revalidate();
         VENTANA.repaint();
     }
+    
 
     public void mostrarPanelDeJugadores() {
         PanelJugadoresControlador panelJugadoresControlador = new PanelJugadoresControlador();
         VENTANA.setContenidoPrincipal(panelJugadoresControlador.inicializarPanel(VENTANA.getScrollPane()));
     }
+
 
     public void mostrarPanelDeFormulario() {
         PanelFormularioControlador panelFormularioControlador = new PanelFormularioControlador();
