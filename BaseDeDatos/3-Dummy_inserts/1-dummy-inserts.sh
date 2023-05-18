@@ -63,3 +63,6 @@ done
 
 echo "INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 1', TO_DATE('01/07/2024', 'DD/MM/YYYY'), TO_DATE('31/07/2024', 'DD/MM/YYYY'));" >> $file;
 echo "INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 2', TO_DATE('01/07/2024', 'DD/MM/YYYY'), TO_DATE('31/07/2024', 'DD/MM/YYYY'));" >> $file;
+echo "COMMIT;" >> $file;
+
+
