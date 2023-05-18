@@ -136,22 +136,16 @@ BEGIN
     
 EXCEPTION
    WHEN non_numeric THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20001, 'Error: es necesario introducir la hora en formato string (HH24:MM).'); 
     WHEN jornada_ya_existente THEN
-        DBMS_OUTPUT.PUT_LINE('Error: ya existen jornadas para el split: ' || p_cod_split);
         raise_application_error(-20002, 'Error: ya existen jornadas para el split: ' || p_cod_split);
     WHEN NO_DATA_FOUND THEN
-        DBMS_OUTPUT.PUT_LINE('Error: no existe el split: ' || p_cod_split);
         raise_application_error(-20003, 'Error: no existe el split: ' || p_cod_split);
     WHEN formato_no_conforme THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20004, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN formato_no_conforme_dos THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20005, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
-    WHEN OTHERS THEN    
-        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+    WHEN OTHERS THEN
         raise_application_error(-20000, 'Error: ' || SQLERRM);
 END generar_calendario;
 --------------------------------------------------------------------------------
@@ -218,23 +212,17 @@ BEGIN
     
 EXCEPTION
     WHEN non_numeric THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20001, 'Error: es necesario introducir la hora en formato string (HH24:MM).'); 
     WHEN formato_no_conforme THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20004, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN formato_no_conforme_dos THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
         raise_application_error(-20005, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN NO_DATA_FOUND THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
         raise_application_error(-20003, 'Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
     WHEN datos_insuficientes THEN
-        DBMS_OUTPUT.PUT_LINE('Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
         raise_application_error(-20006, 'Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
     when others
     then    
-        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
         raise_application_error(-20000, 'Error: ' || SQLERRM);
 END;
 
@@ -281,11 +269,10 @@ BEGIN
     END LOOP;
 EXCEPTION
     WHEN datos_insuficientes THEN
-        DBMS_OUTPUT.PUT_LINE('Error: no hay suficientes datos en la tabla de clasificaciones para el código de split: ' || p_cod_split);
         raise_application_error(-20006, 'Error: no hay suficientes datos en la tabla de clasificaciones para el código de split: ' || p_cod_split);
     when others
     then    
-        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+        raise_application_error(-20000, 'Error: ' || SQLERRM);
 END calcularClasificacion;
 
 --------------------------------------------------------------------------------    
