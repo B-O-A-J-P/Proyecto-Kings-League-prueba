@@ -11,8 +11,4 @@ CREATE OR REPLACE PACKAGE utilidades_calendario AS
      
      PROCEDURE calcularClasificacion
     (p_cod_split splits.cod_split%type);
-
-	PROCEDURE habilitar_desabilitar_trigger
-	(p_op in varchar2);
-    
 END utilidades_calendario;

@@ -9,8 +9,10 @@
 
 
 --2-Paquete
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/cabecera.sql"
-@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/cuerpo.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/utilidades_calendario/cabecera.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/utilidades_calendario/cuerpo.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/utilidades_base_kings_league/cabecera.sql"
+@"$HOME/Documents/Proyecto-Kings-League/BaseDeDatos/2-Paquete/utilidades_base_kings_league/cuerpo.sql"
 
 
 --3-Dummy_inserts

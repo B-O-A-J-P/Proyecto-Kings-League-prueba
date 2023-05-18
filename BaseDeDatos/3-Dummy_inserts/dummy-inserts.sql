@@ -673,3 +673,4 @@ INSERT INTO contratos_equipo_miembro (cod_equipo, cod_miembro, funcion, fecha_en
 INSERT INTO contratos_equipo_miembro (cod_equipo, cod_miembro, funcion, fecha_entrada) VALUES (11, 35, 'e', TO_DATE('01/01/2022', 'DD/MM/YYYY'));
 INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 1', TO_DATE('01/07/2024', 'DD/MM/YYYY'), TO_DATE('31/07/2024', 'DD/MM/YYYY'));
 INSERT INTO splits (cod_temporada, nombre, fecha_inicio, fecha_fin) VALUES (0, 'Split 2', TO_DATE('01/07/2024', 'DD/MM/YYYY'), TO_DATE('31/07/2024', 'DD/MM/YYYY'));
+COMMIT;

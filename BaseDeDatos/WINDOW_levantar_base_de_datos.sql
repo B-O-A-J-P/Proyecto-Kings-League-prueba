@@ -9,8 +9,10 @@
 
 
 --2-Paquete
-@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\cabecera.sql
-@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\cuerpo.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\utilidades_calendario\cabecera.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\utilidades_calendario\cuerpo.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\utilidades_base_kings_league\cabecera.sql
+@\%USERPROFILE%\Documents\Proyecto-Kings-League\BaseDeDatos\2-Paquete\utilidades_base_kings_league\cuerpo.sql
 
 
 --3-Paquete
