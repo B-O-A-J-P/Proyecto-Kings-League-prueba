@@ -1,10 +1,9 @@
 package com.boajp.vista;
 
-import com.boajp.modelo.EquipoEntidad;
-import com.boajp.modelo.Persona;
-import com.boajp.utilidades.EstilosDeVistas;
+import com.boajp.modelo.*;
+import com.boajp.utilidades.*;
 import com.boajp.vista.carta.*;
-import com.boajp.vista.carta.MiembroCarta;
+
 import com.boajp.vista.componentes.*;
 
 import javax.swing.*;

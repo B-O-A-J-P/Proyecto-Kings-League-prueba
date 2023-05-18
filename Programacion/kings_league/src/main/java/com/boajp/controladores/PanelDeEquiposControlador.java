@@ -1,16 +1,11 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.*;
-import com.boajp.repositorios.ContratoEquipoJugadorRepositorio;
-import com.boajp.repositorios.ContratoEquipoMiembroRepositorio;
-import com.boajp.repositorios.EquipoRepositorio;
-import com.boajp.repositorios.RegistroEquipoRepositorio;
-import com.boajp.vista.PanelEquipos;
-import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.EquipoCarta;
-import com.boajp.vista.carta.JugadorCarta;
-import com.boajp.vista.carta.MiembroCarta;
-import com.boajp.vista.componentes.PanelDeError;
+import com.boajp.repositorios.*;
+
+import com.boajp.vista.*;
+import com.boajp.vista.carta.*;
+import com.boajp.vista.componentes.*;
 
 
 import javax.swing.*;

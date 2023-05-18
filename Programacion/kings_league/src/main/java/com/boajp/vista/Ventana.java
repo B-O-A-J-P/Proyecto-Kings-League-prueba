@@ -54,9 +54,9 @@ public class Ventana extends JFrame {
         barraDeNavegacion.getEquiposBoton().addActionListener(e -> {
             VentanaControlador.mostrarPanelDeEquipos();
         });
-        barraDeNavegacion.getCalendarioboton().addActionListener(e -> {
-            controlador.mostrarPanelCalendario();
-        });
+        barraDeNavegacion.getCalendarioBoton().addActionListener(e -> {
+           VentanaControlador.mostrarPanelCalendario();
+       });
     }
 
     public void setContenidoPrincipal(JPanel panel) {
