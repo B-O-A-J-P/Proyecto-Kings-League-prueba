@@ -191,7 +191,7 @@ CREATE TABLE permisos(
     CONSTRAINT per_cod_pk PRIMARY KEY (cod_perfil)
 );
 
-CREATE TABLE CUENTAS (
+CREATE TABLE Cuentas (
     cod_cuenta number(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
     cod_perfil NUMBER(5, 0) NOT NULL,
     usuario varchar2(50) NOT NULL,

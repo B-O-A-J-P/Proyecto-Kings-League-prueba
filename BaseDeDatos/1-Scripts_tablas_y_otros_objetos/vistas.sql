@@ -1,7 +1,7 @@
 drop view presidentes_equipos;
 drop view entrenadores_equipos;
 drop view staffs_equipos;
-
+--Uso: estás vistas se utilizan para complimentar los procedimientos de generar informes
 create view presidentes_equipos as
 select m.cod_miembro, m.nombre, m.apellido, m.dni, cm.fecha_entrada, cm.fecha_salida, cm.cod_equipo, cm.funcion
 from miembros m, contratos_equipo_miembro cm
