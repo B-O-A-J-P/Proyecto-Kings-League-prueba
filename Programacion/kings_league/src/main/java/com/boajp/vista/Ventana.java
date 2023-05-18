@@ -48,7 +48,7 @@ public class Ventana extends JFrame {
             if(e.getActionCommand().equalsIgnoreCase("iniciar"))
                 VentanaControlador.mostrarPanelDeFormulario();
             else
-                VentanaControlador.mostrarPanelDeAjustes();
+                VentanaControlador.mostrarPanelDeAjustes("op");
         });
 
         barraDeNavegacion.getEquiposBoton().addActionListener(e -> {
@@ -57,6 +57,8 @@ public class Ventana extends JFrame {
         barraDeNavegacion.getCalendarioBoton().addActionListener(e -> {
            VentanaControlador.mostrarPanelCalendario();
        });
+
+
     }
 
     public void setContenidoPrincipal(JPanel panel) {

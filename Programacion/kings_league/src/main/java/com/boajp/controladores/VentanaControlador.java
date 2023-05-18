@@ -24,9 +24,9 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
 
-    public static void mostrarPanelDeAjustes() {
+    public static void mostrarPanelDeAjustes(String op) {
         PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
-        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste());
+        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste(op));
     }
 
     public static void mostrarPanelDeEquipos() {
@@ -38,6 +38,11 @@ public class VentanaControlador {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
     }
+    /*public static void mostrarPanelAdmin(){
+       PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
+       VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarOpciones());
+    }
+    */
 
     public Ventana getVENTANA() {
         return VENTANA;

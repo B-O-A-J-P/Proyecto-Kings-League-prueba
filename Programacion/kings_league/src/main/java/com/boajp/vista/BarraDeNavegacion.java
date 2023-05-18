@@ -115,6 +115,7 @@ public class BarraDeNavegacion extends JPanel{
         this.calendarioBoton = calendarioBoton;
     }
 
+
     public void aplicarEstilo() {
         for (JButton boton: botones) {
             boton.setBackground(null);
