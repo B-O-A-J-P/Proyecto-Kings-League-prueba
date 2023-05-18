@@ -256,8 +256,6 @@ BEGIN
         EXIT WHEN resultados%NOTFOUND;
         
         v_tabla_equipos(v_tabla_equipos.COUNT + 1) := v_equipo;
-        
-        DBMS_OUTPUT.PUT_LINE(v_equipo.cod_equipo);
     END LOOP;
     
     CLOSE resultados;
