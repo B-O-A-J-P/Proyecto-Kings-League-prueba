@@ -30,6 +30,7 @@ public class ClasificacionCarta extends CartaAbstracta {
         modelo = new DefaultTableModel(crearFilas(), crearColumnas());
 
         tabla = new JTable(modelo);
+        tabla.setEnabled(false);
         tabla.setBackground(this.getBackground());
         tabla.setRowHeight(25);
         tabla.setCellSelectionEnabled(false);

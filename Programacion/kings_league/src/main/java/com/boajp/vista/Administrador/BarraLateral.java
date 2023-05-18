@@ -1,6 +1,8 @@
 package com.boajp.vista.Administrador;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class BarraLateral {
     private JPanel pPrincipal;
@@ -8,8 +10,6 @@ public class BarraLateral {
     private JButton insertarButton;
     private JButton eliminarButton;
     private JButton actualizarButton;
-    private JButton verVistaButton;
-    private JButton verGlobalButton;
     private JButton generarButton;
 
 
@@ -21,4 +21,33 @@ public class BarraLateral {
     //TODO (equipos->nombre,jugadores->DNI,jornada->numero) se rellene automaticamente los demas campos, para ver que
     //TODO se desea modificar o que se desea eliminar
 
+
+    public BarraLateral() {
+
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO variable insertar?
+                //TODO llamar panelAdmin
+                String dato = "¿Que desea insertar?";
+            }
+        });
+        eliminarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO variable eliminar?
+                //TODO llamar panelAdmin
+                String dato = "¿Que desea eliminar?";
+            }
+        });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO variable Actualizar?
+                //TODO llamar panelAdmin
+                String dato = "¿Que desea actualizar?";
+
+            }
+        });
+    }
 }
