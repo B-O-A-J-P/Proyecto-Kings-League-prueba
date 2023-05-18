@@ -6,10 +6,17 @@ import javax.swing.*;
 
 public class PanelDeAjusteControlador {
     PanelDeAjustes panelDeAjustes;
-    public JPanel inicializarPanelDeAjuste() {
-        panelDeAjustes = new PanelDeAjustes();
+    public JPanel inicializarPanelDeAjuste(String op) {
+        panelDeAjustes = new PanelDeAjustes(op);
         return panelDeAjustes;
+
+
+
     }
+    /*public JPanel inicializarOpciones(){
+
+        return;
+    }*/
 
 
 }
