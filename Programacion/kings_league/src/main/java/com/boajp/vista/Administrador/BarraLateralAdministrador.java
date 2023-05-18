@@ -59,6 +59,7 @@ public class BarraLateralAdministrador {
 
     }
     public  String pruebA() {
+        op = "";
         if (insertarButton.isSelected()){
             op = "in";
         }
