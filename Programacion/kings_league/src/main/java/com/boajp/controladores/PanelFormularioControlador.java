@@ -67,10 +67,10 @@ public class PanelFormularioControlador {
     }
 
     public void encontrarUsuario(String nombreDeUsuario) throws Exception{
-        CuentaRepositorio cuentaRepositorio = new CuentaRepositorio();
-        this.usuario = cuentaRepositorio.buscarCuenta(nombreDeUsuario);
-        if (usuario == null)
-            throw new UsuarioNoEncontradoExcepcion();
+      CuentaRepositorio cuentaRepositorio = new CuentaRepositorio();
+      this.usuario = cuentaRepositorio.buscarCuenta(nombreDeUsuario);
+      if (usuario == null)
+          throw new UsuarioNoEncontradoExcepcion();
     }
 
     public void iniciarUsuario(char[] contrasenaDeUsuario) throws ContrasenaNoValidaExcepcion{

@@ -1,5 +1,7 @@
 package com.boajp.vista.carta;
 
+import com.boajp.controladores.VentanaControlador;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -128,6 +130,7 @@ public class EquipoCarta extends CartaAbstracta {
                 repaint();
             }
         });
+
     }
 
     public JLabel getLB_NOMBRE() {
@@ -162,5 +165,7 @@ public class EquipoCarta extends CartaAbstracta {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
+
 
 }
