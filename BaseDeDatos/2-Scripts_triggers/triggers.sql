@@ -1,6 +1,5 @@
 
 /*
-
 drop trigger min_equipos;
 drop trigger min_jugadores;
 drop trigger max_jugadores_draft;
@@ -12,7 +11,11 @@ drop trigger equipo_duplicado;
 drop trigger trigger_temporadas_ano;
 drop trigger triger_splits_fec_ini;
 drop trigger triger_jornadas_fec;
-
+drop trigger bloquear_splits;
+drop trigger bloquear_jornadas;
+drop trigger bloquear_partidos;
+drop trigger bloquear_equipos;
+drop trigger bloquear_contratos_jugador;
 */
 
 --------------------------------------------------------------------------------
@@ -222,3 +225,61 @@ BEGIN
   END IF;
 END triger_jornadas_fec;
 /
+--------------------------------------------------------------------------------
+create or replace trigger bloquear_splits
+before insert or update on splits
+for each row
+declare
+begin
+    raise_application_error(-20001, 'No se pueden modifcar splits antes o despues de generar el calendario');
+
+end bloquear_splits;
+
+/
+
+alter trigger bloquear_splits disable;
+
+
+create or replace trigger bloquear_jornadas
+before insert or update on splits
+for each row
+declare
+begin
+    raise_application_error(-20001, 'No se pueden modifcar jornadas antes o despues de generar el calendario');
+
+end bloquear_jornadas;
+/
+
+alter trigger bloquear_jornadas disable;
+
+create or replace trigger bloquear_partidos
+before insert or update on splits
+for each row
+declare
+begin
+    raise_application_error(-20001, 'No se pueden modifcar partidos antes o despues de generar el calendario');
+
+end bloquear_partidos;
+/
+
+alter trigger bloquear_partidos disable;
+
+create or replace trigger bloquear_equipos
+before insert or update on equipos
+for each row
+    begin
+        raise_application_error(-20001, 'No se pueden modifcar los equipos antes o despues de generar el calendario');
+
+    end bloquear_equipos;
+    /
+alter trigger bloquear_equipos disable;
+    
+create or replace trigger bloquear_contratos_jugador
+before insert or update on contratos_equipo_jugador
+for each row
+    begin
+        raise_application_error(-20001, 'No se pueden modifcar los contratos antes o despues de generar el calendario');
+
+end bloquear_contratos_jugador;
+/
+alter trigger bloquear_contratos_jugador disable;

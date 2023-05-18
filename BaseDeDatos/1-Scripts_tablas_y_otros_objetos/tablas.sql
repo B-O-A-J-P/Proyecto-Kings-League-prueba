@@ -13,6 +13,8 @@ DROP TABLE partidos CASCADE CONSTRAINTS;
 DROP TABLE jornadas CASCADE CONSTRAINTS;
 DROP TABLE splits CASCADE CONSTRAINTS;
 DROP TABLE temporadas CASCADE CONSTRAINTS;
+drop table cuentas;
+drop table permisos cascade constraints;
 
 CREATE TABLE temporadas(
     cod_temporada NUMBER(5, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
@@ -71,7 +73,7 @@ CREATE TABLE partidos(
 CREATE TABLE clasificaciones (
     cod_split NUMBER(6, 0),
     cod_equipo NUMBER(6, 0),
-    posicion NUMBER(3) NOT NULL,
+    posicion NUMBER(4) NOT NULL,
     CONSTRAINT cla_spl_fk FOREIGN KEY (cod_split) REFERENCES splits,
     CONSTRAINT cla_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,
     CONSTRAINT cla_cod_pk PRIMARY KEY (cod_split, cod_equipo)
@@ -169,4 +171,35 @@ CREATE TABLE registros_equipos (
     CONSTRAINT equ_par_tem_fk FOREIGN KEY (cod_temporada) REFERENCES temporadas,
     CONSTRAINT equ_par_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos,
     CONSTRAINT equ_tem_equ_pk PRIMARY KEY (cod_temporada, cod_equipo)
+);
+
+--------------------------------------------------------------------------------
+--Usuarios
+CREATE TABLE permisos(
+    cod_perfil NUMBER(5, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
+    insertar varchar2(1),
+    eliminar varchar2(1),
+    actualizar varchar2(1),
+    ver_vista varchar2(1),
+    ver_global varchar2(1),
+    lanzar_procedimientos varchar2(1),
+    CONSTRAINTS per_ins_ck CHECK(insertar in ('t', 'f')),
+    CONSTRAINTS per_act_ck CHECK(actualizar in ('t', 'f')),
+    CONSTRAINTS per_vis_ck CHECK(ver_vista in ('t', 'f')),
+    CONSTRAINTS per_glo_ck CHECK(ver_global in ('t', 'f')),
+    CONSTRAINTS per_pro_ck CHECK(lanzar_procedimientos in ('t', 'f')),
+    CONSTRAINT per_cod_pk PRIMARY KEY (cod_perfil)
+);
+
+CREATE TABLE CUENTAS (
+    cod_cuenta number(6, 0) GENERATED ALWAYS AS IDENTITY INCREMENT BY 1 START WITH 0 MINVALUE 0 NOCYCLE NOT NULL ENABLE,
+    cod_perfil NUMBER(5, 0) NOT NULL,
+    usuario varchar2(50) NOT NULL,
+    contrasena varchar2(50) NOT NULL,
+    email varchar2(60) NOT NULL,
+    CONSTRAINT cue_cue_pk PRIMARY KEY(cod_cuenta),
+    CONSTRAINT cod_perfil FOREIGN KEY(cod_perfil) REFERENCES permisos,
+    CONSTRAINT cue_usu_uq UNIQUE (usuario),
+    CONSTRAINT cue_con_uq UNIQUE (contrasena),
+    CONSTRAINT cue_ema_uq UNIQUE (email)
 );
