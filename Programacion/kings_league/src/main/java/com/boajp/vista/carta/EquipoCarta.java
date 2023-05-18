@@ -130,6 +130,13 @@ public class EquipoCarta extends CartaAbstracta {
                 repaint();
             }
         });
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String equipo ="";
+                VentanaControlador.mostrarPanelDeEquipos();
+            }
+        });
 
     }
 

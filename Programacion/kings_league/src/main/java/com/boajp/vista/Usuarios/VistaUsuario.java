@@ -1,4 +1,4 @@
-package com.boajp.vista.Usuario;
+package com.boajp.vista.Usuarios;
 
 import javax.swing.*;
 

@@ -1,9 +1,11 @@
 package com.boajp.controladores;
 
+import com.boajp.modelo.CuentaEntidad;
 import com.boajp.vista.Ventana;
 
 public class VentanaControlador {
     public static Ventana VENTANA = new Ventana();
+    private static CuentaEntidad usuario;
 
 
     public static void mostrarPanelDeInicio() {
@@ -12,7 +14,6 @@ public class VentanaControlador {
         VENTANA.revalidate();
         VENTANA.repaint();
     }
-    
 
     public static void mostrarPanelDeJugadores() {
         PanelJugadoresControlador panelJugadoresControlador = new PanelJugadoresControlador();
@@ -24,9 +25,9 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelFormularioControlador.inicializarFormulario());
     }
 
-    public static void mostrarPanelDeAjustes(String op) {
+    public static void mostrarPanelDeAjustes(CuentaEntidad usuario) {
         PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
-        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste(op));
+        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarPanelDeAjuste(usuario));
     }
 
     public static void mostrarPanelDeEquipos() {
@@ -38,11 +39,35 @@ public class VentanaControlador {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
     }
+
+    public static void mostrarPanelClasificacion() {
+        PanelClasificacionControlador panelClasificacionControlador = new PanelClasificacionControlador();
+        VENTANA.setContenidoPrincipal(panelClasificacionControlador.inicializarClasificacion());
+    }
+
+
+    /*
+    public static void mostrarInsertarVentana(){
+        PanelAdminControlador panelAdminControlador = new PanelAdminControlador();
+    }
+    public static void mostrarActualizarVentana(){
+        PanelAdminControlador panelAdminControlador = new PanelAdminControlador();
+
+    }*/
+
     /*public static void mostrarPanelAdmin(){
        PanelDeAjusteControlador panelDeAjusteControlador = new PanelDeAjusteControlador();
        VENTANA.setContenidoPrincipal(panelDeAjusteControlador.inicializarOpciones());
     }
     */
+
+    public static void setUsuario(CuentaEntidad cuentaEntidad) {
+        usuario = cuentaEntidad;
+    }
+
+    public static CuentaEntidad getUsuario() {
+        return usuario;
+    }
 
     public Ventana getVENTANA() {
         return VENTANA;

@@ -69,6 +69,7 @@ public class Calendario {
                 DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
                 JTable tabla = new JTable(modelo);
 
+
                 // Agregar los partidos a la tabla
                 NodeList partidoList = jornadaElement.getElementsByTagName("partido");
 
@@ -92,15 +93,20 @@ public class Calendario {
                     //cambiar altura fila de la tabla
                     tabla.setRowHeight(40);
 
+                    // Hacer que la tabla sea no editable
+                    tabla.setEnabled(false);
                 }
 
                 //ocultar cabecera de la tabla
                     tabla.setTableHeader(null);
                 tabla.setSize(2000,2000);
 
+
                 tabla.setBackground(Color.gray);
+
                 pCalendario.add(label);
                 pCalendario.add(tabla);
+
 
             }
         }

@@ -1,7 +1,11 @@
 package com.boajp.vista;
 
+
 import com.boajp.controladores.VentanaControlador;
+import com.boajp.modelo.CuentaEntidad;
 import com.boajp.utilidades.EstilosDeVistas;
+import com.boajp.vista.Usuarios.BarraLateral;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,6 +15,7 @@ public class Ventana extends JFrame {
     private final GridBagConstraints CUERPO = new GridBagConstraints(1, 0, 1, 3, 0, 1, GridBagConstraints.NORTH, GridBagConstraints.BOTH, CUERPO_INSETS, 0, 0);
     private final GridBagConstraints PIE = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, PIE_INSETS, 0, 0);
     private final BarraDeNavegacion barraDeNavegacion;
+    private BarraLateral barraLateral;
     private final JScrollPane scrollPane;
     private final JPanel panelCuerpo;
 
@@ -38,26 +43,37 @@ public class Ventana extends JFrame {
 
         barraDeNavegacion.getInicio().addActionListener(e-> {
             VentanaControlador.mostrarPanelDeInicio();
+            this.remove(barraLateral.getPanel());
         });
 
         barraDeNavegacion.getJugadoresBoton().addActionListener(e-> {
             VentanaControlador.mostrarPanelDeJugadores();
+            this.remove(barraLateral.getPanel());
         });
 
         barraDeNavegacion.getIniciarSesionBoton().addActionListener(e -> {
             if(e.getActionCommand().equalsIgnoreCase("iniciar"))
                 VentanaControlador.mostrarPanelDeFormulario();
-            else
-                VentanaControlador.mostrarPanelDeAjustes("op");
+            else {
+                CuentaEntidad usuario = VentanaControlador.getUsuario();
+                VentanaControlador.mostrarPanelDeAjustes(usuario);
+                barraLateral = new BarraLateral(VentanaControlador.getUsuario().getCodDePermisos());
+                this.add(barraLateral.getPanel(), BorderLayout.WEST);
+            }
         });
 
         barraDeNavegacion.getEquiposBoton().addActionListener(e -> {
             VentanaControlador.mostrarPanelDeEquipos();
+            this.remove(barraLateral.getPanel());
         });
         barraDeNavegacion.getCalendarioBoton().addActionListener(e -> {
            VentanaControlador.mostrarPanelCalendario();
+            this.remove(barraLateral.getPanel());
        });
-
+        barraDeNavegacion.getClasificacionBoton().addActionListener(e -> {
+            VentanaControlador.mostrarPanelClasificacion();
+            this.remove(barraLateral.getPanel());
+        });
 
     }
 
