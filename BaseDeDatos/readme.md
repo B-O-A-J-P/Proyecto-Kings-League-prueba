@@ -1,5 +1,5 @@
 # Levantar base de datos
-Para poder levantar la base de datos de forma automatizada, ejecutar "MAC_levantar_base_de_datos.sql" o "WINDOW_levantar_base_de_datos.sql" dependiendo de tu sistema operativo. Tras ejecutar uno de los dos archivos, tendrás la base de datos con todos los objetocs, y un juego de datos.
+Para poder levantar la base de datos de forma automatizada, ejecutar "MAC_levantar_base_de_datos.sql" o "WINDOW_levantar_base_de_datos.sql" dependiendo de tu sistema operativo. Tras ejecutar uno de los dos archivos, tendrás la base de datos con todos los objetos, y un juego de datos.
 
 ## Realizar pruebas
 En la carpeta "BaseDeDatos/6-Pruebas_de_objetos" dispones de todos los archivos sql para realizar pruebas de los diferentes objetos.
@@ -9,4 +9,4 @@ En las tablas de la base de datos, todas las primary keys son generadas de maner
 
 ### Directorio "6-Pruebas_de_objetos/3-pruebas_procedimientos_paquete"
 En este directorio tendrás las pruebas para generar el calendario, y la play-off.
-Nota: para ejecutar la prueba "2-prueba_calcularClasificacion.sql" tendro del archivo, dispones de un juego de datos, que será necesario ejecutar antes de ejecutar el procedimiento anónimo.
+Nota: para ejecutar la prueba "2-prueba_calcularClasificacion.sql" dentro del archivo, dispones de un juego de datos, que será necesario ejecutar antes de ejecutar el procedimiento anónimo.
