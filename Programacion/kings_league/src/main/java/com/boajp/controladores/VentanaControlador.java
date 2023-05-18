@@ -34,7 +34,7 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelDeEquiposControlador.inicializarPanelEquipos());
     }
 
-    public void mostrarPanelCalendario() {
+    public static void mostrarPanelCalendario() {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
     }
