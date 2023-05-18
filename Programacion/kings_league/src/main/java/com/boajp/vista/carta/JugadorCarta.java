@@ -27,7 +27,7 @@ public class JugadorCarta extends CartaAbstracta{
 
         add(new JLabel(jugador.getNombre() + " " + jugador.getApellido(), JLabel.CENTER), constraintsTitulo);
         add(new JLabel(new ImageIcon(image), JLabel.CENTER), constraintsImagen);
-        add(new JLabel("Características", JLabel.CENTER), constraintsCaracteristicas);
+        add(new JLabel("pie: "+ jugador.getPie()+"     altura: "+jugador.getAltura(), JLabel.CENTER), constraintsCaracteristicas);
     }
 
     @Override

@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class EquipoCarta extends CartaAbstracta {
     private final JLabel LB_NOMBRE;
@@ -40,6 +41,16 @@ public class EquipoCarta extends CartaAbstracta {
 
             }
         });
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                VentanaControlador.mostrarPanelDeEquipos();
+            }
+        });
+
+
+
     }
 
     public EquipoCarta(String nombre, Color colorPorDefecto, Color colorHover) {

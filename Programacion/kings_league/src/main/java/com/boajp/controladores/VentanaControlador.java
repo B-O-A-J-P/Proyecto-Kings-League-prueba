@@ -1,6 +1,7 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
+import com.boajp.vista.Usuarios.PanelAdmin;
 import com.boajp.vista.Ventana;
 
 public class VentanaControlador {
@@ -43,6 +44,11 @@ public class VentanaControlador {
     public static void mostrarPanelClasificacion() {
         PanelClasificacionControlador panelClasificacionControlador = new PanelClasificacionControlador();
         VENTANA.setContenidoPrincipal(panelClasificacionControlador.inicializarClasificacion());
+    }
+
+    public static void mostrarOpciones(String op){
+        PanelAdmin panelAdmin = new PanelAdmin(op);
+        VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
     }
 
 

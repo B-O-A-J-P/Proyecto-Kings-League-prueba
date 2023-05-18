@@ -1,6 +1,7 @@
 package com.boajp.vista.Usuarios;
 
 import com.boajp.controladores.PanelAdminControlador;
+import com.boajp.controladores.VentanaControlador;
 
 import javax.swing.*;
 
@@ -34,19 +35,19 @@ public class BarraLateral {
         insertarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelAdminControlador.mostrarOpcionesVentana("i");
+                VentanaControlador.mostrarOpciones("i");
             }
         });
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelAdminControlador.mostrarOpcionesVentana("a");
+                VentanaControlador.mostrarOpciones("a");
             }
         });
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelAdminControlador.mostrarOpcionesVentana("e");
+                VentanaControlador.mostrarOpciones("e");
             }
         });
     }
