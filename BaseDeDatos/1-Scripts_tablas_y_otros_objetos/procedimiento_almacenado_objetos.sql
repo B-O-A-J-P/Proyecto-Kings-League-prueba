@@ -1,3 +1,4 @@
+--Uso: su único uso es complementar el informe_equipos_temporada
 CREATE OR REPLACE FUNCTION contar_numero_jugadores_por_equipo
     (p_cod_equipo IN equipos.cod_equipo%type,
     p_cod_temporada IN temporadas.cod_temporada%type)
@@ -23,6 +24,7 @@ end contar_numero_jugadores_por_equipo;
 --------------------------------------------------------------------------------
 
 --Informe de equipo
+--Uso: dar un informe a los administradores
 CREATE OR REPLACE PROCEDURE informe_equipos_temporada 
     (p_cod_temporada IN temporadas.cod_temporada%type,
     out_cursor OUT SYS_REFCURSOR)
@@ -92,3 +94,24 @@ begin
 end informe_jugador_ultima_temporada;
 
 /
+
+--------------------------------------------------------------------------------
+
+--Uso: por ahora, se utiliza en el trigger max_jugadores_draft
+CREATE OR REPLACE FUNCTION get_numero_jugadores_draft(
+    p_cod_equipo IN contratos_equipo_jugador.cod_equipo%TYPE
+) RETURN NUMBER AS
+    v_numero_jugadores NUMBER;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_numero_jugadores
+    FROM contratos_equipo_jugador cj
+    JOIN draft d ON cj.cod_jugador = d.cod_jugador
+    WHERE cj.cod_equipo = p_cod_equipo
+        AND d.cod_temporada = (SELECT MAX(cod_temporada) FROM temporadas)
+        AND (cj.fecha_fin > SYSDATE OR cj.fecha_fin IS NULL);
+    
+    RETURN v_numero_jugadores;
+END;
+
+

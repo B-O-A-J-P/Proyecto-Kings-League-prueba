@@ -50,6 +50,7 @@ AS
 BEGIN
 
     SELECT COUNT(*) INTO v_verificar_numero_splits FROM jornadas WHERE cod_split = p_cod_split;
+    
     IF (v_verificar_numero_splits > 0)
     THEN
         RAISE jornada_ya_existente;
@@ -134,18 +135,24 @@ BEGIN
     COMMIT;
     
 EXCEPTION
-    WHEN non_numeric THEN
+   WHEN non_numeric THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20001, 'Error: es necesario introducir la hora en formato string (HH24:MM).'); 
     WHEN jornada_ya_existente THEN
         DBMS_OUTPUT.PUT_LINE('Error: ya existen jornadas para el split: ' || p_cod_split);
+        raise_application_error(-20002, 'Error: ya existen jornadas para el split: ' || p_cod_split);
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('Error: no existe el split: ' || p_cod_split);
+        raise_application_error(-20003, 'Error: no existe el split: ' || p_cod_split);
     WHEN formato_no_conforme THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20004, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN formato_no_conforme_dos THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20005, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN OTHERS THEN    
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+        raise_application_error(-20000, 'Error: ' || SQLERRM);
 END generar_calendario;
 --------------------------------------------------------------------------------
 PROCEDURE generar_playoff
@@ -212,17 +219,23 @@ BEGIN
 EXCEPTION
     WHEN non_numeric THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20001, 'Error: es necesario introducir la hora en formato string (HH24:MM).'); 
     WHEN formato_no_conforme THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20004, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN formato_no_conforme_dos THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario introducir la hora en formato string (HH24:MM).');
+        raise_application_error(-20005, 'Error: es necesario introducir la hora en formato string (HH24:MM).');
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
+        raise_application_error(-20003, 'Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
     WHEN datos_insuficientes THEN
         DBMS_OUTPUT.PUT_LINE('Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
+        raise_application_error(-20006, 'Error: es necesario tener mínimo 8 equipos clasificados en el split: ' || p_cod_split);
     when others
     then    
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+        raise_application_error(-20000, 'Error: ' || SQLERRM);
 END;
 
 --------------------------------------------------------------------------------
@@ -248,6 +261,9 @@ AS
         
     v_tabla_equipos tabla_equipos;
     v_equipo record_equipo;
+    
+    datos_insuficientes EXCEPTION;
+    PRAGMA EXCEPTION_INIT(datos_insuficientes, -06502);
 BEGIN
     OPEN resultados;
     
@@ -263,30 +279,15 @@ BEGIN
     FOR i IN v_tabla_equipos.FIRST .. v_tabla_equipos.LAST LOOP
         insert into clasificaciones values(p_cod_split, v_tabla_equipos(i).cod_equipo, i);
     END LOOP;
-    
+EXCEPTION
+    WHEN datos_insuficientes THEN
+        DBMS_OUTPUT.PUT_LINE('Error: no hay suficientes datos en la tabla de clasificaciones para el código de split: ' || p_cod_split);
+        raise_application_error(-20006, 'Error: no hay suficientes datos en la tabla de clasificaciones para el código de split: ' || p_cod_split);
+    when others
+    then    
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END calcularClasificacion;
 
---------------------------------------------------------------------------------
-procedure habilitar_desabilitar_trigger
-(p_op in varchar2) as
-begin
-
-    if p_op = 'habilitar' then
-    
-        EXECUTE IMMEDIATE 'ALTER TRIGGER bloquear_splits  enable';
-        EXECUTE IMMEDIATE 'ALTER TRIGGER bloquear_jornadas enable';
-        EXECUTE IMMEDIATE 'ALTER TRIGGER bloquear_partidos enable';
-    
-    elsif p_op = 'deshabilitar' then
-    
-        EXECUTE IMMEDIATE 'ALTER TRIGGER bloquear_splits disable';
-        EXECUTE IMMEDIATE 'ALTER TRIGGER  bloquear_jornadas  disable';
-        EXECUTE IMMEDIATE 'ALTER TRIGGER  bloquear_partidos  disable';
-        end if;
-        
-    end habilitar_desabilitar_trigger;
-
-    
-    
+--------------------------------------------------------------------------------    
 END utilidades_calendario;
 

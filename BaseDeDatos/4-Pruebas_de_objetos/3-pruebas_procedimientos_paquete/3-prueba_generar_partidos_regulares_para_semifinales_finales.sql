@@ -7,4 +7,8 @@ END;
 
 /*
 SELECT * FROM jornadas;
+
+SELECT * FROM partidos 
+where cod_jornada = (select max(cod_jornada) from jornadas);
+
 */
