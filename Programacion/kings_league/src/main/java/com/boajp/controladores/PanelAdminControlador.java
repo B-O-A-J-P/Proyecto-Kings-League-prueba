@@ -17,6 +17,7 @@ public class PanelAdminControlador {
     public static void mostrarOpcionesVentana(String op) {
         PanelAdmin panelAdmin = new PanelAdmin(op);
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
+
     }
 
 }

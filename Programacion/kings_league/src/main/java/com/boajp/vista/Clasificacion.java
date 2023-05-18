@@ -7,6 +7,8 @@ import org.w3c.dom.NodeList;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
@@ -29,7 +31,14 @@ public class Clasificacion {
         };
 
         table = new JTable(model);
-        table.setRowHeight(40);
+        table.setRowHeight(40); // Aumentar la altura de las filas
+
+        // Ajustar el ancho de las columnas
+        TableColumnModel columnModel = table.getColumnModel();
+        for (int i = 0; i < columnModel.getColumnCount(); i++) {
+            columnModel.getColumn(i).setPreferredWidth(250);
+            table.setFont(new Font("DialogInput", Font.BOLD, 17));
+        }
 
         File xmlFile = new File("src/main/java/com/boajp/xml/kings_league_clasificacion.xml");
 
@@ -54,15 +63,30 @@ public class Clasificacion {
 
 
             }
-            pClasificacion.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
-            pClasificacion.add(new JScrollPane(table));
             table.setModel(model);
+            table.setBackground(Color.gray);
+            pClasificacion.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
+            pClasificacion.add(table);
+            // Contenedor para el encabezado de la tabla
+            JPanel headerContainer = new JPanel();
+            headerContainer.setLayout(new BoxLayout(headerContainer, BoxLayout.Y_AXIS));
 
+            // Agregar el encabezado de la tabla con los nombres de las columnas
+            JTableHeader header = table.getTableHeader();
+            header.setFont(new Font("DialogInput", Font.BOLD, 20));
+            headerContainer.add(header);
 
+            pClasificacion.setLayout(new BorderLayout());
+            pClasificacion.add(headerContainer, BorderLayout.NORTH);
+            pClasificacion.add(table, BorderLayout.CENTER);
 
+            table.setModel(model);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
 
 
 
