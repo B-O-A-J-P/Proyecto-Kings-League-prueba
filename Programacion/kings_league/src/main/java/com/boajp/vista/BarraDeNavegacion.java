@@ -118,11 +118,11 @@ public class BarraDeNavegacion extends JPanel{
 
     public void aplicarEstilo() {
         for (JButton boton: botones) {
-            boton.setBackground(null);
+            boton.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
             boton.setBorder(BorderFactory.createEmptyBorder());
             boton.setBorderPainted(false);
             boton.setFocusPainted(false);
-            boton.setOpaque(false);
+            //boton.setOpaque(false);
         }
     }
     public JButton getItemNav(int n) {
