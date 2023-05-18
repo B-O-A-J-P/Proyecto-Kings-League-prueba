@@ -65,12 +65,7 @@ declare
     v_numero_jugadores number;
     v_pertenece_draft number;
 begin
-    select count(*) into v_numero_jugadores
-    from contratos_equipo_jugador cj, draft d
-    where cj.cod_equipo = :new.cod_equipo 
-    and cj.cod_jugador = d.cod_jugador --join
-    and d.cod_temporada = (select max(cod_temporada) from temporadas)
-    and (fecha_fin > sysdate or fecha_fin is null);
+    v_numero_jugadores := get_numero_jugadores_draft(:new.cod_equipo);
     
     select count(*) into v_pertenece_draft
     from draft 

@@ -248,6 +248,9 @@ AS
         
     v_tabla_equipos tabla_equipos;
     v_equipo record_equipo;
+    
+    datos_insuficientes EXCEPTION;
+    PRAGMA EXCEPTION_INIT(datos_insuficientes, -06502);
 BEGIN
     OPEN resultados;
     
@@ -263,7 +266,12 @@ BEGIN
     FOR i IN v_tabla_equipos.FIRST .. v_tabla_equipos.LAST LOOP
         insert into clasificaciones values(p_cod_split, v_tabla_equipos(i).cod_equipo, i);
     END LOOP;
-    
+EXCEPTION
+    WHEN datos_insuficientes THEN
+        DBMS_OUTPUT.PUT_LINE('Error: no hay suficientes datos en la tabla de clasificaciones para el código de split: ' || p_cod_split);
+    when others
+    then    
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END calcularClasificacion;
 
 --------------------------------------------------------------------------------
