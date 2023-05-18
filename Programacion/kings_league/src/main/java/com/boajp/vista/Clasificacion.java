@@ -1,5 +1,6 @@
 package com.boajp.vista;
 
+import com.boajp.utilidades.EstilosDeVistas;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -20,7 +21,12 @@ public class Clasificacion {
     public Clasificacion() {
 
         String[] columnas = {"Posicion","Logo","Equipo", "Puntos", "Goles"};
-        model = new DefaultTableModel(columnas, 0);
+        model = new DefaultTableModel(columnas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hacer todas las celdas no editables
+            }
+        };
 
         table = new JTable(model);
         table.setRowHeight(40);
@@ -45,9 +51,15 @@ public class Clasificacion {
                 String goles = equipo.getElementsByTagName("suma_goles").item(0).getTextContent();
 
                 model.addRow(new Object[] {i+1,logo,nombre, puntos, goles});
+
+
             }
-            pClasificacion.setBackground(Color.RED);
+            pClasificacion.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
             pClasificacion.add(new JScrollPane(table));
+            table.setModel(model);
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
