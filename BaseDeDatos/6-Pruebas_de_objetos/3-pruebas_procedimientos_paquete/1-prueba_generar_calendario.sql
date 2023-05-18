@@ -1,13 +1,15 @@
 set serveroutput on;
-DECLARE
-BEGIN
- utilidades_calendario.generar_calendario('19:00', 'En el fin del mundo', 0);
-END;
 /
 DECLARE
 BEGIN
- utilidades_calendario.generar_calendario('18:00', 'EN EL FIN DEL MUNDO', 1);
+  utilidades_calendario.generar_calendario('19:00', 'En el fin del mundo', 0);
+  utilidades_calendario.generar_calendario('18:00', 'EN EL FIN DEL MUNDO', 1);
 END;
+/
+
+/*
+SELECT * FROM partidos;
+*/
 
 /*
 Jornadas
