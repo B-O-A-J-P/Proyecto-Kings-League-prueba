@@ -4,7 +4,9 @@ package com.boajp.vista;
 
 import javax.swing.*;
 
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
@@ -61,13 +63,14 @@ public class Calendario {
                 // Crear el JLabel con el texto "Jornada" y el número y fecha de la jornada
                 JLabel label = new JLabel("Jornada " + (i+1) + " - " + fechaJornada);
                 label.setForeground(azul);;
-                label.setFont(new Font("DialogInput",Font.BOLD,16));
+                label.setFont(new Font("DialogInput",Font.BOLD,32));
                 pCalendario.add(label);
 
                 // Crear un JTable para mostrar los partidos de la jornada
                 String[] columnas = { "Equipo local", "Logo", "Hora" , "logo","Equipo visitante"};
                 DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
                 JTable tabla = new JTable(modelo);
+
 
                 // Agregar los partidos a la tabla
                 NodeList partidoList = jornadaElement.getElementsByTagName("partido");
@@ -92,15 +95,39 @@ public class Calendario {
                     //cambiar altura fila de la tabla
                     tabla.setRowHeight(40);
 
+                    // Hacer que la tabla sea no editable
+                    tabla.setEnabled(false);
+
                 }
+
 
                 //ocultar cabecera de la tabla
                     tabla.setTableHeader(null);
                 tabla.setSize(2000,2000);
 
+
                 tabla.setBackground(Color.gray);
+
+                // Ajustar el ancho de las columnas
+                TableColumnModel columnModel = tabla.getColumnModel();
+                for (int z = 0; z < columnModel.getColumnCount(); z++) {
+                    columnModel.getColumn(z).setPreferredWidth(250);
+                    tabla.setFont(new Font("DialogInput", Font.BOLD, 17));
+                }
+
+                // Centrar los datos en las celdas
+                DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+                for (int x = 0; x < columnModel.getColumnCount(); x++) {
+                    tabla.getColumnModel().getColumn(x).setCellRenderer(centerRenderer);
+                }
+
+
                 pCalendario.add(label);
                 pCalendario.add(tabla);
+
+
+
 
             }
         }

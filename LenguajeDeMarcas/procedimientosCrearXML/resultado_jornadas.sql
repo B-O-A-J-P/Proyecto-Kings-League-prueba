@@ -1,3 +1,4 @@
+
 --CREAR TABLA:
 CREATE TABLE resultado_jornadas(result CLOB);
 
@@ -5,6 +6,7 @@ CREATE TABLE resultado_jornadas(result CLOB);
 DROP TYPE Equipos_xml FORCE;
 DROP TYPE equipolist_tipo FORCE;
 DROP TYPE Partidos_xml FORCE;
+drop type partidolist_tipo force;
 DROP TYPE Jornadas_xml FORCE;
 DROP TYPE Splits_xml FORCE;
 DROP TYPE jornada_tipo FORCE;

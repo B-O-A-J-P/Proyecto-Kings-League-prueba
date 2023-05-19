@@ -43,11 +43,16 @@ public class PanelFormularioControlador {
         formularioIniciarSesion.getBtIniciar().addActionListener(e -> {
             try {
                 formularioIniciarSesion.verificarDatos();
-                if (usuario != null && usuario.getUsuario().equals(formularioIniciarSesion.getTfUsuario().getText()))
-                    iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword());
+                if (usuario != null && usuario.getUsuario().equals(formularioIniciarSesion.getTfUsuario().getText())) {
+                    if (iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword())) {
+                        VentanaControlador.setUsuario(this.usuario);
+                        VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
+                    }
+                }
                 else {
                     encontrarUsuario(formularioIniciarSesion.getTfUsuario().getText());
                     iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword());
+                    VentanaControlador.setUsuario(this.usuario);
                     VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
                 }
             } catch (UsuarioNoValidoExcepcion | UsuarioNoEncontradoExcepcion | ContrasenaNoValidaExcepcion exception) {
@@ -59,6 +64,8 @@ public class PanelFormularioControlador {
 
         return formularioPanel;
     }
+
+
 
     public void registrarUsuario(String usuario, String email, char[] contrasena) throws Exception{
         CuentaRepositorio cuentaRepositorio = new CuentaRepositorio();
@@ -73,12 +80,17 @@ public class PanelFormularioControlador {
           throw new UsuarioNoEncontradoExcepcion();
     }
 
-    public void iniciarUsuario(char[] contrasenaDeUsuario) throws ContrasenaNoValidaExcepcion{
+    public boolean iniciarUsuario(char[] contrasenaDeUsuario) throws ContrasenaNoValidaExcepcion{
         String contrasena = new String(contrasenaDeUsuario);
         if (usuario.getContrasena().equals(contrasena)) {
             VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setText("Ajustes");
             VentanaControlador.mostrarPanelDeInicio();
         } else
             throw new ContrasenaNoValidaExcepcion();
+        return true;
+    }
+
+    public CuentaEntidad getUsuario(){
+        return usuario;
     }
 }
