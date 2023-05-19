@@ -9,7 +9,12 @@ public class AgendasVistaAdmin {
     private JTextField textField2;
     private JButton eliminarButton;
     private JButton aceptarButton;
+    private JPanel pPrincipal;
 
+
+    public JPanel getpPrincipal() {
+        return pPrincipal;
+    }
 
     public AgendasVistaAdmin() {
 
