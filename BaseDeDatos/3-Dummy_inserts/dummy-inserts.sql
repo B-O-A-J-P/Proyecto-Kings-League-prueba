@@ -1,4 +1,4 @@
-INSERT INTO temporadas (ano, fecha_inicio_inscripcion, fecha_fin_inscripcion) VALUES (2024, TO_DATE('01/01/2024', 'DD/MM/YYYY'), TO_DATE('30/06/2024', 'DD/MM/YYYY'));
+INSERT INTO temporadas (ano, fecha_inicio_inscripcion, fecha_fin_inscripcion) VALUES (2023, TO_DATE('01/01/2023', 'DD/MM/YYYY'), TO_DATE('30/06/2023', 'DD/MM/YYYY'));
 INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 1', EMPTY_BLOB(), DEFAULT);
 INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 2', EMPTY_BLOB(), DEFAULT);
 INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 3', EMPTY_BLOB(), DEFAULT);
@@ -12,292 +12,292 @@ INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 10', EMPTY_BLOB(
 INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 11', EMPTY_BLOB(), DEFAULT);
 INSERT INTO equipos (nombre, logo, presupuesto) VALUES ('Equipo 12', EMPTY_BLOB(), DEFAULT);
 INSERT INTO agendas (email, telefono) VALUES ('example0@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345670', 'Jugador0', '0', 'Izquierdo0', 180, 0);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345670', 'Jugador0', '0', 'Izquierdo', 180, 0);
 
 INSERT INTO agendas (email, telefono) VALUES ('example1@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345671', 'Jugador1', '1', 'Izquierdo1', 180, 1);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345671', 'Jugador1', '1', 'Izquierdo', 180, 1);
 
 INSERT INTO agendas (email, telefono) VALUES ('example2@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345672', 'Jugador2', '2', 'Izquierdo2', 180, 2);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345672', 'Jugador2', '2', 'Izquierdo', 180, 2);
 
 INSERT INTO agendas (email, telefono) VALUES ('example3@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345673', 'Jugador3', '3', 'Izquierdo3', 180, 3);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345673', 'Jugador3', '3', 'Izquierdo', 180, 3);
 
 INSERT INTO agendas (email, telefono) VALUES ('example4@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345674', 'Jugador4', '4', 'Izquierdo4', 180, 4);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345674', 'Jugador4', '4', 'Izquierdo', 180, 4);
 
 INSERT INTO agendas (email, telefono) VALUES ('example5@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345675', 'Jugador5', '5', 'Izquierdo5', 180, 5);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345675', 'Jugador5', '5', 'Izquierdo', 180, 5);
 
 INSERT INTO agendas (email, telefono) VALUES ('example6@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345676', 'Jugador6', '6', 'Izquierdo6', 180, 6);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345676', 'Jugador6', '6', 'Izquierdo', 180, 6);
 
 INSERT INTO agendas (email, telefono) VALUES ('example7@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345677', 'Jugador7', '7', 'Izquierdo7', 180, 7);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345677', 'Jugador7', '7', 'Izquierdo', 180, 7);
 
 INSERT INTO agendas (email, telefono) VALUES ('example8@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345678', 'Jugador8', '8', 'Izquierdo8', 180, 8);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345678', 'Jugador8', '8', 'Izquierdo', 180, 8);
 
 INSERT INTO agendas (email, telefono) VALUES ('example9@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345679', 'Jugador9', '9', 'Izquierdo9', 180, 9);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('12345679', 'Jugador9', '9', 'Izquierdo', 180, 9);
 
 INSERT INTO agendas (email, telefono) VALUES ('example10@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456710', 'Jugador10', '10', 'Izquierdo10', 180, 10);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456710', 'Jugador10', '10', 'Izquierdo', 180, 10);
 
 INSERT INTO agendas (email, telefono) VALUES ('example11@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456711', 'Jugador11', '11', 'Izquierdo11', 180, 11);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456711', 'Jugador11', '11', 'Izquierdo', 180, 11);
 
 INSERT INTO agendas (email, telefono) VALUES ('example12@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456712', 'Jugador12', '12', 'Izquierdo12', 180, 12);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456712', 'Jugador12', '12', 'Izquierdo', 180, 12);
 
 INSERT INTO agendas (email, telefono) VALUES ('example13@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456713', 'Jugador13', '13', 'Izquierdo13', 180, 13);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456713', 'Jugador13', '13', 'Izquierdo', 180, 13);
 
 INSERT INTO agendas (email, telefono) VALUES ('example14@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456714', 'Jugador14', '14', 'Izquierdo14', 180, 14);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456714', 'Jugador14', '14', 'Izquierdo', 180, 14);
 
 INSERT INTO agendas (email, telefono) VALUES ('example15@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456715', 'Jugador15', '15', 'Izquierdo15', 180, 15);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456715', 'Jugador15', '15', 'Izquierdo', 180, 15);
 
 INSERT INTO agendas (email, telefono) VALUES ('example16@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456716', 'Jugador16', '16', 'Izquierdo16', 180, 16);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456716', 'Jugador16', '16', 'Izquierdo', 180, 16);
 
 INSERT INTO agendas (email, telefono) VALUES ('example17@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456717', 'Jugador17', '17', 'Izquierdo17', 180, 17);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456717', 'Jugador17', '17', 'Izquierdo', 180, 17);
 
 INSERT INTO agendas (email, telefono) VALUES ('example18@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456718', 'Jugador18', '18', 'Izquierdo18', 180, 18);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456718', 'Jugador18', '18', 'Izquierdo', 180, 18);
 
 INSERT INTO agendas (email, telefono) VALUES ('example19@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456719', 'Jugador19', '19', 'Izquierdo19', 180, 19);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456719', 'Jugador19', '19', 'Izquierdo', 180, 19);
 
 INSERT INTO agendas (email, telefono) VALUES ('example20@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456720', 'Jugador20', '20', 'Izquierdo20', 180, 20);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456720', 'Jugador20', '20', 'Izquierdo', 180, 20);
 
 INSERT INTO agendas (email, telefono) VALUES ('example21@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456721', 'Jugador21', '21', 'Izquierdo21', 180, 21);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456721', 'Jugador21', '21', 'Izquierdo', 180, 21);
 
 INSERT INTO agendas (email, telefono) VALUES ('example22@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456722', 'Jugador22', '22', 'Izquierdo22', 180, 22);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456722', 'Jugador22', '22', 'Izquierdo', 180, 22);
 
 INSERT INTO agendas (email, telefono) VALUES ('example23@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456723', 'Jugador23', '23', 'Izquierdo23', 180, 23);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456723', 'Jugador23', '23', 'Izquierdo', 180, 23);
 
 INSERT INTO agendas (email, telefono) VALUES ('example24@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456724', 'Jugador24', '24', 'Izquierdo24', 180, 24);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456724', 'Jugador24', '24', 'Izquierdo', 180, 24);
 
 INSERT INTO agendas (email, telefono) VALUES ('example25@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456725', 'Jugador25', '25', 'Izquierdo25', 180, 25);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456725', 'Jugador25', '25', 'Izquierdo', 180, 25);
 
 INSERT INTO agendas (email, telefono) VALUES ('example26@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456726', 'Jugador26', '26', 'Izquierdo26', 180, 26);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456726', 'Jugador26', '26', 'Izquierdo', 180, 26);
 
 INSERT INTO agendas (email, telefono) VALUES ('example27@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456727', 'Jugador27', '27', 'Izquierdo27', 180, 27);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456727', 'Jugador27', '27', 'Izquierdo', 180, 27);
 
 INSERT INTO agendas (email, telefono) VALUES ('example28@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456728', 'Jugador28', '28', 'Izquierdo28', 180, 28);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456728', 'Jugador28', '28', 'Izquierdo', 180, 28);
 
 INSERT INTO agendas (email, telefono) VALUES ('example29@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456729', 'Jugador29', '29', 'Izquierdo29', 180, 29);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456729', 'Jugador29', '29', 'Izquierdo', 180, 29);
 
 INSERT INTO agendas (email, telefono) VALUES ('example30@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456730', 'Jugador30', '30', 'Izquierdo30', 180, 30);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456730', 'Jugador30', '30', 'Izquierdo', 180, 30);
 
 INSERT INTO agendas (email, telefono) VALUES ('example31@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456731', 'Jugador31', '31', 'Izquierdo31', 180, 31);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456731', 'Jugador31', '31', 'Izquierdo', 180, 31);
 
 INSERT INTO agendas (email, telefono) VALUES ('example32@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456732', 'Jugador32', '32', 'Izquierdo32', 180, 32);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456732', 'Jugador32', '32', 'Izquierdo', 180, 32);
 
 INSERT INTO agendas (email, telefono) VALUES ('example33@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456733', 'Jugador33', '33', 'Izquierdo33', 180, 33);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456733', 'Jugador33', '33', 'Izquierdo', 180, 33);
 
 INSERT INTO agendas (email, telefono) VALUES ('example34@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456734', 'Jugador34', '34', 'Izquierdo34', 180, 34);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456734', 'Jugador34', '34', 'Izquierdo', 180, 34);
 
 INSERT INTO agendas (email, telefono) VALUES ('example35@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456735', 'Jugador35', '35', 'Izquierdo35', 180, 35);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456735', 'Jugador35', '35', 'Izquierdo', 180, 35);
 
 INSERT INTO agendas (email, telefono) VALUES ('example36@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456736', 'Jugador36', '36', 'Izquierdo36', 180, 36);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456736', 'Jugador36', '36', 'Izquierdo', 180, 36);
 
 INSERT INTO agendas (email, telefono) VALUES ('example37@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456737', 'Jugador37', '37', 'Izquierdo37', 180, 37);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456737', 'Jugador37', '37', 'Izquierdo', 180, 37);
 
 INSERT INTO agendas (email, telefono) VALUES ('example38@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456738', 'Jugador38', '38', 'Izquierdo38', 180, 38);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456738', 'Jugador38', '38', 'Izquierdo', 180, 38);
 
 INSERT INTO agendas (email, telefono) VALUES ('example39@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456739', 'Jugador39', '39', 'Izquierdo39', 180, 39);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456739', 'Jugador39', '39', 'Izquierdo', 180, 39);
 
 INSERT INTO agendas (email, telefono) VALUES ('example40@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456740', 'Jugador40', '40', 'Izquierdo40', 180, 40);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456740', 'Jugador40', '40', 'Izquierdo', 180, 40);
 
 INSERT INTO agendas (email, telefono) VALUES ('example41@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456741', 'Jugador41', '41', 'Izquierdo41', 180, 41);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456741', 'Jugador41', '41', 'Izquierdo', 180, 41);
 
 INSERT INTO agendas (email, telefono) VALUES ('example42@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456742', 'Jugador42', '42', 'Izquierdo42', 180, 42);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456742', 'Jugador42', '42', 'Izquierdo', 180, 42);
 
 INSERT INTO agendas (email, telefono) VALUES ('example43@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456743', 'Jugador43', '43', 'Izquierdo43', 180, 43);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456743', 'Jugador43', '43', 'Izquierdo', 180, 43);
 
 INSERT INTO agendas (email, telefono) VALUES ('example44@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456744', 'Jugador44', '44', 'Izquierdo44', 180, 44);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456744', 'Jugador44', '44', 'Izquierdo', 180, 44);
 
 INSERT INTO agendas (email, telefono) VALUES ('example45@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456745', 'Jugador45', '45', 'Izquierdo45', 180, 45);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456745', 'Jugador45', '45', 'Izquierdo', 180, 45);
 
 INSERT INTO agendas (email, telefono) VALUES ('example46@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456746', 'Jugador46', '46', 'Izquierdo46', 180, 46);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456746', 'Jugador46', '46', 'Izquierdo', 180, 46);
 
 INSERT INTO agendas (email, telefono) VALUES ('example47@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456747', 'Jugador47', '47', 'Izquierdo47', 180, 47);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456747', 'Jugador47', '47', 'Izquierdo', 180, 47);
 
 INSERT INTO agendas (email, telefono) VALUES ('example48@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456748', 'Jugador48', '48', 'Izquierdo48', 180, 48);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456748', 'Jugador48', '48', 'Izquierdo', 180, 48);
 
 INSERT INTO agendas (email, telefono) VALUES ('example49@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456749', 'Jugador49', '49', 'Izquierdo49', 180, 49);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456749', 'Jugador49', '49', 'Izquierdo', 180, 49);
 
 INSERT INTO agendas (email, telefono) VALUES ('example50@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456750', 'Jugador50', '50', 'Izquierdo50', 180, 50);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456750', 'Jugador50', '50', 'Izquierdo', 180, 50);
 
 INSERT INTO agendas (email, telefono) VALUES ('example51@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456751', 'Jugador51', '51', 'Izquierdo51', 180, 51);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456751', 'Jugador51', '51', 'Izquierdo', 180, 51);
 
 INSERT INTO agendas (email, telefono) VALUES ('example52@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456752', 'Jugador52', '52', 'Izquierdo52', 180, 52);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456752', 'Jugador52', '52', 'Izquierdo', 180, 52);
 
 INSERT INTO agendas (email, telefono) VALUES ('example53@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456753', 'Jugador53', '53', 'Izquierdo53', 180, 53);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456753', 'Jugador53', '53', 'Izquierdo', 180, 53);
 
 INSERT INTO agendas (email, telefono) VALUES ('example54@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456754', 'Jugador54', '54', 'Izquierdo54', 180, 54);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456754', 'Jugador54', '54', 'Izquierdo', 180, 54);
 
 INSERT INTO agendas (email, telefono) VALUES ('example55@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456755', 'Jugador55', '55', 'Izquierdo55', 180, 55);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456755', 'Jugador55', '55', 'Izquierdo', 180, 55);
 
 INSERT INTO agendas (email, telefono) VALUES ('example56@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456756', 'Jugador56', '56', 'Izquierdo56', 180, 56);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456756', 'Jugador56', '56', 'Izquierdo', 180, 56);
 
 INSERT INTO agendas (email, telefono) VALUES ('example57@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456757', 'Jugador57', '57', 'Izquierdo57', 180, 57);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456757', 'Jugador57', '57', 'Izquierdo', 180, 57);
 
 INSERT INTO agendas (email, telefono) VALUES ('example58@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456758', 'Jugador58', '58', 'Izquierdo58', 180, 58);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456758', 'Jugador58', '58', 'Izquierdo', 180, 58);
 
 INSERT INTO agendas (email, telefono) VALUES ('example59@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456759', 'Jugador59', '59', 'Izquierdo59', 180, 59);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456759', 'Jugador59', '59', 'Izquierdo', 180, 59);
 
 INSERT INTO agendas (email, telefono) VALUES ('example60@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456760', 'Jugador60', '60', 'Izquierdo60', 180, 60);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456760', 'Jugador60', '60', 'Izquierdo', 180, 60);
 
 INSERT INTO agendas (email, telefono) VALUES ('example61@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456761', 'Jugador61', '61', 'Izquierdo61', 180, 61);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456761', 'Jugador61', '61', 'Izquierdo', 180, 61);
 
 INSERT INTO agendas (email, telefono) VALUES ('example62@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456762', 'Jugador62', '62', 'Izquierdo62', 180, 62);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456762', 'Jugador62', '62', 'Izquierdo', 180, 62);
 
 INSERT INTO agendas (email, telefono) VALUES ('example63@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456763', 'Jugador63', '63', 'Izquierdo63', 180, 63);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456763', 'Jugador63', '63', 'Izquierdo', 180, 63);
 
 INSERT INTO agendas (email, telefono) VALUES ('example64@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456764', 'Jugador64', '64', 'Izquierdo64', 180, 64);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456764', 'Jugador64', '64', 'Izquierdo', 180, 64);
 
 INSERT INTO agendas (email, telefono) VALUES ('example65@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456765', 'Jugador65', '65', 'Izquierdo65', 180, 65);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456765', 'Jugador65', '65', 'Izquierdo', 180, 65);
 
 INSERT INTO agendas (email, telefono) VALUES ('example66@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456766', 'Jugador66', '66', 'Izquierdo66', 180, 66);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456766', 'Jugador66', '66', 'Izquierdo', 180, 66);
 
 INSERT INTO agendas (email, telefono) VALUES ('example67@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456767', 'Jugador67', '67', 'Izquierdo67', 180, 67);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456767', 'Jugador67', '67', 'Izquierdo', 180, 67);
 
 INSERT INTO agendas (email, telefono) VALUES ('example68@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456768', 'Jugador68', '68', 'Izquierdo68', 180, 68);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456768', 'Jugador68', '68', 'Izquierdo', 180, 68);
 
 INSERT INTO agendas (email, telefono) VALUES ('example69@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456769', 'Jugador69', '69', 'Izquierdo69', 180, 69);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456769', 'Jugador69', '69', 'Izquierdo', 180, 69);
 
 INSERT INTO agendas (email, telefono) VALUES ('example70@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456770', 'Jugador70', '70', 'Izquierdo70', 180, 70);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456770', 'Jugador70', '70', 'Izquierdo', 180, 70);
 
 INSERT INTO agendas (email, telefono) VALUES ('example71@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456771', 'Jugador71', '71', 'Izquierdo71', 180, 71);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456771', 'Jugador71', '71', 'Izquierdo', 180, 71);
 
 INSERT INTO agendas (email, telefono) VALUES ('example72@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456772', 'Jugador72', '72', 'Izquierdo72', 180, 72);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456772', 'Jugador72', '72', 'Izquierdo', 180, 72);
 
 INSERT INTO agendas (email, telefono) VALUES ('example73@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456773', 'Jugador73', '73', 'Izquierdo73', 180, 73);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456773', 'Jugador73', '73', 'Izquierdo', 180, 73);
 
 INSERT INTO agendas (email, telefono) VALUES ('example74@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456774', 'Jugador74', '74', 'Izquierdo74', 180, 74);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456774', 'Jugador74', '74', 'Izquierdo', 180, 74);
 
 INSERT INTO agendas (email, telefono) VALUES ('example75@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456775', 'Jugador75', '75', 'Izquierdo75', 180, 75);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456775', 'Jugador75', '75', 'Izquierdo', 180, 75);
 
 INSERT INTO agendas (email, telefono) VALUES ('example76@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456776', 'Jugador76', '76', 'Izquierdo76', 180, 76);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456776', 'Jugador76', '76', 'Izquierdo', 180, 76);
 
 INSERT INTO agendas (email, telefono) VALUES ('example77@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456777', 'Jugador77', '77', 'Izquierdo77', 180, 77);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456777', 'Jugador77', '77', 'Izquierdo', 180, 77);
 
 INSERT INTO agendas (email, telefono) VALUES ('example78@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456778', 'Jugador78', '78', 'Izquierdo78', 180, 78);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456778', 'Jugador78', '78', 'Izquierdo', 180, 78);
 
 INSERT INTO agendas (email, telefono) VALUES ('example79@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456779', 'Jugador79', '79', 'Izquierdo79', 180, 79);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456779', 'Jugador79', '79', 'Izquierdo', 180, 79);
 
 INSERT INTO agendas (email, telefono) VALUES ('example80@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456780', 'Jugador80', '80', 'Izquierdo80', 180, 80);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456780', 'Jugador80', '80', 'Izquierdo', 180, 80);
 
 INSERT INTO agendas (email, telefono) VALUES ('example81@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456781', 'Jugador81', '81', 'Izquierdo81', 180, 81);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456781', 'Jugador81', '81', 'Izquierdo', 180, 81);
 
 INSERT INTO agendas (email, telefono) VALUES ('example82@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456782', 'Jugador82', '82', 'Izquierdo82', 180, 82);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456782', 'Jugador82', '82', 'Izquierdo', 180, 82);
 
 INSERT INTO agendas (email, telefono) VALUES ('example83@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456783', 'Jugador83', '83', 'Izquierdo83', 180, 83);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456783', 'Jugador83', '83', 'Izquierdo', 180, 83);
 
 INSERT INTO agendas (email, telefono) VALUES ('example84@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456784', 'Jugador84', '84', 'Izquierdo84', 180, 84);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456784', 'Jugador84', '84', 'Izquierdo', 180, 84);
 
 INSERT INTO agendas (email, telefono) VALUES ('example85@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456785', 'Jugador85', '85', 'Izquierdo85', 180, 85);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456785', 'Jugador85', '85', 'Izquierdo', 180, 85);
 
 INSERT INTO agendas (email, telefono) VALUES ('example86@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456786', 'Jugador86', '86', 'Izquierdo86', 180, 86);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456786', 'Jugador86', '86', 'Izquierdo', 180, 86);
 
 INSERT INTO agendas (email, telefono) VALUES ('example87@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456787', 'Jugador87', '87', 'Izquierdo87', 180, 87);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456787', 'Jugador87', '87', 'Izquierdo', 180, 87);
 
 INSERT INTO agendas (email, telefono) VALUES ('example88@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456788', 'Jugador88', '88', 'Izquierdo88', 180, 88);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456788', 'Jugador88', '88', 'Izquierdo', 180, 88);
 
 INSERT INTO agendas (email, telefono) VALUES ('example89@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456789', 'Jugador89', '89', 'Izquierdo89', 180, 89);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456789', 'Jugador89', '89', 'Izquierdo', 180, 89);
 
 INSERT INTO agendas (email, telefono) VALUES ('example90@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456790', 'Jugador90', '90', 'Izquierdo90', 180, 90);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456790', 'Jugador90', '90', 'Izquierdo', 180, 90);
 
 INSERT INTO agendas (email, telefono) VALUES ('example91@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456791', 'Jugador91', '91', 'Izquierdo91', 180, 91);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456791', 'Jugador91', '91', 'Izquierdo', 180, 91);
 
 INSERT INTO agendas (email, telefono) VALUES ('example92@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456792', 'Jugador92', '92', 'Izquierdo92', 180, 92);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456792', 'Jugador92', '92', 'Izquierdo', 180, 92);
 
 INSERT INTO agendas (email, telefono) VALUES ('example93@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456793', 'Jugador93', '93', 'Izquierdo93', 180, 93);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456793', 'Jugador93', '93', 'Izquierdo', 180, 93);
 
 INSERT INTO agendas (email, telefono) VALUES ('example94@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456794', 'Jugador94', '94', 'Izquierdo94', 180, 94);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456794', 'Jugador94', '94', 'Izquierdo', 180, 94);
 
 INSERT INTO agendas (email, telefono) VALUES ('example95@example.com', '123456789');
-INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456795', 'Jugador95', '95', 'Izquierdo95', 180, 95);
+INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('123456795', 'Jugador95', '95', 'Izquierdo', 180, 95);
 
 INSERT INTO registros_jugadores (cod_temporada, cod_jugador) VALUES (0, 0);
 INSERT INTO draft (cod_temporada, cod_jugador, posicion) VALUES (0, 0, 1);

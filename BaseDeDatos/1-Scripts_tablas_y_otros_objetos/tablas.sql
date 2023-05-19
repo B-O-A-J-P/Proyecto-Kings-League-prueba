@@ -138,7 +138,8 @@ CREATE TABLE contratos_equipo_jugador (
     CONSTRAINT con_jug_equ_fk FOREIGN KEY (cod_equipo) REFERENCES equipos ON DELETE CASCADE,
     CONSTRAINT con_jug_mie_fk FOREIGN KEY (cod_jugador) REFERENCES jugadores ON DELETE CASCADE,
     CONSTRAINT con_jug_cod_pk PRIMARY KEY (cod_contrato),
-    CONSTRAINT con_sal_ck CHECK (salario in (10000000, 10500000, 15000000, 22500000))
+    CONSTRAINT con_sal_ck CHECK (salario in (10000000, 10500000, 15000000, 22500000)),
+    CONSTRAINT con_cla_ck CHECK (clausula >= 1000000)
 );
 
 CREATE TABLE miembros (
