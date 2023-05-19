@@ -1,11 +1,9 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
-import com.boajp.vista.Usuarios.BarraLateral;
-import com.boajp.vista.Usuarios.EquiposVistaAdmin;
-import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
-import com.boajp.vista.Usuarios.PanelAdmin;
+import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
+import org.hibernate.query.Query;
 
 import javax.swing.*;
 
@@ -15,6 +13,12 @@ public class PanelAdminControlador {
     private static JugadoresVistaAdmin jugadoresVistaAdmin;
 
     private static EquiposVistaAdmin equiposVistaAdmin;
+
+    private static TemporadasVistaAdmin temporadasVistaAdmin;
+
+    private static SplitVistaAdmin splitVistaAdmin;
+
+    private static AgendasVistaAdmin agendaVistaAdmin;
 
     BarraLateral barraLateral;
 
@@ -28,14 +32,30 @@ public class PanelAdminControlador {
 
     }
 
-    public static JPanel inicializarInsertarJugador(){
-        jugadoresVistaAdmin = new JugadoresVistaAdmin();
+    public static JPanel inicializarInsertarJugador(String accion){
+        jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
         return jugadoresVistaAdmin.getpPrincipal();
     }
 
-    public static JPanel inicializarInsertarEquipos(){
-        equiposVistaAdmin = new EquiposVistaAdmin();
+    public static JPanel inicializarInsertarEquipos(String accion){
+        equiposVistaAdmin = new EquiposVistaAdmin(accion);
         return equiposVistaAdmin.getpPrincipal();
+    }
+
+    public static JPanel inicializarInsertarTemporadas(){
+        temporadasVistaAdmin = new TemporadasVistaAdmin();
+        return temporadasVistaAdmin.getPprincipal();
+    }
+
+
+    public static JPanel inicializarInsertarSplit(){
+        splitVistaAdmin = new SplitVistaAdmin();
+        return splitVistaAdmin.getPprincipal();
+    }
+
+    public static JPanel inicializarInsertarAgenda(){
+        agendaVistaAdmin = new AgendasVistaAdmin();
+        return agendaVistaAdmin.getPprincipal();
     }
 
 }

@@ -13,6 +13,8 @@ public class PanelAdmin {
     private JButton equiposButton;
     private JButton jugadoresButton;
     private JButton splitsButton;
+    private JButton agendaButton;
+    private JButton contratosButton;
     private JButton[] botones = {temporadasButton, equiposButton, jugadoresButton, splitsButton};
 
     private String opcion;
@@ -34,28 +36,48 @@ public class PanelAdmin {
         jugadoresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarJugador();
+                VentanaControlador.mostrarInsertarJugador(op);
 
+                if (op.equals("i")) {
+                    VentanaControlador.mostrarInsertarJugador();
+                } else if (op.equals("e"))
+                    VentanaControlador.mostrarEliminarJugador();
             }
         });
         equiposButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarEquipo();
+                VentanaControlador.mostrarInsertarEquipo(op);
             }
         });
         temporadasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarJugador();
+                VentanaControlador.mostrarInsertarTemporada();
 
             }
         });
+
+
+        splitsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarSplit();
+            }
+        });
+        agendaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarAgenda();
+            }
+        });
+    }
 /*
         if (op.equals("i") && jugadoresButton.isSelected()){
             VentanaControlador.mostrarInsertarJugador();
         }*/
-    }
+
+
 
 
     public JPanel getpPrincipal() {
@@ -105,8 +127,6 @@ public class PanelAdmin {
     public void setSplitsButton(JButton splitsButton) {
         this.splitsButton = splitsButton;
     }
-
-
 
     public JButton[] getBotones() {
         return botones;

@@ -1,9 +1,8 @@
 package com.boajp.controladores;
 
+import com.boajp.controladores.controladoresCrud.EliminarJugadorControlador;
 import com.boajp.modelo.CuentaEntidad;
-import com.boajp.vista.Usuarios.EquiposVistaAdmin;
-import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
-import com.boajp.vista.Usuarios.PanelAdmin;
+import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
 
 public class VentanaControlador {
@@ -53,15 +52,38 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
     }
 
-    public static void mostrarInsertarJugador(){
-        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin();
-        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador());
+    public static void mostrarInsertarJugador(String accion){
+        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador(accion));
     }
 
+    public static void mostrarEliminarJugador(){
+        EliminarJugadorControlador eliminarJugadorControlador = new EliminarJugadorControlador();
+        VENTANA.setContenidoPrincipal(eliminarJugadorControlador.inicializarVistaEliminarJugador());
+    }
     public static void mostrarInsertarEquipo(){
         EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin();
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos());
     }
+
+    public static void mostrarInsertarTemporada(){
+        TemporadasVistaAdmin temporadasVistaAdmin = new TemporadasVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarTemporadas());
+
+    }
+
+    public static void mostrarInsertarSplit(){
+        SplitVistaAdmin splitVistaAdmin = new SplitVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarSplit());
+
+    }
+
+    public static void mostrarInsertarAgenda(){
+        AgendasVistaAdmin agendaVistaAdmin = new AgendasVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarAgenda());
+
+    }
+
 
 
 
