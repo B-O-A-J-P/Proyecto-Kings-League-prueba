@@ -52,9 +52,9 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
     }
 
-    public static void mostrarInsertarJugador(){
-        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin();
-        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador());
+    public static void mostrarInsertarJugador(String accion){
+        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador(accion));
     }
 
     public static void mostrarEliminarJugador(){
@@ -79,7 +79,7 @@ public class VentanaControlador {
     }
 
     public static void mostrarInsertarAgenda(){
-        AgendaVistaAdmin agendaVistaAdmin = new AgendaVistaAdmin();
+        AgendasVistaAdmin agendaVistaAdmin = new AgendasVistaAdmin();
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarAgenda());
 
     }

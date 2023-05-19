@@ -4,16 +4,26 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MiembrosVistaAdmin {
+public class ContratoEquipoJugadorVistaAdmin {
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
     private JTextField textField1;
     private JTextField textField2;
-    private JButton eliminarButton;
-    private JButton aceptarButton;
     private JTextField textField3;
     private JTextField textField4;
+    private JButton eliminarButton;
+    private JButton aceptarButton;
 
 
-    public MiembrosVistaAdmin() {
+    public ContratoEquipoJugadorVistaAdmin() {
+
+
+
+
+
+
+
+
 
 
         eliminarButton.addActionListener(new ActionListener() {
@@ -23,8 +33,8 @@ public class MiembrosVistaAdmin {
                 textField2.setText("");
                 textField3.setText("");
                 textField4.setText("");
+
             }
         });
     }
 }
-
