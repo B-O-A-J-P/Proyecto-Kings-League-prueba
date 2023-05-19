@@ -2,20 +2,14 @@ package com.boajp.vista.Usuarios;
 
 import javax.swing.*;
 
-public class TemporadasVistaAdmin {
-    private JButton crearButton;
-    private JButton irHaciaAtrásButton;
+public class AgendaVistaAdmin {
     private JPanel Pprincipal;
+    private JTextField textField1;
 
     public JPanel getPprincipal() {
         return Pprincipal;
     }
 
-    public TemporadasVistaAdmin() {
-
-
-
-
-
-    }
+    private JTextField textField2;
+    private JButton confirmarButton;
 }

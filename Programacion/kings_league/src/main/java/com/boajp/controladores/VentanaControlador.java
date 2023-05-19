@@ -2,9 +2,7 @@ package com.boajp.controladores;
 
 import com.boajp.controladores.controladoresCrud.EliminarJugadorControlador;
 import com.boajp.modelo.CuentaEntidad;
-import com.boajp.vista.Usuarios.EquiposVistaAdmin;
-import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
-import com.boajp.vista.Usuarios.PanelAdmin;
+import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
 
 public class VentanaControlador {
@@ -66,6 +64,24 @@ public class VentanaControlador {
     public static void mostrarInsertarEquipo(){
         EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin();
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos());
+    }
+
+    public static void mostrarInsertarTemporada(){
+        TemporadasVistaAdmin temporadasVistaAdmin = new TemporadasVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarTemporadas());
+
+    }
+
+    public static void mostrarInsertarSplit(){
+        SplitVistaAdmin splitVistaAdmin = new SplitVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarSplit());
+
+    }
+
+    public static void mostrarInsertarAgenda(){
+        AgendaVistaAdmin agendaVistaAdmin = new AgendaVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarAgenda());
+
     }
 
 
