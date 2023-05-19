@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="temporada"/>
+  
+    <xs:complexType name="temporada">
+      <xs:sequence>
+        <xs:element name="SPLITS" type="SSPLITS" minOccurs="2" maxOccurs="2"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+        <xs:complexType name="SSPLITS">
+      <xs:sequence>
+        <xs:element name="SPLITS_XML" type="SSPLITS_XML" minOccurs="2" maxOccurs="2"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+       <xs:complexType name="SSPLITS_XML">
+      <xs:sequence>
+        <xs:element name="JORNADAS" type="JJORNADAS" minOccurs="1" maxOccurs="11"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="JJORNADAS">
+      <xs:sequence>
+        <xs:element name="JORNADAS_XML" type="JJORNADAS_XML" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+        <xs:complexType name="JJORNADAS_XML">
+      <xs:sequence>
+        <xs:element name="PARTIDOS" type="PPARTIDOS" minOccurs="1" maxOccurs="6"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+            <xs:complexType name="PPARTIDOS">
+      <xs:sequence>
+        <xs:element name="PARTIDOS_XML" type="PPARTIDOS_XML" minOccurs="1" maxOccurs="6"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PPARTIDOS_XML">
+      <xs:sequence>
+       <xs:element name="HORA" type="xs:string"/>
+        <xs:element name="EQUIPO_LOCAL" type="EEQUIPO_LOCAL" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="EQUIPO_VISITANTE" type="EEQUIPO_VISITANTE" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="EEQUIPO_LOCAL">
+      <xs:sequence>
+        <xs:element name="NOMBRE" type="xs:string"/>
+        <xs:element name="LOGO" type="xs:string"/>
+        <xs:element name="NUMERO_GOLES" type="xs:integer"/>
+        <xs:element name="RESULTADO" type="rresultado"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+        
+    <xs:complexType name="EEQUIPO_VISITANTE">
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="logo" type="xs:string"/>
+        <xs:element name="numero_goles" type="xs:integer"/>
+        <xs:element name="resultado" type="rresultado"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="rresultado">
+      <xs:restriction base="xs:string">
+        <xs:length value="1"/>
+        <xs:pattern value="[vd]"/>
+      </xs:restriction>
+    </xs:simpleType>
+    
+
+</xs:schema>
+
