@@ -2,11 +2,19 @@ package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
 import com.boajp.vista.Usuarios.BarraLateral;
+import com.boajp.vista.Usuarios.EquiposVistaAdmin;
+import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
 import com.boajp.vista.Usuarios.PanelAdmin;
 import com.boajp.vista.Ventana;
 
+import javax.swing.*;
+
 public class PanelAdminControlador {
     public static Ventana VENTANA = new Ventana();
+
+    private static JugadoresVistaAdmin jugadoresVistaAdmin;
+
+    private static EquiposVistaAdmin equiposVistaAdmin;
 
     BarraLateral barraLateral;
 
@@ -18,6 +26,16 @@ public class PanelAdminControlador {
         PanelAdmin panelAdmin = new PanelAdmin(op);
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
 
+    }
+
+    public static JPanel inicializarInsertarJugador(){
+        jugadoresVistaAdmin = new JugadoresVistaAdmin();
+        return jugadoresVistaAdmin.getpPrincipal();
+    }
+
+    public static JPanel inicializarInsertarEquipos(){
+        equiposVistaAdmin = new EquiposVistaAdmin();
+        return equiposVistaAdmin.getpPrincipal();
     }
 
 }
