@@ -1,4 +1,4 @@
-select count(*) from contratos_equipo_jugador where cod_equipo = 0;
+--select count(*) from contratos_equipo_jugador where cod_equipo = 0;
 
 --Prueba de inserts
 INSERT INTO jugadores (dni, nombre, apellido, pie, altura, cod_agenda) VALUES ('1111', 'Jugador', 'Apellido', 'Izquierdo', 180, 0);
@@ -8,5 +8,5 @@ INSERT INTO contratos_equipo_jugador (cod_equipo, cod_jugador, salario, clausula
 
 
 --Prueba de update
-select * from contratos_equipo_jugador;
+--select * from contratos_equipo_jugador;
 update contratos_equipo_jugador set cod_equipo = 0 where cod_contrato = 8;

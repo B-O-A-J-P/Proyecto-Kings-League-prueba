@@ -30,7 +30,8 @@ begin
     
     if v_numero_equipos < 12
     then 
-        raise_application_error(-20001, 'Tiene que haber un minimo de 12 equipos para poder iniciar el split.');
+        raise_application_error(-20001, 'Tiene que haber un mínimo de 12 equipos
+        para poder iniciar el split.');
     end if;
 end;
 /
@@ -51,124 +52,261 @@ begin
     
     if (v_numero_jugadores < 8)
     then
-        raise_application_error(-20001, 'El equipo tiene que tener minimo 8 jugadores.');
+        raise_application_error(-20001, 'El equipo tiene que tener un mínimo 8 jugadores.');
     end if;
     
 end;
 /
 --------------------------------------------------------------------------------
 
-create or replace trigger max_jugadores_draft
-before insert or update on contratos_equipo_jugador
-for each row
-declare
+
+CREATE OR REPLACE TRIGGER max_jugadores_draft
+FOR INSERT OR UPDATE OF cod_equipo, cod_jugador ON contratos_equipo_jugador
+COMPOUND TRIGGER
+
+    v_cod_equipo equipos.cod_equipo%TYPE;
+    v_cod_jugador jugadores.cod_jugador%TYPE;
+    
+  BEFORE EACH ROW IS
+  BEGIN
+    v_cod_equipo := :NEW.cod_equipo;
+    v_cod_jugador := :NEW.cod_jugador;
+  END BEFORE EACH ROW;
+
+  AFTER EACH ROW IS
+  BEGIN
+    null;
+  END AFTER EACH ROW;
+
+  AFTER STATEMENT IS
     v_numero_jugadores number;
     v_pertenece_draft number;
-begin
-    v_numero_jugadores := get_numero_jugadores_draft(:new.cod_equipo);
+  BEGIN
+    v_numero_jugadores := get_numero_jugadores_draft(v_cod_equipo);
     
     select count(*) into v_pertenece_draft
     from draft 
-    where cod_jugador = :new.cod_jugador
+    where cod_jugador = v_cod_jugador
     and cod_temporada = (select max(cod_temporada) from temporadas);
     
-    if v_numero_jugadores >= 8 and v_pertenece_draft > 0
+    if v_numero_jugadores > 8 and v_pertenece_draft > 0
     then 
-        raise_application_error(-20001, 'El equipo ya tiene 8 jugadores pertenecientes al draft.');
+        raise_application_error(-20001, 'El equipo ' || v_cod_equipo || ' ya tiene 8 jugadores pertenecientes al draft.');
     end if;
+
     
-end max_jugadores_draft;
+  END AFTER STATEMENT;
+
+END max_jugadores_draft;
 /
 
 --------------------------------------------------------------------------------
 
-create or replace trigger max_jugadores_wild_card
-before insert or update on contratos_equipo_jugador
-for each row
-declare
+CREATE OR REPLACE TRIGGER max_jugadores_wild_card
+FOR INSERT OR UPDATE OF cod_equipo, cod_jugador ON contratos_equipo_jugador
+COMPOUND TRIGGER
+
+    v_cod_equipo equipos.cod_equipo%TYPE;
+    v_cod_jugador jugadores.cod_jugador%TYPE;
+    
+  BEFORE EACH ROW IS
+  BEGIN
+    v_cod_equipo := :NEW.cod_equipo;
+    v_cod_jugador := :NEW.cod_jugador;
+  END BEFORE EACH ROW;
+
+  AFTER EACH ROW IS
+  BEGIN
+    null;
+  END AFTER EACH ROW;
+
+  AFTER STATEMENT IS
     v_numero_jugadores number;
-begin
+  BEGIN
+    
     select count(*) into v_numero_jugadores
     from contratos_equipo_jugador cj, registros_jugadores rj
-    where cj.cod_equipo = :new.cod_equipo 
+    where cj.cod_equipo = v_cod_equipo 
     and cj.cod_jugador = rj.cod_jugador
-    and rj.cod_jugador not in (select cod_jugador from draft where cod_temporada = (select max(cod_temporada) from temporadas))
+    and rj.cod_jugador not in (select cod_jugador from draft 
+        where cod_temporada = (select max(cod_temporada) from temporadas))
     and (fecha_fin > sysdate or fecha_fin is null);
     
-    if v_numero_jugadores >= 2
+    if v_numero_jugadores > 2
     then 
-        raise_application_error(-20001, 'El equipo ya tiene 2 jugadores wild card.');
+        raise_application_error(-20001, 'El equipo ' || v_cod_equipo ||' ya tiene 2 jugadores wild card.');
     end if;
     
-end max_jugadores_wild_card;
+  END AFTER STATEMENT;
+
+END max_jugadores_wild_card;
 /
 
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER max_presupuesto_equipo
-before INSERT OR UPDATE on contratos_equipo_jugador
-for each row
-declare
+FOR INSERT OR UPDATE ON contratos_equipo_jugador
+COMPOUND TRIGGER
+
+    v_cod_equipo equipos.cod_equipo%TYPE;
+    v_cod_jugador jugadores.cod_jugador%TYPE;
+    v_salario contratos_equipo_jugador.salario%TYPE;
+    v_clausula contratos_equipo_jugador.clausula%TYPE;
+    
+  BEFORE EACH ROW IS
+  BEGIN
+    v_cod_equipo := :NEW.cod_equipo;
+    v_cod_jugador := :NEW.cod_jugador;
+    v_salario := :NEW.salario;
+    v_clausula := :NEW.clausula;
+  END BEFORE EACH ROW;
+
+  AFTER EACH ROW IS
+  BEGIN
+    null;
+  END AFTER EACH ROW;
+
+  AFTER STATEMENT IS
     v_dinero_total number;
     v_presupuesto_maximo number;
   BEGIN
+    
     SELECT presupuesto INTO v_presupuesto_maximo
     FROM equipos
-    WHERE cod_equipo = :new.cod_equipo;
+    WHERE cod_equipo = v_cod_equipo;
             
     SELECT SUM(salario + clausula) INTO v_dinero_total
     FROM contratos_equipo_jugador
-    WHERE cod_equipo = :new.cod_equipo
+    WHERE cod_equipo = v_cod_equipo
     AND (fecha_fin > sysdate OR fecha_fin IS NULL);
-    
-    v_dinero_total := v_dinero_total + :new.salario + :new.clausula;
-    
+
     if v_dinero_total > v_presupuesto_maximo
     then
        raise_application_error(-20001, 'No se puede sobrepasar el presupuesto del equipo.');
     end if;
+    
+  END AFTER STATEMENT;
 
 END max_presupuesto_equipo;
+
 /
 --------------------------------------------------------------------------------
 
 CREATE OR REPLACE TRIGGER check_contrato_jugador
-BEFORE INSERT OR UPDATE ON contratos_equipo_jugador
-FOR EACH ROW
-DECLARE
-    v_count INTEGER;
-BEGIN
+FOR INSERT OR UPDATE OF cod_equipo, cod_jugador ON contratos_equipo_jugador
+COMPOUND TRIGGER
+
+    v_cod_equipo equipos.cod_equipo%TYPE;
+    v_cod_jugador jugadores.cod_jugador%TYPE;
+    
+  BEFORE EACH ROW IS
+  BEGIN
+    v_cod_equipo := :NEW.cod_equipo;
+    v_cod_jugador := :NEW.cod_jugador;
+  END BEFORE EACH ROW;
+
+  AFTER EACH ROW IS
+  BEGIN
+    null;
+  END AFTER EACH ROW;
+
+  AFTER STATEMENT IS
+    v_count NUMBER;
+  BEGIN
+  
     SELECT COUNT(*) INTO v_count
     FROM contratos_equipo_jugador
-    WHERE cod_jugador = :NEW.cod_jugador
+    WHERE cod_jugador = v_cod_jugador
     AND (fecha_fin > sysdate or fecha_fin is null);
     
-    IF v_count > 0 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'Este jugador ya tiene un contrato activo');
+    IF v_count > 1 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Este jugador ya tiene un contrato activo.');
     END IF;
+    
+  END AFTER STATEMENT;
+
 END check_contrato_jugador;
 /
 
 --------------------------------------------------------------------------------
 
-create or replace trigger control_miembros
-before insert or update on contratos_equipo_miembro
-for each row
-declare
+CREATE OR REPLACE TRIGGER control_miembros
+FOR INSERT OR UPDATE OF cod_equipo, cod_miembro ON contratos_equipo_miembro
+COMPOUND TRIGGER
+
+    v_cod_equipo equipos.cod_equipo%TYPE;
+    v_cod_miembro contratos_equipo_miembro.cod_miembro%TYPE;
+    v_funcion contratos_equipo_miembro.funcion%TYPE;
+    
+  BEFORE EACH ROW IS
+  BEGIN
+    v_cod_equipo := :NEW.cod_equipo;
+    v_cod_miembro := :NEW.cod_miembro;
+    v_funcion := :NEW.funcion;
+  END BEFORE EACH ROW;
+
+  AFTER EACH ROW IS
+  BEGIN
+    null;
+  END AFTER EACH ROW;
+
+  AFTER STATEMENT IS
     v_numero_de_miembros number;
-begin
+  BEGIN
+  
     select count(*) into v_numero_de_miembros
     from contratos_equipo_miembro
-    where cod_equipo = :new.cod_equipo
-    and funcion = :new.funcion
+    where cod_equipo = v_cod_equipo
+    and funcion = v_funcion
     and (fecha_salida > sysdate or fecha_salida is null);
     
-    if v_numero_de_miembros >= 1
+    if v_numero_de_miembros > 1
     then
-        raise_application_error(-20001, 'No puede haber mas de un miembro con la misma funciÃ³n');
+        raise_application_error(-20001, 'No puede haber más de un miembro con la
+        misma función');
     end if;
     
-end control_miembros;
+  END AFTER STATEMENT;
+
+END control_miembros;
+/
+--------------------------------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER check_registro_equipo_fecha_inscripcion
+BEFORE INSERT OR UPDATE ON registros_equipos
+FOR EACH ROW
+DECLARE
+    v_fecha_fin DATE;
+BEGIN
+  
+  SELECT fecha_fin_inscripcion INTO v_fecha_fin
+  FROM temporadas where cod_temporada = :NEW.cod_temporada;
+  
+  IF v_fecha_fin < SYSDATE
+  THEN
+    RAISE_APPLICATION_ERROR(-20001, 'No se puede registrar un equipo pasada la fecha de inscripción.');
+  END IF;
+  
+END triger_splits_fec_ini;
+/
+--------------------------------------------------------------------------------
+CREATE OR REPLACE TRIGGER check_registro_jugador_fecha_inscripcion
+BEFORE INSERT OR UPDATE ON registros_jugadores
+FOR EACH ROW
+DECLARE
+    v_fecha_inicio DATE;
+    v_fecha_fin DATE;
+BEGIN
+  
+  SELECT fecha_inicio_inscripcion, fecha_fin_inscripcion INTO v_fecha_inicio, v_fecha_fin
+  FROM temporadas where cod_temporada = :NEW.cod_temporada;
+  
+  IF SYSDATE < v_fecha_inicio OR SYSDATE > v_fecha_fin
+  THEN
+    RAISE_APPLICATION_ERROR(-20001, 'No se puede registrar el jugador fuera de la fecha de inscripción.');
+  END IF;
+  
+END check_registro_jugador_fecha_inscripcion;
 /
 --------------------------------------------------------------------------------
 
@@ -182,7 +320,7 @@ BEGIN
     FROM equipos
      WHERE lower(nombre) = lower(:NEW.nombre);
     IF v_num_equi > 0 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'ERROR, YA EXISTE UN EQUIPO CON ESE NOMBRE');
+        RAISE_APPLICATION_ERROR(-20001, 'Ya existe un equipo con ese nombre.');
     END IF;
 END equipo_duplicado;
 /

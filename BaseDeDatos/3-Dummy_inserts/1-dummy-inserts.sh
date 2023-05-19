@@ -2,7 +2,7 @@
 
 file='./dummy-inserts.sql';
 
-echo "INSERT INTO temporadas (ano, fecha_inicio_inscripcion, fecha_fin_inscripcion) VALUES (2024, TO_DATE('01/01/2024', 'DD/MM/YYYY'), TO_DATE('30/06/2024', 'DD/MM/YYYY'));" > $file;
+echo "INSERT INTO temporadas (ano, fecha_inicio_inscripcion, fecha_fin_inscripcion) VALUES (2023, TO_DATE('01/01/2023', 'DD/MM/YYYY'), TO_DATE('30/06/2023', 'DD/MM/YYYY'));" > $file;
 
 
 # Crear los equipos
