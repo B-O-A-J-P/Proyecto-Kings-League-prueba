@@ -36,14 +36,13 @@ public class PanelAdmin {
             public void actionPerformed(ActionEvent e) {
                 if (op.equals("i")) {
                     VentanaControlador.mostrarInsertarJugador();
-                }
-
+                } else if (op.equals("e"))
+                    VentanaControlador.mostrarEliminarJugador();
             }
         });
-/*
-        if (op.equals("i") && jugadoresButton.isSelected()){
-            VentanaControlador.mostrarInsertarJugador();
-        }*/
+
+
+
     }
 
 
@@ -94,8 +93,6 @@ public class PanelAdmin {
     public void setSplitsButton(JButton splitsButton) {
         this.splitsButton = splitsButton;
     }
-
-
 
     public JButton[] getBotones() {
         return botones;

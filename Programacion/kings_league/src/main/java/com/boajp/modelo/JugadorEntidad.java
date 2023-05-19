@@ -18,12 +18,12 @@ public class JugadorEntidad extends Persona{
     @Basic
     @Column(name = "ALTURA")
     private Integer altura;
-    @OneToMany(mappedBy = "jugador")
+    @OneToMany(mappedBy = "jugador", cascade = CascadeType.REMOVE)
     private Collection<ContratoEquipoJugadorEntidad> contratos;
     @ManyToOne
     @JoinColumn(name = "COD_AGENDA", referencedColumnName = "COD_AGENDA")
     private AgendaEntidad agenda;
-    @OneToMany(mappedBy = "temporada")
+    @OneToMany(mappedBy = "temporada", cascade = CascadeType.REMOVE)
     private Collection<RegistroJugadorEntidad> registrosDeTemporadas;
 
 
