@@ -74,7 +74,7 @@ public class VentanaControlador {
     }
 
     public static void mostrarInsertarAgenda(){
-        AgendaVistaAdmin agendaVistaAdmin = new AgendaVistaAdmin();
+        AgendasVistaAdmin agendaVistaAdmin = new AgendasVistaAdmin();
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarAgenda());
 
     }
