@@ -17,7 +17,7 @@ public class PanelAdminControlador {
 
     private static SplitVistaAdmin splitVistaAdmin;
 
-    private static AgendaVistaAdmin agendaVistaAdmin;
+    private static AgendasVistaAdmin agendaVistaAdmin;
 
     BarraLateral barraLateral;
 
@@ -53,7 +53,7 @@ public class PanelAdminControlador {
     }
 
     public static JPanel inicializarInsertarAgenda(){
-        agendaVistaAdmin = new AgendaVistaAdmin();
+        agendaVistaAdmin = new AgendasVistaAdmin();
         return agendaVistaAdmin.getPprincipal();
     }
 
