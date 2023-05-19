@@ -254,14 +254,12 @@ AS
     PRAGMA EXCEPTION_INIT(datos_insuficientes, -06502);
 BEGIN
     OPEN resultados;
-    
-    LOOP
-        FETCH resultados INTO v_equipo.cod_equipo;
-        EXIT WHEN resultados%NOTFOUND;
-        
-        v_tabla_equipos(v_tabla_equipos.COUNT + 1) := v_equipo;
-    END LOOP;
-    
+        LOOP
+            FETCH resultados INTO v_equipo.cod_equipo;
+            EXIT WHEN resultados%NOTFOUND;
+            
+            v_tabla_equipos(v_tabla_equipos.COUNT + 1) := v_equipo;
+        END LOOP;
     CLOSE resultados;
     
     FOR i IN v_tabla_equipos.FIRST .. v_tabla_equipos.LAST LOOP
