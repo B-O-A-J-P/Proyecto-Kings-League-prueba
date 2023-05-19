@@ -14,6 +14,7 @@ public class JugadoresVistaAdmin {
     private JRadioButton rbIzquierdo;
     private JRadioButton rbDerecho;
     private JSpinner spinner1;
+    private JPanel pPrincipal;
 
     public JugadoresVistaAdmin() {
         tfPie.setEditable(false);
@@ -38,6 +39,10 @@ public class JugadoresVistaAdmin {
                 spinner1.setModel(spinnerModel);
             }
         });
+    }
+
+    public JPanel getpPrincipal() {
+        return pPrincipal;
     }
 }
 
