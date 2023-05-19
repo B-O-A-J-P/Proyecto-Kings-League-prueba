@@ -38,6 +38,10 @@ public class PanelAdmin {
             public void actionPerformed(ActionEvent e) {
                 VentanaControlador.mostrarInsertarJugador();
 
+                if (op.equals("i")) {
+                    VentanaControlador.mostrarInsertarJugador();
+                } else if (op.equals("e"))
+                    VentanaControlador.mostrarEliminarJugador();
             }
         });
         equiposButton.addActionListener(new ActionListener() {
@@ -123,8 +127,6 @@ public class PanelAdmin {
     public void setSplitsButton(JButton splitsButton) {
         this.splitsButton = splitsButton;
     }
-
-
 
     public JButton[] getBotones() {
         return botones;
