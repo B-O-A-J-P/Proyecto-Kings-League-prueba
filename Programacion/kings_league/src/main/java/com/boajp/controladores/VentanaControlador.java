@@ -53,14 +53,14 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
     }
 
-    public static void mostrarInsertarJugador(){
-        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin();
-        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador());
+    public static void mostrarInsertarJugador(String accion){
+        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador(accion));
     }
 
-    public static void mostrarInsertarEquipo(){
-        EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin();
-        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos());
+    public static void mostrarInsertarEquipo(String accion){
+        EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin(accion);
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos(accion));
     }
 
 

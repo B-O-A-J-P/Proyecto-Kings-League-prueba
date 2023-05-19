@@ -1,11 +1,16 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
+import com.boajp.modelo.EquipoEntidad;
+import com.boajp.modelo.JugadorEntidad;
+import com.boajp.repositorios.EquipoRepositorio;
+import com.boajp.repositorios.JugadorRepositorio;
 import com.boajp.vista.Usuarios.BarraLateral;
 import com.boajp.vista.Usuarios.EquiposVistaAdmin;
 import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
 import com.boajp.vista.Usuarios.PanelAdmin;
 import com.boajp.vista.Ventana;
+import org.hibernate.query.Query;
 
 import javax.swing.*;
 
@@ -15,6 +20,11 @@ public class PanelAdminControlador {
     private static JugadoresVistaAdmin jugadoresVistaAdmin;
 
     private static EquiposVistaAdmin equiposVistaAdmin;
+
+    private static   EquipoRepositorio eq;
+    private static JugadorRepositorio jug;
+
+
 
     BarraLateral barraLateral;
 
@@ -28,15 +38,44 @@ public class PanelAdminControlador {
 
     }
 
-    public static JPanel inicializarInsertarJugador(){
-        jugadoresVistaAdmin = new JugadoresVistaAdmin();
+    public static JPanel inicializarInsertarJugador(String accion){
+        jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
         return jugadoresVistaAdmin.getpPrincipal();
     }
 
-    public static JPanel inicializarInsertarEquipos(){
-        equiposVistaAdmin = new EquiposVistaAdmin();
+    public static JPanel inicializarInsertarEquipos(String accion){
+        equiposVistaAdmin = new EquiposVistaAdmin(accion);
         return equiposVistaAdmin.getpPrincipal();
     }
+
+    public static void insertarEquipo(String nombre, String logo) throws Exception {
+        byte[] log = logo.getBytes();
+        eq = new EquipoRepositorio();
+        EquipoEntidad e = new EquipoEntidad();
+        e.setNombre(nombre);
+        e.setLogo(log);
+        eq.insertar(e);
+    }
+
+    public static void actualizarEquipo(String nombre){
+        eq = new EquipoRepositorio();
+        
+
+
+    }
+
+    public static void insertarJugADOR(String dni, String nombre, String apellido, Integer altura, String pie) throws Exception {
+        jug = new JugadorRepositorio();
+        JugadorEntidad j = new JugadorEntidad();
+        j.setDni(dni);
+        j.setNombre(nombre);
+        j.setApellido(apellido);
+        j.setAltura(altura);
+        j.setPie(pie);
+        jug.insertar(j);
+    }
+
+
 
 }
 
