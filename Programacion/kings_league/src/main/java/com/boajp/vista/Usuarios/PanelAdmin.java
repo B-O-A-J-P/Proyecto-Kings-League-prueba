@@ -34,9 +34,20 @@ public class PanelAdmin {
         jugadoresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (op.equals("i")) {
-                    VentanaControlador.mostrarInsertarJugador();
-                }
+                VentanaControlador.mostrarInsertarJugador();
+
+            }
+        });
+        equiposButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarEquipo();
+            }
+        });
+        temporadasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarJugador();
 
             }
         });
