@@ -3,6 +3,7 @@ package com.boajp.controladores;
 import com.boajp.modelo.CuentaEntidad;
 import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
+import org.hibernate.query.Query;
 
 import javax.swing.*;
 
@@ -31,13 +32,13 @@ public class PanelAdminControlador {
 
     }
 
-    public static JPanel inicializarInsertarJugador(){
-        jugadoresVistaAdmin = new JugadoresVistaAdmin();
+    public static JPanel inicializarInsertarJugador(String accion){
+        jugadoresVistaAdmin = new JugadoresVistaAdmin(accion);
         return jugadoresVistaAdmin.getpPrincipal();
     }
 
-    public static JPanel inicializarInsertarEquipos(){
-        equiposVistaAdmin = new EquiposVistaAdmin();
+    public static JPanel inicializarInsertarEquipos(String accion){
+        equiposVistaAdmin = new EquiposVistaAdmin(accion);
         return equiposVistaAdmin.getpPrincipal();
     }
 
