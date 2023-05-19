@@ -1,6 +1,10 @@
 package com.boajp.vista.Usuarios;
 
+import com.boajp.controladores.VentanaControlador;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelAdmin {
     private JPanel pPrincipal;
@@ -26,6 +30,31 @@ public class PanelAdmin {
                 lPregunta.setText("Que desea borrar");
                 break;
         }
+
+        jugadoresButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarJugador();
+
+            }
+        });
+        equiposButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarEquipo();
+            }
+        });
+        temporadasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaControlador.mostrarInsertarJugador();
+
+            }
+        });
+/*
+        if (op.equals("i") && jugadoresButton.isSelected()){
+            VentanaControlador.mostrarInsertarJugador();
+        }*/
     }
 
 
