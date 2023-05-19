@@ -7,6 +7,11 @@ public class SplitVistaAdmin {
     private JRadioButton rbVerano;
     private JRadioButton rbInvierno;
     private JComboBox comboBox1;
+    private JPanel Pprincipal;
+
+    public JPanel getPprincipal() {
+        return Pprincipal;
+    }
 
     public SplitVistaAdmin() {
 

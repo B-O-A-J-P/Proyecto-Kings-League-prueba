@@ -71,7 +71,7 @@ public class JugadorRepositorio {
                 .getResultList();
     }
 
-    public JugadorEntidad seleccionarJugadorPorId(int id) {
+    public JugadorEntidad buscarJugador(int id) {
         return em.find(JugadorEntidad.class, id);
     }
 }

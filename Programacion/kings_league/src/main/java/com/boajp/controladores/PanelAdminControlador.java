@@ -1,14 +1,7 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
-import com.boajp.modelo.EquipoEntidad;
-import com.boajp.modelo.JugadorEntidad;
-import com.boajp.repositorios.EquipoRepositorio;
-import com.boajp.repositorios.JugadorRepositorio;
-import com.boajp.vista.Usuarios.BarraLateral;
-import com.boajp.vista.Usuarios.EquiposVistaAdmin;
-import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
-import com.boajp.vista.Usuarios.PanelAdmin;
+import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
 import org.hibernate.query.Query;
 
@@ -21,10 +14,11 @@ public class PanelAdminControlador {
 
     private static EquiposVistaAdmin equiposVistaAdmin;
 
-    private static   EquipoRepositorio eq;
-    private static JugadorRepositorio jug;
+    private static TemporadasVistaAdmin temporadasVistaAdmin;
 
+    private static SplitVistaAdmin splitVistaAdmin;
 
+    private static AgendasVistaAdmin agendaVistaAdmin;
 
     BarraLateral barraLateral;
 
@@ -48,34 +42,21 @@ public class PanelAdminControlador {
         return equiposVistaAdmin.getpPrincipal();
     }
 
-    public static void insertarEquipo(String nombre, String logo) throws Exception {
-        byte[] log = logo.getBytes();
-        eq = new EquipoRepositorio();
-        EquipoEntidad e = new EquipoEntidad();
-        e.setNombre(nombre);
-        e.setLogo(log);
-        eq.insertar(e);
-    }
-
-    public static void actualizarEquipo(String nombre){
-        eq = new EquipoRepositorio();
-        
-
-
-    }
-
-    public static void insertarJugADOR(String dni, String nombre, String apellido, Integer altura, String pie) throws Exception {
-        jug = new JugadorRepositorio();
-        JugadorEntidad j = new JugadorEntidad();
-        j.setDni(dni);
-        j.setNombre(nombre);
-        j.setApellido(apellido);
-        j.setAltura(altura);
-        j.setPie(pie);
-        jug.insertar(j);
+    public static JPanel inicializarInsertarTemporadas(){
+        temporadasVistaAdmin = new TemporadasVistaAdmin();
+        return temporadasVistaAdmin.getPprincipal();
     }
 
 
+    public static JPanel inicializarInsertarSplit(){
+        splitVistaAdmin = new SplitVistaAdmin();
+        return splitVistaAdmin.getPprincipal();
+    }
+
+    public static JPanel inicializarInsertarAgenda(){
+        agendaVistaAdmin = new AgendasVistaAdmin();
+        return agendaVistaAdmin.getPprincipal();
+    }
 
 }
 

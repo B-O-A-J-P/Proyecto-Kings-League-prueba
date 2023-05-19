@@ -1,6 +1,5 @@
 package com.boajp.controladores;
 
-import com.boajp.vista.Calendario;
 import com.boajp.vista.Clasificacion;
 import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
 
@@ -13,6 +12,12 @@ public class PanelClasificacionControlador {
     public JPanel inicializarClasificacion() {
         panelClasificacion = new Clasificacion();
         return panelClasificacion.getpClasificacion();
+    }
+
+    public static JPanel inicializarInsertarJugador(){
+        if ( jugadoresVistaAdmin == null )
+            jugadoresVistaAdmin = new JugadoresVistaAdmin();
+        return jugadoresVistaAdmin.getpPrincipal();
     }
 
 }
