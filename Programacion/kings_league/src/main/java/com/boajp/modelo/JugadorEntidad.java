@@ -30,6 +30,10 @@ public class JugadorEntidad extends Persona{
     public JugadorEntidad() {
     }
 
+    public JugadorEntidad(String nombre, String apellido, String dni) {
+        super(nombre, apellido, dni);
+    }
+
     public JugadorEntidad(String nombre, String apellido, String dni, String pie, Integer altura) {
         super(nombre, apellido, dni);
         this.pie = pie;
