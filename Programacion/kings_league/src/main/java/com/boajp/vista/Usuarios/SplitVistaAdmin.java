@@ -1,4 +1,4 @@
-package com.boajp.vista.Administrador;
+package com.boajp.vista.Usuarios;
 
 import javax.swing.*;
 

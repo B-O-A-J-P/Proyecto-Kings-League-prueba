@@ -13,6 +13,7 @@ public class PanelDeInicio extends JPanel {
     private ArrayList<CartaAbstracta> cartasEquipos;
     private JScrollPane scrollPane;
 
+
     public PanelDeInicio(List<CartaAbstracta> cartas, JScrollPane scrollPane) {
         this.cartas = cartas;
         this.scrollPane = scrollPane;
@@ -41,6 +42,10 @@ public class PanelDeInicio extends JPanel {
         GridDeCartas gridDeCartasEquipos = new GridDeCartas(this.cartasEquipos, this.scrollPane);
         add(gridDeCartasEquipos, constraintsEquipos);
     }
+
+
+
+
 
 }
 

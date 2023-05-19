@@ -38,6 +38,7 @@ public class ClasificacionCarta extends CartaAbstracta {
         tabla.setGridColor(Color.BLACK);
 
 
+
         add(new JLabel("Clasificación", JLabel.CENTER), constraintCabecera);
         add(tabla, constraintCuerpo);
     }
