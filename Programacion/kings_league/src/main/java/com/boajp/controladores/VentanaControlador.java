@@ -1,6 +1,7 @@
 package com.boajp.controladores;
 
 import com.boajp.modelo.CuentaEntidad;
+import com.boajp.vista.Usuarios.JugadoresVistaAdmin;
 import com.boajp.vista.Usuarios.PanelAdmin;
 import com.boajp.vista.Ventana;
 
@@ -49,6 +50,11 @@ public class VentanaControlador {
     public static void mostrarOpciones(String op){
         PanelAdmin panelAdmin = new PanelAdmin(op);
         VENTANA.setContenidoPrincipal(panelAdmin.getpPrincipal());
+    }
+
+    public static void mostrarInsertarJugador(){
+        JugadoresVistaAdmin jugadoresVistaAdmin = new JugadoresVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelClasificacionControlador.inicializarInsertarJugador());
     }
 
 
