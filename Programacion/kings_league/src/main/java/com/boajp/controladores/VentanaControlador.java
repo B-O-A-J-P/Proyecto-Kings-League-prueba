@@ -1,5 +1,6 @@
 package com.boajp.controladores;
 
+import com.boajp.controladores.controladoresCrud.EliminarJugadorControlador;
 import com.boajp.modelo.CuentaEntidad;
 import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
@@ -56,6 +57,10 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarJugador());
     }
 
+    public static void mostrarEliminarJugador(){
+        EliminarJugadorControlador eliminarJugadorControlador = new EliminarJugadorControlador();
+        VENTANA.setContenidoPrincipal(eliminarJugadorControlador.inicializarVistaEliminarJugador());
+    }
     public static void mostrarInsertarEquipo(){
         EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin();
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos());
@@ -78,6 +83,7 @@ public class VentanaControlador {
         VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarAgenda());
 
     }
+
 
 
 
