@@ -8,7 +8,8 @@ public class EquiposVistaAdmin {
     private JPanel pPrincipal;
     private JTextField tfNombre;
     private JTextField tfLogo;
-    private JButton eliminarButton;
+    private JButton bEliminar;
+    private JButton bAceptar;
 
     public EquiposVistaAdmin() {
 
@@ -17,7 +18,7 @@ public class EquiposVistaAdmin {
 
 
 
-        eliminarButton.addActionListener(new ActionListener() {
+        bEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tfNombre.setText("");
