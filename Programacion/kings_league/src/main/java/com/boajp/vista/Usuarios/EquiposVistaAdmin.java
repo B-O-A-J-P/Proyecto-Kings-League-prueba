@@ -12,8 +12,8 @@ public class EquiposVistaAdmin {
     private JPanel pPrincipal;
     private JTextField tfNombre;
     private JTextField tfLogo;
-    private JButton eliminarButton;
-    private JButton bAccion;
+    private JButton bEliminar;
+    private JButton bAceptar;
 
     private static String a;
 
@@ -26,6 +26,9 @@ public class EquiposVistaAdmin {
         if (a.equals("a")){
             bAccion.setText("ACTUALIZAR");
         }
+
+
+
 
         eliminarButton.addActionListener(new ActionListener() {
             @Override

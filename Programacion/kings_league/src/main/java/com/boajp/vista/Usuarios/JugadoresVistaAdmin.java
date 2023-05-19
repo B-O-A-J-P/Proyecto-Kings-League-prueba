@@ -18,7 +18,7 @@ public class JugadoresVistaAdmin {
     private JRadioButton rbDerecho;
     private JSpinner spinner1;
     private JPanel pPrincipal;
-    private JButton bAccion;
+    private JButton bAceptar;
 
     private static String acc;
 
@@ -28,13 +28,24 @@ public class JugadoresVistaAdmin {
             bAccion.setText("INSERTAR");
         }
         tfPie.setEditable(false);
-        if (rbDerecho.isSelected()) {
-            tfPie.setText("");
-            tfPie.setText("Derecho");
-        }
-       if (rbIzquierdo.isSelected()){
-           tfPie.setText("") ;
-           tfPie.setText("Izquierdo");}
+
+
+            rbDerecho.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    tfPie.setText("Derecho");
+                }
+            });
+
+
+
+           rbIzquierdo.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                   tfPie.setText("Izquierdo");
+               }
+           });
+
         SpinnerNumberModel spinnerModel = new SpinnerNumberModel(160, 140, 220, 1);
         spinner1.setModel(spinnerModel);
 
