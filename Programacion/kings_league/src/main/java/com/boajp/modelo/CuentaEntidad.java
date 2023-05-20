@@ -11,7 +11,7 @@ public class CuentaEntidad {
     private int codCuenta;
     @Basic
     @Column(name = "USUARIO")
-    private String usuario;
+    private String nombreDeUsuario;
     @Basic
     @Column(name = "CONTRASENA")
     private String contrasena;
@@ -26,19 +26,19 @@ public class CuentaEntidad {
     public CuentaEntidad() {
     }
 
-    public CuentaEntidad(String usuario, String contrasena, String email, int codDePermisos) {
-        this.usuario = usuario;
+    public CuentaEntidad(String nombreDeUsuario, String contrasena, String email, int codDePermisos) {
+        this.nombreDeUsuario = nombreDeUsuario;
         this.contrasena = contrasena;
         this.email = email;
         this.codDePermisos = codDePermisos;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombreDeUsuario() {
+        return nombreDeUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombreDeUsuario(String usuario) {
+        this.nombreDeUsuario = usuario;
     }
 
     public String getContrasena() {
@@ -65,7 +65,7 @@ public class CuentaEntidad {
         CuentaEntidad that = (CuentaEntidad) o;
 
         if (codCuenta != that.codCuenta) return false;
-        if (usuario != null ? !usuario.equals(that.usuario) : that.usuario != null) return false;
+        if (nombreDeUsuario != null ? !nombreDeUsuario.equals(that.nombreDeUsuario) : that.nombreDeUsuario != null) return false;
         if (contrasena != null ? !contrasena.equals(that.contrasena) : that.contrasena != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
 
@@ -75,7 +75,7 @@ public class CuentaEntidad {
     @Override
     public int hashCode() {
         int result = codCuenta;
-        result = 31 * result + (usuario != null ? usuario.hashCode() : 0);
+        result = 31 * result + (nombreDeUsuario != null ? nombreDeUsuario.hashCode() : 0);
         result = 31 * result + (contrasena != null ? contrasena.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;

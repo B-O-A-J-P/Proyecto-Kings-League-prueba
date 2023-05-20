@@ -1,7 +1,6 @@
 package com.boajp.controladores;
 
 import com.boajp.excepciones.*;
-
 import java.util.regex.Pattern;
 
 public class VerificadorDeDatos {
@@ -41,8 +40,6 @@ public class VerificadorDeDatos {
             throw new NombreNoValidoExcepcion();
         return true;
     }
-
-
 }
 
 

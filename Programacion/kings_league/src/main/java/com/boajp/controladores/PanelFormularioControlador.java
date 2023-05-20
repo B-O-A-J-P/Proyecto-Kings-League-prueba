@@ -6,6 +6,8 @@ import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
 import com.boajp.excepciones.UsuarioNoValidoExcepcion;
 import com.boajp.modelo.CuentaEntidad;
 import com.boajp.repositorios.CuentaRepositorio;
+import com.boajp.servicios.IniciarUsuarioServicio;
+import com.boajp.servicios.RegistrarUsuarioServicio;
 import com.boajp.vista.componentes.PanelDeError;
 import com.boajp.vista.formulario.FormularioIniciarSesion;
 import com.boajp.vista.formulario.FormularioPanel;
@@ -16,10 +18,13 @@ import javax.swing.*;
 public class PanelFormularioControlador {
 
     private FormularioPanel formularioPanel;
-    private CuentaEntidad usuario;
+    private IniciarUsuarioServicio iniciarUsuarioServicio;
+    private RegistrarUsuarioServicio registrarUsuarioServicio;
 
     public JPanel inicializarFormulario() {
         formularioPanel = new FormularioPanel();
+        iniciarUsuarioServicio = new IniciarUsuarioServicio();
+        registrarUsuarioServicio = new RegistrarUsuarioServicio();
 
         FormularioRegistro formularioRegistro = formularioPanel.getFormularioRegistro();
         FormularioIniciarSesion formularioIniciarSesion = formularioPanel.getFormularioIniciarSesion();
@@ -27,7 +32,7 @@ public class PanelFormularioControlador {
         formularioRegistro.getBtRegistrar().addActionListener(e -> {
             try {
                 formularioRegistro.verificarDatos();
-                registrarUsuario(
+                registrarUsuarioServicio.registrarUsuario(
                         formularioRegistro.getTfUsuario().getText(),
                         formularioRegistro.getTfEmail().getText(),
                         formularioRegistro.getTfContrasena().getPassword()
@@ -43,16 +48,14 @@ public class PanelFormularioControlador {
         formularioIniciarSesion.getBtIniciar().addActionListener(e -> {
             try {
                 formularioIniciarSesion.verificarDatos();
-                if (usuario != null && usuario.getUsuario().equals(formularioIniciarSesion.getTfUsuario().getText())) {
-                    if (iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword())) {
-                        Controlador.setUsuario(this.usuario);
+                if (iniciarUsuarioServicio.getUsuario() != null && iniciarUsuarioServicio.getUsuario().getNombreDeUsuario().equals(formularioIniciarSesion.getTfUsuario().getText())) {
+                    if (iniciarUsuarioServicio.iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword())) {
                         Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
                     }
                 }
                 else {
-                    encontrarUsuario(formularioIniciarSesion.getTfUsuario().getText());
-                    iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword());
-                    Controlador.setUsuario(this.usuario);
+                    iniciarUsuarioServicio.encontrarUsuario(formularioIniciarSesion.getTfUsuario().getText());
+                    iniciarUsuarioServicio.iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword());
                     Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
                 }
             } catch (UsuarioNoValidoExcepcion | UsuarioNoEncontradoExcepcion | ContrasenaNoValidaExcepcion exception) {
@@ -67,30 +70,4 @@ public class PanelFormularioControlador {
 
 
 
-    public void registrarUsuario(String usuario, String email, char[] contrasena) throws Exception{
-        CuentaRepositorio cuentaRepositorio = new CuentaRepositorio();
-        CuentaEntidad cuentaEntidad = new CuentaEntidad(usuario, new String(contrasena), email,0);
-        cuentaRepositorio.insertar(cuentaEntidad);
-    }
-
-    public void encontrarUsuario(String nombreDeUsuario) throws Exception{
-      CuentaRepositorio cuentaRepositorio = new CuentaRepositorio();
-      this.usuario = cuentaRepositorio.buscarCuenta(nombreDeUsuario);
-      if (usuario == null)
-          throw new UsuarioNoEncontradoExcepcion();
-    }
-
-    public boolean iniciarUsuario(char[] contrasenaDeUsuario) throws ContrasenaNoValidaExcepcion{
-        String contrasena = new String(contrasenaDeUsuario);
-        if (usuario.getContrasena().equals(contrasena)) {
-            Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setText("Ajustes");
-            Controlador.mostrarPanelDeInicio();
-        } else
-            throw new ContrasenaNoValidaExcepcion();
-        return true;
-    }
-
-    public CuentaEntidad getUsuario(){
-        return usuario;
-    }
 }

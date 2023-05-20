@@ -9,7 +9,6 @@ import com.boajp.vista.carta.EquipoCarta;
 import com.boajp.vista.carta.JugadorCarta;
 import com.boajp.vista.carta.MiembroCarta;
 import com.boajp.vista.componentes.PanelDeError;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +22,7 @@ public class InformacionDeEquiposServicio {
         contratoEquipoJugadorRepositorio = new ContratoEquipoJugadorRepositorio();
         contratoEquipoMiembroRepositorio = new ContratoEquipoMiembroRepositorio();
     }
+
     public ArrayList<CartaAbstracta> crearCartasDeEquipos() {
         List<EquipoEntidad> equipoEntidadList = new ArrayList<>();
         try {

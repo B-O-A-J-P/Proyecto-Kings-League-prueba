@@ -1,19 +1,12 @@
 package com.boajp.controladores;
 
-import com.boajp.modelo.*;
-import com.boajp.repositorios.ClasificacionRepositorio;
-import com.boajp.repositorios.RegistroEquipoRepositorio;
 import com.boajp.servicios.InformacionDeInicioServicio;
 import com.boajp.vista.PanelDeInicio;
-import com.boajp.vista.Ventana;
 import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.ClasificacionCarta;
-import com.boajp.vista.carta.EquipoCarta;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 public class PanelDeInicioControlador {
 
@@ -43,7 +36,5 @@ public class PanelDeInicioControlador {
                 scrollPane);
         return panelDeInicio;
     }
-
-
 
 }

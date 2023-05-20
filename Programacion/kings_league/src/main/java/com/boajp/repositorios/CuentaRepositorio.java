@@ -28,7 +28,7 @@ public class CuentaRepositorio {
 
     public CuentaEntidad buscarCuenta(String usuario) throws Exception {
         try {
-            String sql = "SELECT c FROM CuentaEntidad c WHERE c.usuario = :usuario";
+            String sql = "SELECT c FROM CuentaEntidad c WHERE c.nombreDeUsuario = :usuario";
             TypedQuery<CuentaEntidad> resultado = entityManager.createQuery(sql, CuentaEntidad.class);
             resultado.setParameter("usuario", usuario);
             return resultado.getSingleResult();
