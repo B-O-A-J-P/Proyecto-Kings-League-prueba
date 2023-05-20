@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelos.TemporadaEntidad;
+import com.boajp.modelo.TemporadaEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

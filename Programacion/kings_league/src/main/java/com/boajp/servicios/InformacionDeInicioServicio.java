@@ -1,6 +1,6 @@
 package com.boajp.servicios;
 
-import com.boajp.modelos.*;
+import com.boajp.modelo.*;
 import com.boajp.repositorios.ClasificacionRepositorio;
 import com.boajp.repositorios.JornadaRepositorio;
 import com.boajp.repositorios.RegistroEquipoRepositorio;

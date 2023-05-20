@@ -1,4 +1,4 @@
-package com.boajp.modelos;
+package com.boajp.modelo;
 
 import jakarta.persistence.*;
 

@@ -47,7 +47,10 @@ public class BarraDeNavegacionControlador {
     public void anadirListenerBotonDeIniciar() {
         JButton boton = barraDeNavegacion.getIniciarSesionBoton();
         boton.addActionListener(e -> {
-            Controlador.mostrarPanelDeFormulario();
+            if (!e.getActionCommand().equalsIgnoreCase("iniciado"))
+                Controlador.mostrarPanelDeFormulario();
+            else
+                Controlador.mostrarPanelDeUsuario();
         });
     }
 

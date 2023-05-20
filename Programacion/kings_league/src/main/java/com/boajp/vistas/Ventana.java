@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Ventana extends JFrame {
     private final Insets CUERPO_INSETS = new Insets(0, 0, 0, 0);
-    private final GridBagConstraints CUERPO = new GridBagConstraints(1, 0, 1, 3, 0, 1, GridBagConstraints.NORTH, GridBagConstraints.BOTH, CUERPO_INSETS, 0, 0);
+    private final GridBagConstraints CUERPO = new GridBagConstraints(1, 0, 1, 3, 0, 0, GridBagConstraints.NORTH, GridBagConstraints.BOTH, CUERPO_INSETS, 0, 0);
     private BarraDeNavegacion barraDeNavegacion;
     private final JScrollPane scrollPane;
     private final JPanel panelCuerpo;

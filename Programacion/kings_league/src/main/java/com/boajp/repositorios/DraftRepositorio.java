@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelos.DraftEntidad;
+import com.boajp.modelo.DraftEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

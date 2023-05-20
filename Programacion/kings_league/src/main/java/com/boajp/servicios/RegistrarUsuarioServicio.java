@@ -1,6 +1,6 @@
 package com.boajp.servicios;
 
-import com.boajp.modelos.CuentaEntidad;
+import com.boajp.modelo.CuentaEntidad;
 import com.boajp.repositorios.CuentaRepositorio;
 
 public class RegistrarUsuarioServicio {

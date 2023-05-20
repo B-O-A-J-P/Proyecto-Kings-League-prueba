@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelos.SplitEntidad;
+import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.boajp.vistas.carta;
 
-import com.boajp.modelos.JugadorEntidad;
-import com.boajp.modelos.Persona;
+import com.boajp.modelo.JugadorEntidad;
+import com.boajp.modelo.Persona;
 import com.boajp.utilidades.EstilosDeVistas;
 
 import javax.swing.*;

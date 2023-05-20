@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelos.ClasificacionEntidad;
+import com.boajp.modelo.ClasificacionEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

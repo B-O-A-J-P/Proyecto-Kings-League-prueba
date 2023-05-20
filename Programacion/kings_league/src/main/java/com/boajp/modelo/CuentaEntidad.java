@@ -1,4 +1,4 @@
-package com.boajp.modelos;
+package com.boajp.modelo;
 
 import jakarta.persistence.*;
 
@@ -24,6 +24,12 @@ public class CuentaEntidad {
     private int codDePermisos;
 
     public CuentaEntidad() {
+    }
+
+    public CuentaEntidad(String nombreDeUsuario, String email, String contrasena) {
+        this.nombreDeUsuario = nombreDeUsuario;
+        this.contrasena = contrasena;
+        this.email = email;
     }
 
     public CuentaEntidad(String nombreDeUsuario, String contrasena, String email, int codDePermisos) {

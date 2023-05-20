@@ -1,6 +1,6 @@
 package com.boajp.servicios;
 
-import com.boajp.modelos.*;
+import com.boajp.modelo.*;
 import com.boajp.repositorios.ContratoEquipoJugadorRepositorio;
 import com.boajp.repositorios.ContratoEquipoMiembroRepositorio;
 import com.boajp.repositorios.EquipoRepositorio;

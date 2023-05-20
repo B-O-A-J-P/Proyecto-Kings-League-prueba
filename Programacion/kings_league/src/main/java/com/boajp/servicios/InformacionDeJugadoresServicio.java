@@ -1,6 +1,6 @@
 package com.boajp.servicios;
 
-import com.boajp.modelos.RegistroJugadorEntidad;
+import com.boajp.modelo.RegistroJugadorEntidad;
 import com.boajp.repositorios.RegistroJugadorRepositorio;
 import com.boajp.vistas.carta.CartaAbstracta;
 import com.boajp.vistas.carta.JugadorCarta;

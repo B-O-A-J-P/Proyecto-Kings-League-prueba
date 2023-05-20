@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelos.AgendaEntidad;
+import com.boajp.modelo.AgendaEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

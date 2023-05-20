@@ -1,6 +1,7 @@
 package com.boajp.controladores;
 
-import com.boajp.modelos.CuentaEntidad;
+import com.boajp.controladores.controladoresPanelDeUsuario.PanelUsuarioControlador;
+import com.boajp.modelo.CuentaEntidad;
 import com.boajp.vistas.Ventana;
 
 public class Controlador {
@@ -40,6 +41,12 @@ public class Controlador {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setOcuparTodaLaAnchura(true);
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
+    }
+
+    public static void mostrarPanelDeUsuario() {
+        PanelUsuarioControlador panelUsuarioControlador = new PanelUsuarioControlador();
+        VENTANA.setOcuparTodaLaAnchura(true);
+        VENTANA.setContenidoPrincipal(panelUsuarioControlador.getPanelDeUsuario());
     }
 
 

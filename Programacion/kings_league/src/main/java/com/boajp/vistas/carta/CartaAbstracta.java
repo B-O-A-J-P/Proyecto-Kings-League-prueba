@@ -9,7 +9,6 @@ abstract public class CartaAbstracta extends JPanel {
     private int codigoDeCarta;
     protected boolean estaHovered = false;
 
-
     public CartaAbstracta() {}
 
     public CartaAbstracta(Color colorPorDefecto, Color colorHover) {

@@ -3,7 +3,7 @@ package com.boajp.servicios;
 import com.boajp.controladores.Controlador;
 import com.boajp.excepciones.ContrasenaNoValidaExcepcion;
 import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
-import com.boajp.modelos.CuentaEntidad;
+import com.boajp.modelo.CuentaEntidad;
 import com.boajp.repositorios.CuentaRepositorio;
 
 public class IniciarUsuarioServicio {

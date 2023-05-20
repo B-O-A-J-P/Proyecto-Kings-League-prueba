@@ -1,7 +1,7 @@
 package com.boajp.repositorios;
 
 import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
-import com.boajp.modelos.CuentaEntidad;
+import com.boajp.modelo.CuentaEntidad;
 import jakarta.persistence.*;
 
 public class CuentaRepositorio {
@@ -15,12 +15,28 @@ public class CuentaRepositorio {
     }
 
     public void insertar(CuentaEntidad cuenta) throws Exception {
-        EntityTransaction transaction = entityManager.getTransaction();
+        transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             entityManager.persist(cuenta);
             transaction.commit();
         } catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }
+    }
+
+    public void modificar(CuentaEntidad cuentaEntidad) throws Exception {
+        transaction = entityManager.getTransaction();
+        try {
+            CuentaEntidad oldCuenta = entityManager.find(CuentaEntidad.class, cuentaEntidad.getCodCuenta());
+            transaction.begin();
+            oldCuenta.setNombreDeUsuario(cuentaEntidad.getNombreDeUsuario());
+            oldCuenta.setEmail(cuentaEntidad.getEmail());
+            oldCuenta.setContrasena(cuentaEntidad.getContrasena());
+            entityManager.persist(oldCuenta);
+            transaction.commit();
+        }catch (Exception e) {
             transaction.rollback();
             throw e;
         }
