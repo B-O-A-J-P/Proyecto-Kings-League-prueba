@@ -1,0 +1,67 @@
+package com.boajp.servicios;
+
+import com.boajp.modelo.*;
+import com.boajp.repositorios.ContratoEquipoJugadorRepositorio;
+import com.boajp.repositorios.ContratoEquipoMiembroRepositorio;
+import com.boajp.repositorios.EquipoRepositorio;
+import com.boajp.vista.carta.CartaAbstracta;
+import com.boajp.vista.carta.EquipoCarta;
+import com.boajp.vista.carta.JugadorCarta;
+import com.boajp.vista.carta.MiembroCarta;
+import com.boajp.vista.componentes.PanelDeError;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class InformacionDeEquiposServicio {
+    private final EquipoRepositorio equipoRepositorio;
+    private final ContratoEquipoJugadorRepositorio contratoEquipoJugadorRepositorio;
+    private final ContratoEquipoMiembroRepositorio contratoEquipoMiembroRepositorio;
+    public InformacionDeEquiposServicio() {
+        equipoRepositorio = new EquipoRepositorio();
+        contratoEquipoJugadorRepositorio = new ContratoEquipoJugadorRepositorio();
+        contratoEquipoMiembroRepositorio = new ContratoEquipoMiembroRepositorio();
+    }
+    public ArrayList<CartaAbstracta> crearCartasDeEquipos() {
+        List<EquipoEntidad> equipoEntidadList = new ArrayList<>();
+        try {
+            equipoEntidadList = equipoRepositorio.buscarEquipoParticipantes();
+        } catch (Exception exception) {
+            new PanelDeError(exception.getMessage());
+        }
+
+        ArrayList<CartaAbstracta> cartasEquipos = new ArrayList<>();
+        for (EquipoEntidad equipo : equipoEntidadList) {
+            CartaAbstracta carta = new EquipoCarta(equipo.getNombre());
+            carta.setCodigoDeCarta(equipo.getCodEquipo());
+            cartasEquipos.add(carta);
+        }
+        return cartasEquipos;
+    }
+
+    public ArrayList<CartaAbstracta> crearCartasDeMiembros() {
+        ArrayList<CartaAbstracta> cartasMiembros = new ArrayList<>();
+        List<ContratoEquipoJugadorEntidad> contratoEquipoJugadorEntidadList = contratoEquipoJugadorRepositorio.buscarContratosVigentes();
+        List<ContratoEquipoMiembroEntidad> contratoEquipoMiembroEntidadList = contratoEquipoMiembroRepositorio.buscarContratosVigentes();
+
+        for (ContratoEquipoJugadorEntidad contrato : contratoEquipoJugadorEntidadList) {
+            String nombreCompleto = contrato.getJugador().getNombre() + " " + contrato.getJugador().getApellido();
+            HashMap<String, String> caracteristicas = new HashMap<>();
+            caracteristicas.put("Altura", String.valueOf(contrato.getJugador().getAltura()));
+            caracteristicas.put("Pie", contrato.getJugador().getPie());
+
+            CartaAbstracta cartaJugador = new JugadorCarta(nombreCompleto, caracteristicas);
+            cartaJugador.setCodigoDeCarta(contrato.getEquipo().getCodEquipo());
+            cartasMiembros.add(cartaJugador);
+        }
+
+        for (ContratoEquipoMiembroEntidad contrato : contratoEquipoMiembroEntidadList) {
+            CartaAbstracta cartaMiembro = new MiembroCarta(contrato.getMiembro());
+            cartaMiembro.setCodigoDeCarta(contrato.getEquipo().getCodEquipo());
+            cartasMiembros.add(cartaMiembro);
+        }
+        return cartasMiembros;
+    }
+
+}

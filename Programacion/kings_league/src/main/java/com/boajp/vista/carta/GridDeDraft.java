@@ -11,17 +11,18 @@ import java.util.ArrayList;
 public class GridDeDraft extends JPanel {
     private final ArrayList<CartaAbstracta> CARTAS;
     private int indiceActual = 0;
-    private JScrollPane scrollPane;
+    private int viewPort;
 
     public GridDeDraft(ArrayList<CartaAbstracta> cartas) {
         this.CARTAS = cartas;
-        this.scrollPane = scrollPane;
+
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new GridBagLayout());
     }
 
     public void actualizarGrid(int viewPort) {
         removeAll();
+        this.viewPort = viewPort;
 
         int columnas = Math.max( (int) (viewPort / (CARTAS.get(0).getAnchura() * 1.2)), 1);
         if (columnas >= CARTAS.size()) {
@@ -69,13 +70,13 @@ public class GridDeDraft extends JPanel {
         if (indiceActual >= CARTAS.size()) {
             indiceActual = 0;
         } else indiceActual++;
-        actualizarGrid(scrollPane.getViewport().getWidth());
+        actualizarGrid(viewPort);
     }
 
     public void cartaAnterior() {
         if (indiceActual <= 0) {
             indiceActual = CARTAS.size() - 1;
         } else indiceActual--;
-        actualizarGrid(scrollPane.getViewport().getWidth());
+        actualizarGrid(viewPort);
     }
 }

@@ -72,15 +72,10 @@ public class ContratoEquipoMiembroRepositorio {
         return em.find(ContratoEquipoMiembroEntidad.class, id);
     }
 
-    public List<ContratoEquipoMiembroEntidad> buscarContratosVigentes(ArrayList<String> codigosDeEquipos) {
-        List<ContratoEquipoMiembroEntidad> lista = new ArrayList<>();
-        for (String codigo : codigosDeEquipos) {
-            String sql = "SELECT cm FROM ContratoEquipoMiembroEntidad cm WHERE cm.equipo.codEquipo = :codigo AND (cm.fechaSalida > current_date OR cm.fechaSalida IS NULL)";
-            TypedQuery<ContratoEquipoMiembroEntidad> resultado = em.createQuery(sql, ContratoEquipoMiembroEntidad.class);
-            resultado.setParameter("codigo", codigo);
-            lista.addAll(resultado.getResultList());
-        }
-        return lista;
+    public List<ContratoEquipoMiembroEntidad> buscarContratosVigentes() {
+        String sql = "SELECT cm FROM ContratoEquipoMiembroEntidad cm WHERE (cm.fechaSalida > current_date OR cm.fechaSalida IS NULL)";
+        TypedQuery<ContratoEquipoMiembroEntidad> resultado = em.createQuery(sql, ContratoEquipoMiembroEntidad.class);
+        return resultado.getResultList();
     }
 }
 

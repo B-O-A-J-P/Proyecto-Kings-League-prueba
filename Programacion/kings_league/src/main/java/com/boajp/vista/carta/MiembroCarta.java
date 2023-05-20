@@ -29,7 +29,7 @@ public class MiembroCarta extends CartaAbstracta{
         GridBagConstraints constraintsImagen = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, paddingImagen, 0, 0);
         GridBagConstraints constraintsCaracteristicas = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, padding, 0, 0);
 
-        Image image = new ImageIcon(Objects.requireNonNull(com.boajp.vista.CartaMiembro.class.getResource("/imagenes/perfil.png"))).getImage();
+        Image image = new ImageIcon(Objects.requireNonNull(com.boajp.vista.carta.MiembroCarta.class.getResource("/imagenes/perfil.png"))).getImage();
 
         add(new JLabel(persona.getNombre() + " " + persona.getApellido(), JLabel.CENTER), constraintsTitulo);
         add(new JLabel(new ImageIcon(image), JLabel.CENTER), constraintsImagen);
