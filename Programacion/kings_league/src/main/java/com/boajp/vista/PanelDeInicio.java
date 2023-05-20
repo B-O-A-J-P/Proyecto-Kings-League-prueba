@@ -2,6 +2,8 @@ package com.boajp.vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,21 @@ public class PanelDeInicio extends JPanel {
 
         GridDeCartas gridDeCartasEquipos = new GridDeCartas(cartasEquipos, scrollPane);
         add(gridDeCartasEquipos, constraintsEquipos);
+
+        //Esto es necesario para hacer que las cartas tengan un tamaño inicial, en caso contrario, tendrá unas dimensiones de 0.
+        gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+        gridDeCartasEquipos.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+
+        scrollPane.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                int viewPortWidth = scrollPane.getViewport().getWidth();
+                gridDeCartas.actualizarGridDeCartas(viewPortWidth);
+                gridDeCartasEquipos.actualizarGridDeCartas(viewPortWidth);
+                scrollPane.getParent().revalidate();
+                scrollPane.getParent().repaint();
+            }
+        });
     }
 
 }

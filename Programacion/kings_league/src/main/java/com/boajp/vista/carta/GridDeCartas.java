@@ -13,21 +13,13 @@ public class GridDeCartas extends JPanel {
     public GridDeCartas(List<CartaAbstracta> cartas, JScrollPane scrollPane) {
         CARTAS = cartas;
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
-
-        scrollPane.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                actualizarGridDeCartas(scrollPane.getWidth());
-                scrollPane.getParent().revalidate();
-                scrollPane.getParent().repaint();
-            }
-        });
+        setLayout(new GridBagLayout());
     }
 
 
     public void actualizarGridDeCartas(int viewPort) {
         removeAll();
-        setLayout(new GridBagLayout());
+
         int columnas = Math.max( (int) (viewPort / (CARTAS.get(0).getAnchura() * 1.1)), 1);
         if (columnas >= CARTAS.size()) {
             columnas = CARTAS.size() ;
@@ -57,6 +49,8 @@ public class GridDeCartas extends JPanel {
                 ++indiceFila;
             }
         }catch (Exception ignore) {}
+        revalidate();
+        repaint();
     }
 }
 
