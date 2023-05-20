@@ -31,6 +31,12 @@ public class TemporadaEntidad {
     public TemporadaEntidad() {
     }
 
+    public TemporadaEntidad(short ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion) {
+        this.ano = ano;
+        this.fechaInicioInscripcion = fechaInicioInscripcion;
+        this.fechaFinInscripcion = fechaFinInscripcion;
+    }
+
     public TemporadaEntidad(short ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion, Collection<RegistroEquipoEntidad> listaEquipos, Collection<RegistroJugadorEntidad> listaJugadores, Collection<SplitEntidad> listaSplits) {
         this.ano = ano;
         this.fechaInicioInscripcion = fechaInicioInscripcion;
@@ -38,6 +44,18 @@ public class TemporadaEntidad {
         this.listaEquipos = listaEquipos;
         this.listaJugadores = listaJugadores;
         this.listaSplits = listaSplits;
+    }
+
+    public String[] toArray() {
+        return new String[] {
+                String.valueOf(codTemporada),
+                String.valueOf(ano),
+                fechaInicioInscripcion.toString(),
+                fechaFinInscripcion.toString()};
+    }
+
+    public String[] getAtributos() {
+        return new String[]{"Código de temporada", "Año", "Fecha inicio de inscripción", "Fecha fin de inscripción"};
     }
 
     public int getCodTemporada() {
