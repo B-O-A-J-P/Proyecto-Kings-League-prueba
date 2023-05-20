@@ -1,12 +1,7 @@
 package com.boajp.vista.carta;
 
-import com.boajp.modelo.JornadaEntidad;
-import com.boajp.modelo.PartidoEntidad;
-import com.boajp.utilidades.EstilosDeVistas;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class JornadaCarta extends CartaAbstracta {
     private JLabel cabecera;
@@ -15,32 +10,29 @@ public class JornadaCarta extends CartaAbstracta {
     private int altura = 400;
     private GridBagConstraints constraintCabecera = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(10, 0, 0, 0), 0, 0);
     private GridBagConstraints constraintCuerpo = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 20, 20, 20), 0, 0);
-    private JornadaEntidad jornada;
-    private List<PartidoEntidad> partidos;
+    private String[][] datosDePartidos;
 
-
-    public JornadaCarta(JornadaEntidad jornada, List<PartidoEntidad> partidos) {
+    public JornadaCarta(int numeroDeJornada, String fechaDeJornada, String[][] partidos) {
         setLayout(new GridBagLayout());
-        this.jornada = jornada;
-        this.partidos = partidos;
+        datosDePartidos = partidos;
 
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, altura));
 
-        cabecera = new JLabel("<html> Jornada " + jornada.getNumero() + "<p>" + jornada.getFecha() + "</p></html>", JLabel.CENTER);
-
+        cabecera = new JLabel("<html><div style='text-align: center;'>Jornada " + numeroDeJornada + "<p>" + fechaDeJornada + "</p></div></html>", JLabel.CENTER);
 
         add(cabecera, constraintCabecera);
     }
 
     public void crearCuerpo() {
-        cuerpo = new JPanel(new GridLayout(partidos.size(), 3));
+        cuerpo = new JPanel(new GridLayout(datosDePartidos.length, datosDePartidos[0].length));
         cuerpo.setBackground(super.getColorPorDefecto());
-        for ( PartidoEntidad partido : partidos ) {
-            cuerpo.add(new JLabel(partido.getEquipoUno().getNombre(), JLabel.CENTER));
-            cuerpo.add(new JLabel("vs", JLabel.CENTER));
-            cuerpo.add(new JLabel(partido.getEquipoDos().getNombre(), JLabel.CENTER));
+
+        for ( String[] partido : datosDePartidos ) {
+            for (String informacion : partido) {
+                cuerpo.add(new JLabel(informacion, JLabel.CENTER));
+            }
         }
         this.add(cuerpo, constraintCuerpo);
     }

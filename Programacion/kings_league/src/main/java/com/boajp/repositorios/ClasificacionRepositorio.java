@@ -72,7 +72,7 @@ public class ClasificacionRepositorio {
 
     public List<ClasificacionEntidad> buscarUltimaClasificacion() throws Exception {
         try {
-            String query = "SELECT c FROM ClasificacionEntidad c WHERE c.split.codSplit = (SELECT MAX(ce.split.codSplit) FROM ClasificacionEntidad ce)";
+            String query = "SELECT c FROM ClasificacionEntidad c WHERE c.split.codSplit = (SELECT MAX(ce.split.codSplit) FROM ClasificacionEntidad ce ) ORDER BY c.posicion ASC";
             TypedQuery<ClasificacionEntidad> resultado = em.createQuery(query, ClasificacionEntidad.class);
             return resultado.getResultList();
         } catch (NoResultException e) {

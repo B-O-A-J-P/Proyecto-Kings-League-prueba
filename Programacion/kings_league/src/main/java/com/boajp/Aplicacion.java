@@ -1,21 +1,21 @@
 package com.boajp;
 
 
-import com.boajp.controladores.VentanaControlador;
+import com.boajp.controladores.Controlador;
 
 
 public class Aplicacion {
-    private static VentanaControlador ventanaControlador;
+    private static Controlador controlador;
 
     static public void main(String... args) {
 
-        ventanaControlador = new VentanaControlador();
-        ventanaControlador.mostrarPanelDeInicio();
+        controlador = new Controlador();
+        controlador.mostrarPanelDeInicio();
 
     }
 
-    public static VentanaControlador getVentanaControlador() {
-        return ventanaControlador;
+    public static Controlador getVentanaControlador() {
+        return controlador;
     }
 }
 

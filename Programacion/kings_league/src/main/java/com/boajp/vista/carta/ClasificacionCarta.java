@@ -11,23 +11,20 @@ import java.util.List;
 public class ClasificacionCarta extends CartaAbstracta {
     private int anchura = 400;
     private int altura = 400;
+    private GridBagConstraints constraintCabecera = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(10, 0, 0, 0), 0, 0);
+    private GridBagConstraints constraintCuerpo = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL, new Insets(10, 20, 20, 20), 0, 0);
     private JTable tabla;
     private DefaultTableModel modelo;
-    private List<ClasificacionEntidad> datos;
-    private GridBagConstraints constraintCabecera = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(10, 0, 0, 0), 0, 0);
-    private GridBagConstraints constraintCuerpo = new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 20, 20, 20), 0, 0);
 
-    public ClasificacionCarta(List<ClasificacionEntidad> tablaDeClasificacion) {
+    public ClasificacionCarta(String[] columnas, String[][] filas) {
         setLayout(new GridBagLayout());
         setBackground(super.getColorPorDefecto());
-        this.datos = tablaDeClasificacion;
 
         setMinimumSize(new Dimension(anchura, altura));
         setPreferredSize(new Dimension(anchura, altura));
         setMaximumSize(new Dimension(anchura, altura));
 
-
-        modelo = new DefaultTableModel(crearFilas(), crearColumnas());
+        modelo = new DefaultTableModel(filas, columnas);
 
         tabla = new JTable(modelo);
         tabla.setEnabled(false);
@@ -37,27 +34,10 @@ public class ClasificacionCarta extends CartaAbstracta {
         tabla.setShowVerticalLines(false);
         tabla.setGridColor(Color.BLACK);
 
-
-
         add(new JLabel("Clasificación", JLabel.CENTER), constraintCabecera);
         add(tabla, constraintCuerpo);
     }
 
-    private String[] crearColumnas(){
-        return new String[] {
-                "Posición",
-                "Equipo"
-        };
-    }
-
-    private Object[][] crearFilas() {
-        Object[][] filas = new Object[datos.size()][crearColumnas().length];
-        for (int x = 0; x < datos.size(); x++) {
-            filas[x][0] = datos.get(x).getPosicion();
-            filas[x][1] = datos.get(x).getEquipo().getNombre();
-        }
-        return filas;
-    }
 
     @Override
     public int getAnchura() {

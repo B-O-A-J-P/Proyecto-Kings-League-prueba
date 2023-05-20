@@ -45,15 +45,15 @@ public class PanelFormularioControlador {
                 formularioIniciarSesion.verificarDatos();
                 if (usuario != null && usuario.getUsuario().equals(formularioIniciarSesion.getTfUsuario().getText())) {
                     if (iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword())) {
-                        VentanaControlador.setUsuario(this.usuario);
-                        VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
+                        Controlador.setUsuario(this.usuario);
+                        Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
                     }
                 }
                 else {
                     encontrarUsuario(formularioIniciarSesion.getTfUsuario().getText());
                     iniciarUsuario(formularioIniciarSesion.getTfContrasena().getPassword());
-                    VentanaControlador.setUsuario(this.usuario);
-                    VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
+                    Controlador.setUsuario(this.usuario);
+                    Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setActionCommand("iniciado");
                 }
             } catch (UsuarioNoValidoExcepcion | UsuarioNoEncontradoExcepcion | ContrasenaNoValidaExcepcion exception) {
                 new PanelDeError(exception.getMessage());
@@ -83,8 +83,8 @@ public class PanelFormularioControlador {
     public boolean iniciarUsuario(char[] contrasenaDeUsuario) throws ContrasenaNoValidaExcepcion{
         String contrasena = new String(contrasenaDeUsuario);
         if (usuario.getContrasena().equals(contrasena)) {
-            VentanaControlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setText("Ajustes");
-            VentanaControlador.mostrarPanelDeInicio();
+            Controlador.VENTANA.getBarraDeNavegacion().getIniciarSesionBoton().setText("Ajustes");
+            Controlador.mostrarPanelDeInicio();
         } else
             throw new ContrasenaNoValidaExcepcion();
         return true;

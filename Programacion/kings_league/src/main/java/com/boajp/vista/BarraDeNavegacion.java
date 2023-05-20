@@ -7,22 +7,24 @@ import java.awt.*;
 
 public class BarraDeNavegacion extends JPanel{
     private JButton inicio;
+    private JButton calendarioBoton;
     private JButton clasificacionBoton;
     private JButton equiposBoton;
     private JButton jugadoresBoton;
-    private JButton calendarioBoton;
     private JButton iniciarSesionBoton;
     private JButton[] botones;
 
     public BarraDeNavegacion() {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
-        setLayout(new FlowLayout(FlowLayout.LEFT,10, 60));
+        setLayout(new FlowLayout(FlowLayout.CENTER));
+
         inicio = new JButton("Inicio");
         calendarioBoton = new JButton("Calendario");
         clasificacionBoton = new JButton("Clasificación");
         equiposBoton = new JButton("Equipos");
         jugadoresBoton = new JButton("Jugadores");
         iniciarSesionBoton = new JButton("Iniciar sesión");
+
         botones = new JButton[6];
         botones[0] = clasificacionBoton;
         botones[1] = equiposBoton;
@@ -31,10 +33,6 @@ public class BarraDeNavegacion extends JPanel{
         botones[4] = inicio;
         botones[5] = iniciarSesionBoton;
 
-        ajustarBotones();
-
-        aplicarEstilo();
-        setLayout(new FlowLayout());
         add(inicio);
         add(calendarioBoton);
         add(clasificacionBoton);
@@ -42,33 +40,9 @@ public class BarraDeNavegacion extends JPanel{
         add(jugadoresBoton);
         add(iniciarSesionBoton);
         iniciarSesionBoton.setActionCommand("iniciar");
-    }
 
-    private Dimension encontrarBotonMasGrande() {
-        Dimension tamano = new Dimension(0, 0);
-        for ( JButton boton: botones ) {
-            if ( boton.getHeight() > tamano.height )
-                tamano.height = boton.getHeight();
-            if ( boton.getWidth() > tamano.width )
-                tamano.width = boton.getWidth();
-        }
-
-        return tamano;
-    }
-
-
-
-
-    public void setInicio(JButton inicio) {
-        this.inicio = inicio;
-    }
-
-    public JButton getIniciarSesionBoton() {
-        return iniciarSesionBoton;
-    }
-
-    public void setIniciarSesionBoton(JButton iniciarSesionBoton) {
-        this.iniciarSesionBoton = iniciarSesionBoton;
+        ajustarBotones();
+        aplicarEstilo();
     }
 
     public void ajustarBotones() {
@@ -79,8 +53,30 @@ public class BarraDeNavegacion extends JPanel{
         }
     }
 
+    public void aplicarEstilo() {
+        for (JButton boton: botones) {
+            boton.setBackground(null);
+            boton.setBorder(BorderFactory.createEmptyBorder());
+            boton.setBorderPainted(false);
+            boton.setFocusPainted(false);
+            boton.setOpaque(false);
+        }
+    }
+
     public JButton getInicio() {
         return inicio;
+    }
+
+    public void setInicio(JButton inicio) {
+        this.inicio = inicio;
+    }
+
+    public JButton getCalendarioBoton() {
+        return calendarioBoton;
+    }
+
+    public void setCalendarioBoton(JButton calendarioBoton) {
+        this.calendarioBoton = calendarioBoton;
     }
 
     public JButton getClasificacionBoton() {
@@ -107,30 +103,20 @@ public class BarraDeNavegacion extends JPanel{
         this.jugadoresBoton = jugadoresBoton;
     }
 
-    public JButton getCalendarioBoton() {
-        return calendarioBoton;
+    public JButton getIniciarSesionBoton() {
+        return iniciarSesionBoton;
     }
 
-    public void setCalendarioBoton(JButton calendarioBoton) {
-        this.calendarioBoton = calendarioBoton;
-    }
-
-
-    public void aplicarEstilo() {
-        for (JButton boton: botones) {
-            boton.setBackground(null);
-            boton.setBorder(BorderFactory.createEmptyBorder());
-            boton.setBorderPainted(false);
-            boton.setFocusPainted(false);
-            boton.setOpaque(false);
-        }
-    }
-    public JButton getItemNav(int n) {
-        return botones[n];
+    public void setIniciarSesionBoton(JButton iniciarSesionBoton) {
+        this.iniciarSesionBoton = iniciarSesionBoton;
     }
 
     public JButton[] getBotones() {
         return botones;
+    }
+
+    public void setBotones(JButton[] botones) {
+        this.botones = botones;
     }
 }
 

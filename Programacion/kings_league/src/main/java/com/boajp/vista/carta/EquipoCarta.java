@@ -1,12 +1,11 @@
 package com.boajp.vista.carta;
 
-import com.boajp.controladores.VentanaControlador;
+import com.boajp.controladores.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class EquipoCarta extends CartaAbstracta {
     private final JLabel LB_NOMBRE;
@@ -45,7 +44,7 @@ public class EquipoCarta extends CartaAbstracta {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                VentanaControlador.mostrarPanelDeEquipos();
+                Controlador.mostrarPanelDeEquipos();
             }
         });
 
@@ -145,7 +144,7 @@ public class EquipoCarta extends CartaAbstracta {
             @Override
             public void mouseClicked(MouseEvent e) {
                 String equipo ="";
-                VentanaControlador.mostrarPanelDeEquipos();
+                Controlador.mostrarPanelDeEquipos();
             }
         });
 
@@ -154,7 +153,6 @@ public class EquipoCarta extends CartaAbstracta {
     public JLabel getLB_NOMBRE() {
         return LB_NOMBRE;
     }
-
 
     @Override
     public int getAnchura() {
@@ -170,20 +168,5 @@ public class EquipoCarta extends CartaAbstracta {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
-
-    public static void main(String... args){
-        JFrame frame = new JFrame();
-        frame.setLayout(new FlowLayout());
-        for ( int x = 0; x < 12; ++x) {
-            frame.add(new EquipoCarta("Jorge Egea Nogueira"));
-        }
-
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-
 
 }

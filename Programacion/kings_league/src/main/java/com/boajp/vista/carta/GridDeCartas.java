@@ -1,7 +1,6 @@
 package com.boajp.vista.carta;
 
 import com.boajp.utilidades.EstilosDeVistas;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
@@ -19,6 +18,8 @@ public class GridDeCartas extends JPanel {
             @Override
             public void componentResized(ComponentEvent e) {
                 actualizarGridDeCartas(scrollPane.getWidth());
+                scrollPane.getParent().revalidate();
+                scrollPane.getParent().repaint();
             }
         });
     }
@@ -56,8 +57,6 @@ public class GridDeCartas extends JPanel {
                 ++indiceFila;
             }
         }catch (Exception ignore) {}
-        revalidate();
-        repaint();
     }
 }
 

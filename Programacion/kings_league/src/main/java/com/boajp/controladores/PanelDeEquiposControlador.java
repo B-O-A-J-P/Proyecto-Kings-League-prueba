@@ -10,7 +10,6 @@ import com.boajp.vista.componentes.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class PanelDeEquiposControlador {
@@ -30,7 +29,7 @@ public class PanelDeEquiposControlador {
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());
         }
-        panelEquipos = new PanelEquipos(cartasEquipos, cartasMiembros, VentanaControlador.VENTANA.getScrollPane());
+        panelEquipos = new PanelEquipos(cartasEquipos, cartasMiembros, Controlador.VENTANA.getScrollPane());
         return panelEquipos;
     }
 
