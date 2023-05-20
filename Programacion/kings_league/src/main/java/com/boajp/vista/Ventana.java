@@ -44,6 +44,13 @@ public class Ventana extends JFrame {
         }
     }
 
+    public void setOcuparTodaLaAnchura(boolean ocuparTodaLaAnchura) {
+        if (ocuparTodaLaAnchura)
+            CUERPO.weightx = 1;
+        else
+            CUERPO.weightx = 0;
+    }
+
     public BarraDeNavegacion getBarraDeNavegacion() {
         return barraDeNavegacion;
     }

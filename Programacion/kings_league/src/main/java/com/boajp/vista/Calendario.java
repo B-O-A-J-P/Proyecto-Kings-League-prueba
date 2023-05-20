@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 
+import com.boajp.utilidades.EstilosDeVistas;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
@@ -27,31 +28,24 @@ public class Calendario {
 
     public Calendario(){
         try {
-
-            //para que las tablas se coloquen una debajo de otra
-                GridLayout gridLayout = new GridLayout(0,1);
-                pCalendario.setLayout(gridLayout);
+            pCalendario.setLayout(new GridBagLayout());
+            GridBagConstraints constraintLabel = new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(20, 20, 20, 0), 0, 0);
+            GridBagConstraints constraintTabla = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 50, 100, 50), 0, 0);
 
             //Leer archivo XML
-                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                Document document = builder.parse(new File("src/main/java/com/boajp/xml/Calendario_kings_league.xml"));
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document document = builder.parse(new File("src/main/java/com/boajp/xml/Calendario_kings_league.xml"));
 
             // Obtener la lista de temporadas, splits y jornadas del documento
-                NodeList temporadaList = document.getElementsByTagName("temporada");
-                Element temporadaElement = (Element) temporadaList.item(0);
+            NodeList temporadaList = document.getElementsByTagName("temporada");
+            Element temporadaElement = (Element) temporadaList.item(0);
 
-                NodeList splitList = temporadaElement.getElementsByTagName("split");
-                Element splitElement = (Element) splitList.item(0);
+            NodeList splitList = temporadaElement.getElementsByTagName("split");
+            Element splitElement = (Element) splitList.item(0);
 
-                NodeList jornadaList = splitElement.getElementsByTagName("jornada");
+            NodeList jornadaList = splitElement.getElementsByTagName("jornada");
 
-
-            Color azul = new Color(0, 0, 0);
-
-
-
-
+            int gridy = 0;
             // Recorrer la lista de jornadas y crear un JTable para cada una
             for (int i = 0; i < jornadaList.getLength(); i++) {
                 //obtener el elemento correspondiente a la jornada actual
@@ -62,14 +56,22 @@ public class Calendario {
 
                 // Crear el JLabel con el texto "Jornada" y el número y fecha de la jornada
                 JLabel label = new JLabel("Jornada " + (i+1) + " - " + fechaJornada);
-                label.setForeground(azul);;
-                label.setFont(new Font("DialogInput",Font.BOLD,32));
-                pCalendario.add(label);
+                label.setForeground(EstilosDeVistas.COLOR_FUENTE_VISTA_CALENDARIO_TITULO);;
+                label.setFont(EstilosDeVistas.FUENTE_VISTA_CALENDARIO_TITULO);
+                constraintLabel.gridy = gridy;
+                pCalendario.add(label, constraintLabel);
 
                 // Crear un JTable para mostrar los partidos de la jornada
                 String[] columnas = { "Equipo local", "Logo", "Hora" , "logo","Equipo visitante"};
                 DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
                 JTable tabla = new JTable(modelo);
+                //ocultar cabecera de la tabla
+                tabla.setTableHeader(null);
+                tabla.setBackground(EstilosDeVistas.COLOR_DE_FONDO);
+                tabla.setShowVerticalLines(false);
+                tabla.setFont(EstilosDeVistas.FUENTE_VISTA_CALENDARIO_TITULO);
+                tabla.setForeground(EstilosDeVistas.COLOR_FUENTE_VISTA_CALENDARIO_CELDA);
+                tabla.setGridColor(EstilosDeVistas.COLOR_DEL_BORDE_CELDA);
 
 
                 // Agregar los partidos a la tabla
@@ -93,28 +95,13 @@ public class Calendario {
                     modelo.addRow(fila);
                     tabla.setModel(modelo);
                     //cambiar altura fila de la tabla
-                    tabla.setRowHeight(40);
+                    tabla.setRowHeight(EstilosDeVistas.ALTURA_DE_CELDA);
 
                     // Hacer que la tabla sea no editable
                     tabla.setEnabled(false);
-
                 }
 
-
-                //ocultar cabecera de la tabla
-                    tabla.setTableHeader(null);
-                tabla.setSize(2000,2000);
-
-
-                tabla.setBackground(Color.gray);
-
-                // Ajustar el ancho de las columnas
                 TableColumnModel columnModel = tabla.getColumnModel();
-                for (int z = 0; z < columnModel.getColumnCount(); z++) {
-                    columnModel.getColumn(z).setPreferredWidth(250);
-                    tabla.setFont(new Font("DialogInput", Font.BOLD, 17));
-                }
-
                 // Centrar los datos en las celdas
                 DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
                 centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,27 +109,18 @@ public class Calendario {
                     tabla.getColumnModel().getColumn(x).setCellRenderer(centerRenderer);
                 }
 
-
-                pCalendario.add(label);
-                pCalendario.add(tabla);
-
-
-
-
+                gridy += 1;
+                constraintTabla.gridy = gridy;
+                pCalendario.add(tabla, constraintTabla);
+                gridy += 1;
             }
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public JPanel getpCalendario() {
         return pCalendario;
-    }
-
-    public static void main(String[] args){
-        new Calendario();
     }
 }
 
