@@ -65,7 +65,7 @@ public class ContratoEquipoJugadorRepositorio {
         }
     }
 
-    public  List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador(){
+    public List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador(){
 
         Query qNroCont_equi = em.createNativeQuery ("SELECT * FROM contratos_equipo_jugador ");
         List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
@@ -98,7 +98,7 @@ public class ContratoEquipoJugadorRepositorio {
 
     public List<ContratoEquipoJugadorEntidad> buscarContratosVigentes() {
         String sql = "SELECT ce FROM ContratoEquipoJugadorEntidad ce " +
-                "WHERE (ce.fechaFin > current_date OR ce.fechaFin IS NULL) " +
+                "WHERE ((ce.fechaFin > CURRENT_DATE() OR ce.fechaFin IS NULL) " +
                 "AND ce.equipo.codEquipo IN " +
                 "(SELECT e.codEquipo FROM EquipoEntidad e WHERE e.codEquipo IN " +
                 "(SELECT re.equipo.codEquipo FROM RegistroEquipoEntidad re WHERE re.temporada.codTemporada = " +

@@ -1,11 +1,18 @@
 package com.boajp.controladores;
 
-import com.boajp.modelo.CuentaEntidad;
+import com.boajp.modelo.*;
+import com.boajp.repositorios.AgendaRepositorio;
+import com.boajp.repositorios.EquipoRepositorio;
+import com.boajp.repositorios.JugadorRepositorio;
+import com.boajp.repositorios.TemporadaRepositorio;
 import com.boajp.vista.Usuarios.*;
 import com.boajp.vista.Ventana;
 import org.hibernate.query.Query;
 
 import javax.swing.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class PanelAdminControlador {
     public static Ventana VENTANA = new Ventana();
@@ -18,9 +25,14 @@ public class PanelAdminControlador {
 
     private static SplitVistaAdmin splitVistaAdmin;
 
-    private static AgendasVistaAdmin agendaVistaAdmin;
+    private static AgendasVistaAdmin agendasVistaAdmin;
+
+    private static ContratoEquipoJugadorVistaAdmin contratoEquipoJugadorVistaAdmin;
+
 
     BarraLateral barraLateral;
+
+    private static VerificadorDeDatos verificadorDeDatos;
 
     public PanelAdminControlador(CuentaEntidad usuario) {
         barraLateral = new BarraLateral(usuario.getCodCuenta());
@@ -54,8 +66,74 @@ public class PanelAdminControlador {
     }
 
     public static JPanel inicializarInsertarAgenda(){
-        agendaVistaAdmin = new AgendasVistaAdmin();
-        return agendaVistaAdmin.getPprincipal();
+        agendasVistaAdmin = new AgendasVistaAdmin();
+        return agendasVistaAdmin.getpPrincipal();
+    }
+
+    public static JPanel inicializarContratoJugador(){
+        contratoEquipoJugadorVistaAdmin = new ContratoEquipoJugadorVistaAdmin();
+        return contratoEquipoJugadorVistaAdmin.getPprincipal();
+    }
+
+
+    public static void insertarJugador(String dni, String  nombre, String apellido, Integer altura, String pie, String email, String telfn)throws Exception{
+        AgendaRepositorio ag = new AgendaRepositorio();
+        //CREAR AGENDA:
+            AgendaEntidad agenda = new AgendaEntidad();
+            agenda.setEmail(email);
+            agenda.setTelefono(telfn);
+            ag.insertar(agenda);
+
+        JugadorRepositorio j = new JugadorRepositorio();
+        JugadorEntidad jugador = new JugadorEntidad();
+        jugador.setDni(dni);
+        jugador.setNombre(nombre);
+        jugador.setApellido(apellido);
+        jugador.setAltura(altura);
+        jugador.setPie(pie);
+        jugador.setAgenda(agenda);
+        j.insertar(jugador);
+    }
+    public static void insertarEquipo(String nombre, String logo,Long presupuesto )throws Exception{
+        EquipoRepositorio e = new EquipoRepositorio();
+        byte[] l = logo.getBytes();
+        EquipoEntidad equipo = new EquipoEntidad();
+        equipo.setNombre(nombre);
+        equipo.setLogo(l);
+        equipo.setPresupuesto(presupuesto);
+        e.insertar(equipo);
+    }
+
+    public static void actualizarEquipo(String nombre){
+
+    }
+
+    public static void insertarTemporada(String fechaInicio, String fechaFin)throws Exception{
+        TemporadaRepositorio t = new TemporadaRepositorio();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaIni = LocalDate.parse(fechaInicio, formatter);
+
+
+        LocalDate fechaF = LocalDate.parse(fechaFin, formatter);
+        int anio = fechaF.getYear();
+        short ano = (short) anio;
+
+
+
+        TemporadaEntidad temporada = new TemporadaEntidad();
+        verificadorDeDatos = new VerificadorDeDatos();
+        if (verificadorDeDatos.verificarFecha(fechaInicio)){
+            if (verificadorDeDatos.verificarFecha(fechaFin)){
+                temporada.setFechaInicioInscripcion(fechaIni);
+                temporada.setFechaFinInscripcion(fechaF);
+                temporada.setAno(ano);
+                if (verificadorDeDatos.agregarTemporada(temporada)) {
+                    t.insertar(temporada);
+                }
+            }
+        }
+
     }
 
 }

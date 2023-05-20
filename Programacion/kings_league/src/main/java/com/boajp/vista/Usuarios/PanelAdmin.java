@@ -7,17 +7,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelAdmin {
-    private JPanel pPrincipal;
+    private JButton jugadoresButton;
+    private JButton equiposButton;
+    private JButton agendaButton;
     private JLabel lPregunta;
     private JButton temporadasButton;
-    private JButton equiposButton;
-    private JButton jugadoresButton;
     private JButton splitsButton;
-    private JButton agendaButton;
     private JButton contratosButton;
+    private JPanel pPrincipal;
+
     private JButton[] botones = {temporadasButton, equiposButton, jugadoresButton, splitsButton};
 
     private String opcion;
+
+
 
     public PanelAdmin(String op) {
         this.opcion = op;
@@ -36,39 +39,37 @@ public class PanelAdmin {
         jugadoresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarJugador(op);
-
-                if (op.equals("i")) {
-                    VentanaControlador.mostrarInsertarJugador();
-                } else if (op.equals("e"))
+                if (opcion.equals("i")) {
+                    VentanaControlador.mostrarInsertarJugador(opcion);
+                } else if (opcion.equals("e"))
                     VentanaControlador.mostrarEliminarJugador();
+
             }
         });
         equiposButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarEquipo(op);
+                VentanaControlador.mostrarInsertarEquipo(opcion);
             }
         });
         temporadasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarTemporada();
-
+                if (opcion.equals("i")) {
+                    VentanaControlador.mostrarInsertarTemporada();
+                }
             }
         });
-
-
         splitsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaControlador.mostrarInsertarSplit();
             }
         });
-        agendaButton.addActionListener(new ActionListener() {
+        contratosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaControlador.mostrarInsertarAgenda();
+                VentanaControlador.mostrarInsertarContrato();
             }
         });
     }
@@ -136,3 +137,5 @@ public class PanelAdmin {
         this.botones = botones;
     }
 }
+
+

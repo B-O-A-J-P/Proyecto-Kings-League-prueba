@@ -74,4 +74,18 @@ public class TemporadaRepositorio {
         }
     }
 
+    public List<TemporadaEntidad> buscarTemporadasNoCompletas() throws Exception {
+        try {
+            String jpql = "SELECT t.codTemporada FROM TemporadaEntidad t, SplitEntidad s " +
+                    "WHERE t.codTemporada = s.temporada.codTemporada " +
+                    "GROUP BY t.codTemporada " +
+                    "HAVING COUNT(s.codSplit) = 2";
+
+            TypedQuery<TemporadaEntidad> query = entityManager.createQuery(jpql, TemporadaEntidad.class);
+            return query.getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer temporadas.", exception);
+        }
+    }
+
 }
