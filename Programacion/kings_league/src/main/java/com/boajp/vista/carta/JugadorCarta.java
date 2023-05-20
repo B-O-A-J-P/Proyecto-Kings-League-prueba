@@ -5,6 +5,7 @@ import com.boajp.utilidades.EstilosDeVistas;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class JugadorCarta extends CartaAbstracta{
     private int anchura = 300;
@@ -12,7 +13,7 @@ public class JugadorCarta extends CartaAbstracta{
     private Dimension dimension = new Dimension(anchura, altura);
     private Insets insets = new Insets(10, 10, 10, 10);
 
-    public JugadorCarta(JugadorEntidad jugador) {
+    public JugadorCarta(String nombreCompleto, HashMap<String, String> caracteristicasJugador) {
         super(EstilosDeVistas.COLOR_DE_CARTA_JUGADOR, Color.GRAY);
         setPreferredSize(dimension);
         setMinimumSize(dimension);
@@ -25,9 +26,13 @@ public class JugadorCarta extends CartaAbstracta{
 
         Image image = new ImageIcon(JugadorCarta.class.getResource("/imagenes/perfil.png")).getImage();
 
-        add(new JLabel(jugador.getNombre() + " " + jugador.getApellido(), JLabel.CENTER), constraintsTitulo);
+        add(new JLabel(nombreCompleto, JLabel.CENTER), constraintsTitulo);
         add(new JLabel(new ImageIcon(image), JLabel.CENTER), constraintsImagen);
-        add(new JLabel("pie: "+ jugador.getPie()+"     altura: "+jugador.getAltura(), JLabel.CENTER), constraintsCaracteristicas);
+        String car = "";
+        for ( String llave : caracteristicasJugador.keySet() ) {
+            car += llave + " " + caracteristicasJugador.get(llave) + " || ";
+        }
+        add(new JLabel(car, JLabel.CENTER), constraintsCaracteristicas);
     }
 
     @Override
@@ -38,21 +43,6 @@ public class JugadorCarta extends CartaAbstracta{
     @Override
     public int getAltura() {
         return altura;
-    }
-    public static void main(String... args) {
-        JugadorEntidad jugador = new JugadorEntidad();
-        jugador.setNombre("Jorge");
-        jugador.setApellido("Egea Nogueira");
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame();
-            frame.setLayout(new BorderLayout());
-            frame.add(new JugadorCarta(jugador));
-
-            frame.setSize(500, 500);
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
     }
 }
 

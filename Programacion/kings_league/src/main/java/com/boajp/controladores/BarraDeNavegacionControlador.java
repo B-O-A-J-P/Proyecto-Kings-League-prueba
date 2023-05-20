@@ -11,6 +11,7 @@ public class BarraDeNavegacionControlador {
         barraDeNavegacion = new BarraDeNavegacion();
         anadirListenerBotonDeInicio();
         anadirListenerBotonDeCalenario();
+        anadirListenerBotonDeJugadores();
     }
 
     private void anadirListenerBotonDeInicio() {
@@ -24,6 +25,13 @@ public class BarraDeNavegacionControlador {
         JButton boton = barraDeNavegacion.getCalendarioBoton();
         boton.addActionListener(e -> {
             Controlador.mostrarPanelCalendario();
+        });
+    }
+
+    public void anadirListenerBotonDeJugadores() {
+        JButton boton = barraDeNavegacion.getJugadoresBoton();
+        boton.addActionListener(e -> {
+            Controlador.mostrarPanelDeJugadores();
         });
     }
 

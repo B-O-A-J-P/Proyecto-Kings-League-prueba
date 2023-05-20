@@ -10,6 +10,7 @@ import com.boajp.vista.componentes.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PanelDeEquiposControlador {
@@ -61,7 +62,12 @@ public class PanelDeEquiposControlador {
         for (ContratoEquipoJugadorEntidad contrato : contratoEquipoJugadorEntidadList) {
             equipoEntidadList.add(contrato.getEquipo());
             jugadorEntidadList.add(contrato.getJugador());
-            CartaAbstracta cartaJugador = new JugadorCarta(contrato.getJugador());
+
+            String nombreCompleto = contrato.getJugador().getNombre() + " " + contrato.getJugador().getApellido();
+            HashMap<String, String> caracteristicas = new HashMap<>();
+            caracteristicas.put("Altura", String.valueOf(contrato.getJugador().getAltura()));
+            caracteristicas.put("Pie", contrato.getJugador().getPie());
+            CartaAbstracta cartaJugador = new JugadorCarta(nombreCompleto, caracteristicas);
             cartaJugador.setCodigoDeCarta(contrato.getEquipo().getCodEquipo());
             this.cartasMiembros.add(cartaJugador);
 
