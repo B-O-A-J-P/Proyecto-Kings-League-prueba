@@ -1,7 +1,6 @@
 package com.boajp.vista.Usuarios;
 
 import com.boajp.controladores.PanelAdminControlador;
-import com.boajp.controladores.VentanaControlador;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,13 +18,20 @@ public class JugadoresVistaAdmin {
     private JSpinner spinner1;
     private JPanel pPrincipal;
     private JButton bAceptar;
+    private JTextField tfAgenda;
+    private JButton insertarDatosContactoButton;
+    private JPanel pAgenda;
+    private JTextField tfEmail;
+    private JTextField tfTelefono;
+
 
     private static String acc;
 
     public JugadoresVistaAdmin(String accion) {
+        pAgenda.setVisible(false);
         acc = accion;
         if (acc.equals("i")){
-            bAccion.setText("INSERTAR");
+            bAceptar.setText("INSERTAR");
         }
         tfPie.setEditable(false);
 
@@ -36,8 +42,6 @@ public class JugadoresVistaAdmin {
                     tfPie.setText("Derecho");
                 }
             });
-
-
 
            rbIzquierdo.addActionListener(new ActionListener() {
                @Override
@@ -58,24 +62,37 @@ public class JugadoresVistaAdmin {
                 tfPie.setText("");
                 tfAltura.setText("");
                 spinner1.setModel(spinnerModel);
+                tfAgenda.setText("");
             }
         });
-        bAccion.addActionListener(new ActionListener() {
+        bAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    PanelAdminControlador.insertarJugADOR(tfDni.getText(), tfNombre.getText(), tfApellido.getText(), Integer.parseInt(tfAltura.getText()), tfPie.getText());
+                    PanelAdminControlador.insertarJugador(tfDni.getText(), tfNombre.getText(), tfApellido.getText(), (int) spinner1.getValue(), tfPie.getText(), tfEmail.getText(), tfTelefono.getText());
+                    JOptionPane.showMessageDialog(null, "Jugador creado correctamente");
+                    pPrincipal.removeAll();
+                    pPrincipal.revalidate();
+                    pPrincipal.repaint();
                 }
                 catch (Exception ex){
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
+        insertarDatosContactoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               pAgenda.setVisible(true);
+            }
+        });
     }
+
 
     public JPanel getpPrincipal() {
         return pPrincipal;
     }
 }
+
 
 

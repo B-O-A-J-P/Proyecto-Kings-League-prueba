@@ -14,6 +14,7 @@ public class EquiposVistaAdmin {
     private JTextField tfLogo;
     private JButton bEliminar;
     private JButton bAceptar;
+    private JTextField tfPresupuesto;
 
     private static String a;
 
@@ -21,16 +22,14 @@ public class EquiposVistaAdmin {
     public EquiposVistaAdmin(String accion) {
         a = accion;
         if (a.equals("i")){
-            bAccion.setText("INSERTAR");
+            bAceptar.setText("INSERTAR");
         }
         if (a.equals("a")){
-            bAccion.setText("ACTUALIZAR");
+            bAceptar.setText("ACTUALIZAR");
         }
 
 
-
-
-        eliminarButton.addActionListener(new ActionListener() {
+        bEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tfNombre.setText("");
@@ -38,14 +37,17 @@ public class EquiposVistaAdmin {
             }
         });
 
-        bAccion.addActionListener(new ActionListener() {
+        bAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     switch (a) {
                         case "i":
-                            PanelAdminControlador.insertarEquipo(tfNombre.getText(), tfLogo.getText());
+                            PanelAdminControlador.insertarEquipo(tfNombre.getText(), tfLogo.getText(), Long.parseLong(tfPresupuesto.getText()));
                             JOptionPane.showMessageDialog(null, "Equipo insertado correctamente");
+                            pPrincipal.removeAll();
+                            pPrincipal.revalidate();
+                            pPrincipal.repaint();
                             break;
                         case "a":
                             PanelAdminControlador.actualizarEquipo(tfNombre.getText());

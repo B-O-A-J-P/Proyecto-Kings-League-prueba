@@ -14,10 +14,6 @@ public class PanelClasificacionControlador {
         return panelClasificacion.getpClasificacion();
     }
 
-    public static JPanel inicializarInsertarJugador(){
-        if ( jugadoresVistaAdmin == null )
-            jugadoresVistaAdmin = new JugadoresVistaAdmin();
-        return jugadoresVistaAdmin.getpPrincipal();
-    }
+
 
 }

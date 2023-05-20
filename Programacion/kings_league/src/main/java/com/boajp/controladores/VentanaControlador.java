@@ -61,9 +61,9 @@ public class VentanaControlador {
         EliminarJugadorControlador eliminarJugadorControlador = new EliminarJugadorControlador();
         VENTANA.setContenidoPrincipal(eliminarJugadorControlador.inicializarVistaEliminarJugador());
     }
-    public static void mostrarInsertarEquipo(){
-        EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin();
-        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos());
+    public static void mostrarInsertarEquipo(String op){
+        EquiposVistaAdmin equiposVistaAdmin = new EquiposVistaAdmin(op);
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarInsertarEquipos(op));
     }
 
     public static void mostrarInsertarTemporada(){
@@ -84,7 +84,10 @@ public class VentanaControlador {
 
     }
 
-
+    public static void mostrarInsertarContrato(){
+        ContratoEquipoJugadorVistaAdmin contratoEquipoJugadorVistaAdmin = new ContratoEquipoJugadorVistaAdmin();
+        VENTANA.setContenidoPrincipal(PanelAdminControlador.inicializarContratoJugador());
+    }
 
 
     /*

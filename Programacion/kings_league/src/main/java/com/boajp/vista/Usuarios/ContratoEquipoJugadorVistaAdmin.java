@@ -13,6 +13,7 @@ public class ContratoEquipoJugadorVistaAdmin {
     private JTextField textField4;
     private JButton eliminarButton;
     private JButton aceptarButton;
+    private JPanel pPrincipal;
 
 
     public ContratoEquipoJugadorVistaAdmin() {
@@ -37,4 +38,9 @@ public class ContratoEquipoJugadorVistaAdmin {
             }
         });
     }
+
+    public JPanel getPprincipal() {
+        return pPrincipal;
+    }
+
 }

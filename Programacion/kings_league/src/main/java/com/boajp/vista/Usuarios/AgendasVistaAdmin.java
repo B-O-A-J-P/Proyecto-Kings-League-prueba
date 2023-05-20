@@ -19,18 +19,6 @@ public class AgendasVistaAdmin {
     public AgendasVistaAdmin() {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

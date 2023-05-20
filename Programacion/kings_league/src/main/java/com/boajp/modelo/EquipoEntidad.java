@@ -144,4 +144,7 @@ public class EquipoEntidad {
     public void setRegistrosTemporadas(Collection<RegistroEquipoEntidad> registrosEquiposByCodEquipo) {
         this.registrosTemporadas = registrosEquiposByCodEquipo;
     }
+
+    public void setLogo(byte l) {
+    }
 }
