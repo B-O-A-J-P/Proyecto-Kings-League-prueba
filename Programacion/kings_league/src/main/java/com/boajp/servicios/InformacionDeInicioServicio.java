@@ -39,7 +39,7 @@ public class InformacionDeInicioServicio {
         for ( int x = 0; x < datosDePartido.length; x++ ) {
             datosDePartido[x][0] = listaDePartidos.get(x).getEquipoUno().getNombre();
             datosDePartido[x][1] = "vs";
-            datosDePartido[x][2] = listaDePartidos.get(x).getEquipoUno().getNombre();
+            datosDePartido[x][2] = listaDePartidos.get(x).getEquipoDos().getNombre();
         }
 
         LocalDate fecha = jornadaEntidad.getFecha();
