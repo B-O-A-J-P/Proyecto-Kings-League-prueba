@@ -13,22 +13,16 @@ public class GridDeDraft extends JPanel {
     private int indiceActual = 0;
     private JScrollPane scrollPane;
 
-    public GridDeDraft(ArrayList<CartaAbstracta> cartas, JScrollPane scrollPane) {
+    public GridDeDraft(ArrayList<CartaAbstracta> cartas) {
         this.CARTAS = cartas;
         this.scrollPane = scrollPane;
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
-
-        scrollPane.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                actualizarGrid(scrollPane.getWidth());
-            }
-        });
-
+        setLayout(new GridBagLayout());
     }
 
     public void actualizarGrid(int viewPort) {
         removeAll();
+
         int columnas = Math.max( (int) (viewPort / (CARTAS.get(0).getAnchura() * 1.2)), 1);
         if (columnas >= CARTAS.size()) {
             columnas = CARTAS.size();

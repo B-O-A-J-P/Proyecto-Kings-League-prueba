@@ -17,15 +17,15 @@ public class PanelDeInicio extends JPanel {
         setLayout(new GridBagLayout());
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
 
-        GridDeCartas gridDeCartas = new GridDeCartas(cartas, scrollPane);
+        GridDeCartas gridDeCartas = new GridDeCartas(cartas);
         add(gridDeCartas, constraintsCartas);
 
-        gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+        gridDeCartas.actualizarGrid(scrollPane.getViewport().getWidth());
 
         scrollPane.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+                gridDeCartas.actualizarGrid(scrollPane.getViewport().getWidth());
                 scrollPane.getParent().revalidate();
                 scrollPane.getParent().repaint();
             }
@@ -36,21 +36,21 @@ public class PanelDeInicio extends JPanel {
         setLayout(new GridBagLayout());
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
 
-        GridDeCartas gridDeCartas = new GridDeCartas(cartas, scrollPane);
+        GridDeCartas gridDeCartas = new GridDeCartas(cartas);
         add(gridDeCartas, constraintsCartas);
 
-        GridDeCartas gridDeCartasEquipos = new GridDeCartas(cartasEquipos, scrollPane);
+        GridDeCartas gridDeCartasEquipos = new GridDeCartas(cartasEquipos);
         add(gridDeCartasEquipos, constraintsEquipos);
 
         //Esto es necesario para hacer que las cartas tengan un tamaño inicial, en caso contrario, tendrá unas dimensiones de 0.
-        gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
-        gridDeCartasEquipos.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+        gridDeCartas.actualizarGrid(scrollPane.getViewport().getWidth());
+        gridDeCartasEquipos.actualizarGrid(scrollPane.getViewport().getWidth());
 
         scrollPane.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                gridDeCartas.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
-                gridDeCartasEquipos.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+                gridDeCartas.actualizarGrid(scrollPane.getViewport().getWidth());
+                gridDeCartasEquipos.actualizarGrid(scrollPane.getViewport().getWidth());
                 scrollPane.getParent().revalidate();
                 scrollPane.getParent().repaint();
             }

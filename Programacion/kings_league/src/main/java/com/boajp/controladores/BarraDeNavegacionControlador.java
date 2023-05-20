@@ -12,6 +12,8 @@ public class BarraDeNavegacionControlador {
         anadirListenerBotonDeInicio();
         anadirListenerBotonDeCalenario();
         anadirListenerBotonDeJugadores();
+        anadirListenerBotonDeEquipos();
+        anadirListenerBotonDeIniciar();
     }
 
     private void anadirListenerBotonDeInicio() {
@@ -32,6 +34,20 @@ public class BarraDeNavegacionControlador {
         JButton boton = barraDeNavegacion.getJugadoresBoton();
         boton.addActionListener(e -> {
             Controlador.mostrarPanelDeJugadores();
+        });
+    }
+
+    public void anadirListenerBotonDeEquipos() {
+        JButton boton = barraDeNavegacion.getEquiposBoton();
+        boton.addActionListener(e -> {
+            Controlador.mostrarPanelDeEquipos();
+        });
+    }
+
+    public void anadirListenerBotonDeIniciar() {
+        JButton boton = barraDeNavegacion.getIniciarSesionBoton();
+        boton.addActionListener(e -> {
+            Controlador.mostrarPanelDeFormulario();
         });
     }
 

@@ -15,7 +15,7 @@ public class BarraDeNavegacion extends JPanel{
     private JButton[] botones;
 
     public BarraDeNavegacion() {
-        setBackground(EstilosDeVistas.COLOR_DE_FONDO);
+        setBackground(EstilosDeVistas.FONDO_BARRA_DE_NAVEGACION);
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
         inicio = new JButton("Inicio");

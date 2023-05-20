@@ -41,15 +41,6 @@ public class EquipoCarta extends CartaAbstracta {
             }
         });
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Controlador.mostrarPanelDeEquipos();
-            }
-        });
-
-
-
     }
 
     public EquipoCarta(String nombre, Color colorPorDefecto, Color colorHover) {

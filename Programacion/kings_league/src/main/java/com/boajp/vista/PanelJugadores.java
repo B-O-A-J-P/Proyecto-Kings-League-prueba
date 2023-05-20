@@ -15,12 +15,12 @@ public class PanelJugadores extends JPanel {
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new BorderLayout());
 
-        GridDeCartas grid = new GridDeCartas(cartasJugadores, scrollPane);
-        grid.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+        GridDeCartas grid = new GridDeCartas(cartasJugadores);
+        grid.actualizarGrid(scrollPane.getViewport().getWidth());
         scrollPane.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
-                grid.actualizarGridDeCartas(scrollPane.getViewport().getWidth());
+                grid.actualizarGrid(scrollPane.getViewport().getWidth());
                 scrollPane.getParent().revalidate();
                 scrollPane.getParent().repaint();
             }

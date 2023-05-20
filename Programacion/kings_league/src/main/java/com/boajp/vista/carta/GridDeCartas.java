@@ -3,21 +3,19 @@ package com.boajp.vista.carta;
 import com.boajp.utilidades.EstilosDeVistas;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.util.List;
 
 public class GridDeCartas extends JPanel {
     private List<CartaAbstracta> CARTAS;
 
-    public GridDeCartas(List<CartaAbstracta> cartas, JScrollPane scrollPane) {
+    public GridDeCartas(List<CartaAbstracta> cartas) {
         CARTAS = cartas;
         setBackground(EstilosDeVistas.COLOR_DE_FONDO);
         setLayout(new GridBagLayout());
     }
 
 
-    public void actualizarGridDeCartas(int viewPort) {
+    public void actualizarGrid(int viewPort) {
         removeAll();
 
         int columnas = Math.max( (int) (viewPort / (CARTAS.get(0).getAnchura() * 1.1)), 1);
