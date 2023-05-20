@@ -1,7 +1,7 @@
 package com.boajp.controladores;
 
-import com.boajp.modelo.CuentaEntidad;
-import com.boajp.vista.Ventana;
+import com.boajp.modelos.CuentaEntidad;
+import com.boajp.vistas.Ventana;
 
 public class Controlador {
     public static Ventana VENTANA = new Ventana();

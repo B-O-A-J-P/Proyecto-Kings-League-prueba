@@ -5,8 +5,11 @@ import java.awt.*;
 public class EstilosDeVistas {
     public static final Color COLOR_DE_FONDO = new Color(255,105,0);
     public static final Color COLOR_DE_FUENTE = Color.BLACK;
-    public static final Color COLOR_DE_CARTA_JUGADOR = Color.CYAN;
-    //Barra de navegación
+    // Carta de jugador
+    public static final Color COLOR_DE_CARTA_JUGADOR = Color.BLACK;
+    public static final Color COLOR_FUENTE_CARTA_JUGADOR = Color.GRAY;
+    public static final Font FUENTE_CARTA_JUGADOR = new Font("DialogInput",Font.BOLD,12);
+    // Barra de navegación
     public static final Color FONDO_BARRA_DE_NAVEGACION = Color.BLACK;
     // Vista Calendario
     public static final Color COLOR_FUENTE_VISTA_CALENDARIO_TITULO = COLOR_DE_FUENTE;

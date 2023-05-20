@@ -1,9 +1,8 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelo.TemporadaEntidad;
+import com.boajp.modelos.TemporadaEntidad;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TemporadaRepositorio {

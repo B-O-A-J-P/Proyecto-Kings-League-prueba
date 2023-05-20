@@ -1,8 +1,8 @@
 package com.boajp.controladores;
 
 import com.boajp.servicios.InformacionDeInicioServicio;
-import com.boajp.vista.PanelDeInicio;
-import com.boajp.vista.carta.CartaAbstracta;
+import com.boajp.vistas.PanelDeInicio;
+import com.boajp.vistas.carta.CartaAbstracta;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

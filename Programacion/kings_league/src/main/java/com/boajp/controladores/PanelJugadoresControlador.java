@@ -1,15 +1,9 @@
 package com.boajp.controladores;
 
-import com.boajp.modelo.RegistroJugadorEntidad;
-import com.boajp.repositorios.RegistroJugadorRepositorio;
 import com.boajp.servicios.InformacionDeJugadoresServicio;
-import com.boajp.vista.PanelJugadores;
-import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.JugadorCarta;
+import com.boajp.vistas.PanelJugadores;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PanelJugadoresControlador {
     private PanelJugadores panelJugadores;

@@ -1,9 +1,6 @@
 package com.boajp.controladores;
 
-import com.boajp.vista.Calendario;
-import com.boajp.vista.PanelDeInicio;
-import com.boajp.vista.formulario.FormularioPanel;
-import com.boajp.vista.formulario.FormularioRegistro;
+import com.boajp.vistas.Calendario;
 
 import javax.swing.*;
 

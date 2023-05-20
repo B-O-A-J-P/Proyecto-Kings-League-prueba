@@ -1,7 +1,7 @@
 package com.boajp.controladores;
 
 import com.boajp.servicios.InformacionDeEquiposServicio;
-import com.boajp.vista.*;
+import com.boajp.vistas.*;
 
 
 import javax.swing.*;

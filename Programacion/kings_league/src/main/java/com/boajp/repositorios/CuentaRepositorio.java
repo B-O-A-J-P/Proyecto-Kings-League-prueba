@@ -1,7 +1,7 @@
 package com.boajp.repositorios;
 
 import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
-import com.boajp.modelo.CuentaEntidad;
+import com.boajp.modelos.CuentaEntidad;
 import jakarta.persistence.*;
 
 public class CuentaRepositorio {

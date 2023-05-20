@@ -1,10 +1,10 @@
 package com.boajp.servicios;
 
-import com.boajp.modelo.RegistroJugadorEntidad;
+import com.boajp.modelos.RegistroJugadorEntidad;
 import com.boajp.repositorios.RegistroJugadorRepositorio;
-import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.JugadorCarta;
-import com.boajp.vista.componentes.PanelDeError;
+import com.boajp.vistas.carta.CartaAbstracta;
+import com.boajp.vistas.carta.JugadorCarta;
+import com.boajp.vistas.componentes.PanelDeError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

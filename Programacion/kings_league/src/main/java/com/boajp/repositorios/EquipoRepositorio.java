@@ -1,9 +1,8 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelo.EquipoEntidad;
+import com.boajp.modelos.EquipoEntidad;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EquipoRepositorio {

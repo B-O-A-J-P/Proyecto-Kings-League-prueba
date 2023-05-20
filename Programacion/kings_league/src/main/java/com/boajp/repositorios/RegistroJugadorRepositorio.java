@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelo.RegistroJugadorEntidad;
+import com.boajp.modelos.RegistroJugadorEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;

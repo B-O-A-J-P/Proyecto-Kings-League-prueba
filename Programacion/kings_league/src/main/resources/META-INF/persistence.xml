@@ -5,23 +5,23 @@
              version="3.0">
     <persistence-unit name="default">
 
-        <class>com.boajp.modelo.AgendaEntidad</class>
-        <class>com.boajp.modelo.ClasificacionEntidad</class>
-        <class>com.boajp.modelo.ContratoEquipoJugadorEntidad</class>
-        <class>com.boajp.modelo.ContratoEquipoMiembroEntidad</class>
-        <class>com.boajp.modelo.DraftEntidad</class>
-        <class>com.boajp.modelo.EquipoEntidad</class>
-        <class>com.boajp.modelo.InformacionPartidoEntidad</class>
-        <class>com.boajp.modelo.JornadaEntidad</class>
-        <class>com.boajp.modelo.JugadorEntidad</class>
-        <class>com.boajp.modelo.MiembroEntidad</class>
-        <class>com.boajp.modelo.PartidoEntidad</class>
-        <class>com.boajp.modelo.RegistroEquipoEntidad</class>
-        <class>com.boajp.modelo.RegistroJugadorEntidad</class>
-        <class>com.boajp.modelo.SplitEntidad</class>
-        <class>com.boajp.modelo.TemporadaEntidad</class>
-        <class>com.boajp.modelo.CuentaEntidad</class>
-        <class>com.boajp.modelo.PermisosEntidad</class>
+        <class>com.boajp.modelos.AgendaEntidad</class>
+        <class>com.boajp.modelos.ClasificacionEntidad</class>
+        <class>com.boajp.modelos.ContratoEquipoJugadorEntidad</class>
+        <class>com.boajp.modelos.ContratoEquipoMiembroEntidad</class>
+        <class>com.boajp.modelos.DraftEntidad</class>
+        <class>com.boajp.modelos.EquipoEntidad</class>
+        <class>com.boajp.modelos.InformacionPartidoEntidad</class>
+        <class>com.boajp.modelos.JornadaEntidad</class>
+        <class>com.boajp.modelos.JugadorEntidad</class>
+        <class>com.boajp.modelos.MiembroEntidad</class>
+        <class>com.boajp.modelos.PartidoEntidad</class>
+        <class>com.boajp.modelos.RegistroEquipoEntidad</class>
+        <class>com.boajp.modelos.RegistroJugadorEntidad</class>
+        <class>com.boajp.modelos.SplitEntidad</class>
+        <class>com.boajp.modelos.TemporadaEntidad</class>
+        <class>com.boajp.modelos.CuentaEntidad</class>
+        <class>com.boajp.modelos.PermisosEntidad</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@//localhost:1521/freepdb1"/>
             <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>

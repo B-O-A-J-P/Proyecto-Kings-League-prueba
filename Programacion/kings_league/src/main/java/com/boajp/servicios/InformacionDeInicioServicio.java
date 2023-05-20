@@ -1,14 +1,14 @@
 package com.boajp.servicios;
 
-import com.boajp.modelo.*;
+import com.boajp.modelos.*;
 import com.boajp.repositorios.ClasificacionRepositorio;
 import com.boajp.repositorios.JornadaRepositorio;
 import com.boajp.repositorios.RegistroEquipoRepositorio;
-import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.ClasificacionCarta;
-import com.boajp.vista.carta.EquipoCarta;
-import com.boajp.vista.carta.JornadaCarta;
-import com.boajp.vista.componentes.PanelDeError;
+import com.boajp.vistas.carta.CartaAbstracta;
+import com.boajp.vistas.carta.ClasificacionCarta;
+import com.boajp.vistas.carta.EquipoCarta;
+import com.boajp.vistas.carta.JornadaCarta;
+import com.boajp.vistas.componentes.PanelDeError;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

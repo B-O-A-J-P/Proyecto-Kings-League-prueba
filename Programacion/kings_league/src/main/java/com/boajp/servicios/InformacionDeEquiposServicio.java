@@ -1,14 +1,14 @@
 package com.boajp.servicios;
 
-import com.boajp.modelo.*;
+import com.boajp.modelos.*;
 import com.boajp.repositorios.ContratoEquipoJugadorRepositorio;
 import com.boajp.repositorios.ContratoEquipoMiembroRepositorio;
 import com.boajp.repositorios.EquipoRepositorio;
-import com.boajp.vista.carta.CartaAbstracta;
-import com.boajp.vista.carta.EquipoCarta;
-import com.boajp.vista.carta.JugadorCarta;
-import com.boajp.vista.carta.MiembroCarta;
-import com.boajp.vista.componentes.PanelDeError;
+import com.boajp.vistas.carta.CartaAbstracta;
+import com.boajp.vistas.carta.EquipoCarta;
+import com.boajp.vistas.carta.JugadorCarta;
+import com.boajp.vistas.carta.MiembroCarta;
+import com.boajp.vistas.componentes.PanelDeError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

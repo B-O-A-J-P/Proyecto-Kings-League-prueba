@@ -1,6 +1,6 @@
 package com.boajp.controladores;
 
-import com.boajp.vista.BarraDeNavegacion;
+import com.boajp.vistas.BarraDeNavegacion;
 
 import javax.swing.*;
 

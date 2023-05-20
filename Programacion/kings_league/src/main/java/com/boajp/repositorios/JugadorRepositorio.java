@@ -1,6 +1,6 @@
 package com.boajp.repositorios;
 
-import com.boajp.modelo.JugadorEntidad;
+import com.boajp.modelos.JugadorEntidad;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

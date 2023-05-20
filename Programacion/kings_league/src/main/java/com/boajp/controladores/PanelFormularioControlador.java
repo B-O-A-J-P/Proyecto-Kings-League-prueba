@@ -4,14 +4,12 @@ import com.boajp.excepciones.ContrasenaNoValidaExcepcion;
 import com.boajp.excepciones.EmailNoValidoExcepcion;
 import com.boajp.excepciones.UsuarioNoEncontradoExcepcion;
 import com.boajp.excepciones.UsuarioNoValidoExcepcion;
-import com.boajp.modelo.CuentaEntidad;
-import com.boajp.repositorios.CuentaRepositorio;
 import com.boajp.servicios.IniciarUsuarioServicio;
 import com.boajp.servicios.RegistrarUsuarioServicio;
-import com.boajp.vista.componentes.PanelDeError;
-import com.boajp.vista.formulario.FormularioIniciarSesion;
-import com.boajp.vista.formulario.FormularioPanel;
-import com.boajp.vista.formulario.FormularioRegistro;
+import com.boajp.vistas.componentes.PanelDeError;
+import com.boajp.vistas.formulario.FormularioIniciarSesion;
+import com.boajp.vistas.formulario.FormularioPanel;
+import com.boajp.vistas.formulario.FormularioRegistro;
 
 import javax.swing.*;
 
