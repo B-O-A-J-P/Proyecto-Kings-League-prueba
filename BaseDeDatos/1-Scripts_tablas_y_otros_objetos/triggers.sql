@@ -16,7 +16,21 @@ drop trigger bloquear_jornadas;
 drop trigger bloquear_partidos;
 drop trigger bloquear_equipos;
 drop trigger bloquear_contratos_jugador;
+drop trigger control_splits;
 */
+
+create or replace trigger control_splits
+before insert or update on splits
+declare
+    v_cod_temporada temporadas.cod_temporada%type;
+begin
+    select max(cod_temporada) into v_cod_temporada from temporadas;
+    
+    if (:NEW.cod_temporada < v_cod_temporada) 
+    then
+        raise_application_error(-20001, 'No se puede insertars splits en una temporada finalizada.');
+    end if;
+end;
 
 --------------------------------------------------------------------------------
 
@@ -25,8 +39,9 @@ before insert or update on splits
 declare
     v_numero_equipos number;
 begin
-    select count(*) into v_numero_equipos from registros_equipos
-    where cod_temporada = (select max(cod_temporada) from temporadas);
+ 
+    select count(*) from registros_equipos
+    where cod_temporada = (select max(cod_temporada) into v_cod_temporada from temporadas);
     
     if v_numero_equipos < 12
     then 

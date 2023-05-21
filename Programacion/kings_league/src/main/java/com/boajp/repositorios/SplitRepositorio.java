@@ -24,6 +24,7 @@ public class SplitRepositorio {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
+            em.persist(split.getTemporada());
             em.merge(split);
             transaction.commit();
         } catch (Exception exception) {
