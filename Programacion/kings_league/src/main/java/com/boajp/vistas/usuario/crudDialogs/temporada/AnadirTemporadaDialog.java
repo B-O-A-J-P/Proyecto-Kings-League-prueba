@@ -26,6 +26,7 @@ public class AnadirTemporadaDialog extends JDialog {
             }
         });
 
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 

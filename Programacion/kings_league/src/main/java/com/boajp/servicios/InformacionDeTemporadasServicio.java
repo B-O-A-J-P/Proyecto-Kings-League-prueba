@@ -12,12 +12,36 @@ public class InformacionDeTemporadasServicio {
         temporadaRepositorio = new TemporadaRepositorio();
     }
 
+    public void modificarTemporada(TemporadaEntidad temporada) throws Exception{
+        temporadaRepositorio.modificar(temporada);
+    }
+
     public List<TemporadaEntidad> getTodasTemporadas() throws Exception{
         return temporadaRepositorio.buscarTodasTemporadas();
     }
 
+    public TemporadaEntidad getTemporada(int codigo) throws Exception {
+        return temporadaRepositorio.buscarTemporada(codigo);
+    }
+
     public void anadirTemporada(int ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion) throws Exception{
         temporadaRepositorio.insertar(new TemporadaEntidad((short) ano, fechaInicioInscripcion, fechaFinInscripcion));
+    }
+
+    public void anadirTemporada(TemporadaEntidad temporadaEntidad) throws Exception{
+        temporadaRepositorio.insertar(temporadaEntidad);
+    }
+
+    public void eliminarTemporada(TemporadaEntidad temporadaEntidad) throws Exception{
+        temporadaRepositorio.eliminar(temporadaEntidad);
+    }
+
+    public void eliminarTemporada(int cod) throws Exception{
+        temporadaRepositorio.eliminar(cod);
+    }
+
+    public void eliminarTemporada(int[] codigos) throws Exception{
+        temporadaRepositorio.eliminar(codigos);
     }
 
     public String[][] getFilas() throws Exception{

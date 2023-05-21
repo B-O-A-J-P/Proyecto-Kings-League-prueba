@@ -27,6 +27,14 @@ public class PanelDeCrud {
         tabla.setModel(modelo);
     }
 
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
+    }
+
     public JButton getCrearBoton() {
         return crearBoton;
     }

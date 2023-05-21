@@ -42,6 +42,36 @@ public class TemporadaRepositorio {
         }
     }
 
+    public void eliminar(int codigo) throws Exception{
+        transaction = entityManager.getTransaction();
+        try {
+            TemporadaEntidad temp = entityManager.find(TemporadaEntidad.class, codigo);;
+            transaction.begin();
+            if (temp != null)
+                entityManager.remove(temp);
+            transaction.commit();
+        } catch (Exception exception){
+            transaction.rollback();
+            throw new Exception("Error al intentar eliminar temporada");
+        }
+    }
+
+    public void eliminar(int[] codigos) throws Exception {
+        transaction = entityManager.getTransaction();
+        try {
+            transaction.begin();
+            for (int x : codigos) {
+                TemporadaEntidad temp = entityManager.find(TemporadaEntidad.class, codigos[x]);;
+                if (temp != null)
+                    entityManager.remove(temp);
+            }
+            transaction.commit();
+        } catch (Exception exception){
+            transaction.rollback();
+            throw new Exception("Error al intentar eliminar temporada");
+        }
+    }
+
     public void modificar(TemporadaEntidad temporada) throws Exception{
         transaction = entityManager.getTransaction();
         try {
@@ -60,6 +90,17 @@ public class TemporadaRepositorio {
         } catch (Exception exception) {
             transaction.rollback();
             throw new Exception("Error al intentar modificar temporada");
+        }
+    }
+
+    public TemporadaEntidad buscarTemporada(int codigo) throws Exception {
+        try {
+            String jpql = "SELECT t FROM TemporadaEntidad t WHERE t.codTemporada = :codigo";
+            TypedQuery<TemporadaEntidad> query = entityManager.createQuery(jpql, TemporadaEntidad.class);
+            query.setParameter("codigo", codigo);
+            return query.getSingleResult();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer temporadas.", exception);
         }
     }
 
