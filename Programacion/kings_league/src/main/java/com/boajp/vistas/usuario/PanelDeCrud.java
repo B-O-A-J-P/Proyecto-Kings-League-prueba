@@ -13,6 +13,9 @@ public class PanelDeCrud {
     private JTable tabla;
     private DefaultTableModel modelo;
 
+    public PanelDeCrud() {
+    }
+
     public PanelDeCrud(String[][] filas, String[] columnas) {
         modelo = new DefaultTableModel(filas, columnas);
         tabla.setModel(modelo);
@@ -21,6 +24,7 @@ public class PanelDeCrud {
 
     public void actualizarModelo(String[][] filas, String[] columnas) {
         modelo = new DefaultTableModel(filas, columnas);
+        tabla.setModel(modelo);
     }
 
     public JButton getCrearBoton() {

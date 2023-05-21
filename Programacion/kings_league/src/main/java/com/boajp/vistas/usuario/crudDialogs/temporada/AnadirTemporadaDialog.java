@@ -1,4 +1,4 @@
-package com.boajp.vistas.usuario.crudDialogs;
+package com.boajp.vistas.usuario.crudDialogs.temporada;
 
 import javax.swing.*;
 import java.awt.event.*;

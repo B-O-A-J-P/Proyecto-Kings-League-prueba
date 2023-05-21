@@ -24,7 +24,7 @@ public class InformacionDeTemporadasServicio {
         List<TemporadaEntidad> temporadaEntidadList = temporadaRepositorio.buscarTodasTemporadas();
         String[][] filas = new String[temporadaEntidadList.size()][temporadaEntidadList.get(0).getAtributos().length];
         for ( int x = 0; x < temporadaEntidadList.size(); x++ ) {
-            filas[x] = temporadaEntidadList.get(0).toArray();
+            filas[x] = temporadaEntidadList.get(x).toArray();
         }
         return filas;
     }
