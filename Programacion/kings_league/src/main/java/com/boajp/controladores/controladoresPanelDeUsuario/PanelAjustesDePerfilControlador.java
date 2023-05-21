@@ -2,7 +2,7 @@ package com.boajp.controladores.controladoresPanelDeUsuario;
 
 import com.boajp.controladores.Controlador;
 import com.boajp.excepciones.ContrasenaNoValidaExcepcion;
-import com.boajp.servicios.InformacionDeUsuarioServicio;
+import com.boajp.servicios.UsuarioServicio;
 import com.boajp.vistas.componentes.PanelDeError;
 import com.boajp.vistas.usuario.PanelAjustesDePerfil;
 
@@ -49,7 +49,7 @@ public class PanelAjustesDePerfilControlador {
                     if (!contrasena.equalsIgnoreCase(Controlador.getUsuario().getContrasena()))
                         throw new ContrasenaNoValidaExcepcion();
                     panelAjustesDePerfil.verificarDatos();
-                    var informacionDeUsuarioServicio = new InformacionDeUsuarioServicio();
+                    var informacionDeUsuarioServicio = new UsuarioServicio();
                     informacionDeUsuarioServicio.modificarUsuario(
                             panelAjustesDePerfil.getUsuarioTf().getText(),
                             panelAjustesDePerfil.getEmailTf().getText(),

@@ -3,9 +3,9 @@ package com.boajp.servicios;
 import com.boajp.modelo.CuentaEntidad;
 import com.boajp.repositorios.CuentaRepositorio;
 
-public class InformacionDeUsuarioServicio {
+public class UsuarioServicio {
     CuentaRepositorio cuentaRepositorio;
-    public InformacionDeUsuarioServicio() {
+    public UsuarioServicio() {
         cuentaRepositorio = new CuentaRepositorio();
     }
 

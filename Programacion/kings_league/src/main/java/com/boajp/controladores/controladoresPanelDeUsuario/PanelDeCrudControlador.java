@@ -1,20 +1,26 @@
 package com.boajp.controladores.controladoresPanelDeUsuario;
 
-import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.ControladorTemporadas;
+import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.SplitsControlador;
+import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.TemporadasControlador;
 import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.CrudControlador;
-import com.boajp.servicios.InformacionDeTemporadasServicio;
+import com.boajp.servicios.TemporadasServicio;
 import com.boajp.vistas.usuario.PanelDeCrud;
 
 public class PanelDeCrudControlador {
     private PanelDeCrud panelDeCrud;
-    private InformacionDeTemporadasServicio informacionDeTemporadasServicio;
+    private TemporadasServicio temporadasServicio;
 
     public PanelDeCrudControlador() {
         panelDeCrud = new PanelDeCrud();
     }
 
     public PanelDeCrud getPanelDeCrudTemporadas() {
-        CrudControlador controlador = new ControladorTemporadas(panelDeCrud);
+        CrudControlador controlador = new TemporadasControlador(panelDeCrud);
+        return panelDeCrud;
+    }
+
+    public PanelDeCrud getPanelDeCrudSplit() {
+        CrudControlador controlador = new SplitsControlador(panelDeCrud);
         return panelDeCrud;
     }
 

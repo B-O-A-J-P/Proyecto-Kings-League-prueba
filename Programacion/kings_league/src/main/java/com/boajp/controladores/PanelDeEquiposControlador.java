@@ -1,6 +1,6 @@
 package com.boajp.controladores;
 
-import com.boajp.servicios.InformacionDeEquiposServicio;
+import com.boajp.servicios.EquiposServicio;
 import com.boajp.vistas.*;
 
 
@@ -8,13 +8,13 @@ import javax.swing.*;
 
 public class PanelDeEquiposControlador {
     private PanelEquipos panelEquipos;
-    private InformacionDeEquiposServicio informacionDeEquiposServicio;
+    private EquiposServicio equiposServicio;
 
     public JPanel inicializarPanelEquipos(){
-        informacionDeEquiposServicio = new InformacionDeEquiposServicio();
+        equiposServicio = new EquiposServicio();
         panelEquipos = new PanelEquipos(
-                informacionDeEquiposServicio.crearCartasDeEquipos(),
-                informacionDeEquiposServicio.crearCartasDeMiembros(),
+                equiposServicio.crearCartasDeEquipos(),
+                equiposServicio.crearCartasDeMiembros(),
                 Controlador.VENTANA.getScrollPane());
         return panelEquipos;
     }

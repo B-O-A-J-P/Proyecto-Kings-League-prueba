@@ -32,7 +32,6 @@ public class ModificarTemporadaDialog extends JDialog {
         getRootPane().setDefaultButton(aceptarBoton);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         pack();
-
         setLocationRelativeTo(null);
     }
 

@@ -1,6 +1,6 @@
 package com.boajp.controladores;
 
-import com.boajp.servicios.InformacionDeInicioServicio;
+import com.boajp.servicios.InicioServicio;
 import com.boajp.vistas.PanelDeInicio;
 import com.boajp.vistas.carta.CartaAbstracta;
 import javax.swing.*;
@@ -11,16 +11,16 @@ import java.util.ArrayList;
 public class PanelDeInicioControlador {
 
     private PanelDeInicio panelDeInicio;
-    private InformacionDeInicioServicio informacionDeInicioServicio;
+    private InicioServicio inicioServicio;
 
     public JPanel inicializarPanel(JScrollPane scrollPane) {
-        informacionDeInicioServicio = new InformacionDeInicioServicio();
+        inicioServicio = new InicioServicio();
 
         ArrayList<CartaAbstracta> listaDeCartas = new ArrayList<>();
-        listaDeCartas.add(informacionDeInicioServicio.crearCartaUltimaJornada());
-        listaDeCartas.add(informacionDeInicioServicio.crearCartaUltimaClasificacion());
+        listaDeCartas.add(inicioServicio.crearCartaUltimaJornada());
+        listaDeCartas.add(inicioServicio.crearCartaUltimaClasificacion());
 
-        ArrayList<CartaAbstracta> cartasDeEquipos = (ArrayList<CartaAbstracta>) informacionDeInicioServicio.crearCartasDeEquiposParticipantes();
+        ArrayList<CartaAbstracta> cartasDeEquipos = (ArrayList<CartaAbstracta>) inicioServicio.crearCartasDeEquiposParticipantes();
         for ( CartaAbstracta carta : cartasDeEquipos ) {
             carta.addMouseListener(new MouseAdapter() {
                 @Override

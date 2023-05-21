@@ -58,7 +58,6 @@ public class AnadirTemporadaDialog extends JDialog {
         this.anoTf = anoTf;
     }
 
-
     public JButton getButtonOK() {
         return buttonOK;
     }
@@ -70,12 +69,5 @@ public class AnadirTemporadaDialog extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        AnadirTemporadaDialog dialog = new AnadirTemporadaDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }

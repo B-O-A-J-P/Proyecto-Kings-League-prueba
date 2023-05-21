@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class InformacionDeInicioServicio {
+public class InicioServicio {
     private JornadaRepositorio jornadaRepositorio;
     private ClasificacionRepositorio clasificacionRepositorio;
     private RegistroEquipoRepositorio registroEquipoRepositorio;
 
-    public InformacionDeInicioServicio() {
+    public InicioServicio() {
         jornadaRepositorio = new JornadaRepositorio();
         clasificacionRepositorio = new ClasificacionRepositorio();
         registroEquipoRepositorio = new RegistroEquipoRepositorio();

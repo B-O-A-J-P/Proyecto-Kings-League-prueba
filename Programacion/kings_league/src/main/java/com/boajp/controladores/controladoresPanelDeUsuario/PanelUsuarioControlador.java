@@ -21,16 +21,22 @@ public class PanelUsuarioControlador {
 
     public void mostrarAjustesDePerfil() {
         var panelAjustesDePerfilControlador = new PanelAjustesDePerfilControlador();
-        panelDeUsuario.getPanelContenido().removeAll();
-        panelDeUsuario.getPanelContenido().add(panelAjustesDePerfilControlador.getPanelAjustesDePerfil().getPanel());
-        panelDeUsuario.getPanelContenido().revalidate();
-        panelDeUsuario.getPanelContenido().repaint();
+        cambiarPanel(panelAjustesDePerfilControlador.getPanelAjustesDePerfil().getPanel());
     }
 
     public void mostrarPanelDeCrudTemporada() {
         var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeCrudTemporadas().getPanel());
+    }
+
+    public void mostrarPanelDeCrudSplit() {
+        var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeCrudSplit().getPanel());
+    }
+
+    public void cambiarPanel(JPanel panel) {
         panelDeUsuario.getPanelContenido().removeAll();
-        panelDeUsuario.getPanelContenido().add(controlador.getPanelDeCrudTemporadas().getPanel());
+        panelDeUsuario.getPanelContenido().add(panel);
         panelDeUsuario.getPanelContenido().revalidate();
         panelDeUsuario.getPanelContenido().repaint();
     }

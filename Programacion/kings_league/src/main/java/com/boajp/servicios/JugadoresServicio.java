@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class InformacionDeJugadoresServicio {
+public class JugadoresServicio {
     private RegistroJugadorRepositorio registroJugadorRepositorio;
 
-    public InformacionDeJugadoresServicio() {
+    public JugadoresServicio() {
         registroJugadorRepositorio = new RegistroJugadorRepositorio();
     }
 

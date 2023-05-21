@@ -1,18 +1,18 @@
 package com.boajp.controladores;
 
-import com.boajp.servicios.InformacionDeJugadoresServicio;
+import com.boajp.servicios.JugadoresServicio;
 import com.boajp.vistas.PanelJugadores;
 
 import javax.swing.*;
 
 public class PanelJugadoresControlador {
     private PanelJugadores panelJugadores;
-    private InformacionDeJugadoresServicio informacionDeJugadoresServicio;
+    private JugadoresServicio jugadoresServicio;
 
     public JPanel inicializarPanel(JScrollPane scrollPane) {
-        informacionDeJugadoresServicio = new InformacionDeJugadoresServicio();
+        jugadoresServicio = new JugadoresServicio();
         panelJugadores = new PanelJugadores(
-                informacionDeJugadoresServicio.crearCartasJugadoresUltimaTemporada(),
+                jugadoresServicio.crearCartasJugadoresUltimaTemporada(),
                 scrollPane);
         return panelJugadores;
     }

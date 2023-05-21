@@ -6,9 +6,9 @@ import com.boajp.repositorios.TemporadaRepositorio;
 import java.time.LocalDate;
 import java.util.List;
 
-public class InformacionDeTemporadasServicio {
+public class TemporadasServicio {
     private TemporadaRepositorio temporadaRepositorio;
-    public InformacionDeTemporadasServicio() {
+    public TemporadasServicio() {
         temporadaRepositorio = new TemporadaRepositorio();
     }
 
@@ -42,6 +42,15 @@ public class InformacionDeTemporadasServicio {
 
     public void eliminarTemporada(int[] codigos) throws Exception{
         temporadaRepositorio.eliminar(codigos);
+    }
+
+    public String[] getCodigos() throws Exception {
+        List<TemporadaEntidad> temporadaEntidadList = temporadaRepositorio.buscarTodasTemporadas();
+        String[] codigos = new String[temporadaEntidadList.size()];
+        for ( int x = 0; x < temporadaEntidadList.size(); x++ ) {
+            codigos[x] = String.valueOf(temporadaEntidadList.get(x).getCodTemporada());
+        }
+        return codigos;
     }
 
     public String[][] getFilas() throws Exception{

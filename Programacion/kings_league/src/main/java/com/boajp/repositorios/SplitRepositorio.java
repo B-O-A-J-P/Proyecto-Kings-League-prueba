@@ -1,8 +1,11 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.SplitEntidad;
+import com.boajp.modelo.TemporadaEntidad;
+import com.boajp.servicios.TemporadasServicio;
 import jakarta.persistence.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class SplitRepositorio {
@@ -17,16 +20,16 @@ public class SplitRepositorio {
 
     }
 
-    public void insertar (SplitEntidad split) throws Exception {
-
-        EntityTransaction transaction = em.getTransaction ();
+    public void insertar (SplitEntidad split) throws Exception{
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.persist(split);
+            em.merge(split);
             transaction.commit();
-        }catch (Exception exception){
+        } catch (Exception exception) {
             transaction.rollback();
-            throw new Exception("Error al intentar insertar el split");
+            System.out.println(exception.getMessage());
+            throw exception;
         }
     }
 
@@ -35,8 +38,23 @@ public class SplitRepositorio {
         SplitEntidad s = em.find(SplitEntidad.class, split.getCodSplit());
         try {
             transaction.begin();
-            if (split != null) {
-                em.remove(split);
+            if (s != null) {
+                em.remove(s);
+                transaction.commit();
+            }
+        }catch (Exception exception){
+            transaction.rollback();
+            throw new Exception("Error al intentar eliminar el split");
+        }
+    }
+
+    public void eliminar (int codigo) throws Exception {
+        EntityTransaction transaction = em.getTransaction ();
+        SplitEntidad s = em.find(SplitEntidad.class, codigo);
+        try {
+            transaction.begin();
+            if (s != null) {
+                em.remove(s);
                 transaction.commit();
             }
         }catch (Exception exception){
@@ -65,31 +83,14 @@ public class SplitRepositorio {
         }
     }
 
-    public List<SplitEntidad> seleccionarTodosLosSplits (){
-
-        Query qNroSplit = em.createNativeQuery ("SELECT * FROM splits ");
-        List<SplitEntidad> splits = qNroSplit.getResultList();
-        return splits;
+    public List<SplitEntidad> buscarSplits() throws Exception {
+        try {
+            String jpql = "SELECT s FROM SplitEntidad s";
+            TypedQuery<SplitEntidad> query = em.createQuery(jpql, SplitEntidad.class);
+            return query.getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer temporadas.", exception);
+        }
     }
 
-    public List<SplitEntidad> seleccionarSplitMasActual(){
-
-        Query qActualSplit = em.createNativeQuery ("SELECT * FROM split WHERE fecha_inicio = (SELECT MAX(fecha_inicio) FROM split ");
-        List<SplitEntidad> splits = qActualSplit.getResultList();
-        return splits;
-    }
-
-    public List<SplitEntidad> seleccionarNombreFecha(){
-
-        Query qNombreSplit = em.createNativeQuery ("SELECT nombre, fecha_inicio FROM split");
-        List<SplitEntidad> splits = qNombreSplit.getResultList();
-        return splits;
-    }
-
-    public List<SplitEntidad> seleccionarCantidad(){
-
-        Query qCantidadSplit = em.createNativeQuery ("SELECT COUNT(*) FROM split");
-        List<SplitEntidad> splits = qCantidadSplit.getResultList();
-        return splits;
-    }
 }

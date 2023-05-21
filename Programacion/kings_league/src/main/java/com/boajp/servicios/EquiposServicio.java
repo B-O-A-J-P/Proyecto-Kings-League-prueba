@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class InformacionDeEquiposServicio {
+public class EquiposServicio {
     private final EquipoRepositorio equipoRepositorio;
     private final ContratoEquipoJugadorRepositorio contratoEquipoJugadorRepositorio;
     private final ContratoEquipoMiembroRepositorio contratoEquipoMiembroRepositorio;
-    public InformacionDeEquiposServicio() {
+    public EquiposServicio() {
         equipoRepositorio = new EquipoRepositorio();
         contratoEquipoJugadorRepositorio = new ContratoEquipoJugadorRepositorio();
         contratoEquipoMiembroRepositorio = new ContratoEquipoMiembroRepositorio();

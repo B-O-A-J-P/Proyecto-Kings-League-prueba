@@ -1,7 +1,6 @@
 package com.boajp.controladores.controladoresPanelDeUsuario;
 
 import com.boajp.vistas.usuario.BarraDeNavegacion;
-import javax.swing.*;
 
 public class PanelUsuarioBarraDeNavegacionControlador {
     private BarraDeNavegacion barraDeNavegacion;
@@ -11,6 +10,7 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         this.panelUsuarioControlador = panelDeUsuarioControlador;
         anadirlistenerPerfil();
         anadirListenerTemporadas();
+        anadirListenerSplits();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -22,7 +22,12 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         barraDeNavegacion.getTemporadasBoton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudTemporada();
         });
+    }
 
+    public void anadirListenerSplits() {
+        barraDeNavegacion.getSplitsBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudSplit();
+        });
     }
 
     public BarraDeNavegacion getBarraDeNavegacion() {

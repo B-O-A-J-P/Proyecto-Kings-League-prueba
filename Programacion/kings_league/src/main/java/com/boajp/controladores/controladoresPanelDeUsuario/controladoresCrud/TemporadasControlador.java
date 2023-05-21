@@ -1,7 +1,7 @@
 package com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud;
 
 import com.boajp.modelo.TemporadaEntidad;
-import com.boajp.servicios.InformacionDeTemporadasServicio;
+import com.boajp.servicios.TemporadasServicio;
 import com.boajp.vistas.componentes.PanelDeError;
 import com.boajp.vistas.usuario.PanelDeCrud;
 import com.boajp.vistas.usuario.crudDialogs.temporada.AnadirTemporadaDialog;
@@ -9,16 +9,16 @@ import com.boajp.vistas.usuario.crudDialogs.temporada.ModificarTemporadaDialog;
 
 import javax.swing.*;
 
-public class ControladorTemporadas implements CrudControlador{
+public class TemporadasControlador implements CrudControlador{
     private final PanelDeCrud panelDeCrud;
-    private final InformacionDeTemporadasServicio informacionDeTemporadasServicio;
-    public ControladorTemporadas(PanelDeCrud panelDeCrud) {
-        informacionDeTemporadasServicio = new InformacionDeTemporadasServicio();
+    private final TemporadasServicio temporadasServicio;
+    public TemporadasControlador(PanelDeCrud panelDeCrud) {
+        temporadasServicio = new TemporadasServicio();
         try {
             if (panelDeCrud == null) {
-                panelDeCrud = new PanelDeCrud(informacionDeTemporadasServicio.getFilas(), informacionDeTemporadasServicio.getColumnas());
+                panelDeCrud = new PanelDeCrud(temporadasServicio.getFilas(), temporadasServicio.getColumnas());
             } else {
-                panelDeCrud.actualizarModelo(informacionDeTemporadasServicio.getFilas(), informacionDeTemporadasServicio.getColumnas());
+                panelDeCrud.actualizarModelo(temporadasServicio.getFilas(), temporadasServicio.getColumnas());
             }
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());
@@ -34,13 +34,13 @@ public class ControladorTemporadas implements CrudControlador{
             AnadirTemporadaDialog dialog = new AnadirTemporadaDialog();
             dialog.getButtonOK().addActionListener( x -> {
                 try {
-                    informacionDeTemporadasServicio.anadirTemporada(
+                    temporadasServicio.anadirTemporada(
                             dialog.getAnoTf(),
                             dialog.getFechaInicioInscripcionTf(),
                             dialog.getFechaFinInscripcion()
                     );
                     JOptionPane.showMessageDialog(null, "Se ha registado la temporada.");
-                    panelDeCrud.actualizarModelo(informacionDeTemporadasServicio.getFilas(), informacionDeTemporadasServicio.getColumnas());
+                    panelDeCrud.actualizarModelo(temporadasServicio.getFilas(), temporadasServicio.getColumnas());
                     dialog.dispose();
                 }catch (Exception exception) {
                     new PanelDeError(exception.getMessage());
@@ -57,14 +57,14 @@ public class ControladorTemporadas implements CrudControlador{
                 int codigo = Integer.parseInt((String) modelo.getValueAt(panelDeCrud.getTabla().getSelectedRow(), 0));
                 TemporadaEntidad temporada = null;
                 try {
-                    temporada = informacionDeTemporadasServicio.getTemporada(codigo);
+                    temporada = temporadasServicio.getTemporada(codigo);
                 } catch (Exception exception) {
                     new PanelDeError(exception.getMessage());
                 }
                 var dialog = new ModificarTemporadaDialog(
                         String.valueOf(temporada.getAno()),
-                        temporada.getFechaInicioInscripcion().toString(),
-                        temporada.getFechaFinInscripcion().toString()
+                        temporada.getFechaInicioInscripcionString(),
+                        temporada.getFechaFinInscripcionString()
                 );
                 dialog.getModificarBoton().addActionListener( x -> {
                     if (x.getActionCommand().equalsIgnoreCase("bloqueado")) {
@@ -87,10 +87,10 @@ public class ControladorTemporadas implements CrudControlador{
                     finalTemporada.setFechaInicioInscripcion(dialog.getFechaInicioInscripcion());
                     finalTemporada.setFechaFinInscripcion(dialog.getFechaFinInscripcion());
                     try {
-                        informacionDeTemporadasServicio.modificarTemporada(finalTemporada);
+                        temporadasServicio.modificarTemporada(finalTemporada);
                         panelDeCrud.actualizarModelo(
-                                informacionDeTemporadasServicio.getFilas(),
-                                informacionDeTemporadasServicio.getColumnas());
+                                temporadasServicio.getFilas(),
+                                temporadasServicio.getColumnas());
                     } catch (Exception exception) {
                         new PanelDeError(exception.getMessage());
                     }
@@ -109,17 +109,10 @@ public class ControladorTemporadas implements CrudControlador{
 
     public void anadirListenerEliminar() {
         panelDeCrud.getEliminarBoton().addActionListener( e -> {
-            int filas = panelDeCrud.getTabla().getSelectedRow();
-/*
-            int[] codigos = new int[1];
-            for ( int x : filas ) {
-                codigos[x] = Integer.parseInt((String) panelDeCrud.getModelo().getValueAt(x, 0));
-            }
-
- */
+            int fila = panelDeCrud.getTabla().getSelectedRow();
             try {
-                informacionDeTemporadasServicio.eliminarTemporada(Integer.parseInt((String) panelDeCrud.getModelo().getValueAt(filas, 0)));
-                panelDeCrud.actualizarModelo(informacionDeTemporadasServicio.getFilas(), informacionDeTemporadasServicio.getColumnas());
+                temporadasServicio.eliminarTemporada(Integer.parseInt((String) panelDeCrud.getModelo().getValueAt(fila, 0)));
+                panelDeCrud.actualizarModelo(temporadasServicio.getFilas(), temporadasServicio.getColumnas());
             } catch (Exception exception) {
                 new PanelDeError(exception.getMessage());
             }

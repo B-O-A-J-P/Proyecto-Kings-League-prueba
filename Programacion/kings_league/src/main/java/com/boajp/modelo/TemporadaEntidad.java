@@ -3,6 +3,7 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
 @Entity
@@ -50,8 +51,8 @@ public class TemporadaEntidad {
         return new String[] {
                 String.valueOf(codTemporada),
                 String.valueOf(ano),
-                fechaInicioInscripcion.toString(),
-                fechaFinInscripcion.toString()};
+                getFechaInicioInscripcionString(),
+                getFechaFinInscripcionString()};
     }
 
     public String[] getAtributos() {
@@ -70,17 +71,30 @@ public class TemporadaEntidad {
         this.ano = ano;
     }
 
+
     public LocalDate getFechaInicioInscripcion() {
         return fechaInicioInscripcion;
+    }
+
+    public LocalDate getFechaFinInscripcion() {
+        return fechaFinInscripcion;
+    }
+
+    public String getFechaInicioInscripcionString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaInicioInscripcion.format(formatter);
     }
 
     public void setFechaInicioInscripcion(LocalDate fechaInicioInscripcion) {
         this.fechaInicioInscripcion = fechaInicioInscripcion;
     }
 
-    public LocalDate getFechaFinInscripcion() {
-        return fechaFinInscripcion;
+
+    public String getFechaFinInscripcionString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaFinInscripcion.format(formatter);
     }
+
 
     public void setFechaFinInscripcion(LocalDate fechaFinInscripcion) {
         this.fechaFinInscripcion = fechaFinInscripcion;
