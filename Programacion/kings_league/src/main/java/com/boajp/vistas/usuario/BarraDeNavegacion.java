@@ -9,19 +9,71 @@ public class BarraDeNavegacion {
     private JButton splitsBoton;
     private JButton equiposBoton;
     private JPanel panel;
-    private JButton jugadorBoton;
+    private JButton jugadoresBoton;
+    private JButton jornadasBoton;
+    private JButton partidosButton;
+    private JButton miembrosButton;
+    private JButton contratosDeEquipoJugadoresButton;
+    private JButton contratosDeEquipoMiembrosButton;
 
+    public JButton getContratosDeEquipoMiembrosButton() {
+        return contratosDeEquipoMiembrosButton;
+    }
+
+    public void setContratosDeEquipoMiembrosButton(JButton contratosDeEquipoMiembrosButton) {
+        this.contratosDeEquipoMiembrosButton = contratosDeEquipoMiembrosButton;
+    }
+
+    public JButton getContratosDeEquipoJugadoresButton() {
+        return contratosDeEquipoJugadoresButton;
+    }
+
+    public void setContratosDeEquipoJugadoresButton(JButton contratosDeEquipoJugadoresButton) {
+        this.contratosDeEquipoJugadoresButton = contratosDeEquipoJugadoresButton;
+    }
+
+    public JButton getMiembrosButton() {
+        return miembrosButton;
+    }
+
+    public void setMiembrosButton(JButton miembrosButton) {
+        this.miembrosButton = miembrosButton;
+    }
+
+    public JButton getPartidosButton() {
+        return partidosButton;
+    }
+
+    public void setPartidosButton(JButton partidosButton) {
+        this.partidosButton = partidosButton;
+    }
+
+    public JButton getJugadoresBoton() {
+        return jugadoresBoton;
+    }
+
+    public void setJugadoresBoton(JButton jugadoresBoton) {
+        this.jugadoresBoton = jugadoresBoton;
+    }
+
+    public JButton getJornadasBoton() {
+        return jornadasBoton;
+    }
+
+    public void setJornadasBoton(JButton jornadasBoton) {
+        this.jornadasBoton = jornadasBoton;
+    }
 
     public BarraDeNavegacion() {
         panel.setBackground(Color.RED);
     }
 
     public JButton getJugadorBoton() {
-        return jugadorBoton;
+        return jugadoresBoton;
     }
 
     public void setJugadorBoton(JButton jugadorBoton) {
-        this.jugadorBoton = jugadorBoton;
+        this.jugadoresBoton = jugadorBoton;
     }
 
     public JButton getPerfilBoton() {

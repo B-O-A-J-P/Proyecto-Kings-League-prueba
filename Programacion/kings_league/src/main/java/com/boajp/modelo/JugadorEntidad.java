@@ -44,11 +44,17 @@ public class JugadorEntidad extends Persona{
     }
 
     public String[] getAtributos(){
-        return new String[]{"Nombre", "Apellido", "Dni", "Pie", "Altura"};
+        return new String[]{"Código de jugador", "Nombre", "Apellido", "Dni", "Pie", "Altura"};
     }
 
     public String[] toArray() {
-        return new String[]{getNombre(), getApellido(), getDni(), getPie(), String.valueOf(getAltura())};
+        return new String[]{
+                String.valueOf(codJugador),
+                getNombre(),
+                getApellido(),
+                getDni(),
+                getPie(),
+                String.valueOf(getAltura())};
     }
 
     public int getCodJugador() {

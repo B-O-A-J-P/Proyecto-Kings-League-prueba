@@ -70,9 +70,9 @@ public class ContratoEquipoJugadorRepositorio {
     public  List<ContratoEquipoJugadorEntidad> seleccionarTodosLosContratosDeJugador() throws Exception{
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Query qNroCont_equi = entityManager.createNativeQuery("SELECT * FROM contratos_equipo_jugador ");
-            List<ContratoEquipoJugadorEntidad> contratosjugador = qNroCont_equi.getResultList();
-            return contratosjugador;
+            String sql = "SELECT cej FROM ContratoEquipoJugadorEntidad cej JOIN FETCH cej.equipo JOIN FETCH cej.jugador";
+            TypedQuery<ContratoEquipoJugadorEntidad> resultado = entityManager.createQuery(sql, ContratoEquipoJugadorEntidad.class);
+            return resultado.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer contratos de jugadores");
         } finally {

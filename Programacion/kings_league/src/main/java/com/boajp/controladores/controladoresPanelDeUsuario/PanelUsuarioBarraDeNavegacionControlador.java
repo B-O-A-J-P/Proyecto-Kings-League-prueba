@@ -12,6 +12,12 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirListenerTemporadas();
         anadirListenerSplits();
         anadirListenerJugadores();
+        anadirListenerJornadas();
+        anadirListenerPartidos();
+        anadirListenerEquipos();
+        anadirListenerMiembros();
+        anadirListenerContratosEquipoJugador();
+        anadirListenerContratosEquipoMiembro();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -34,6 +40,42 @@ public class PanelUsuarioBarraDeNavegacionControlador {
     public void anadirListenerJugadores() {
         barraDeNavegacion.getJugadorBoton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudJugadores();
+        });
+    }
+
+    public void anadirListenerJornadas() {
+        barraDeNavegacion.getJornadasBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudJornadas();
+        });
+    }
+
+    public void anadirListenerPartidos() {
+        barraDeNavegacion.getPartidosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudPartidos();
+        });
+    }
+
+    public void anadirListenerEquipos() {
+        barraDeNavegacion.getEquiposBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudEquipos();
+        });
+    }
+
+    public void anadirListenerMiembros() {
+        barraDeNavegacion.getMiembrosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudMiembros();
+        });
+    }
+
+    public void anadirListenerContratosEquipoJugador() {
+        barraDeNavegacion.getContratosDeEquipoJugadoresButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudContratosEquipoJugador();
+        });
+    }
+
+    public void anadirListenerContratosEquipoMiembro() {
+        barraDeNavegacion.getContratosDeEquipoMiembrosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudContratosEquipoMiembros();
         });
     }
 

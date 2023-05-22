@@ -23,6 +23,19 @@ public class EquiposServicio {
         contratoEquipoMiembroRepositorio = new ContratoEquipoMiembroRepositorio();
     }
 
+    public String[] getColumnas() {
+        return new EquipoEntidad().getAtributos();
+    }
+
+    public String[][] getFilas() throws Exception{
+        List<EquipoEntidad> lista = equipoRepositorio.seleccionarTodosLosEquipos();
+        String[][] filas = new String[lista.size()][lista.get(0).getAtributos().length];
+        for( int x = 0; x < filas.length; x++ ) {
+            filas[x] = lista.get(x).toArray();
+        }
+        return filas;
+    }
+
     public ArrayList<CartaAbstracta> crearCartasDeEquipos() {
         List<EquipoEntidad> equipoEntidadList = new ArrayList<>();
         try {

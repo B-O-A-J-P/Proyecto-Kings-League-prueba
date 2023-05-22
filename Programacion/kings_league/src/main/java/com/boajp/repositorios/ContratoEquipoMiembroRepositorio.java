@@ -72,7 +72,7 @@ public class ContratoEquipoMiembroRepositorio {
     public List<ContratoEquipoMiembroEntidad> seleccionarTodosLosContratos() throws Exception{
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            return entityManager.createQuery("SELECT c FROM ContratoEquipoMiembroEntidad c", ContratoEquipoMiembroEntidad.class)
+            return entityManager.createQuery("SELECT c FROM ContratoEquipoMiembroEntidad c JOIN FETCH c.equipo JOIN FETCH c.miembro", ContratoEquipoMiembroEntidad.class)
                     .getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer contratos");

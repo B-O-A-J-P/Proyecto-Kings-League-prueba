@@ -24,7 +24,7 @@ public class JugadoresServicio {
         jugadorRepositorio.insertar(jugadorEntidad);
     }
 
-    public String[] getColumas() {
+    public String[] getColumnas() {
         return new JugadorEntidad().getAtributos();
     }
 
