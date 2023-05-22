@@ -2,6 +2,7 @@ package com.boajp.controladores;
 
 import com.boajp.controladores.controladoresPanelDeUsuario.PanelUsuarioControlador;
 import com.boajp.modelo.CuentaEntidad;
+import com.boajp.vistas.Clasificacion;
 import com.boajp.vistas.Ventana;
 
 public class Controlador {
@@ -41,6 +42,12 @@ public class Controlador {
         PanelCalendarioControlador panelCalendario = new PanelCalendarioControlador();
         VENTANA.setOcuparTodaLaAnchura(true);
         VENTANA.setContenidoPrincipal(panelCalendario.inicializarCalendario());
+    }
+
+    public static void mostrarPanelClasificacion(){
+        PanelClasificacionControlador panelClasificacionControlador = new PanelClasificacionControlador();
+        VENTANA.setOcuparTodaLaAnchura(true);
+        VENTANA.setContenidoPrincipal(panelClasificacionControlador.inicializarClasificacion());
     }
 
     public static void mostrarPanelDeUsuario() {
