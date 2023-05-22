@@ -11,6 +11,7 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirlistenerPerfil();
         anadirListenerTemporadas();
         anadirListenerSplits();
+        anadirListenerJugadores();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -27,6 +28,12 @@ public class PanelUsuarioBarraDeNavegacionControlador {
     public void anadirListenerSplits() {
         barraDeNavegacion.getSplitsBoton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudSplit();
+        });
+    }
+
+    public void anadirListenerJugadores() {
+        barraDeNavegacion.getJugadorBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudJugadores();
         });
     }
 
