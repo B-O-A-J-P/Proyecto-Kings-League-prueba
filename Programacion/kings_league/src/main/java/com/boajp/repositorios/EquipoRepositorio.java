@@ -1,6 +1,7 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.EquipoEntidad;
+import com.boajp.modelo.TemporadaEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -76,6 +77,18 @@ public class EquipoRepositorio {
             return resultado.getResultList();
         }catch (Exception exception) {
             throw new Exception("Error al intentar extraer equipos");
+        }
+    }
+
+    public EquipoEntidad buscarEquipo(int codigo)throws Exception{
+        try {
+            String jpql = "SELECT e FROM EquipoEntidad e WHERE e.codEquipo = :codigo";
+            TypedQuery<EquipoEntidad> query = em.createQuery(jpql, EquipoEntidad.class);
+            query.setParameter("codigo", codigo);
+            System.out.println(query.getSingleResult().getCodEquipo() + " " + query.getSingleResult().getLogo());
+            return query.getSingleResult();
+        }catch (Exception exception){
+            throw new Exception("Error al intentar extraer equipo", exception);
         }
     }
 
