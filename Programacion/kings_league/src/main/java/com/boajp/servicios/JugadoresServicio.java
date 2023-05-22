@@ -1,6 +1,8 @@
 package com.boajp.servicios;
 
+import com.boajp.modelo.JugadorEntidad;
 import com.boajp.modelo.RegistroJugadorEntidad;
+import com.boajp.repositorios.JugadorRepositorio;
 import com.boajp.repositorios.RegistroJugadorRepositorio;
 import com.boajp.vistas.carta.CartaAbstracta;
 import com.boajp.vistas.carta.JugadorCarta;
@@ -11,9 +13,28 @@ import java.util.List;
 
 public class JugadoresServicio {
     private RegistroJugadorRepositorio registroJugadorRepositorio;
-
+    private JugadorRepositorio jugadorRepositorio;
     public JugadoresServicio() {
         registroJugadorRepositorio = new RegistroJugadorRepositorio();
+        jugadorRepositorio = new JugadorRepositorio();
+    }
+
+    public void anadirJugador(String nombre, String apellido, String dni, String pie, Integer altura) throws Exception{
+        JugadorEntidad jugadorEntidad = new JugadorEntidad(nombre, apellido, dni, pie, altura);
+        jugadorRepositorio.insertar(jugadorEntidad);
+    }
+
+    public String[] getColumas() {
+        return new JugadorEntidad().getAtributos();
+    }
+
+    public String[][] getFilas() throws Exception{
+        List<JugadorEntidad> jugadorEntidadList = jugadorRepositorio.seleccionarTodosLosJugadores();
+        String[][] filas = new String[jugadorEntidadList.size()][jugadorEntidadList.get(0).getAtributos().length];
+        for ( int x = 0; x < filas.length; x++ ) {
+            filas[x] = jugadorEntidadList.get(x).toArray();
+        }
+        return filas;
     }
 
     public ArrayList<CartaAbstracta> crearCartasJugadoresUltimaTemporada() {

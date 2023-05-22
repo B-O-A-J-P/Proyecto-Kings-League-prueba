@@ -9,8 +9,19 @@ public class BarraDeNavegacion {
     private JButton splitsBoton;
     private JButton equiposBoton;
     private JPanel panel;
+    private JButton jugadorBoton;
+
+
     public BarraDeNavegacion() {
         panel.setBackground(Color.RED);
+    }
+
+    public JButton getJugadorBoton() {
+        return jugadorBoton;
+    }
+
+    public void setJugadorBoton(JButton jugadorBoton) {
+        this.jugadorBoton = jugadorBoton;
     }
 
     public JButton getPerfilBoton() {

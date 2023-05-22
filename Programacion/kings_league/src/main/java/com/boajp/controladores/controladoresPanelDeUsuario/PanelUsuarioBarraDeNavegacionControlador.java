@@ -12,6 +12,7 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirListenerTemporadas();
         anadirListenerSplits();
         anadirListenerEquipos();
+        anadirListenerJugadores();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -36,6 +37,12 @@ public class PanelUsuarioBarraDeNavegacionControlador {
             panelUsuarioControlador.mostrarCrudEquipos();
         });
     }
+    public void anadirListenerJugadores() {
+        barraDeNavegacion.getJugadorBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudJugadores();
+        });
+    }
+
     public BarraDeNavegacion getBarraDeNavegacion() {
         return barraDeNavegacion;
     }

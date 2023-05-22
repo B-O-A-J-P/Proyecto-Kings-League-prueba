@@ -105,7 +105,7 @@ CREATE TABLE jugadores (
     apellido VARCHAR2(50) NOT NULL,
     pie VARCHAR(20),
     altura NUMBER(3), --en centímetros
-    cod_agenda NUMBER(8) NOT NULL,
+    cod_agenda NUMBER(8),
     CONSTRAINT jug_cod_jug_pk PRIMARY KEY (cod_jugador),
     CONSTRAINT jug_co_age_fk FOREIGN KEY (cod_agenda) REFERENCES agendas ON DELETE CASCADE
 );

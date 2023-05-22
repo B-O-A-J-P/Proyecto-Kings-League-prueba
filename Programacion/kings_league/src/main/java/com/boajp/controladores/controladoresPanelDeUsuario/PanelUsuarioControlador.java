@@ -41,6 +41,11 @@ public class PanelUsuarioControlador {
 
 
 
+    public void mostrarPanelDeCrudJugadores() {
+        var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeCrudJugadores().getPanel());
+    }
+
     public void cambiarPanel(JPanel panel) {
         panelDeUsuario.getPanelContenido().removeAll();
         panelDeUsuario.getPanelContenido().add(panel);
