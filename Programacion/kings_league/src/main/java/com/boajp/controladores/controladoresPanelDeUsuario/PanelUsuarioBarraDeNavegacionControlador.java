@@ -18,6 +18,7 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirListenerMiembros();
         anadirListenerContratosEquipoJugador();
         anadirListenerContratosEquipoMiembro();
+        anadirListenerRegistrosDeEquipos();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -76,6 +77,12 @@ public class PanelUsuarioBarraDeNavegacionControlador {
     public void anadirListenerContratosEquipoMiembro() {
         barraDeNavegacion.getContratosDeEquipoMiembrosButton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudContratosEquipoMiembros();
+        });
+    }
+
+    public void anadirListenerRegistrosDeEquipos() {
+        barraDeNavegacion.getRegistrosDeEquiposButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudRegistrosEquipos();
         });
     }
 

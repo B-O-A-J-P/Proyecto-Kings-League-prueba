@@ -55,6 +55,11 @@ public class PanelDeCrudControlador {
         return panelDeCrud;
     }
 
+    public PanelDeCrud getPanelDeCrudRegistrosEquipos() {
+        new RegistrosEquiposControlador(panelDeCrud);
+        return panelDeCrud;
+    }
+
     public PanelDeCrud getPanelDeCrud() {
         return panelDeCrud;
     }

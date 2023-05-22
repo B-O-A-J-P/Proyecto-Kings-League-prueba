@@ -15,6 +15,15 @@ public class BarraDeNavegacion {
     private JButton miembrosButton;
     private JButton contratosDeEquipoJugadoresButton;
     private JButton contratosDeEquipoMiembrosButton;
+    private JButton registrosDeEquiposButton;
+
+    public JButton getRegistrosDeEquiposButton() {
+        return registrosDeEquiposButton;
+    }
+
+    public void setRegistrosDeEquiposButton(JButton registrosDeEquiposButton) {
+        this.registrosDeEquiposButton = registrosDeEquiposButton;
+    }
 
     public JButton getContratosDeEquipoMiembrosButton() {
         return contratosDeEquipoMiembrosButton;

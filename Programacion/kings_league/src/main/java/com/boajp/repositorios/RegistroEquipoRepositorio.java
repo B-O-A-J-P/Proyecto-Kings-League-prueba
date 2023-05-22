@@ -59,25 +59,12 @@ public class RegistroEquipoRepositorio {
         }
     }
 
-    public List<RegistroEquipoEntidad> seleccionarTodosLosEquiposParticipantes() throws Exception{
+    public List<RegistroEquipoEntidad> buscarTodosRegistrosDeEquipo() throws Exception{
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Query qEquiposParticipantes = entityManager.createNativeQuery("SELECT DISTINCT cod_equipo FROM equipos_participantes");
-            List<RegistroEquipoEntidad> equipos_participantes = qEquiposParticipantes.getResultList();
-            return equipos_participantes;
-        } catch (Exception exception) {
-            throw new Exception("Error al intentar extraer equipos participante");
-        } finally {
-            entityManager.close();
-        }
-    }
-
-    public List<RegistroEquipoEntidad> seleccionarCantidadEquiposParticipantes() throws Exception{
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        try {
-            Query qNroEquiposParticipantes = entityManager.createNativeQuery("SELECT COUNT(DISTINCT cod_equipo) FROM equipos_participantes ");
-            List<RegistroEquipoEntidad> equipos_participantes = qNroEquiposParticipantes.getResultList();
-            return equipos_participantes;
+            String sql = "SELECT re FROM RegistroEquipoEntidad re JOIN FETCH re.temporada JOIN FETCH re.equipo";
+            TypedQuery<RegistroEquipoEntidad> resultado = entityManager.createQuery(sql, RegistroEquipoEntidad.class);
+            return resultado.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer equipos participante");
         } finally {
