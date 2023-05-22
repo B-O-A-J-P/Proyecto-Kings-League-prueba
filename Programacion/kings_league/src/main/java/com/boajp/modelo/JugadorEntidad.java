@@ -43,6 +43,14 @@ public class JugadorEntidad extends Persona{
         this.registrosDeTemporadas = registrosDeTemporadas;
     }
 
+    public String[] getAtributos(){
+        return new String[]{"Nombre", "Apellido", "Dni", "Pie", "Altura"};
+    }
+
+    public String[] toArray() {
+        return new String[]{getNombre(), getApellido(), getDni(), getPie(), String.valueOf(getAltura())};
+    }
+
     public int getCodJugador() {
         return codJugador;
     }
