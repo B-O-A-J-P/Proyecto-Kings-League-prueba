@@ -40,7 +40,7 @@ public class EquiposServicio {
         return cartasEquipos;
     }
 
-    public ArrayList<CartaAbstracta> crearCartasDeMiembros() {
+    public ArrayList<CartaAbstracta> crearCartasDeMiembros() throws Exception{
         ArrayList<CartaAbstracta> cartasMiembros = new ArrayList<>();
         List<ContratoEquipoJugadorEntidad> contratoEquipoJugadorEntidadList = contratoEquipoJugadorRepositorio.buscarContratosVigentes();
         List<ContratoEquipoMiembroEntidad> contratoEquipoMiembroEntidadList = contratoEquipoMiembroRepositorio.buscarContratosVigentes();

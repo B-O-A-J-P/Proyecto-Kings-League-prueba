@@ -56,8 +56,7 @@ public class JornadaRepositorio {
             jornadaEncontrada.setUbicacion(jornada.getUbicacion());
             jornadaEncontrada.setSplit(jornada.getSplit());
             jornadaEncontrada.setListaPartidos(jornada.getListaPartidos());
-            if (jornadaEncontrada != null)
-                entityManager.persist(jornadaEncontrada);
+            entityManager.persist(jornadaEncontrada);
             transaction.commit();
         } catch (Exception exception) {
             transaction.rollback();
@@ -91,7 +90,7 @@ public class JornadaRepositorio {
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer jornadas.", exception);
         } finally {
-            entityManager.close();
+           entityManager.close();
         }
     }
 }

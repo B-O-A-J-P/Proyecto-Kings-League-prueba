@@ -109,7 +109,6 @@ public class TemporadaRepositorio {
             String jpql = "SELECT t FROM TemporadaEntidad t WHERE t.codTemporada = :codigo";
             TypedQuery<TemporadaEntidad> query = entityManager.createQuery(jpql, TemporadaEntidad.class);
             query.setParameter("codigo", codigo);
-            System.out.println(query.getSingleResult().getCodTemporada() + " " + query.getSingleResult().getAno());
             return query.getSingleResult();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer temporadas.", exception);

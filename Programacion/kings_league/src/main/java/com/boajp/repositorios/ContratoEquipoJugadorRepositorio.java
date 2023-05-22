@@ -11,7 +11,7 @@ public class ContratoEquipoJugadorRepositorio {
 
 
     public ContratoEquipoJugadorRepositorio(){
-        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory()
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar (ContratoEquipoJugadorEntidad contratojugador) throws Exception {
