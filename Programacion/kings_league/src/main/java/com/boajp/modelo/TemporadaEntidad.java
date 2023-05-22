@@ -59,6 +59,10 @@ public class TemporadaEntidad {
         return new String[]{"Código de temporada", "Año", "Fecha inicio de inscripción", "Fecha fin de inscripción"};
     }
 
+    public void setCodTemporada(int codTemporada) {
+        this.codTemporada = codTemporada;
+    }
+
     public int getCodTemporada() {
         return codTemporada;
     }

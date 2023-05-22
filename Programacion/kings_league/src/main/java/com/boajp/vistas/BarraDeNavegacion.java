@@ -50,6 +50,7 @@ public class BarraDeNavegacion extends JPanel{
         for ( JButton boton: botones ) {
 
             boton.setPreferredSize(tamano);
+            boton.setForeground(Color.white);
         }
     }
 

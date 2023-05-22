@@ -40,6 +40,14 @@ public class VerificadorDeDatos {
             throw new NombreNoValidoExcepcion();
         return true;
     }
+
+    public static boolean verificarPie(String pie){
+        String[] pies = {"derecho", "izquierdo"};
+        for ( String p : pies ) {
+            if ( p.equalsIgnoreCase(pie)) return true;
+        }
+        return false;
+    }
 }
 
 

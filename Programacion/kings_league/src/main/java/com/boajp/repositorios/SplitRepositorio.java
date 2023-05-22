@@ -6,6 +6,7 @@ import com.boajp.servicios.TemporadasServicio;
 import jakarta.persistence.*;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class SplitRepositorio {
@@ -24,7 +25,6 @@ public class SplitRepositorio {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.persist(split.getTemporada());
             em.merge(split);
             transaction.commit();
         } catch (Exception exception) {
