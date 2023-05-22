@@ -11,86 +11,96 @@ import java.util.List;
 
 public class SplitRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
-
+    private final EntityManagerFactory entityManagerFactory;
 
     public SplitRepositorio(){
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf. createEntityManager();
-
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar (SplitEntidad split) throws Exception{
-        EntityTransaction transaction = em.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.merge(split);
+            entityManager.merge(split);
             transaction.commit();
         } catch (Exception exception) {
             transaction.rollback();
             System.out.println(exception.getMessage());
             throw exception;
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar (SplitEntidad split) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        SplitEntidad s = em.find(SplitEntidad.class, split.getCodSplit());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+            SplitEntidad s = entityManager.find(SplitEntidad.class, split.getCodSplit());
             if (s != null) {
-                em.remove(s);
-                transaction.commit();
+                entityManager.remove(s);
             }
+            transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el split");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar (int codigo) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        SplitEntidad s = em.find(SplitEntidad.class, codigo);
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        SplitEntidad s = entityManager.find(SplitEntidad.class, codigo);
         try {
             transaction.begin();
             if (s != null) {
-                em.remove(s);
-                transaction.commit();
+                entityManager.remove(s);
             }
+            transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el split");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar (SplitEntidad split) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        SplitEntidad s = em.find(SplitEntidad.class, split.getCodSplit());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction ();
         try {
             transaction.begin();
-            if (split != null){
-                s.setNombre(split.getNombre());
-                s.setFechaFin(split.getFechaFin());
-                s.setFechaInicio(split.getFechaInicio());
-                s.setTemporada(split.getTemporada());
-                s.setListaJornadas(split.getListaJornadas());
-                s.setTablaClasificaciones(split.getTablaClasificaciones());
-                em.persist(s);
-            }
+            SplitEntidad s = entityManager.find(SplitEntidad.class, split.getCodSplit());
+            s.setNombre(split.getNombre());
+            s.setFechaFin(split.getFechaFin());
+            s.setFechaInicio(split.getFechaInicio());
+            s.setTemporada(split.getTemporada());
+            s.setListaJornadas(split.getListaJornadas());
+            s.setTablaClasificaciones(split.getTablaClasificaciones());
+            entityManager.persist(s);
+            transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar modificar el split");
+        } finally {
+            entityManager.close();
         }
     }
 
     public List<SplitEntidad> buscarSplits() throws Exception {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             String jpql = "SELECT s FROM SplitEntidad s";
-            TypedQuery<SplitEntidad> query = em.createQuery(jpql, SplitEntidad.class);
+            TypedQuery<SplitEntidad> query = entityManager.createQuery(jpql, SplitEntidad.class);
             return query.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer temporadas.", exception);
+        } finally {
+            entityManager.close();
         }
     }
 

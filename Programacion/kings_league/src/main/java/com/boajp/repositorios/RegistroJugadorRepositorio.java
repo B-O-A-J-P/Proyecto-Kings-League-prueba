@@ -8,16 +8,14 @@ import java.util.List;
 public class RegistroJugadorRepositorio {
 
     private final EntityManagerFactory entityManagerFactory;
-    private final EntityManager entityManager;
-    private EntityTransaction transaction;
 
     public RegistroJugadorRepositorio() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        entityManager = entityManagerFactory.createEntityManager();
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar(RegistroJugadorEntidad registroJugador) throws Exception {
-        transaction = entityManager.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             entityManager.persist(registroJugador);
@@ -25,11 +23,14 @@ public class RegistroJugadorRepositorio {
         } catch (Exception exception) {
             transaction.rollback();
             throw new Exception("Error al intentar insertar registro de jugador");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar(RegistroJugadorEntidad registroJugador) throws Exception {
-        transaction = entityManager.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             RegistroJugadorEntidad registroJugadorEncontrado = entityManager.find(RegistroJugadorEntidad.class, registroJugador.getJugador().getCodJugador());
@@ -39,35 +40,43 @@ public class RegistroJugadorRepositorio {
         } catch (Exception exception) {
             transaction.rollback();
             throw new Exception("Error al intentar eliminar registro de jugador");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar(RegistroJugadorEntidad registroJugador) throws Exception {
-        transaction = entityManager.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             RegistroJugadorEntidad registroJugadorEncontrado = entityManager.find(RegistroJugadorEntidad.class, registroJugador.getJugador().getCodJugador());
             registroJugadorEncontrado.setTemporada(registroJugador.getTemporada());
-            if (registroJugadorEncontrado != null)
-                entityManager.persist(registroJugadorEncontrado);
+            entityManager.persist(registroJugadorEncontrado);
             transaction.commit();
         } catch (Exception exception) {
             transaction.rollback();
             throw new Exception("Error al intentar modificar registro de jugador");
+        } finally {
+            entityManager.close();
         }
     }
 
     public List<RegistroJugadorEntidad> buscarTodosRegistrosJugadores() throws Exception {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             String jpql = "SELECT r FROM RegistroJugadorEntidad r";
             TypedQuery<RegistroJugadorEntidad> query = entityManager.createQuery(jpql, RegistroJugadorEntidad.class);
             return query.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer registros de jugadores.", exception);
+        } finally {
+            entityManager.close();
         }
     }
 
     public List<RegistroJugadorEntidad> buscarJugadoresRegistradosUltimaTemporada() throws Exception {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             String query = "SELECT rj FROM RegistroJugadorEntidad rj WHERE rj.temporada.codTemporada = (SELECT MAX(m.temporada.codTemporada) FROM RegistroJugadorEntidad m)";
             TypedQuery<RegistroJugadorEntidad> resultado = entityManager.createQuery(query, RegistroJugadorEntidad.class);
@@ -76,6 +85,8 @@ public class RegistroJugadorRepositorio {
             return null;
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer RegistroJugadorEntidad.", exception);
+        } finally {
+            entityManager.close();
         }
     }
 
