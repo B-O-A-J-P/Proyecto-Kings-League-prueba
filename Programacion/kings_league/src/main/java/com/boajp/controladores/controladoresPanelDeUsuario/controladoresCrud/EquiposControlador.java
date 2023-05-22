@@ -1,11 +1,14 @@
 package com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud;
 
+import com.boajp.modelo.EquipoEntidad;
 import com.boajp.modelo.SplitEntidad;
 import com.boajp.modelo.TemporadaEntidad;
 import com.boajp.servicios.EquiposServicio;
 import com.boajp.servicios.TemporadasServicio;
 import com.boajp.vistas.componentes.PanelDeError;
 import com.boajp.vistas.usuario.PanelDeCrud;
+import com.boajp.vistas.usuario.crudDialogs.equipo.AñadirEquipo;
+import com.boajp.vistas.usuario.crudDialogs.equipo.ModificarEquipo;
 import com.boajp.vistas.usuario.crudDialogs.split.AnadirSplitDialog;
 import com.boajp.vistas.usuario.crudDialogs.temporada.AnadirTemporadaDialog;
 import com.boajp.vistas.usuario.crudDialogs.temporada.ModificarTemporadaDialog;
@@ -21,9 +24,9 @@ public class EquiposControlador implements CrudControlador{
         equiposServicio = new EquiposServicio();
         try {
             if (panelDeCrud == null) {
-                //panelDeCrud = new PanelDeCrud(equiposServicio.getFilas(), equiposServicio.getColumnas());
+                panelDeCrud = new PanelDeCrud(equiposServicio.getFilas(), equiposServicio.getColumnas());
             } else {
-               // panelDeCrud.actualizarModelo(equiposServicio.getFilas(), equiposServicio.getColumnas());
+               panelDeCrud.actualizarModelo(equiposServicio.getFilas(), equiposServicio.getColumnas());
             }
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());
@@ -34,33 +37,26 @@ public class EquiposControlador implements CrudControlador{
         anadirListenerEliminar();
     }
 
-    @Override
-    public void anadirListenerAceptar() {
-        
-    }
 
-    @Override
-    public void anadirListenerModificar() {
 
-    }
+
 
     @Override
     public void anadirListenerEliminar() {
 
     }
-/*
+
     public void anadirListenerAceptar()  {
         panelDeCrud.getCrearBoton().addActionListener( e -> {
-            AnadirTemporadaDialog dialog = new AnadirTemporadaDialog();
-            dialog.getButtonOK().addActionListener( x -> {
+            AñadirEquipo dialog = new AñadirEquipo();
+            dialog.getbAceptar().addActionListener( x -> {
                 try {
-                    equiposServicio.anadirTemporada(
-                            dialog.getAnoTf(),
-                            dialog.getFechaInicioInscripcionTf(),
-                            dialog.getFechaFinInscripcion()
+                    equiposServicio.crearEquipo(
+                            dialog.getTfNombre(),
+                            dialog.getTfLogo()
                     );
-                    JOptionPane.showMessageDialog(null, "Se ha registado la temporada.");
-                    panelDeCrud.actualizarModelo(temporadasServicio.getFilas(), temporadasServicio.getColumnas());
+                    JOptionPane.showMessageDialog(null, "Se ha registado el equipo.");
+                    panelDeCrud.actualizarModelo(equiposServicio.getFilas(), equiposServicio.getColumnas());
                     dialog.dispose();
                 }catch (Exception exception) {
                     new PanelDeError(exception.getMessage());
@@ -75,50 +71,49 @@ public class EquiposControlador implements CrudControlador{
             var modelo = panelDeCrud.getModelo();
             try {
                 int codigo = Integer.parseInt((String) modelo.getValueAt(panelDeCrud.getTabla().getSelectedRow(), 0));
-                TemporadaEntidad temporada = null;
+                EquipoEntidad equipo = null;
                 try {
-                    temporada = temporadasServicio.getTemporada(codigo);
+                    equipo = equiposServicio.getEquipo(codigo);
                 } catch (Exception exception) {
                     new PanelDeError(exception.getMessage());
                 }
-                var dialog = new ModificarTemporadaDialog(
-                        String.valueOf(temporada.getAno()),
-                        temporada.getFechaInicioInscripcionString(),
-                        temporada.getFechaFinInscripcionString()
+                var dialog = new ModificarEquipo(
+                        equipo.getNombre(),
+                        equipo.getLogoString()
                 );
-                dialog.getModificarBoton().addActionListener( x -> {
+                dialog.getbModificar().addActionListener( x -> {
                     if (x.getActionCommand().equalsIgnoreCase("bloqueado")) {
-                        dialog.getModificarBoton().setActionCommand("desbloqueado");
+                        dialog.getbModificar().setActionCommand("desbloqueado");
                         dialog.habilitarCampos();
-                        dialog.getAceptarBoton().setVisible(true);
-                        dialog.getModificarBoton().setText("Cancelar");
+                        dialog.getButtonOK().setVisible(true);
+                        dialog.getbModificar().setText("Cancelar");
                     } else if (x.getActionCommand().equalsIgnoreCase("desbloqueado")) {
-                        dialog.getModificarBoton().setActionCommand("bloqueado");
+                        dialog.getbModificar().setActionCommand("bloqueado");
                         dialog.desabilitarCampos();
                         dialog.restablecerValoresPorDefecto();
-                        dialog.getAceptarBoton().setVisible(false);
-                        dialog.getModificarBoton().setText("Modificar");
+                        dialog.getButtonOK().setVisible(false);
+                        dialog.getbModificar().setText("Modificar");
                     }
                 });
 
-                TemporadaEntidad finalTemporada = temporada;
-                dialog.getAceptarBoton().addActionListener(x -> {
-                    finalTemporada.setAno(Short.parseShort(dialog.getAnoTf().getText()));
-                    finalTemporada.setFechaInicioInscripcion(dialog.getFechaInicioInscripcion());
-                    finalTemporada.setFechaFinInscripcion(dialog.getFechaFinInscripcion());
+                EquipoEntidad finalEquipo = equipo;
+                dialog.getButtonOK().addActionListener(x -> {
+                    finalEquipo.setNombre(dialog.getTfNombre().getText());
+                    byte [] logo = dialog.getTfLogo().getText().getBytes();
+                    finalEquipo.setLogo(logo);
                     try {
-                        temporadasServicio.modificarTemporada(finalTemporada);
+                        equiposServicio.modificarEquipo(finalEquipo);
                         panelDeCrud.actualizarModelo(
-                                temporadasServicio.getFilas(),
-                                temporadasServicio.getColumnas());
+                                equiposServicio.getFilas(),
+                                equiposServicio.getColumnas());
                     } catch (Exception exception) {
                         new PanelDeError(exception.getMessage());
                     }
-                    dialog.getModificarBoton().setActionCommand("bloqueado");
+                    dialog.getbModificar().setActionCommand("bloqueado");
                     dialog.desabilitarCampos();
-                    dialog.establecerValoresPorDefecto();
-                    dialog.getAceptarBoton().setVisible(false);
-                    dialog.getModificarBoton().setText("Modificar");
+                    dialog.restablecerValoresPorDefecto();
+                    dialog.getButtonOK().setVisible(false);
+                    dialog.getbModificar().setText("Modificar");
                 });
                 dialog.setVisible(true);
             } catch (ArrayIndexOutOfBoundsException exception) {
@@ -126,6 +121,7 @@ public class EquiposControlador implements CrudControlador{
             }
         });
     }
+    /*
 
     public void anadirListenerEliminar() {
         panelDeCrud.getEliminarBoton().addActionListener( e -> {
