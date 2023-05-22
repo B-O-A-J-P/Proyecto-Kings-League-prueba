@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
 import java.io.File;
 
+
 public class Clasificacion {
     private JPanel pClasificacion;
 
@@ -40,7 +41,10 @@ public class Clasificacion {
             table.setFont(new Font("DialogInput", Font.BOLD, 17));
         }
 
-        File xmlFile = new File("src/main/java/com/boajp/xml/kings_league_clasificacion.xml");
+        String home = System.getProperty("user.home");
+
+
+        File xmlFile = new File(home + "/Downloads/clasificacion.xml");
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -49,15 +53,15 @@ public class Clasificacion {
 
             doc.getDocumentElement().normalize();
 
-            NodeList nodeList = doc.getElementsByTagName("equipo");
+            NodeList nodeList = doc.getElementsByTagName("EQUIPO_TIPO");
 
 
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Element equipo = (Element) nodeList.item(i);
-                String logo = equipo.getElementsByTagName("logo").item(0).getTextContent();
-                String nombre = equipo.getElementsByTagName("nombre").item(0).getTextContent();
-                String puntos = equipo.getElementsByTagName("puntos").item(0).getTextContent();
-                String goles = equipo.getElementsByTagName("suma_goles").item(0).getTextContent();
+                String logo = equipo.getElementsByTagName("LOGO").item(0).getTextContent();
+                String nombre = equipo.getElementsByTagName("NOMBRE").item(0).getTextContent();
+                String puntos = equipo.getElementsByTagName("PUNTOS").item(0).getTextContent();
+                String goles = equipo.getElementsByTagName("GOLES").item(0).getTextContent();
 
                 model.addRow(new Object[] {i+1,logo,nombre, puntos, goles});
 
