@@ -1,5 +1,6 @@
 package com.boajp.controladores.controladoresPanelDeUsuario;
 
+import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.EquiposControlador;
 import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.JugadoresControlador;
 import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.SplitsControlador;
 import com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud.TemporadasControlador;
@@ -22,6 +23,11 @@ public class PanelDeCrudControlador {
 
     public PanelDeCrud getPanelDeCrudSplit() {
         CrudControlador controlador = new SplitsControlador(panelDeCrud);
+        return panelDeCrud;
+    }
+
+    public PanelDeCrud getPanelCrudEquipos(){
+        CrudControlador controlador = new EquiposControlador(panelDeCrud);
         return panelDeCrud;
     }
 

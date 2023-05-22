@@ -64,4 +64,8 @@ public class EquiposServicio {
         return cartasMiembros;
     }
 
+    public void crearEquipo(String nombre, String logo){
+
+    }
+
 }
