@@ -7,81 +7,83 @@ import java.util.List;
 
 public class RegistroEquipoRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
-
+    private final EntityManagerFactory entityManagerFactory;
 
     public RegistroEquipoRepositorio(){
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf. createEntityManager();
-
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
     public void insertar (RegistroEquipoEntidad registroEquipo) throws Exception {
-
-        EntityTransaction transaction = em.getTransaction ();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(registroEquipo);
+            entityManager.persist(registroEquipo);
             transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar insertar un equipo participante");
+        } finally {
+            entityManager.close();
         }
     }
     public void eliminar (RegistroEquipoEntidad registroEquipo) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        RegistroEquipoEntidad r = em.find(RegistroEquipoEntidad.class, registroEquipo.getTemporada());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            if (registroEquipo != null) {
-                em.remove(registroEquipo);
-                transaction.commit();
-            }
+            RegistroEquipoEntidad r = entityManager.find(RegistroEquipoEntidad.class, registroEquipo.getTemporada());
+            entityManager.remove(registroEquipo);
+            transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el equipo participante");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar (RegistroEquipoEntidad registroEquipo) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        RegistroEquipoEntidad r = em.find(RegistroEquipoEntidad.class, registroEquipo.getTemporada());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            if (registroEquipo != null){
-                r.setEquipo(registroEquipo.getEquipo());
-                r.setTemporada(registroEquipo.getTemporada());
-                em.persist(r);
-            }
+            RegistroEquipoEntidad r = entityManager.find(RegistroEquipoEntidad.class, registroEquipo.getTemporada());
+            r.setEquipo(registroEquipo.getEquipo());
+            r.setTemporada(registroEquipo.getTemporada());
+            entityManager.persist(r);
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar modificar el equipo participante");
+        } finally {
+            entityManager.close();
         }
     }
 
-    public List<RegistroEquipoEntidad> seleccionarTodosLosEquiposParticipantes (){
-
-        Query qEquiposParticipantes = em.createNativeQuery ("SELECT DISTINCT cod_equipo FROM equipos_participantes");
-        List<RegistroEquipoEntidad> equipos_participantes = qEquiposParticipantes.getResultList();
-        return equipos_participantes;
-    }
-
-    public List<RegistroEquipoEntidad> seleccionarCantidadEquiposParticipantes(){
-        Query qNroEquiposParticipantes = em.createNativeQuery ("SELECT COUNT(DISTINCT cod_equipo) FROM equipos_participantes ");
-        List<RegistroEquipoEntidad> equipos_participantes = qNroEquiposParticipantes.getResultList();
-        return equipos_participantes;
-
+    public List<RegistroEquipoEntidad> buscarTodosRegistrosDeEquipo() throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String sql = "SELECT re FROM RegistroEquipoEntidad re JOIN FETCH re.temporada JOIN FETCH re.equipo";
+            TypedQuery<RegistroEquipoEntidad> resultado = entityManager.createQuery(sql, RegistroEquipoEntidad.class);
+            return resultado.getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer equipos participante");
+        } finally {
+            entityManager.close();
+        }
     }
 
     public List<RegistroEquipoEntidad> buscarEquiposParticipantesUltimaTemporada() throws Exception {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             String query = "SELECT re FROM RegistroEquipoEntidad re WHERE re.temporada.codTemporada = (SELECT MAX(m.temporada.codTemporada) FROM RegistroEquipoEntidad m)";
-            TypedQuery<RegistroEquipoEntidad> resultado = em.createQuery(query, RegistroEquipoEntidad.class);
+            TypedQuery<RegistroEquipoEntidad> resultado = entityManager.createQuery(query, RegistroEquipoEntidad.class);
             return resultado.getResultList();
         } catch (NoResultException e) {
             return null;
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer RegistroEquipoEntidad.", exception);
+        } finally {
+            entityManager.close();
         }
     }
 }

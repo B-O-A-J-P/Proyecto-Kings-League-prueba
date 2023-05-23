@@ -5,68 +5,91 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+
+import java.rmi.server.ExportException;
 import java.util.List;
 
 public class InformacionPartidoRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
+    private final EntityManagerFactory entityManagerFactory;
 
     public InformacionPartidoRepositorio() {
-        emf = Persistence.createEntityManagerFactory("default"); //Cambiar "default" por el nombre de su unidad de persistencia
-        em = emf.createEntityManager();
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar(InformacionPartidoEntidad informacionPartido) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(informacionPartido);
+            entityManager.persist(informacionPartido);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar insertar la información del partido");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar(InformacionPartidoEntidad informacionPartido) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        InformacionPartidoEntidad i = em.find(InformacionPartidoEntidad.class, informacionPartido.getPartido().getCodPartido());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        InformacionPartidoEntidad i = entityManager.find(InformacionPartidoEntidad.class, informacionPartido.getPartido().getCodPartido());
         try {
             transaction.begin();
             if (i != null) {
-                em.remove(i);
-                transaction.commit();
+                entityManager.remove(i);
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar eliminar la información del partido");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar(InformacionPartidoEntidad informacionPartido) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        InformacionPartidoEntidad i = em.find(InformacionPartidoEntidad.class, informacionPartido.getPartido().getCodPartido());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            if (i != null) {
-                i.setNumeroGoles(informacionPartido.getNumeroGoles());
-                i.setResultado(informacionPartido.getResultado());
-                em.persist(i);
-                transaction.commit();
+            var informacionPartidoEntidad = entityManager.find(InformacionPartidoEntidad.class, informacionPartido.getPartido().getCodPartido());
+            if (informacionPartidoEntidad != null) {
+                informacionPartidoEntidad.setNumeroGoles(informacionPartido.getNumeroGoles());
+                informacionPartidoEntidad.setResultado(informacionPartido.getResultado());
+                entityManager.persist(informacionPartidoEntidad);
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar modificar la información del partido");
+        } finally {
+            entityManager.close();
         }
     }
 
-    public List<InformacionPartidoEntidad> seleccionarTodasLasInformacionesDePartidos() {
-        return em.createQuery("SELECT i FROM InformacionPartidoEntidad i", InformacionPartidoEntidad.class)
-                .getResultList();
+    public List<InformacionPartidoEntidad> seleccionarTodasLasInformacionesDePartidos() throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.createQuery("SELECT i FROM InformacionPartidoEntidad i", InformacionPartidoEntidad.class)
+                    .getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer la información de partido");
+        } finally {
+            entityManager.close();
+        }
     }
 
-    public InformacionPartidoEntidad seleccionarInformacionDePartidoPorCodigo(int codigoPartido) {
-        return em.find(InformacionPartidoEntidad.class, codigoPartido);
+    public InformacionPartidoEntidad seleccionarInformacionDePartidoPorCodigo(int codigoPartido) throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.find(InformacionPartidoEntidad.class, codigoPartido);
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer la información de partido");
+        } finally {
+            entityManager.close();
+        }
     }
 }

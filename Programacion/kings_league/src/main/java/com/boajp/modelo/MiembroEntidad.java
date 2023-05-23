@@ -26,6 +26,19 @@ public class MiembroEntidad extends Persona{
         this.agenda = agenda;
     }
 
+    public String[] getAtributos() {
+        return new String[]{"Código de miembro", "Nombre", "Apellido", "Dni"};
+    }
+
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(codMiembro),
+                getNombre(),
+                getApellido(),
+                getDni()
+        };
+    }
+
     public short getCodMiembro() {
         return codMiembro;
     }

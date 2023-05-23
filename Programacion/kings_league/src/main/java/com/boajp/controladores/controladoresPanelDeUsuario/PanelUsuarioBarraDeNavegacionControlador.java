@@ -13,6 +13,16 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirListenerSplits();
         anadirListenerEquipos();
         anadirListenerJugadores();
+        anadirListenerJornadas();
+        anadirListenerPartidos();
+        anadirListenerEquipos();
+        anadirListenerMiembros();
+        anadirListenerContratosEquipoJugador();
+        anadirListenerContratosEquipoMiembro();
+        anadirListenerRegistrosDeEquipos();
+        anadirListenerRegistrosDeJugadores();
+        anadirListenerDraft();
+        anadirListenerAgendas();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -40,6 +50,66 @@ public class PanelUsuarioBarraDeNavegacionControlador {
     public void anadirListenerJugadores() {
         barraDeNavegacion.getJugadorBoton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudJugadores();
+        });
+    }
+
+    public void anadirListenerJornadas() {
+        barraDeNavegacion.getJornadasBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudJornadas();
+        });
+    }
+
+    public void anadirListenerPartidos() {
+        barraDeNavegacion.getPartidosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudPartidos();
+        });
+    }
+
+    public void anadirListenerEquipos() {
+        barraDeNavegacion.getEquiposBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudEquipos();
+        });
+    }
+
+    public void anadirListenerMiembros() {
+        barraDeNavegacion.getMiembrosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudMiembros();
+        });
+    }
+
+    public void anadirListenerContratosEquipoJugador() {
+        barraDeNavegacion.getContratosDeEquipoJugadoresButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudContratosEquipoJugador();
+        });
+    }
+
+    public void anadirListenerContratosEquipoMiembro() {
+        barraDeNavegacion.getContratosDeEquipoMiembrosButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudContratosEquipoMiembros();
+        });
+    }
+
+    public void anadirListenerRegistrosDeEquipos() {
+        barraDeNavegacion.getRegistrosDeEquiposButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudRegistrosEquipos();
+        });
+    }
+
+    public void anadirListenerRegistrosDeJugadores() {
+        barraDeNavegacion.getRegistrosDeJugadoresButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudRegistrosJugadores();
+        });
+    }
+
+    public void anadirListenerDraft() {
+        barraDeNavegacion.getDraftButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudDraft();
+        });
+    }
+
+    public void anadirListenerAgendas() {
+        barraDeNavegacion.getAgendasButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudAgendas();
         });
     }
 

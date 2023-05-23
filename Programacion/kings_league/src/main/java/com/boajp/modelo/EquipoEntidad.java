@@ -34,6 +34,27 @@ public class EquipoEntidad {
     @OneToMany(mappedBy = "equipo")
     private Collection<RegistroEquipoEntidad> registrosTemporadas;
 
+    public EquipoEntidad() {
+    }
+
+    public EquipoEntidad(String nombre, long presupuesto) {
+        this.nombre = nombre;
+        this.presupuesto = presupuesto;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{"Códigod de equipo", "Nombre", "Presupuesto"};
+    }
+
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(codEquipo),
+                nombre,
+                String.valueOf(presupuesto)
+        };
+    }
+
+
     public int getCodEquipo() {
         return codEquipo;
     }
@@ -70,12 +91,6 @@ public class EquipoEntidad {
         this.presupuesto = presupuesto;
     }
 
-    public EquipoEntidad() {
-    }
-
-    public EquipoEntidad(String nombre) {
-        this.nombre = nombre;
-    }
 
     @Override
     public boolean equals(Object o) {

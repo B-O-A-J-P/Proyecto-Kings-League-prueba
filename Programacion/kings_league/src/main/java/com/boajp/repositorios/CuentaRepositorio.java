@@ -6,16 +6,14 @@ import jakarta.persistence.*;
 
 public class CuentaRepositorio {
     private final EntityManagerFactory entityManagerFactory;
-    private final EntityManager entityManager;
-    private EntityTransaction transaction;
 
     public CuentaRepositorio() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        entityManager = entityManagerFactory.createEntityManager();
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar(CuentaEntidad cuenta) throws Exception {
-        transaction = entityManager.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
             entityManager.persist(cuenta);
@@ -23,14 +21,17 @@ public class CuentaRepositorio {
         } catch (Exception e) {
             transaction.rollback();
             throw e;
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar(CuentaEntidad cuentaEntidad) throws Exception {
-        transaction = entityManager.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
-            CuentaEntidad oldCuenta = entityManager.find(CuentaEntidad.class, cuentaEntidad.getCodCuenta());
             transaction.begin();
+            CuentaEntidad oldCuenta = entityManager.find(CuentaEntidad.class, cuentaEntidad.getCodCuenta());
             oldCuenta.setNombreDeUsuario(cuentaEntidad.getNombreDeUsuario());
             oldCuenta.setEmail(cuentaEntidad.getEmail());
             oldCuenta.setContrasena(cuentaEntidad.getContrasena());
@@ -39,10 +40,13 @@ public class CuentaRepositorio {
         }catch (Exception e) {
             transaction.rollback();
             throw e;
+        } finally {
+            entityManager.close();
         }
     }
 
     public CuentaEntidad buscarCuenta(String usuario) throws Exception {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             String sql = "SELECT c FROM CuentaEntidad c WHERE c.nombreDeUsuario = :usuario";
             TypedQuery<CuentaEntidad> resultado = entityManager.createQuery(sql, CuentaEntidad.class);
@@ -52,8 +56,8 @@ public class CuentaRepositorio {
             return null;
         } catch (Exception exception) {
             throw new UsuarioNoEncontradoExcepcion();
+        } finally {
+            entityManager.close();
         }
     }
-
-
 }

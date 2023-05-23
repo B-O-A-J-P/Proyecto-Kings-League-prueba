@@ -14,9 +14,9 @@ public class JugadoresControlador implements CrudControlador{
         jugadoresServicio = new JugadoresServicio();
         try {
             if ( panelDeCrud == null) {
-                panelDeCrud = new PanelDeCrud(jugadoresServicio.getFilas(), jugadoresServicio.getColumas());
+                panelDeCrud = new PanelDeCrud(jugadoresServicio.getFilas(), jugadoresServicio.getColumnas());
             } else {
-                panelDeCrud.actualizarModelo(jugadoresServicio.getFilas(), jugadoresServicio.getColumas());
+                panelDeCrud.actualizarModelo(jugadoresServicio.getFilas(), jugadoresServicio.getColumnas());
             }
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());

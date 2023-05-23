@@ -3,6 +3,7 @@ package com.boajp.servicios;
 import com.boajp.modelo.*;
 import com.boajp.repositorios.ClasificacionRepositorio;
 import com.boajp.repositorios.JornadaRepositorio;
+import com.boajp.repositorios.PartidosRepositorio;
 import com.boajp.repositorios.RegistroEquipoRepositorio;
 import com.boajp.vistas.carta.CartaAbstracta;
 import com.boajp.vistas.carta.ClasificacionCarta;
@@ -19,14 +20,17 @@ public class InicioServicio {
     private JornadaRepositorio jornadaRepositorio;
     private ClasificacionRepositorio clasificacionRepositorio;
     private RegistroEquipoRepositorio registroEquipoRepositorio;
+    private PartidosRepositorio partidosRepositorio;
+
 
     public InicioServicio() {
         jornadaRepositorio = new JornadaRepositorio();
         clasificacionRepositorio = new ClasificacionRepositorio();
         registroEquipoRepositorio = new RegistroEquipoRepositorio();
+        partidosRepositorio = new PartidosRepositorio();
     }
 
-    public CartaAbstracta crearCartaUltimaJornada() {
+    public CartaAbstracta crearCartaUltimaJornada() throws Exception{
         JornadaEntidad jornadaEntidad = null;
 
         try {
@@ -34,7 +38,7 @@ public class InicioServicio {
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());
         }
-        List<PartidoEntidad> listaDePartidos = (List<PartidoEntidad>) jornadaEntidad.getListaPartidos();
+        List<PartidoEntidad> listaDePartidos = (List<PartidoEntidad>) partidosRepositorio.buscarPartidosDeJornada(jornadaEntidad);
         String[][] datosDePartido = new String[listaDePartidos.size()][3];
         for ( int x = 0; x < datosDePartido.length; x++ ) {
             datosDePartido[x][0] = listaDePartidos.get(x).getEquipoUno().getNombre();

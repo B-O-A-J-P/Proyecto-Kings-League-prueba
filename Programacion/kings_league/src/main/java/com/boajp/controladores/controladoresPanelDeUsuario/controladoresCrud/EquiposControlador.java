@@ -1,5 +1,14 @@
 package com.boajp.controladores.controladoresPanelDeUsuario.controladoresCrud;
 
+<<<<<<< HEAD
+import com.boajp.servicios.EquiposServicio;
+import com.boajp.vistas.componentes.PanelDeError;
+import com.boajp.vistas.usuario.PanelDeCrud;
+
+public class EquiposControlador implements CrudControlador{
+    private EquiposServicio equiposServicio;
+    private PanelDeCrud panelDeCrud;
+=======
 import com.boajp.modelo.EquipoEntidad;
 import com.boajp.modelo.SplitEntidad;
 import com.boajp.modelo.TemporadaEntidad;
@@ -19,19 +28,45 @@ import javax.swing.*;
 public class EquiposControlador implements CrudControlador{
     private final PanelDeCrud panelDeCrud;
     private  final EquiposServicio equiposServicio;
+>>>>>>> main
 
     public EquiposControlador(PanelDeCrud panelDeCrud) {
         equiposServicio = new EquiposServicio();
         try {
+<<<<<<< HEAD
+            if ( panelDeCrud == null) {
+                panelDeCrud = new PanelDeCrud(equiposServicio.getFilas(), equiposServicio.getColumnas());
+            } else {
+                panelDeCrud.actualizarModelo(equiposServicio.getFilas(), equiposServicio.getColumnas());
+=======
             if (panelDeCrud == null) {
                 panelDeCrud = new PanelDeCrud(equiposServicio.getFilas(), equiposServicio.getColumnas());
             } else {
                panelDeCrud.actualizarModelo(equiposServicio.getFilas(), equiposServicio.getColumnas());
+>>>>>>> main
             }
         } catch (Exception exception) {
             new PanelDeError(exception.getMessage());
         }
         this.panelDeCrud = panelDeCrud;
+<<<<<<< HEAD
+    }
+
+    @Override
+    public void anadirListenerAceptar() {
+
+    }
+
+    @Override
+    public void anadirListenerModificar() {
+
+    }
+
+    @Override
+    public void anadirListenerEliminar() {
+
+    }
+=======
         anadirListenerAceptar();
         anadirListenerModificar();
         anadirListenerEliminar();
@@ -134,4 +169,5 @@ public class EquiposControlador implements CrudControlador{
             }
         });
     }*/
+>>>>>>> main
 }

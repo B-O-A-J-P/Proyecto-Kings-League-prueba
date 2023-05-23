@@ -24,6 +24,22 @@ public class AgendaEntidad {
         this.telefono = telefono;
     }
 
+    public String[] getAtributos() {
+        return new String[]{
+          "Código de agenda",
+          "Email",
+          "Teléfono"
+        };
+    }
+
+    public String[] toArray() {
+        return new String[]{
+          String.valueOf(codAgenda),
+          email,
+          telefono
+        };
+    }
+
     public int getCodAgenda() {
         return codAgenda;
     }

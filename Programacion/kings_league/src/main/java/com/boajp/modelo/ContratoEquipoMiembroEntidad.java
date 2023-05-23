@@ -1,5 +1,6 @@
 package com.boajp.modelo;
 
+import com.boajp.utilidades.FechaUtilidades;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -36,6 +37,34 @@ public class ContratoEquipoMiembroEntidad {
         this.fechaSalida = fechaSalida;
         this.equipo = equipo;
         this.miembro = miembro;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{
+                "Código de equipo",
+                "Código de miembro",
+                "Función",
+                "Fecha de entrada",
+                "Fecha de salida"
+        };
+    }
+
+    public String[] toArray() {
+        if (fechaSalida == null)
+            return new String[]{
+                    String.valueOf(equipo.getCodEquipo()),
+                    String.valueOf(miembro.getCodMiembro()),
+                    funcion,
+                    FechaUtilidades.fechaToString(fechaEntrada),
+                    "Indefinido"
+        };
+        return new String[]{
+                String.valueOf(equipo.getCodEquipo()),
+                String.valueOf(miembro.getCodMiembro()),
+                funcion,
+                FechaUtilidades.fechaToString(fechaEntrada),
+                FechaUtilidades.fechaToString(fechaSalida)
+        };
     }
 
     public LocalDate getFechaEntrada() {

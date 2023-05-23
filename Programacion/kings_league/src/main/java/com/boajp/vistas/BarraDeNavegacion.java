@@ -64,6 +64,8 @@ public class BarraDeNavegacion extends JPanel{
         }
     }
 
+
+
     public JButton getInicio() {
         return inicio;
     }

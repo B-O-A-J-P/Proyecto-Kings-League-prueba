@@ -16,6 +16,37 @@ public class RegistroJugadorEntidad {
     @JoinColumn(name = "COD_JUGADOR", referencedColumnName = "COD_JUGADOR", nullable = false)
     private JugadorEntidad jugador;
 
+    public RegistroJugadorEntidad() {
+    }
+
+    public RegistroJugadorEntidad(DraftEntidad draft, TemporadaEntidad temporada, JugadorEntidad jugador) {
+        this.draft = draft;
+        this.temporada = temporada;
+        this.jugador = jugador;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{
+                "Código de temporada",
+                "Código de jugador",
+                "Enlistado en draft"
+        };
+    }
+
+    public String[] toArray() {
+        if (draft != null)
+            return new String[]{
+                    String.valueOf(temporada.getCodTemporada()),
+                    String.valueOf(jugador.getCodJugador()),
+                    "Draft"
+            };
+        return new String[]{
+                String.valueOf(temporada.getCodTemporada()),
+                String.valueOf(jugador.getCodJugador()),
+                ""
+        };
+    }
+
     public DraftEntidad getDraft() {
         return draft;
     }
