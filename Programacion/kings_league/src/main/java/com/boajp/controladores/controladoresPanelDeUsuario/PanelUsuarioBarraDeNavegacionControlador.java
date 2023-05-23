@@ -11,6 +11,7 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirlistenerPerfil();
         anadirListenerTemporadas();
         anadirListenerSplits();
+        anadirListenerEquipos();
         anadirListenerJugadores();
         anadirListenerJornadas();
         anadirListenerPartidos();
@@ -41,6 +42,11 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         });
     }
 
+    public void anadirListenerEquipos() {
+        barraDeNavegacion.getEquiposBoton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarCrudEquipos();
+        });
+    }
     public void anadirListenerJugadores() {
         barraDeNavegacion.getJugadorBoton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudJugadores();
