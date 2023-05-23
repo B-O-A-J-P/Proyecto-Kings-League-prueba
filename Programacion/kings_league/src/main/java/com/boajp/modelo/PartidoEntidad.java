@@ -1,8 +1,8 @@
 package com.boajp.modelo;
 
+import com.boajp.utilidades.FechaUtilidades;
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -31,6 +31,8 @@ public class PartidoEntidad {
     @JoinColumn(name = "COD_EQUIPO2", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipoDos;
 
+    public PartidoEntidad() {}
+
     public PartidoEntidad(LocalDateTime hora, String fase, Collection<InformacionPartidoEntidad> informacionPartido, JornadaEntidad jornada, EquipoEntidad equipoUno, EquipoEntidad equipoDos) {
         this.hora = hora;
         this.fase = fase;
@@ -40,8 +42,26 @@ public class PartidoEntidad {
         this.equipoDos = equipoDos;
     }
 
-    public PartidoEntidad() {
+    public String[] getAtributos() {
+        return new String[]{
+                "Código de partido",
+                "Código de jornada",
+                "Hora",
+                "Fase",
+                "Equipo uno",
+                "Equipo dos"
+        };
+    }
 
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(codPartido),
+                String.valueOf(jornada.getCodJornada()),
+                FechaUtilidades.fechaHoraToString(hora),
+                fase,
+                equipoUno.getNombre(),
+                equipoDos.getNombre()
+        };
     }
 
     public int getCodPartido() {

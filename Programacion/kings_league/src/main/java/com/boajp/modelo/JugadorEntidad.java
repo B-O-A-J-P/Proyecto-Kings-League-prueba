@@ -17,26 +17,44 @@ public class JugadorEntidad extends Persona{
     private String pie;
     @Basic
     @Column(name = "ALTURA")
-    private Byte altura;
-    @OneToMany(mappedBy = "jugador")
+    private Integer altura;
+    @OneToMany(mappedBy = "jugador", cascade = CascadeType.REMOVE)
     private Collection<ContratoEquipoJugadorEntidad> contratos;
     @ManyToOne
     @JoinColumn(name = "COD_AGENDA", referencedColumnName = "COD_AGENDA")
     private AgendaEntidad agenda;
-    @OneToMany(mappedBy = "temporada")
+    @OneToMany(mappedBy = "temporada", cascade = CascadeType.REMOVE)
     private Collection<RegistroJugadorEntidad> registrosDeTemporadas;
 
 
     public JugadorEntidad() {
     }
 
-    public JugadorEntidad(String nombre, String apellido, String dni, String pie, Byte altura) {
+    public JugadorEntidad(String nombre, String apellido, String dni) {
+        super(nombre, apellido, dni);
+    }
+
+    public JugadorEntidad(String nombre, String apellido, String dni, String pie, Integer altura) {
         super(nombre, apellido, dni);
         this.pie = pie;
         this.altura = altura;
         this.contratos = contratos;
         this.agenda = agenda;
         this.registrosDeTemporadas = registrosDeTemporadas;
+    }
+
+    public String[] getAtributos(){
+        return new String[]{"Código de jugador", "Nombre", "Apellido", "Dni", "Pie", "Altura"};
+    }
+
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(codJugador),
+                getNombre(),
+                getApellido(),
+                getDni(),
+                getPie(),
+                String.valueOf(getAltura())};
     }
 
     public int getCodJugador() {
@@ -51,11 +69,11 @@ public class JugadorEntidad extends Persona{
         this.pie = pie;
     }
 
-    public Byte getAltura() {
+    public Integer getAltura() {
         return altura;
     }
 
-    public void setAltura(Byte altura) {
+    public void setAltura(Integer altura) {
         this.altura = altura;
     }
 
@@ -111,3 +129,4 @@ public class JugadorEntidad extends Persona{
         this.registrosDeTemporadas = registrosJugadoresByCodJugador;
     }
 }
+

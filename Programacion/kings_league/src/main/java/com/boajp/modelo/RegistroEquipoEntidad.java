@@ -14,6 +14,27 @@ public class RegistroEquipoEntidad {
     @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
     private EquipoEntidad equipo;
 
+    public RegistroEquipoEntidad() {}
+
+    public RegistroEquipoEntidad(TemporadaEntidad temporada, EquipoEntidad equipo) {
+        this.temporada = temporada;
+        this.equipo = equipo;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{
+                "Código de temporada",
+                "Código de equipo"
+        };
+    }
+
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(temporada.getCodTemporada()),
+                String.valueOf(equipo.getCodEquipo())
+        };
+    }
+
     public TemporadaEntidad getTemporada() {
         return temporada;
     }

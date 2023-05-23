@@ -9,46 +9,51 @@ import java.util.List;
 
 public class JugadorRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
+    private final EntityManagerFactory entityManagerFactory;
 
     public JugadorRepositorio() {
-        emf = Persistence.createEntityManagerFactory("default"); // Cambiar "default" por el nombre de su unidad de persistencia
-        em = emf.createEntityManager();
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar(JugadorEntidad jugador) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(jugador);
+            entityManager.persist(jugador);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar(JugadorEntidad jugador) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        JugadorEntidad j = em.find(JugadorEntidad.class, jugador.getCodJugador());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+            JugadorEntidad j = entityManager.find(JugadorEntidad.class, jugador.getCodJugador());
             if (j != null) {
-                em.remove(j);
-                transaction.commit();
+                entityManager.remove(j);
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el jugador");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar(JugadorEntidad jugador) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        JugadorEntidad j = em.find(JugadorEntidad.class, jugador.getCodJugador());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+            JugadorEntidad j = entityManager.find(JugadorEntidad.class, jugador.getCodJugador());
             if (j != null) {
                 j.setNombre(jugador.getNombre());
                 j.setApellido(jugador.getApellido());
@@ -57,21 +62,35 @@ public class JugadorRepositorio {
                 j.setAgenda(jugador.getAgenda());
                 j.setContratos(jugador.getContratos());
                 j.setRegistrosDeTemporadas(jugador.getRegistrosDeTemporadas());
-                em.persist(j);
-                transaction.commit();
+                entityManager.persist(j);
+
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar modificar el jugador");
+        } finally {
+            entityManager.close();
         }
     }
 
-    public List<JugadorEntidad> seleccionarTodosLosJugadores() {
-        return em.createQuery("SELECT j FROM JugadorEntidad j", JugadorEntidad.class)
-                .getResultList();
+    public List<JugadorEntidad> seleccionarTodosLosJugadores() throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.createQuery("SELECT j FROM JugadorEntidad j", JugadorEntidad.class).getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer jugadors");
+        }
     }
 
-    public JugadorEntidad seleccionarJugadorPorId(int id) {
-        return em.find(JugadorEntidad.class, id);
+    public JugadorEntidad buscarJugador(int id) throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.find(JugadorEntidad.class, id);
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer jugador");
+        } finally {
+            entityManager.close();
+        }
     }
 }

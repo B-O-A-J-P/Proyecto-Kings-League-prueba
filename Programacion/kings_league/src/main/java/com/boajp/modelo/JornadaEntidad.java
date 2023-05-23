@@ -1,8 +1,8 @@
 package com.boajp.modelo;
 
+import com.boajp.utilidades.FechaUtilidades;
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -37,6 +37,28 @@ public class JornadaEntidad {
         this.ubicacion = ubicacion;
         this.split = split;
         this.listaPartidos = listaPartidos;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{"Código de jornada", "Número", "Fecha", "Ubicación", "Código de split"};
+    }
+
+    public String[] toArray() {
+        if (split != null)
+            return new String[]{
+                    String.valueOf(codJornada),
+                    String.valueOf(numero),
+                    FechaUtilidades.fechaToString(fecha),
+                    ubicacion,
+                    String.valueOf(split.getCodSplit())
+            };
+        return new String[]{
+                String.valueOf(codJornada),
+                String.valueOf(numero),
+                FechaUtilidades.fechaToString(fecha),
+                ubicacion,
+                ""
+        };
     }
 
     public int getCodJornada() {

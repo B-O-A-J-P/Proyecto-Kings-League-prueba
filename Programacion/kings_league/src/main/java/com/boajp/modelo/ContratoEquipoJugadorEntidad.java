@@ -1,8 +1,8 @@
 package com.boajp.modelo;
 
+import com.boajp.utilidades.FechaUtilidades;
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -42,6 +42,28 @@ public class ContratoEquipoJugadorEntidad {
         this.fechaFin = fechaFin;
         this.equipo = equipo;
         this.jugador = jugador;
+    }
+
+    public String[] getAtributos() {
+        return new String[]{
+                "Código de equipo",
+                "Código de jugador",
+                "Salario",
+                "Cláusula",
+                "Fecha de inicio",
+                "Fecha fin"
+        };
+    }
+
+    public String[] toArray() {
+        return new String[]{
+                String.valueOf(equipo.getCodEquipo()),
+                String.valueOf(jugador.getCodJugador()),
+                String.valueOf(salario),
+                String.valueOf(clausula),
+                FechaUtilidades.fechaToString(fechaInicio),
+                FechaUtilidades.fechaToString(fechaFin)
+        };
     }
 
     public int getCodContrato() {

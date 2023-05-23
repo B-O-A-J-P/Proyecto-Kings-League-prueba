@@ -1,71 +1,81 @@
 package com.boajp.repositorios;
 
 import com.boajp.modelo.DraftEntidad;
-import com.boajp.modelo.SplitEntidad;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 public class DraftRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
-
+    private final EntityManagerFactory entityManagerFactory;
 
     public DraftRepositorio(){
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf. createEntityManager();
-
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar (DraftEntidad draft) throws Exception {
-
-        EntityTransaction transaction = em.getTransaction ();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(draft);
+            entityManager.persist(draft);
             transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar insertar el draft");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar (DraftEntidad draft) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        DraftEntidad d = em.find(DraftEntidad.class, draft.getRegistroJugador());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction ();
         try {
             transaction.begin();
+            DraftEntidad d = entityManager.find(DraftEntidad.class, draft.getRegistroJugador());
             if (draft != null) {
-                em.remove(draft);
-                transaction.commit();
+                entityManager.remove(draft);
             }
+            transaction.commit();
         }catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el draft");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar (DraftEntidad draft) throws Exception {
-        EntityTransaction transaction = em.getTransaction ();
-        DraftEntidad d = em.find(DraftEntidad.class, draft.getRegistroJugador());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction ();
         try {
             transaction.begin();
+            DraftEntidad d = entityManager.find(DraftEntidad.class, draft.getRegistroJugador());
             if (draft != null){
                 d.setRegistroJugador(draft.getRegistroJugador());
                 d.setPosicion(draft.getPosicion());
-                em.persist(d);
+                entityManager.persist(d);
             }
-        }catch (Exception exception){
+            transaction.commit();
+        } catch (Exception exception){
             transaction.rollback();
             throw new Exception("Error al intentar modificar el split");
+        } finally {
+            entityManager.close();
         }
     }
 
-    public List<DraftEntidad> seleccionarTodosLosDrafts (){
-
-        Query qNroDraft = em.createNativeQuery ("SELECT * FROM draft ");
-        List<DraftEntidad> drafts = qNroDraft.getResultList();
-        return drafts;
+    public List<DraftEntidad> seleccionarTodosLosDrafts() throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            String sql = "SELECT d FROM DraftEntidad d JOIN FETCH d.registroJugador.jugador";
+            TypedQuery<DraftEntidad> resultado = entityManager.createQuery(sql, DraftEntidad.class);
+            return resultado.getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer el split");
+        } finally {
+            entityManager.close();
+        }
     }
 }

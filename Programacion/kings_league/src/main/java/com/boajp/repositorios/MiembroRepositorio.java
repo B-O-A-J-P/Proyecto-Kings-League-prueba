@@ -9,64 +9,84 @@ import java.util.List;
 
 public class MiembroRepositorio {
 
-    private final EntityManagerFactory emf;
-    private final EntityManager em;
+    private final EntityManagerFactory entityManagerFactory;
 
     public MiembroRepositorio() {
-        emf = Persistence.createEntityManagerFactory("default"); //Cambiar "default" por el nombre de su unidad de persistencia
-        em = emf.createEntityManager();
+        entityManagerFactory = AdministradorPersistencia.getEntityManagerFactory();
     }
 
     public void insertar(MiembroEntidad miembro) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            em.persist(miembro);
+            entityManager.persist(miembro);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar insertar el miembro");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void eliminar(MiembroEntidad miembro) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        MiembroEntidad m = em.find(MiembroEntidad.class, miembro.getCodMiembro());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+            MiembroEntidad m = entityManager.find(MiembroEntidad.class, miembro.getCodMiembro());
             if (m != null) {
-                em.remove(m);
-                transaction.commit();
+                entityManager.remove(m);
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar eliminar el miembro");
+        } finally {
+            entityManager.close();
         }
     }
 
     public void modificar(MiembroEntidad miembro) throws Exception {
-        EntityTransaction transaction = em.getTransaction();
-        MiembroEntidad m = em.find(MiembroEntidad.class, miembro.getCodMiembro());
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
+            MiembroEntidad m = entityManager.find(MiembroEntidad.class, miembro.getCodMiembro());
             if (m != null) {
                 m.setNombre(miembro.getNombre());
                 m.setApellido(miembro.getApellido());
-                em.persist(m);
-                transaction.commit();
+                entityManager.persist(m);
             }
+            transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw new Exception("Error al intentar modificar el miembro");
+        } finally {
+            entityManager.close();
         }
     }
 
-    public List<MiembroEntidad> seleccionarTodosLosMiembros() {
-        return em.createQuery("SELECT m FROM MiembroEntidad m", MiembroEntidad.class) //Cambiar "MiembroEntidad" por el nombre de su clase de entidad
-                .getResultList();
+    public List<MiembroEntidad> seleccionarTodosLosMiembros() throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.createQuery("SELECT m FROM MiembroEntidad m", MiembroEntidad.class).getResultList();
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer miembros");
+        } finally {
+            entityManager.close();
+        }
     }
 
-    public MiembroEntidad seleccionarMiembroPorId(int id) {
-        return em.find(MiembroEntidad.class, id); //Cambiar "MiembroEntidad" por el nombre de su clase de entidad
+    public MiembroEntidad seleccionarMiembroPorId(int id) throws Exception{
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            return entityManager.find(MiembroEntidad.class, id);
+        } catch (Exception exception) {
+            throw new Exception("Error al intentar extraer miembros");
+        } finally {
+            entityManager.close();
+        }
     }
 }

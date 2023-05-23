@@ -3,6 +3,7 @@ package com.boajp.modelo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
 @Entity
@@ -32,6 +33,13 @@ public class SplitEntidad {
     public SplitEntidad() {
     }
 
+    public SplitEntidad(String nombre, LocalDate fechaInicio, LocalDate fechaFin, TemporadaEntidad temporadaEntidad) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.temporada = temporadaEntidad;
+    }
+
     public SplitEntidad(String nombre, LocalDate fechaInicio, LocalDate fechaFin, Collection<ClasificacionEntidad> tablaClasificaciones, Collection<JornadaEntidad> listaJornadas, TemporadaEntidad temporada) {
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -39,6 +47,24 @@ public class SplitEntidad {
         this.tablaClasificaciones = tablaClasificaciones;
         this.listaJornadas = listaJornadas;
         this.temporada = temporada;
+    }
+
+    public String[] toArray() {
+        return new String[] {String.valueOf(codSplit), nombre, getFechaInicioString(), getFechaFinString()};
+    }
+
+    public String[] getAtributos() {
+        return new String[] {"Código de split", "Nombre", "Fecha de inicio", "Fecha fin"};
+    }
+
+    public String getFechaInicioString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaInicio.format(formatter);
+    }
+
+    public String getFechaFinString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaFin.format(formatter);
     }
 
     public int getCodSplit() {

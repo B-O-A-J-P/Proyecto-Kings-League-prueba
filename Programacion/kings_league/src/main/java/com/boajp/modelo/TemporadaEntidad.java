@@ -2,8 +2,8 @@ package com.boajp.modelo;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
 @Entity
@@ -12,7 +12,7 @@ public class TemporadaEntidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_TEMPORADA")
-    private short codTemporada;
+    private int codTemporada;
     @Basic
     @Column(name = "ANO")
     private short ano;
@@ -32,6 +32,12 @@ public class TemporadaEntidad {
     public TemporadaEntidad() {
     }
 
+    public TemporadaEntidad(short ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion) {
+        this.ano = ano;
+        this.fechaInicioInscripcion = fechaInicioInscripcion;
+        this.fechaFinInscripcion = fechaFinInscripcion;
+    }
+
     public TemporadaEntidad(short ano, LocalDate fechaInicioInscripcion, LocalDate fechaFinInscripcion, Collection<RegistroEquipoEntidad> listaEquipos, Collection<RegistroJugadorEntidad> listaJugadores, Collection<SplitEntidad> listaSplits) {
         this.ano = ano;
         this.fechaInicioInscripcion = fechaInicioInscripcion;
@@ -41,7 +47,23 @@ public class TemporadaEntidad {
         this.listaSplits = listaSplits;
     }
 
-    public short getCodTemporada() {
+    public String[] toArray() {
+        return new String[] {
+                String.valueOf(codTemporada),
+                String.valueOf(ano),
+                getFechaInicioInscripcionString(),
+                getFechaFinInscripcionString()};
+    }
+
+    public String[] getAtributos() {
+        return new String[]{"Código de temporada", "Año", "Fecha inicio de inscripción", "Fecha fin de inscripción"};
+    }
+
+    public void setCodTemporada(int codTemporada) {
+        this.codTemporada = codTemporada;
+    }
+
+    public int getCodTemporada() {
         return codTemporada;
     }
 
@@ -53,17 +75,30 @@ public class TemporadaEntidad {
         this.ano = ano;
     }
 
+
     public LocalDate getFechaInicioInscripcion() {
         return fechaInicioInscripcion;
+    }
+
+    public LocalDate getFechaFinInscripcion() {
+        return fechaFinInscripcion;
+    }
+
+    public String getFechaInicioInscripcionString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaInicioInscripcion.format(formatter);
     }
 
     public void setFechaInicioInscripcion(LocalDate fechaInicioInscripcion) {
         this.fechaInicioInscripcion = fechaInicioInscripcion;
     }
 
-    public LocalDate getFechaFinInscripcion() {
-        return fechaFinInscripcion;
+
+    public String getFechaFinInscripcionString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fechaFinInscripcion.format(formatter);
     }
+
 
     public void setFechaFinInscripcion(LocalDate fechaFinInscripcion) {
         this.fechaFinInscripcion = fechaFinInscripcion;
@@ -119,3 +154,4 @@ public class TemporadaEntidad {
         this.listaSplits = splitsByCodTemporada;
     }
 }
+
