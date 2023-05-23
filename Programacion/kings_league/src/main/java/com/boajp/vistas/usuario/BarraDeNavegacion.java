@@ -16,6 +16,33 @@ public class BarraDeNavegacion {
     private JButton contratosDeEquipoJugadoresButton;
     private JButton contratosDeEquipoMiembrosButton;
     private JButton registrosDeEquiposButton;
+    private JButton registrosDeJugadoresButton;
+    private JButton draftButton;
+    private JButton agendasButton;
+
+    public JButton getAgendasButton() {
+        return agendasButton;
+    }
+
+    public void setAgendasButton(JButton agendasButton) {
+        this.agendasButton = agendasButton;
+    }
+
+    public JButton getDraftButton() {
+        return draftButton;
+    }
+
+    public void setDraftButton(JButton draftButton) {
+        this.draftButton = draftButton;
+    }
+
+    public JButton getRegistrosDeJugadoresButton() {
+        return registrosDeJugadoresButton;
+    }
+
+    public void setRegistrosDeJugadoresButton(JButton registrosDeJugadoresButton) {
+        this.registrosDeJugadoresButton = registrosDeJugadoresButton;
+    }
 
     public JButton getRegistrosDeEquiposButton() {
         return registrosDeEquiposButton;

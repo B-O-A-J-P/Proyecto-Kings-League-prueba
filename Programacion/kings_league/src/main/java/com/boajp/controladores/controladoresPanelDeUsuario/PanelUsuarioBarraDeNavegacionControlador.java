@@ -19,6 +19,9 @@ public class PanelUsuarioBarraDeNavegacionControlador {
         anadirListenerContratosEquipoJugador();
         anadirListenerContratosEquipoMiembro();
         anadirListenerRegistrosDeEquipos();
+        anadirListenerRegistrosDeJugadores();
+        anadirListenerDraft();
+        anadirListenerAgendas();
     }
     public void anadirlistenerPerfil() {
         barraDeNavegacion.getPerfilBoton().addActionListener( e -> {
@@ -83,6 +86,24 @@ public class PanelUsuarioBarraDeNavegacionControlador {
     public void anadirListenerRegistrosDeEquipos() {
         barraDeNavegacion.getRegistrosDeEquiposButton().addActionListener( e -> {
             panelUsuarioControlador.mostrarPanelDeCrudRegistrosEquipos();
+        });
+    }
+
+    public void anadirListenerRegistrosDeJugadores() {
+        barraDeNavegacion.getRegistrosDeJugadoresButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudRegistrosJugadores();
+        });
+    }
+
+    public void anadirListenerDraft() {
+        barraDeNavegacion.getDraftButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudDraft();
+        });
+    }
+
+    public void anadirListenerAgendas() {
+        barraDeNavegacion.getAgendasButton().addActionListener( e -> {
+            panelUsuarioControlador.mostrarPanelDeCrudAgendas();
         });
     }
 

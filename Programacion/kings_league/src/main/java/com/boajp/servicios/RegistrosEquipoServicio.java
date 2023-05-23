@@ -13,7 +13,7 @@ public class RegistrosEquipoServicio {
     }
 
     public String[] getColumnas() {
-        return new RegistroEquipoEntidad().toArray();
+        return new RegistroEquipoEntidad().getAtributos();
     }
 
     public String[][] getFilas() throws Exception {

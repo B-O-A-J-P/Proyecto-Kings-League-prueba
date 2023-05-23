@@ -69,9 +69,9 @@ public class DraftRepositorio {
     public List<DraftEntidad> seleccionarTodosLosDrafts() throws Exception{
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Query qNroDraft = entityManager.createNativeQuery("SELECT * FROM draft ");
-            List<DraftEntidad> drafts = qNroDraft.getResultList();
-            return drafts;
+            String sql = "SELECT d FROM DraftEntidad d JOIN FETCH d.registroJugador.jugador";
+            TypedQuery<DraftEntidad> resultado = entityManager.createQuery(sql, DraftEntidad.class);
+            return resultado.getResultList();
         } catch (Exception exception) {
             throw new Exception("Error al intentar extraer el split");
         } finally {

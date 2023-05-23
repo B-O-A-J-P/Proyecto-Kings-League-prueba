@@ -65,7 +65,7 @@ public class RegistroJugadorRepositorio {
     public List<RegistroJugadorEntidad> buscarTodosRegistrosJugadores() throws Exception {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            String jpql = "SELECT r FROM RegistroJugadorEntidad r";
+            String jpql = "SELECT r FROM RegistroJugadorEntidad r JOIN FETCH r.temporada JOIN FETCH r.jugador JOIN FETCH r.draft";
             TypedQuery<RegistroJugadorEntidad> query = entityManager.createQuery(jpql, RegistroJugadorEntidad.class);
             return query.getResultList();
         } catch (Exception exception) {

@@ -74,6 +74,21 @@ public class PanelUsuarioControlador {
         cambiarPanel(controlador.getPanelDeCrudRegistrosEquipos().getPanel());
     }
 
+    public void mostrarPanelDeCrudRegistrosJugadores() {
+        var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeCrudRegistrosJugadores().getPanel());
+    }
+
+    public void mostrarPanelDeCrudDraft() {
+        var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeCrudDraft().getPanel());
+    }
+
+    public void mostrarPanelDeCrudAgendas() {
+        var controlador = new PanelDeCrudControlador();
+        cambiarPanel(controlador.getPanelDeAgendas().getPanel());
+    }
+
     public void cambiarPanel(JPanel panel) {
         panelDeUsuario.getPanelContenido().removeAll();
         panelDeUsuario.getPanelContenido().add(panel);

@@ -60,6 +60,21 @@ public class PanelDeCrudControlador {
         return panelDeCrud;
     }
 
+    public PanelDeCrud getPanelDeCrudRegistrosJugadores() {
+        new RegistroJugadorControlador(panelDeCrud);
+        return panelDeCrud;
+    }
+
+    public PanelDeCrud getPanelDeCrudDraft() {
+        new DraftControlador(panelDeCrud);
+        return panelDeCrud;
+    }
+
+    public PanelDeCrud getPanelDeAgendas() {
+        new AgendaCrontrolador(panelDeCrud);
+        return panelDeCrud;
+    }
+
     public PanelDeCrud getPanelDeCrud() {
         return panelDeCrud;
     }

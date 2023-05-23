@@ -65,9 +65,9 @@ public class AgendaRepositorio {
     public  List<AgendaEntidad> seleccionarTodosLasAgendas() throws Exception{
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
-            Query qNroAgendas = entityManager.createNativeQuery("SELECT * FROM agendas ");
-            List<AgendaEntidad> agendas = qNroAgendas.getResultList();
-            return agendas;
+            String sql = "SELECT a FROM AgendaEntidad a";
+            TypedQuery<AgendaEntidad> resultado = entityManager.createQuery(sql, AgendaEntidad.class);
+            return resultado.getResultList();
         } catch (Exception exception){
             throw new Exception("Error al intentar extraer agendas");
         } finally {
